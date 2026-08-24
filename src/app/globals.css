@@ -1,26 +1,147 @@
 @import "tailwindcss";
 
+/* ============================================================
+   CAPSULE — DESIGN TOKENS
+   Change a colour here and it changes everywhere on the site.
+   ============================================================ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand — deep petrol green. Used for large fields, headings, footer. */
+  --capsule-ink: #0e2e2c;
+  --capsule-ink-2: #14403d;
+  --capsule-ink-3: #1d5450;
+
+  /* Grounds */
+  --capsule-bone: #f7f5f0;
+  --capsule-surface: #ffffff;
+  --capsule-surface-2: #efece4;
+  --capsule-seafoam: #dde8e4;
+
+  /* Action accent — clay. Buttons, links, emphasis. Use sparingly. */
+  --capsule-clay: #b8542c;
+  --capsule-clay-dark: #9c4523;
+  --capsule-clay-wash: #f6e9e2;
+
+  /* Text */
+  --capsule-text: #1a1f1e;
+  --capsule-text-soft: #545f5c;
+  --capsule-text-faint: #87908d;
+  --capsule-on-dark: #eef2f0;
+  --capsule-on-dark-soft: #a9bcb8;
+
+  /* Lines */
+  --capsule-rule: #ded9d0;
+  --capsule-rule-strong: #c4bdb1;
+  --capsule-rule-dark: #24504c;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-ink: var(--capsule-ink);
+  --color-ink-2: var(--capsule-ink-2);
+  --color-ink-3: var(--capsule-ink-3);
+  --color-bone: var(--capsule-bone);
+  --color-surface: var(--capsule-surface);
+  --color-surface-2: var(--capsule-surface-2);
+  --color-seafoam: var(--capsule-seafoam);
+  --color-clay: var(--capsule-clay);
+  --color-clay-dark: var(--capsule-clay-dark);
+  --color-clay-wash: var(--capsule-clay-wash);
+  --color-body: var(--capsule-text);
+  --color-body-soft: var(--capsule-text-soft);
+  --color-body-faint: var(--capsule-text-faint);
+  --color-on-dark: var(--capsule-on-dark);
+  --color-on-dark-soft: var(--capsule-on-dark-soft);
+  --color-rule: var(--capsule-rule);
+  --color-rule-strong: var(--capsule-rule-strong);
+  --color-rule-dark: var(--capsule-rule-dark);
+
+  --font-display: var(--font-archivo), "Arial Narrow", sans-serif;
+  --font-body: var(--font-source-serif), Georgia, serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ------------------------------------------------------------
+   Base
+   The site commits to a single light identity. Colours are
+   painted explicitly so the page never borrows a host theme.
+   ------------------------------------------------------------ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--capsule-bone);
+  color: var(--capsule-text);
+  font-family: var(--font-source-serif), Georgia, serif;
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-archivo), "Arial Narrow", sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.022em;
+  text-wrap: balance;
+  line-height: 1.1;
+}
+
+/* Interface elements use the display face, not the serif body. */
+button,
+input,
+select,
+textarea,
+label,
+nav,
+th {
+  font-family: var(--font-archivo), "Arial Narrow", sans-serif;
+}
+
+:focus-visible {
+  outline: 2px solid var(--capsule-clay);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+::selection {
+  background: var(--capsule-clay);
+  color: #fff;
+}
+
+/* ------------------------------------------------------------
+   Utilities
+   ------------------------------------------------------------ */
+
+.label {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+.prose-capsule p {
+  max-width: 68ch;
 }
