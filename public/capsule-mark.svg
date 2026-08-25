@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-labelledby="title desc">
+  <title id="title">Capsule orbital C brand mark</title>
+  <desc id="desc">An open C crossed by a silver orbit and protected by a subtle dragon-red curve</desc>
+  <path d="M178 72A74 74 0 1 0 178 168" fill="none" stroke="#07111F" stroke-width="22" stroke-linecap="round"/>
+  <ellipse cx="120" cy="120" rx="101" ry="51" fill="none" stroke="#9DA9B5" stroke-width="4" transform="rotate(-23 120 120)"/>
+  <circle cx="211" cy="81" r="6" fill="#4B2A68"/>
+  <path d="M45 164C66 188 102 199 136 190c25-7 45-23 56-45" fill="none" stroke="#B5121B" stroke-width="8" stroke-linecap="round"/>
+  <path d="m184 151 10-22 7 18 18-4-16 17" fill="none" stroke="#B5121B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

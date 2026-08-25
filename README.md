@@ -124,6 +124,82 @@ straight to a service page or to `/pricing`.
 
 ---
 
+## The chatbot
+
+A floating assistant on every page, grounded in the site's own content.
+
+### Why it cannot invent a price
+
+`src/lib/knowledge.ts` builds the assistant's entire knowledge base from the
+same content files that render the site — `pricing.ts`, `services.ts`,
+`faqs.ts`, `pages.ts`, `legal.ts`, `workspace.ts`, `site.ts`. Change a price and
+the chatbot's answer changes with the page, in the same edit. There is no second
+copy of the information to fall out of date.
+
+The whole knowledge base (~12,000 tokens) is sent on every question rather than
+searched. That removes the retrieval step, and with it the possibility of
+retrieving the wrong passage and answering confidently from it. Prompt caching
+makes resending it cheap.
+
+**You do not edit `knowledge.ts` to change what the chatbot knows.** Edit the
+content files.
+
+### Setup
+
+```bash
+# .env.local
+ANTHROPIC_API_KEY=sk-ant-...
+```
+
+Without a key the widget still appears, but instead of answering it points
+visitors at Viber. It degrades politely rather than showing an error.
+
+Optionally set `CHAT_TRANSCRIPT_WEBHOOK_URL` to receive each completed
+conversation as JSON — a lead source, and a queue of real questions worth
+adding to the FAQ.
+
+### Guardrails
+
+`src/lib/chat-config.ts` holds the system prompt. The rules that matter:
+
+- **Never invents a price.** Quotes only what is in the knowledge base, and
+  carries the "indicative rates" qualification while it is set.
+- **Never confirms registration eligibility.** It can explain which tiers are
+  eligible in principle and what the process is, but it will not tell anyone
+  they qualify — that is a human decision after reviewing documents.
+- **Never promises a government outcome or timeline.**
+- **Gives no legal, tax or accounting advice.**
+- Describes partner-delivered work as coordinated through licensed partner
+  firms, never as something Capsule provides.
+- Replies in the visitor's language.
+- Treats visitor messages as input, not instructions — attempts to override the
+  rules, claim staff authority, or extract the prompt are declined.
+
+Read that file before changing it. Each rule is there for a reason.
+
+### Cost
+
+The model is set in one line in `chat-config.ts`:
+
+```ts
+export const CHAT_MODEL = "claude-opus-5";
+```
+
+Opus 5 is the most capable option, which matters when the assistant is
+discussing money and compliance with prospects. If conversation volume makes it
+expensive, `claude-sonnet-5` is the sensible step down and `claude-haiku-4-5`
+the cheapest — both handle grounded question answering well. Prompt caching
+already keeps the large knowledge base from being the dominant cost; check the
+server log, which reports cache reads per request.
+
+### Rate limiting
+
+20 requests per IP per minute, held in memory. **That is per server instance —**
+if the site is ever scaled to several instances, move it to a shared store or a
+platform rate limiter, or the real limit becomes 20 × the instance count.
+
+---
+
 ## Before launch — outstanding items
 
 Search the project for `TODO` to find these in place.
@@ -140,6 +216,11 @@ Search the project for `TODO` to find these in place.
 - [ ] **Photographs** — see above.
 - [ ] **Final prices** — then clear `PRICING_DISCLAIMER`.
 - [ ] **`INQUIRY_WEBHOOK_URL`** — otherwise leads only reach the server log.
+- [ ] **`ANTHROPIC_API_KEY`** — otherwise the chatbot points visitors at Viber
+      instead of answering.
+- [ ] **Read the chatbot's answers before launch.** Ask it the twenty questions
+      you are asked most and check every one. The guardrails are strong but the
+      knowledge base is only as good as the content files behind it.
 - [ ] **Legal review.** `src/content/legal.ts` contains drafting starting points,
       not finished documents. The address-use, government-correspondence and
       data-privacy sections need your counsel's eyes. The notice at the top of
@@ -156,8 +237,6 @@ Search the project for `TODO` to find these in place.
 - **Chinese and other language versions.** The routing is ready for `/zh/…` but
   no translated content exists. Commercial and legal pages need human
   translation, not machine translation.
-- **The knowledge-base chatbot.** Intended to read from the same content files
-  as the site so it can never quote a price the site does not show.
 - **Client portal** — mail log, room booking, invoices, document upload.
 - **A CMS.** Content currently lives in the typed files listed above, which are
   straightforward to edit but do require a code change and a deploy. They are

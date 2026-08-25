@@ -1,215 +1,76 @@
 import Link from "next/link";
 import Button from "@/components/Button";
 import Container from "@/components/Container";
-import CtaBand from "@/components/CtaBand";
-import FaqList from "@/components/FaqList";
-import Ladder from "@/components/Ladder";
-import Photo from "@/components/Photo";
-import AddressTierCards from "@/components/AddressTierCards";
-import PricingNote from "@/components/PricingNote";
-import ProofStrip from "@/components/ProofStrip";
-import Section from "@/components/Section";
 import { featuredFaqs } from "@/content/faqs";
-import { formatPeso, publishedBundles } from "@/content/pricing";
-import { site } from "@/content/site";
-import { howItWorks } from "@/content/pages";
+import { formatPeso, publishedAddressTiers } from "@/content/pricing";
+
+const gatewayStages = [
+  { number: "01", title: "Enter", text: "Understand the Philippine market, choose the right entity, and plan your local setup with experienced support.", services: ["Foreign client support", "Business consulting"] },
+  { number: "02", title: "Establish", text: "Put the legal and physical foundations in place—from SEC incorporation to a credible Makati address.", services: ["SEC, BIR & LGU", "Registered address"] },
+  { number: "03", title: "Operate", text: "Run day-to-day business with workspace, meeting rooms, mail handling, and hands-on administrative support.", services: ["Flexible workspace", "Admin support"] },
+  { number: "04", title: "Grow", text: "Expand with a connected network of accounting, payroll, corporate, and professional service partners.", services: ["Compliance partners", "Referral network"] },
+];
+
+const serviceGroups = [
+  { code: "A", title: "Business Presence", text: "A prestigious Makati address backed by a real, staffed corporate environment—not a mailbox.", links: [["Virtual office", "/services/virtual-office"], ["Registered address", "/services/registered-business-address"], ["Mail & documents", "/services/mail-handling"]] },
+  { code: "B", title: "Company Formation", text: "One coordinated path through the registrations and permits required to establish in the Philippines.", links: [["Company registration", "/services/company-registration"], ["Foreign companies", "/foreign-companies"], ["How it works", "/how-it-works"]] },
+  { code: "C", title: "Workspace", text: "Professional rooms and workstations ready for focused work, client meetings, and on-site inspections.", links: [["Desks & offices", "/workspace"], ["Meeting rooms", "/meeting-rooms"], ["Visit the facility", "/location"]] },
+  { code: "D", title: "Business Support", text: "Practical administrative and professional support that grows with your local operation.", links: [["Accounting & tax", "/services/accounting-and-tax"], ["Payroll & HR", "/services/payroll-and-hr"], ["Corporate secretarial", "/services/corporate-secretarial"]] },
+] as const;
 
 export default function HomePage() {
-  const bundle = publishedBundles[0];
-
-  return (
-    <>
-      {/* ---------------------------------------------------------- HERO */}
-      <section className="border-b border-rule bg-surface">
-        <Container className="grid gap-10 py-14 sm:py-20 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-          <div className="flex flex-col gap-6">
-            <p className="label text-clay">
-              {site.address.floor}, {site.address.line1}, {site.address.city}
-            </p>
-            <h1 className="max-w-[20ch] text-[clamp(2.1rem,5.6vw,3.6rem)]">
-              Register your company in Makati. Then actually have an office
-              there.
-            </h1>
-            <p className="max-w-[54ch] text-[1.08rem] text-body-soft">
-              A business address at 104 Paseo de Roxas with a real 5th-floor
-              office behind it — staffed reception, six meeting rooms, and
-              company registration support through our licensed partner firms.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <Button href="/pricing">See packages &amp; pricing</Button>
-              <Button href={site.contact.viberHref} variant="outline" external>
-                Talk to us on Viber
-              </Button>
-            </div>
-            <p className="max-w-[52ch] text-[0.85rem] text-body-faint">
-              Registration use of the address is available on eligible packages
-              and subject to approval, documentary requirements and applicable
-              government regulations.
-            </p>
-          </div>
-
-          <Photo
-            file="reception.jpg"
-            alt="Capsule reception on the 5th floor"
-            ratio="aspect-[4/3]"
-            priority
-          />
-        </Container>
-      </section>
-
-      <ProofStrip />
-
-      {/* ------------------------------------------------------- PRICING */}
-      <Section
-        eyebrow="Packages"
-        heading="Three tiers, with the prices published."
-        intro="Most providers in this market put their rates behind an enquiry form. We would rather you could compare us properly."
-        tone="bone"
-      >
-        <div className="flex flex-col gap-6">
-          <AddressTierCards />
-          <PricingNote />
-          <div className="flex flex-wrap items-center gap-4">
-            <Button href="/pricing" variant="outline">
-              Full pricing, including workspace
-            </Button>
-            <Link
-              href="/services/registered-business-address"
-              className="text-[0.92rem] text-clay underline underline-offset-4"
-            >
-              What does &ldquo;registration eligible&rdquo; actually mean?
-            </Link>
-          </div>
+  return <>
+    <section className="hero-shell">
+      <div className="star-field" aria-hidden="true" />
+      <Container className="hero-grid">
+        <div className="hero-copy">
+          <p className="eyebrow-light"><span /> Your Philippine business gateway</p>
+          <h1>Launch in the Philippines.<br /><em>Land in Makati.</em></h1>
+          <p className="hero-intro">CAPSULE brings your business address, company setup, workspace, and local support into one professionally managed base at 104 Paseo de Roxas.</p>
+          <div className="hero-actions"><Link href="/contact" className="button-solar">Plan your setup <span>↗</span></Link><Link href="/services" className="button-ghost">Explore services <span>→</span></Link></div>
+          <p className="hero-note">For Philippine founders, regional teams, and international companies.</p>
         </div>
-      </Section>
-
-      {/* -------------------------------------------------------- BUNDLE */}
-      {bundle ? (
-        <Section tone="surface">
-          <div className="border border-rule-strong bg-bone p-7 sm:p-10">
-            <div className="grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-center">
-              <div className="flex flex-col gap-4">
-                <p className="label text-clay">{bundle.name}</p>
-                <h2 className="max-w-[22ch] text-[clamp(1.5rem,3.4vw,2.2rem)]">
-                  {bundle.headline}
-                </h2>
-                <div className="flex items-baseline gap-3">
-                  <span className="tnum font-display text-[clamp(2.2rem,6vw,3.2rem)] font-bold leading-none text-clay">
-                    {formatPeso(bundle.price)}
-                  </span>
-                  {bundle.separatePrice ? (
-                    <span className="tnum text-[0.9rem] text-body-faint">
-                      {formatPeso(bundle.separatePrice)} bought separately
-                    </span>
-                  ) : null}
-                </div>
-                <Button href="/contact?service=company-registration">
-                  Enquire about {bundle.name}
-                </Button>
-              </div>
-              <ul className="flex flex-col gap-3">
-                {bundle.includes.map((item) => (
-                  <li key={item} className="flex gap-3 text-[0.92rem]">
-                    <span
-                      aria-hidden="true"
-                      className="mt-[0.5rem] h-1 w-3 shrink-0 bg-clay"
-                    />
-                    <span className="text-body-soft">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </Section>
-      ) : null}
-
-      {/* -------------------------------------------------------- LADDER */}
-      <Section
-        eyebrow="The ladder"
-        heading="Start with an address. Add what you need, when you need it."
-        intro="Most of our clients arrive needing one thing and stay for several. Nothing has to be renegotiated as you move up, and your registered address never has to change."
-        tone="bone"
-      >
-        <Ladder />
-      </Section>
-
-      {/* --------------------------------------------------------- OFFICE */}
-      <Section
-        eyebrow="The office"
-        heading="613 square metres on the 5th floor, staffed every business day."
-        intro="This is the part competitors selling mailbox services cannot reproduce, and the reason a BIR inspection is not something you need to worry about."
-        tone="surface"
-      >
-        <div className="flex flex-col gap-6">
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            <Photo
-              file="conference-a.jpg"
-              alt="Conference Room A"
-              caption="Conference Room A — our largest meeting space."
-            />
-            <Photo
-              file="workstations.jpg"
-              alt="Serviced workstations"
-              caption="Forty to fifty serviced workstations."
-            />
-            <Photo
-              file="meeting-room.jpg"
-              alt="Meeting room seating six to seven"
-              caption="A meeting room seating six to seven."
-            />
-          </div>
-          <div className="flex flex-wrap gap-3">
-            <Button href="/location" variant="outline">
-              See the location
-            </Button>
-            <Button href="/workspace" variant="outline">
-              Desks &amp; private offices
-            </Button>
-          </div>
+        <div className="orbital-visual" aria-label="Capsule at the center of an integrated Philippine business network">
+          <div className="orbit orbit-one" /><div className="orbit orbit-two" /><div className="orbit orbit-three" />
+          <div className="orbit-dot dot-one" /><div className="orbit-dot dot-two" /><div className="orbit-dot dot-three" />
+          <div className="capsule-core"><span className="core-mark">C</span><span className="core-label">Makati<br />Base</span></div>
+          <span className="orbit-label label-north">Company setup</span><span className="orbit-label label-east">Workspace</span><span className="orbit-label label-south">Business support</span>
         </div>
-      </Section>
+      </Container>
+      <Container className="hero-proof">
+        <div><strong>104</strong><span>Paseo de Roxas<br />Makati CBD</span></div><div><strong>613</strong><span>sqm professional<br />facility</span></div><div><strong>6</strong><span>meeting &amp;<br />conference rooms</span></div><div><strong>On-site</strong><span>reception &amp;<br />admin team</span></div>
+      </Container>
+    </section>
 
-      {/* --------------------------------------------------- HOW IT WORKS */}
-      <Section
-        eyebrow="How it works"
-        heading={howItWorks.headline}
-        intro={howItWorks.intro}
-        tone="bone"
-      >
-        <div className="grid gap-px bg-rule sm:grid-cols-2 lg:grid-cols-4">
-          {howItWorks.steps.map((step) => (
-            <div
-              key={step.n}
-              className="flex flex-col gap-2 bg-surface p-6"
-            >
-              <span className="font-mono text-[0.78rem] text-clay">
-                {step.n}
-              </span>
-              <h3 className="text-[1.05rem]">{step.title}</h3>
-              <p className="text-[0.89rem] text-body-soft">{step.body}</p>
-            </div>
-          ))}
-        </div>
-      </Section>
+    <section className="gateway-section"><Container>
+      <div className="section-heading split-heading"><div><p className="eyebrow-dark">The Capsule advantage</p><h2>More than an address.<br />A route into the market.</h2></div><p>CAPSULE connects the essential steps of building a Philippine presence, so each stage supports the next and nothing important falls between providers.</p></div>
+      <div className="gateway-grid">{gatewayStages.map((stage) => <article className="gateway-card" key={stage.number}><span className="stage-number">{stage.number}</span><div className="stage-orbit" aria-hidden="true"><i /></div><h3>{stage.title}</h3><p>{stage.text}</p><ul>{stage.services.map((item) => <li key={item}>{item}</li>)}</ul></article>)}</div>
+    </Container></section>
 
-      {/* ------------------------------------------------------------ FAQ */}
-      <Section
-        eyebrow="Questions"
-        heading="The things people ask before they sign."
-        tone="surface"
-      >
-        <div className="flex flex-col gap-6">
-          <FaqList items={featuredFaqs} />
-          <Link
-            href="/faq"
-            className="text-[0.92rem] text-clay underline underline-offset-4"
-          >
-            All frequently asked questions
-          </Link>
-        </div>
-      </Section>
+    <section className="services-section"><Container>
+      <div className="section-heading split-heading light-heading"><div><p className="eyebrow-light"><span /> Integrated services</p><h2>One base. Every essential.</h2></div><Link href="/services" className="text-link-light">View all services <span>→</span></Link></div>
+      <div className="service-grid">{serviceGroups.map((group) => <article className="service-card" key={group.code}><span className="service-code">{group.code}</span><h3>{group.title}</h3><p>{group.text}</p><ul>{group.links.map(([label, href]) => <li key={href}><Link href={href}>{label}<span>↗</span></Link></li>)}</ul></article>)}</div>
+    </Container></section>
 
-      <CtaBand />
-    </>
-  );
+    <section className="location-feature"><Container className="location-grid">
+      <div className="location-art" aria-label="Abstract architectural representation of the Capsule facility at 104 Paseo de Roxas"><div className="building-lines" /><div className="location-stamp"><small>Your base in</small><strong>Makati</strong><span>14.5547° N · 121.0244° E</span></div></div>
+      <div className="location-copy"><p className="eyebrow-dark">A real place behind your presence</p><h2>Built for business,<br />not just registration.</h2><p>Set in the heart of the Makati CBD, our 613 sqm fifth-floor facility gives your company the professional environment clients, teams, and regulators expect.</p><ul className="feature-list"><li><span>01</span>Staffed reception during business hours</li><li><span>02</span>Workstations, team space, and private offices</li><li><span>03</span>Six bookable rooms for meetings and conferences</li><li><span>04</span>Inspection-ready premises and document handling</li></ul><Button href="/location" variant="outline">Explore 104 Paseo de Roxas</Button></div>
+    </Container></section>
+
+    <section className="pricing-preview"><Container>
+      <div className="section-heading split-heading"><div><p className="eyebrow-dark">A base for every stage</p><h2>Start with what you need.<br />Expand when you’re ready.</h2></div><p>Clear recurring packages with workspace and professional services available as your Philippine operation develops.</p></div>
+      <div className="pricing-grid">{publishedAddressTiers.map((tier) => <article className={`price-card${tier.featured ? " featured" : ""}`} key={tier.id}>{tier.featured && <span className="recommended">Most selected</span>}<p className="price-kicker">{tier.registrationEligible ? "Registration eligible" : "Business presence"}</p><h3>{tier.name}</h3><div className="price"><strong>{formatPeso(tier.price12)}</strong><span>/ month<br />12-month term</span></div><p>{tier.bestFor}</p><ul>{tier.features.slice(0, 4).map((feature) => <li key={feature}>{feature}</li>)}</ul><Link href={`/contact?service=${tier.id}`} className={tier.featured ? "button-solar" : "price-link"}>Choose {tier.name}<span>→</span></Link></article>)}</div>
+      <p className="pricing-disclaimer">Indicative rates. Eligibility, documentary requirements, and final scope apply. <Link href="/pricing">See complete pricing and terms →</Link></p>
+    </Container></section>
+
+    <section className="network-section"><Container className="network-grid">
+      <div><p className="eyebrow-light"><span /> Part of a wider constellation</p><h2>Local presence.<br />Connected expertise.</h2></div>
+      <div className="network-copy"><p>CAPSULE is managed by Philippine Dragon Media Network Corp. under GDS Capital Inc., connecting clients to a broader ecosystem that includes Starlight Business Consulting Services, DragonAI, and a trusted professional partner network.</p><Link href="/about" className="text-link-light">Discover our network <span>→</span></Link></div>
+      <div className="constellation" aria-hidden="true"><span className="node node-main">CAPSULE</span><span className="node node-a">GDS</span><span className="node node-b">Starlight</span><span className="node node-c">DragonAI</span><i className="line line-a"/><i className="line line-b"/><i className="line line-c"/></div>
+    </Container></section>
+
+    <section className="faq-preview"><Container className="faq-grid"><div><p className="eyebrow-dark">Before you launch</p><h2>Common questions,<br />clear answers.</h2><Link href="/faq" className="text-link-dark">View all FAQs →</Link></div><div className="faq-list-home">{featuredFaqs.slice(0, 4).map((faq, index) => <details key={faq.q} open={index === 0}><summary>{faq.q}<span>+</span></summary><p>{faq.a.join(" ")}</p></details>)}</div></Container></section>
+
+    <section className="final-cta"><div className="cta-orbit" aria-hidden="true" /><Container className="cta-inner"><p className="eyebrow-light"><span /> Your next move starts here</p><h2>Ready to establish your<br /><em>Philippine presence?</em></h2><p>Tell us where your business is today. We’ll help map the most practical route forward.</p><Link href="/contact" className="button-solar">Start a conversation <span>↗</span></Link></Container></section>
+  </>;
 }

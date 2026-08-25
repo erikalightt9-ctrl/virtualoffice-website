@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Archivo, IBM_Plex_Mono, Source_Serif_4 } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ChatWidget from "@/components/ChatWidget";
 import { site } from "@/content/site";
 import "./globals.css";
 
@@ -29,14 +30,14 @@ const plexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — Business Address & Workspace in Makati`,
+    default: `${site.name} — Your Philippine Business Gateway`,
     template: `%s | ${site.name}`,
   },
   description: site.description,
   openGraph: {
     type: "website",
     siteName: site.name,
-    title: `${site.name} — Business Address & Workspace in Makati`,
+    title: `${site.name} — Your Philippine Business Gateway`,
     description: site.description,
     locale: "en_PH",
   },
@@ -82,6 +83,7 @@ export default function RootLayout({
         <Header />
         <main id="main">{children}</main>
         <Footer />
+        <ChatWidget />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }}

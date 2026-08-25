@@ -9,18 +9,17 @@ export default function Header() {
   const [openGroup, setOpenGroup] = useState<string | null>(null);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-rule bg-bone/95 backdrop-blur-sm">
-      <div className="mx-auto flex w-full max-w-6xl items-center gap-4 px-5 py-3 sm:px-8">
+    <header className="sticky top-0 z-50 border-b border-rule-dark bg-ink/95 text-on-dark backdrop-blur-md">
+      <div className="mx-auto flex w-full max-w-6xl items-center gap-4 px-5 py-3.5 sm:px-8">
         <Link
           href="/"
           className="shrink-0"
           aria-label={`${site.name} — home`}
           onClick={() => setOpen(false)}
         >
-          {/* TODO: replace this wordmark with the Capsule logo file.
-              Drop it at public/logo.svg and swap this span for an <Image>. */}
-          <span className="font-display text-[1.35rem] font-bold tracking-[0.14em] text-ink">
-            {site.wordmark}
+          <span className="flex items-center gap-3">
+            <span className="grid h-8 w-5 place-items-center rounded-full border border-clay text-[0.62rem] font-semibold text-clay">C</span>
+            <span className="font-display text-[1.15rem] font-semibold tracking-[0.22em] text-on-dark">{site.wordmark}</span>
           </span>
         </Link>
 
@@ -30,7 +29,7 @@ export default function Header() {
               <div key={item.href} className="group relative">
                 <Link
                   href={item.href}
-                  className="flex items-center gap-1 px-3 py-2 text-[0.8rem] font-semibold uppercase tracking-[0.08em] text-body-soft transition-colors hover:text-ink"
+                  className="flex items-center gap-1 px-3 py-2 text-[0.7rem] font-semibold uppercase tracking-[0.1em] text-on-dark-soft transition-colors hover:text-clay"
                 >
                   {item.label}
                   <svg
@@ -48,18 +47,18 @@ export default function Header() {
                     />
                   </svg>
                 </Link>
-                <div className="invisible absolute left-0 top-full w-72 border border-rule bg-surface opacity-0 shadow-lg transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                <div className="invisible absolute left-0 top-full w-72 border border-rule-dark bg-ink-2 opacity-0 shadow-2xl transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
                   {item.children.map((child) => (
                     <Link
                       key={child.href}
                       href={child.href}
-                      className="block border-b border-rule px-4 py-3 last:border-b-0 hover:bg-surface-2"
+                      className="block border-b border-rule-dark px-4 py-3 last:border-b-0 hover:bg-ink-3"
                     >
-                      <span className="block font-display text-[0.86rem] font-semibold text-ink">
+                      <span className="block font-display text-[0.82rem] font-semibold text-on-dark">
                         {child.label}
                       </span>
                       {child.note ? (
-                        <span className="mt-0.5 block text-[0.78rem] text-body-faint">
+                        <span className="mt-0.5 block text-[0.74rem] text-on-dark-soft">
                           {child.note}
                         </span>
                       ) : null}
@@ -71,7 +70,7 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="px-3 py-2 text-[0.8rem] font-semibold uppercase tracking-[0.08em] text-body-soft transition-colors hover:text-ink"
+                className="px-3 py-2 text-[0.7rem] font-semibold uppercase tracking-[0.1em] text-on-dark-soft transition-colors hover:text-clay"
               >
                 {item.label}
               </Link>
@@ -81,7 +80,7 @@ export default function Header() {
 
         <Link
           href="/contact"
-          className="ml-auto hidden shrink-0 border border-clay bg-clay px-4 py-2.5 text-[0.78rem] font-semibold uppercase tracking-[0.09em] text-white transition-colors hover:bg-clay-dark lg:ml-3 lg:block"
+          className="ml-auto hidden shrink-0 border border-clay bg-clay px-4 py-2.5 text-[0.68rem] font-semibold uppercase tracking-[0.1em] text-ink transition-colors hover:bg-clay-dark lg:ml-3 lg:block"
         >
           Get a quote
         </Link>
@@ -89,7 +88,7 @@ export default function Header() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="ml-auto flex h-10 w-10 items-center justify-center border border-rule-strong text-ink lg:hidden"
+          className="ml-auto flex h-10 w-10 items-center justify-center border border-rule-dark text-on-dark lg:hidden"
           aria-expanded={open}
           aria-controls="mobile-nav"
           aria-label={open ? "Close menu" : "Open menu"}
@@ -120,11 +119,11 @@ export default function Header() {
       {open ? (
         <div
           id="mobile-nav"
-          className="border-t border-rule bg-surface lg:hidden"
+          className="border-t border-rule-dark bg-ink-2 lg:hidden"
         >
           <nav className="mx-auto max-w-6xl px-5 py-2 sm:px-8">
             {mainNav.map((item) => (
-              <div key={item.href} className="border-b border-rule last:border-b-0">
+              <div key={item.href} className="border-b border-rule-dark last:border-b-0">
                 {item.children ? (
                   <>
                     <button
@@ -132,7 +131,7 @@ export default function Header() {
                       onClick={() =>
                         setOpenGroup((g) => (g === item.href ? null : item.href))
                       }
-                      className="flex w-full items-center justify-between py-3.5 text-left text-[0.85rem] font-semibold uppercase tracking-[0.08em] text-ink"
+                      className="flex w-full items-center justify-between py-3.5 text-left text-[0.8rem] font-semibold uppercase tracking-[0.08em] text-on-dark"
                       aria-expanded={openGroup === item.href}
                     >
                       {item.label}
@@ -154,7 +153,7 @@ export default function Header() {
                             key={child.href}
                             href={child.href}
                             onClick={() => setOpen(false)}
-                            className="block py-2 pl-3 text-[0.85rem] text-body-soft"
+                            className="block py-2 pl-3 text-[0.85rem] text-on-dark-soft"
                           >
                             {child.label}
                           </Link>
@@ -166,7 +165,7 @@ export default function Header() {
                   <Link
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className="block py-3.5 text-[0.85rem] font-semibold uppercase tracking-[0.08em] text-ink"
+                    className="block py-3.5 text-[0.8rem] font-semibold uppercase tracking-[0.08em] text-on-dark"
                   >
                     {item.label}
                   </Link>
@@ -177,13 +176,13 @@ export default function Header() {
               <Link
                 href="/contact"
                 onClick={() => setOpen(false)}
-                className="border border-clay bg-clay px-4 py-3 text-center text-[0.8rem] font-semibold uppercase tracking-[0.09em] text-white"
+                className="border border-clay bg-clay px-4 py-3 text-center text-[0.8rem] font-semibold uppercase tracking-[0.09em] text-ink"
               >
                 Get a quote
               </Link>
               <a
                 href={site.contact.viberHref}
-                className="border border-rule-strong px-4 py-3 text-center text-[0.8rem] font-semibold uppercase tracking-[0.09em] text-ink"
+                className="border border-rule-dark px-4 py-3 text-center text-[0.8rem] font-semibold uppercase tracking-[0.09em] text-on-dark"
               >
                 Chat on Viber
               </a>

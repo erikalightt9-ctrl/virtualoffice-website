@@ -6,13 +6,12 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-rule-dark bg-ink text-on-dark">
+    <footer className="border-t border-rule-dark bg-[#06151e] text-on-dark">
       <Container className="py-14">
         <div className="grid gap-10 lg:grid-cols-[1.1fr_2fr]">
           <div className="flex flex-col gap-5">
-            <span className="font-display text-[1.4rem] font-bold tracking-[0.14em]">
-              {site.wordmark}
-            </span>
+            <span className="flex items-center gap-3 font-display text-[1.25rem] font-semibold tracking-[0.2em]"><span className="grid h-9 w-6 place-items-center rounded-full border border-clay text-[0.65rem] text-clay">C</span>{site.wordmark}</span>
+            <p className="max-w-[26ch] text-[0.82rem] uppercase tracking-[0.08em] text-on-dark-soft">Your Philippine business gateway.</p>
             <address className="not-italic text-[0.92rem] leading-relaxed text-on-dark-soft">
               {site.address.floor}
               <br />

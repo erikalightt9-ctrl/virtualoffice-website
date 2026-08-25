@@ -60,7 +60,7 @@ export const location = {
 export const about = {
   metaTitle: "About Capsule | Business Address & Workspace in Makati",
   metaDescription:
-    "Capsule provides business addresses, workspace and business establishment support at 104 Paseo de Roxas, Makati. Operated by Philippine Dragon Media Network Corp.",
+    "Capsule provides business addresses, workspace and business establishment support at 104 Paseo de Roxas, Makati. Managed by Philippine Dragon Media Network Corp. under GDS Capital Inc.",
   headline: "A real office, run by a company you can look up.",
   intro:
     "Capsule exists because the gap between a mailbox and a Makati office lease is where most young companies actually live — and because too much of this market is addresses without offices behind them.",
@@ -69,7 +69,7 @@ export const about = {
     {
       heading: "Who operates Capsule",
       body: [
-        "Capsule is owned and operated by Philippine Dragon Media Network Corp., an SEC-registered Philippine corporation whose Articles of Incorporation include leasing and subleasing among its purposes.",
+        "Capsule is managed by Philippine Dragon Media Network Corp. under GDS Capital Inc. Philippine Dragon Media Network Corp. is an SEC-registered Philippine corporation whose Articles of Incorporation include leasing and subleasing among its purposes.",
         "That matters more than it sounds. When you register a company at an address, you are relying on the operator's authority to provide it. Ours is documented, and we are happy to show you.",
       ],
     },

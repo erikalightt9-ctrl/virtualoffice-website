@@ -10,7 +10,7 @@
 export const site = {
   name: "Capsule",
   wordmark: "CAPSULE",
-  tagline: "Business address and workspace in Makati",
+  tagline: "Your Space. Your Business. Beyond Boundaries.",
 
   /** Used in page titles and the meta description. */
   description:
@@ -25,7 +25,7 @@ export const site = {
     /** TODO: add the SEC registration number — it is a strong credibility signal. */
     secRegistrationNo: "TODO",
     relationship:
-      "Capsule is owned and operated by Philippine Dragon Media Network Corp., an SEC-registered Philippine corporation.",
+      "Capsule is managed by Philippine Dragon Media Network Corp. under GDS Capital Inc.",
   },
 
   address: {
