@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { GREETING, SUGGESTED_QUESTIONS } from "@/lib/chat-config";
+import { CHATBOT_ENABLED, GREETING, SUGGESTED_QUESTIONS } from "@/lib/chat-ui";
 import { site } from "@/content/site";
 
 type Message = { role: "user" | "assistant"; content: string };
@@ -108,6 +108,9 @@ export default function ChatWidget() {
   }
 
   const showSuggestions = messages.length === 0;
+
+  // On hold until the FAQ is approved — render nothing at all.
+  if (!CHATBOT_ENABLED) return null;
 
   return (
     <>

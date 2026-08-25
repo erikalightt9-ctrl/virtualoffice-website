@@ -13,7 +13,11 @@
  */
 
 import { KNOWLEDGE_BASE } from "./knowledge";
+import { CHATBOT_ENABLED } from "./chat-ui";
 import { site } from "@/content/site";
+
+/** Re-exported so the API route has a single import for its settings. */
+export { CHATBOT_ENABLED };
 
 /**
  * The model. One line to change.
@@ -116,15 +120,3 @@ If someone is rude or abusive, stay civil and brief, and offer the contact detai
 # Knowledge base
 
 ${KNOWLEDGE_BASE}`;
-
-/** The first thing a visitor sees when the panel opens. */
-export const GREETING =
-  "Hello — I can answer questions about Capsule's business addresses, workspace, meeting rooms and company registration support at 104 Paseo de Roxas. What would you like to know?";
-
-/** Shown as clickable starters. Keep them to real, answerable questions. */
-export const SUGGESTED_QUESTIONS = [
-  "What does a registered business address cost?",
-  "Can I use the address for SEC and BIR registration?",
-  "What is included in the Capsule Launch bundle?",
-  "Do you have desks or private offices available?",
-] as const;

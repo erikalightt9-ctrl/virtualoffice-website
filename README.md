@@ -124,7 +124,27 @@ straight to a service page or to `/pricing`.
 
 ---
 
-## The chatbot
+## The chatbot — ON HOLD
+
+**Currently switched off.** The FAQ is being finalised first, and the approved
+FAQ becomes the chatbot's knowledge base. While `NEXT_PUBLIC_CHATBOT_ENABLED`
+is unset the widget does not render at all and `/api/chat` refuses requests, so
+the site can be deployed without the assistant appearing.
+
+To turn it on once the FAQ is approved:
+
+```bash
+# .env.local
+NEXT_PUBLIC_CHATBOT_ENABLED=true
+ANTHROPIC_API_KEY=sk-ant-...
+```
+
+The `NEXT_PUBLIC_` prefix is required — without it the flag is invisible to the
+widget in the browser and the switch appears to do nothing.
+
+The code below is complete and tested apart from live model calls.
+
+### What it is
 
 A floating assistant on every page, grounded in the site's own content.
 
@@ -146,13 +166,9 @@ content files.
 
 ### Setup
 
-```bash
-# .env.local
-ANTHROPIC_API_KEY=sk-ant-...
-```
-
-Without a key the widget still appears, but instead of answering it points
-visitors at Viber. It degrades politely rather than showing an error.
+See the switch above. With the flag on but no `ANTHROPIC_API_KEY`, the widget
+appears but points visitors at Viber instead of answering — it degrades
+politely rather than showing an error.
 
 Optionally set `CHAT_TRANSCRIPT_WEBHOOK_URL` to receive each completed
 conversation as JSON — a lead source, and a queue of real questions worth
@@ -216,11 +232,11 @@ Search the project for `TODO` to find these in place.
 - [ ] **Photographs** — see above.
 - [ ] **Final prices** — then clear `PRICING_DISCLAIMER`.
 - [ ] **`INQUIRY_WEBHOOK_URL`** — otherwise leads only reach the server log.
-- [ ] **`ANTHROPIC_API_KEY`** — otherwise the chatbot points visitors at Viber
-      instead of answering.
-- [ ] **Read the chatbot's answers before launch.** Ask it the twenty questions
-      you are asked most and check every one. The guardrails are strong but the
-      knowledge base is only as good as the content files behind it.
+- [ ] **Finalise the FAQ**, then enable the chatbot
+      (`NEXT_PUBLIC_CHATBOT_ENABLED=true` plus `ANTHROPIC_API_KEY`) and read its
+      answers to your twenty most common questions before letting it go live.
+      The guardrails are strong, but the answers are only as good as the
+      content files behind them.
 - [ ] **Legal review.** `src/content/legal.ts` contains drafting starting points,
       not finished documents. The address-use, government-correspondence and
       data-privacy sections need your counsel's eyes. The notice at the top of
@@ -229,6 +245,18 @@ Search the project for `TODO` to find these in place.
 - [ ] **Analytics** — no tracking is installed yet.
 - [ ] **Google Business Profile** — not part of this codebase, but for
       "virtual office Makati" the local pack outranks every organic result.
+
+---
+
+## File map — chatbot
+
+| File | What it is |
+| --- | --- |
+| `src/lib/chat-ui.ts` | Browser-safe settings: the on/off switch, greeting, suggested questions. Must never import the knowledge base — anything here ships to the browser. |
+| `src/lib/chat-config.ts` | Server-side: model, effort, limits, and the system prompt with all the guardrails. |
+| `src/lib/knowledge.ts` | Builds the knowledge base from the content files. Do not edit to change what the chatbot knows. |
+| `src/app/api/chat/route.ts` | Streaming endpoint: validation, rate limiting, error handling. |
+| `src/components/ChatWidget.tsx` | The floating widget. |
 
 ---
 

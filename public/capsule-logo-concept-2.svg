@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 240" role="img" aria-labelledby="title desc">
+  <title id="title">CAPSULE — Horizon logo concept</title>
+  <desc id="desc">A protected capsule crossed by an orbital horizon with a subtle red dragon curve</desc>
+
+  <!-- Self-contained capsule: security, independence and a complete business environment. -->
+  <rect x="54" y="22" width="128" height="196" rx="64" fill="#07111F"/>
+  <rect x="68" y="36" width="100" height="168" rx="50" fill="none" stroke="#C9D1D9" stroke-width="2" opacity=".62"/>
+
+  <!-- Window into wider opportunity. -->
+  <circle cx="118" cy="99" r="38" fill="#F5F7FA"/>
+  <path d="M86 104c15-15 34-23 55-23 6 0 12 1 17 2-8-14-23-22-40-22-24 0-44 18-47 41 5 2 10 3 15 2Z" fill="#4B2A68" opacity=".9"/>
+  <circle cx="140" cy="82" r="4" fill="#C9D1D9"/>
+
+  <!-- Orbital horizon: mobility and connection beyond the physical office. -->
+  <path d="M20 126c50-19 115-22 184-5 17 4 33 9 47 15" fill="none" stroke="#9DA9B5" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="241" cy="133" r="6" fill="#4B2A68"/>
+
+  <!-- Dragon-red gesture held safely inside the capsule. -->
+  <path d="M82 164c14 18 41 25 61 13 10-6 17-16 20-27" fill="none" stroke="#B5121B" stroke-width="7" stroke-linecap="round"/>
+  <path d="m158 154 6-17 6 12 13-3-11 12" fill="none" stroke="#B5121B" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Geometric wordmark and positioning line. -->
+  <text x="285" y="144" fill="#07111F" font-family="Arial, Helvetica, sans-serif" font-size="88" font-weight="600" letter-spacing="16">CAPSULE</text>
+  <text x="291" y="191" fill="#566574" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" letter-spacing="3.8">YOUR SPACE. YOUR BUSINESS. BEYOND BOUNDARIES.</text>
+</svg>

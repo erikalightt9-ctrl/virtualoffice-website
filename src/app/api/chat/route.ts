@@ -1,6 +1,7 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { z } from "zod";
 import {
+  CHATBOT_ENABLED,
   CHAT_EFFORT,
   CHAT_MODEL,
   LIMITS,
@@ -100,6 +101,17 @@ const FALLBACK_MESSAGE =
   "I am not able to answer right now. Please message the team on Viber or use the enquiry form at /contact and someone will come straight back to you.";
 
 export async function POST(request: Request) {
+  // On hold until the FAQ is approved. See CHATBOT_ENABLED in chat-config.ts.
+  if (!CHATBOT_ENABLED) {
+    return Response.json(
+      {
+        error:
+          "Our assistant is not available yet. Please message the team on Viber or use the enquiry form at /contact.",
+      },
+      { status: 503 },
+    );
+  }
+
   const ip = clientIp(request);
 
   if (rateLimited(ip)) {
