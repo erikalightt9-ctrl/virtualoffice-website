@@ -25,7 +25,7 @@ export const site = {
     /** TODO: add the SEC registration number — it is a strong credibility signal. */
     secRegistrationNo: "TODO",
     relationship:
-      "Capsule is managed by Philippine Dragon Media Network Corp. under GDS Capital Inc.",
+      "Capsule is managed by Philippine Dragon Media Network Corp.",
   },
 
   address: {

@@ -89,7 +89,7 @@ export default function Footer() {
             delivered by independent licensed partner firms.
           </p>
           <p>
-            © {year} {site.operator.name}. All rights reserved.
+            © {year} {site.operator.name} All rights reserved.
           </p>
         </div>
       </Container>
