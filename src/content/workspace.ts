@@ -83,7 +83,7 @@ export const workspacePages: WorkspacePage[] = [
     summary: "An enclosed, lockable suite for companies that need a door.",
     metaTitle: "Private Office for Rent in Makati | Serviced Suites | Capsule",
     metaDescription:
-      "Enclosed private office suites at 104 Paseo de Roxas, Makati. Registered business address included, suitable for client visits and government inspections.",
+      "Enclosed private office suites at 104 Paseo de Roxas, Legaspi Village, Makati. Registered address included, suitable for client visits and inspections.",
     headline: "When your company needs a door that closes.",
     intro:
       "An enclosed suite of your own, within a serviced floor. For companies handling confidential work, taking client meetings regularly, or wanting an unambiguous answer when a government officer asks to see the office.",
