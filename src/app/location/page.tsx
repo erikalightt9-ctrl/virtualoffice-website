@@ -45,6 +45,8 @@ export default function LocationPage() {
               </span>
               <br />
               <span className="text-body-soft">
+                {site.address.village}, {site.address.barangay}
+                <br />
                 {site.address.city} {site.address.postcode}
                 <br />
                 {site.address.region}, {site.address.country}
@@ -67,7 +69,7 @@ export default function LocationPage() {
 
           <div className="border border-rule bg-surface-2">
             <iframe
-              title="Map showing 104 Paseo de Roxas, Makati City"
+              title="Map showing 104 Paseo de Roxas, Legaspi Village, San Lorenzo, Makati City"
               src={mapSrc}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

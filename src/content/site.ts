@@ -14,7 +14,7 @@ export const site = {
 
   /** Used in page titles and the meta description. */
   description:
-    "A registered business address at 104 Paseo de Roxas, Makati — with a real staffed office behind it. Virtual office, workspace, meeting rooms and company registration support.",
+    "A registered business address at 104 Paseo de Roxas, Legaspi Village, Makati — with a real staffed office behind it. Workspace, rooms and registration.",
 
   /** TODO: replace with the live domain once registered. */
   url: "https://capsule.ph",
@@ -28,19 +28,32 @@ export const site = {
       "Capsule is managed by Philippine Dragon Media Network Corp.",
   },
 
+  /**
+   * The single source of truth for the address. Every page, the footer, the
+   * schema.org markup and the chatbot read from here — change it once.
+   */
   address: {
     line1: "104 Paseo de Roxas",
     floor: "5th Floor",
     /** TODO: confirm the unit or suite number, if there is one. */
     unit: "",
+    /** The district. */
+    village: "Legaspi Village",
+    /** The barangay. */
+    barangay: "San Lorenzo",
     city: "Makati City",
     region: "Metro Manila",
     postcode: "1229",
     country: "Philippines",
-    /** Full address on one line, for schema.org and the footer. */
-    oneLine: "5th Floor, 104 Paseo de Roxas, Makati City, Metro Manila, Philippines",
-    /** TODO: replace with the exact coordinates of the building. */
-    mapQuery: "104 Paseo de Roxas, Makati City, Philippines",
+    /** Full address on one line, for schema.org, the footer and the chatbot. */
+    oneLine:
+      "5th Floor, 104 Paseo de Roxas, Legaspi Village, San Lorenzo, Makati City",
+    /** The same address plus region and country, for formal contexts. */
+    oneLineFull:
+      "5th Floor, 104 Paseo de Roxas, Legaspi Village, San Lorenzo, Makati City, Metro Manila, Philippines",
+    /** What gets handed to the map embed. */
+    mapQuery:
+      "104 Paseo de Roxas, Legaspi Village, San Lorenzo, Makati City, Philippines",
   },
 
   contact: {

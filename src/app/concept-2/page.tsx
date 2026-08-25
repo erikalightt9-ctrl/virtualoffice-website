@@ -57,7 +57,7 @@ export default function ConceptTwoPage() {
             <h1>Your next market<br />is within <span>reach.</span></h1>
             <p className={styles.heroText}>CAPSULE is the connected business gateway for entering, establishing, and scaling in the Philippines—from one strategic base in Makati.</p>
             <div className={styles.actions}><Link href="/contact" className={styles.primaryAction}>Initiate setup <b>↗</b></Link><Link href="#platform" className={styles.secondaryAction}>Explore the platform <b>↓</b></Link></div>
-            <div className={styles.coordinates}><span>104 Paseo de Roxas</span><span>Makati Central Business District</span></div>
+            <div className={styles.coordinates}><span>5th Floor, 104 Paseo de Roxas</span><span>Legaspi Village, San Lorenzo</span><span>Makati City</span></div>
           </div>
           <div className={styles.heroVisual}><DragonConstellation /><div className={styles.visualReadout}><small>CAPSULE MAKATI</small><strong>Business, established.</strong><span>104 PASEO DE ROXAS</span></div></div>
         </div>

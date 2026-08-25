@@ -60,8 +60,8 @@ export default function RootLayout({
     parentOrganization: { "@type": "Organization", name: site.operator.name },
     address: {
       "@type": "PostalAddress",
-      streetAddress: `${site.address.floor}, ${site.address.line1}`,
-      addressLocality: site.address.city,
+      streetAddress: `${site.address.floor}, ${site.address.line1}, ${site.address.village}`,
+      addressLocality: `${site.address.barangay}, ${site.address.city}`,
       addressRegion: site.address.region,
       postalCode: site.address.postcode,
       addressCountry: "PH",

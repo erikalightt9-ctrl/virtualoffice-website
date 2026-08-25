@@ -11,7 +11,7 @@ import { TERMS, formatPeso, publishedBundles } from "@/content/pricing";
 export const metadata: Metadata = {
   title: "Pricing — Business Address, Workspace & Registration",
   description:
-    "Published rates for business addresses, dedicated desks, private offices, meeting rooms and company registration at 104 Paseo de Roxas, Makati.",
+    "Published rates for business addresses, desks, private offices, meeting rooms and company registration at 104 Paseo de Roxas, Legaspi Village, Makati.",
 };
 
 export default function PricingPage() {

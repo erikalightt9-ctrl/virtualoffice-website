@@ -29,7 +29,7 @@ export const CHATBOT_ENABLED =
 
 /** The first thing a visitor sees when the panel opens. */
 export const GREETING =
-  "Hello — I can answer questions about Capsule's business addresses, workspace, meeting rooms and company registration support at 104 Paseo de Roxas. What would you like to know?";
+  "Hello — I can answer questions about Capsule's business addresses, workspace, meeting rooms and company registration support at 104 Paseo de Roxas, Legaspi Village, Makati. What would you like to know?";
 
 /** Shown as clickable starters. Keep them to real, answerable questions. */
 export const SUGGESTED_QUESTIONS = [

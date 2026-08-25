@@ -13,7 +13,7 @@ import { formatPeso, publishedWorkspace } from "@/content/pricing";
 export const metadata: Metadata = {
   title: "Workspace — Desks, Team Space & Private Offices in Makati",
   description:
-    "Dedicated desks, team space, private offices and day passes on the 5th floor of 104 Paseo de Roxas, Makati. Registered business address included.",
+    "Dedicated desks, team space, private offices and day passes on the 5th floor of 104 Paseo de Roxas, Legaspi Village, Makati. Registered address included.",
 };
 
 export default function WorkspaceIndexPage() {

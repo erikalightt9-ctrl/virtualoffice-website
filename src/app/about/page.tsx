@@ -41,7 +41,7 @@ export default function AboutPage() {
 
       <Section eyebrow="The office" heading="Where we are" tone="bone">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          <Photo file="building.jpg" alt="104 Paseo de Roxas" caption="104 Paseo de Roxas, Makati City." />
+          <Photo file="building.jpg" alt="104 Paseo de Roxas" caption="104 Paseo de Roxas, Legaspi Village, San Lorenzo, Makati City." />
           <Photo file="reception.jpg" alt="Reception on the 5th floor" caption="Reception, staffed through business hours." />
           <Photo file="floor.jpg" alt="The 5th floor" caption="Approximately 613 sqm on the 5th floor." />
         </div>

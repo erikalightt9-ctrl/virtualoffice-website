@@ -1,7 +1,8 @@
 # Capsule — website
 
 Marketing and lead-generation site for Capsule, the business address and
-workspace service at 104 Paseo de Roxas, 5th Floor, Makati City, operated by
+workspace service at 5th Floor, 104 Paseo de Roxas, Legaspi Village,
+San Lorenzo, Makati City, operated by
 Philippine Dragon Media Network Corp.
 
 Next.js 16 (App Router) · TypeScript · Tailwind CSS 4 · Zod

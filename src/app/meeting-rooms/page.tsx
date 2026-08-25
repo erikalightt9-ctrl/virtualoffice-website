@@ -11,7 +11,7 @@ import { publishedRooms, formatPeso } from "@/content/pricing";
 export const metadata: Metadata = {
   title: "Meeting Rooms in Makati — 104 Paseo de Roxas",
   description:
-    "Six bookable meeting and conference rooms on the 5th floor of 104 Paseo de Roxas, Makati. Hourly rates published, member rates available.",
+    "Six bookable meeting and conference rooms on the 5th floor of 104 Paseo de Roxas, Legaspi Village, Makati. Hourly rates published, member rates available.",
 };
 
 export default function MeetingRoomsPage() {

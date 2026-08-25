@@ -17,7 +17,7 @@ export const LEGAL_REVIEW_NOTICE =
 export const terms = {
   metaTitle: "Terms of Service | Capsule Makati",
   metaDescription:
-    "The terms on which Capsule provides business address, mail handling, meeting room and workspace services at 104 Paseo de Roxas, Makati City.",
+    "Capsule's terms for business address, mail handling, meeting room and workspace services at 104 Paseo de Roxas, Legaspi Village, Makati City.",
   headline: "Terms of Service",
   intro:
     "These terms summarise the basis on which Capsule provides its services. Your signed service agreement is the operative document and prevails over anything on this page.",
@@ -26,7 +26,7 @@ export const terms = {
     {
       heading: "The services",
       body: [
-        "Capsule provides business address services, mail and document handling, meeting room access and serviced workspace at 104 Paseo de Roxas, 5th Floor, Makati City. Services are provided by Philippine Dragon Media Network Corp.",
+        "Capsule provides business address services, mail and document handling, meeting room access and serviced workspace at 5th Floor, 104 Paseo de Roxas, Legaspi Village, San Lorenzo, Makati City. Services are provided by Philippine Dragon Media Network Corp.",
         "Company registration, accounting, tax, payroll and corporate secretarial services are delivered by independent licensed partner firms. Capsule coordinates those engagements but does not itself perform regulated professional services, and the engaging firm is responsible for its own work.",
       ],
     },

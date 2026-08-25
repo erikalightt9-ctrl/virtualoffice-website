@@ -81,7 +81,7 @@ export const services: Service[] = [
       "An address eligible for SEC, BIR and Mayor's Permit registration, with inspections accommodated on site.",
     metaTitle: "Registered Business Address in Makati | SEC, BIR & LGU | Capsule",
     metaDescription:
-      "Use 104 Paseo de Roxas, Makati as your company's registered business address. Government correspondence handled, BIR and LGU inspections accommodated. Subject to approval.",
+      "Use 104 Paseo de Roxas, Legaspi Village, Makati as your registered business address. Government mail handled, inspections accommodated. Subject to approval.",
     headline: "A registered address that holds up when someone comes to look.",
     intro:
       "Registering a Philippine company means naming a principal office address — and that address can be inspected, can receive a BIR letter of authority, and appears on your Articles of Incorporation for as long as the company exists. Capsule's Registered tier is built for exactly that responsibility.",
@@ -126,7 +126,7 @@ export const services: Service[] = [
       "Business correspondence received, logged, notified and held securely by our own staff.",
     metaTitle: "Business Mail Handling in Makati | Capsule",
     metaDescription:
-      "Mail and parcel handling at 104 Paseo de Roxas, Makati. Received by staffed reception, logged on arrival, same-day notification, secure holding and forwarding.",
+      "Mail and parcel handling at 104 Paseo de Roxas, Legaspi Village, Makati. Received by staffed reception, logged on arrival and notified the same day.",
     headline: "Someone is actually there when the courier arrives.",
     intro:
       "Mail handling sounds like the least interesting thing we do until a bank statement, a summons or a BIR notice goes astray. Every item that arrives for a Capsule client is received by a person, recorded, and reported to you the same day.",

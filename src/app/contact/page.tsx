@@ -8,7 +8,7 @@ import { site } from "@/content/site";
 export const metadata: Metadata = {
   title: "Contact & Enquiries",
   description:
-    "Enquire about a business address, workspace, meeting room or company registration at 104 Paseo de Roxas, Makati. Viber, WhatsApp, phone and email.",
+    "Enquire about a business address, workspace, meeting room or company registration at 104 Paseo de Roxas, Legaspi Village, Makati. Viber, WhatsApp or phone.",
 };
 
 export default function ContactPage() {
@@ -78,6 +78,8 @@ export default function ContactPage() {
                   <dt className="text-body-faint">Office</dt>
                   <dd className="text-body-soft">
                     {site.address.floor}, {site.address.line1}
+                    <br />
+                    {site.address.village}, {site.address.barangay}
                     <br />
                     {site.address.city} {site.address.postcode}
                   </dd>

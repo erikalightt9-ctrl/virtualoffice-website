@@ -8,12 +8,12 @@
 /* ---------------------------------------------------------------- LOCATION */
 
 export const location = {
-  metaTitle: "Our Location | 104 Paseo de Roxas, Makati City | Capsule",
+  metaTitle: "Our Location | 104 Paseo de Roxas, Legaspi Village, Makati | Capsule",
   metaDescription:
-    "Capsule occupies 613 sqm on the 5th floor of 104 Paseo de Roxas, Makati City — staffed reception, six bookable rooms and serviced workstations in the Makati CBD.",
+    "613 sqm on the 5th floor of 104 Paseo de Roxas, Legaspi Village, Makati — staffed reception, six bookable rooms and serviced workstations.",
   headline: "Put Makati on your business card. Then come and see it.",
   intro:
-    "Capsule occupies approximately 613 square metres on the 5th floor of 104 Paseo de Roxas, in the Makati central business district. Paseo de Roxas is one of the district's principal business streets, and the building holds a current occupancy permit.",
+    "Capsule occupies approximately 613 square metres on the 5th floor of 104 Paseo de Roxas, Legaspi Village, San Lorenzo, Makati City, in the Makati central business district. Paseo de Roxas is one of the district's principal business streets, and the building holds a current occupancy permit.",
 
   facilities: [
     { name: "Conference rooms", detail: "Three rooms for meetings, presentations and board sessions." },
@@ -51,7 +51,7 @@ export const location = {
     { file: "workstations.jpg", caption: "Serviced workstations on the main floor." },
     { file: "meeting-room.jpg", caption: "The meeting room, seating six to seven." },
     { file: "tea-room.jpg", caption: "The tea room, for informal meetings." },
-    { file: "building.jpg", caption: "104 Paseo de Roxas, Makati City." },
+    { file: "building.jpg", caption: "104 Paseo de Roxas, Legaspi Village, San Lorenzo, Makati City." },
   ],
 };
 
@@ -60,7 +60,7 @@ export const location = {
 export const about = {
   metaTitle: "About Capsule | Business Address & Workspace in Makati",
   metaDescription:
-    "Capsule provides business addresses, workspace and business establishment support at 104 Paseo de Roxas, Makati. Managed by Philippine Dragon Media Network Corp.",
+    "Business addresses, workspace and business establishment support at 104 Paseo de Roxas, Legaspi Village, Makati, from Philippine Dragon Media Network Corp.",
   headline: "A real office, run by a company you can look up.",
   intro:
     "Capsule exists because the gap between a mailbox and a Makati office lease is where most young companies actually live — and because too much of this market is addresses without offices behind them.",
@@ -76,7 +76,7 @@ export const about = {
     {
       heading: "What we actually do",
       body: [
-        "We provide business addresses, mail and document handling, meeting rooms and serviced workspace from our own floor at 104 Paseo de Roxas. We coordinate company registration, accounting, tax, payroll and corporate secretarial services through licensed partner firms.",
+        "We provide business addresses, mail and document handling, meeting rooms and serviced workspace from our own floor at 104 Paseo de Roxas, Legaspi Village, San Lorenzo, Makati City. We coordinate company registration, accounting, tax, payroll and corporate secretarial services through licensed partner firms.",
         "We are careful about that distinction. Regulated professional work is performed by professionals accountable for it. What we provide is the premises, the administration and the coordination — and a single point of contact so you are not managing four relationships.",
       ],
     },

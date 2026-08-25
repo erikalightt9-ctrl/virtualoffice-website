@@ -17,7 +17,11 @@ export default function Footer() {
               <br />
               {site.address.line1}
               <br />
-              {site.address.city}, {site.address.postcode}
+              {site.address.village}
+              <br />
+              {site.address.barangay}
+              <br />
+              {site.address.city} {site.address.postcode}
               <br />
               {site.address.country}
             </address>
