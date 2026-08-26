@@ -41,7 +41,13 @@ export const metadata: Metadata = {
     description: site.description,
     locale: "en_PH",
   },
-  robots: { index: true, follow: true },
+  // Kept in step with src/app/robots.ts — both read the same flag, so the
+  // meta tag can never contradict robots.txt. Blocked until
+  // NEXT_PUBLIC_ALLOW_INDEXING=true.
+  robots:
+    process.env.NEXT_PUBLIC_ALLOW_INDEXING === "true"
+      ? { index: true, follow: true }
+      : { index: false, follow: false },
 };
 
 export default function RootLayout({
