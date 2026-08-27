@@ -1,5 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" role="img" aria-labelledby="title">
-  <title id="title">THE GROUNDS Common Ground mark</title>
-  <defs><linearGradient id="warm" x1="45" y1="50" x2="255" y2="230"><stop offset="0" stop-color="#A71928"/><stop offset=".5" stop-color="#D84B43"/><stop offset="1" stop-color="#B87748"/></linearGradient></defs>
-  <g fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M62 197c22-62 54-99 88-119" stroke="#777773" stroke-width="15"/><path d="M238 197c-22-62-54-99-88-119" stroke="#777773" stroke-width="15"/><path d="M150 218V86" stroke="url(#warm)" stroke-width="18"/><path d="M48 218h204" stroke="#282A29" stroke-width="13"/><path d="M92 159c18-14 37-21 58-21s40 7 58 21" stroke="#B87748" stroke-width="9"/></g><circle cx="150" cy="78" r="13" fill="#A71928"/>
-</svg>
