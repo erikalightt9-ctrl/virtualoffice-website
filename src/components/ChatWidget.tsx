@@ -120,7 +120,7 @@ export default function ChatWidget() {
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-controls="capsule-chat-panel"
-        className="fixed bottom-5 right-5 z-[60] flex items-center gap-2.5 border border-[#c99a42] bg-[#c99a42] px-4 py-3 font-display text-[0.7rem] font-bold uppercase tracking-[0.1em] text-[#071a26] shadow-lg transition-all hover:bg-[#e0b760] hover:shadow-xl sm:bottom-7 sm:right-7"
+        className="fixed bottom-5 right-5 z-[60] flex items-center gap-2.5 border border-clay bg-clay px-4 py-3 font-display text-[0.7rem] font-bold uppercase tracking-[0.1em] text-white shadow-lg transition-all hover:bg-clay-dark hover:shadow-xl sm:bottom-7 sm:right-7"
       >
         {open ? (
           <>
@@ -154,18 +154,18 @@ export default function ChatWidget() {
           ref={panelRef}
           role="dialog"
           aria-label="Ask Capsule"
-          className="fixed inset-x-3 bottom-20 z-[59] flex max-h-[min(640px,78vh)] flex-col border border-[#284350] bg-[#071a26] shadow-2xl sm:inset-x-auto sm:right-7 sm:bottom-24 sm:w-[400px]"
+          className="fixed inset-x-3 bottom-20 z-[59] flex max-h-[min(640px,78vh)] flex-col border border-rule-dark bg-ink shadow-2xl sm:inset-x-auto sm:right-7 sm:bottom-24 sm:w-[400px]"
         >
           {/* Header */}
-          <div className="flex items-start gap-3 border-b border-[#284350] px-4 py-3.5">
-            <span className="mt-0.5 grid h-7 w-[18px] shrink-0 place-items-center rounded-full border border-[#c99a42] font-display text-[0.58rem] font-semibold text-[#c99a42]">
+          <div className="flex items-start gap-3 border-b border-rule-dark px-4 py-3.5">
+            <span className="mt-0.5 grid h-7 w-[18px] shrink-0 place-items-center rounded-full border border-clay font-display text-[0.58rem] font-semibold text-clay">
               C
             </span>
             <div className="flex flex-col gap-0.5">
-              <span className="font-display text-[0.82rem] font-semibold tracking-[0.04em] text-[#f6f2e8]">
+              <span className="font-display text-[0.82rem] font-semibold tracking-[0.04em] text-on-dark">
                 Ask Capsule
               </span>
-              <span className="font-mono text-[0.6rem] uppercase tracking-[0.12em] text-[#7f939b]">
+              <span className="font-mono text-[0.6rem] uppercase tracking-[0.12em] text-on-dark-soft">
                 Answers from our published information
               </span>
             </div>
@@ -179,7 +179,7 @@ export default function ChatWidget() {
             aria-atomic="false"
           >
             <div className="flex flex-col gap-4">
-              <p className="text-[0.86rem] leading-relaxed text-[#b6c6cc]">
+              <p className="text-[0.86rem] leading-relaxed text-on-dark-soft">
                 {GREETING}
               </p>
 
@@ -188,29 +188,29 @@ export default function ChatWidget() {
                   key={index}
                   className={
                     message.role === "user"
-                      ? "self-end max-w-[85%] border border-[#c99a42] bg-[#c99a4218] px-3 py-2"
+                      ? "self-end max-w-[85%] border border-clay bg-clay/15 px-3 py-2"
                       : "max-w-[92%]"
                   }
                 >
                   <span
                     className={
                       message.role === "user"
-                        ? "block whitespace-pre-wrap text-[0.86rem] leading-relaxed text-[#f0e6d3]"
-                        : "block whitespace-pre-wrap text-[0.86rem] leading-relaxed text-[#dde6e8]"
+                        ? "block whitespace-pre-wrap text-[0.86rem] leading-relaxed text-on-dark"
+                        : "block whitespace-pre-wrap text-[0.86rem] leading-relaxed text-on-dark"
                     }
                   >
                     {message.content}
                     {message.role === "assistant" &&
                     busy &&
                     index === messages.length - 1 ? (
-                      <span className="ml-0.5 inline-block h-3.5 w-[2px] animate-pulse bg-[#c99a42] align-text-bottom" />
+                      <span className="ml-0.5 inline-block h-3.5 w-[2px] animate-pulse bg-clay align-text-bottom" />
                     ) : null}
                   </span>
                 </div>
               ))}
 
               {busy && messages[messages.length - 1]?.role === "user" ? (
-                <span className="font-mono text-[0.68rem] uppercase tracking-[0.12em] text-[#7f939b]">
+                <span className="font-mono text-[0.68rem] uppercase tracking-[0.12em] text-on-dark-soft">
                   Thinking…
                 </span>
               ) : null}
@@ -218,7 +218,7 @@ export default function ChatWidget() {
               {error ? (
                 <p
                   role="alert"
-                  className="border-l-2 border-[#c99a42] bg-[#c99a4212] px-3 py-2 text-[0.82rem] text-[#dcc79a]"
+                  className="border-l-2 border-clay bg-clay/10 px-3 py-2 text-[0.82rem] text-oak-light"
                 >
                   {error}
                 </p>
@@ -231,7 +231,7 @@ export default function ChatWidget() {
                       key={question}
                       type="button"
                       onClick={() => void send(question)}
-                      className="border border-[#2d4a58] px-3 py-2.5 text-left text-[0.82rem] text-[#c2d1d5] transition-colors hover:border-[#c99a42] hover:text-[#f0e6d3]"
+                      className="border border-rule-dark px-3 py-2.5 text-left text-[0.82rem] text-on-dark-soft transition-colors hover:border-clay hover:text-on-dark"
                     >
                       {question}
                     </button>
@@ -242,7 +242,7 @@ export default function ChatWidget() {
           </div>
 
           {/* Composer */}
-          <div className="border-t border-[#284350] px-4 py-3">
+          <div className="border-t border-rule-dark px-4 py-3">
             <div className="flex items-end gap-2">
               <label htmlFor="capsule-chat-input" className="sr-only">
                 Your question
@@ -256,13 +256,13 @@ export default function ChatWidget() {
                 rows={1}
                 maxLength={2000}
                 placeholder="Ask about pricing, registration, workspace…"
-                className="max-h-28 min-h-[42px] flex-1 resize-none border border-[#2d4a58] bg-[#0b2635] px-3 py-2.5 text-[0.86rem] text-[#eef2f0] outline-none transition-colors placeholder:text-[#6d8189] focus:border-[#c99a42]"
+                className="max-h-28 min-h-[42px] flex-1 resize-none border border-rule-dark bg-ink-2 px-3 py-2.5 text-[0.86rem] text-on-dark outline-none transition-colors placeholder:text-on-dark-soft focus:border-clay"
               />
               <button
                 type="button"
                 onClick={() => void send(input)}
                 disabled={busy || !input.trim()}
-                className="grid h-[42px] w-[42px] shrink-0 place-items-center border border-[#c99a42] bg-[#c99a42] text-[#071a26] transition-colors hover:bg-[#e0b760] disabled:cursor-not-allowed disabled:border-[#2d4a58] disabled:bg-transparent disabled:text-[#6d8189]"
+                className="grid h-[42px] w-[42px] shrink-0 place-items-center border border-clay bg-clay text-white transition-colors hover:bg-clay-dark disabled:cursor-not-allowed disabled:border-rule-dark disabled:bg-transparent disabled:text-on-dark-soft"
                 aria-label="Send question"
               >
                 <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true">
@@ -276,11 +276,11 @@ export default function ChatWidget() {
               </button>
             </div>
 
-            <p className="mt-2.5 text-[0.68rem] leading-relaxed text-[#6d8189]">
+            <p className="mt-2.5 text-[0.68rem] leading-relaxed text-on-dark-soft">
               For a quotation or to check eligibility, message us on Viber at{" "}
               <a
                 href={site.contact.viberHref}
-                className="text-[#c99a42] underline underline-offset-2"
+                className="text-clay underline underline-offset-2"
               >
                 {site.contact.viber}
               </a>
