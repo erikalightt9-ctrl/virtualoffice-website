@@ -244,6 +244,12 @@ Search the project for `TODO` to find these in place.
 - [ ] **Photographs** — see above.
 - [ ] **Final prices** — then clear `PRICING_DISCLAIMER`.
 - [ ] **`INQUIRY_WEBHOOK_URL`** — otherwise leads only reach the server log.
+- [ ] **Real telephone number and email.** `+63 2 0000 0000` and
+      `hello@thegrounds.ph` are placeholders and appear in the footer of every
+      page, in the contact page, and in the chatbot's handoff text. They all
+      come from `src/content/site.ts`.
+- [ ] **Real domain.** `thegrounds.ph` is a placeholder in `site.url`, and it
+      is what the Open Graph share card and the sitemap are built against.
 - [ ] **Finalise the FAQ**, then enable the chatbot
       (`NEXT_PUBLIC_CHATBOT_ENABLED=true` plus `ANTHROPIC_API_KEY`) and read its
       answers to your twenty most common questions before letting it go live.

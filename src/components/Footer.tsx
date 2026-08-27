@@ -26,16 +26,16 @@ export default function Footer() {
               <br />
               {site.address.country}
             </address>
-            <div className="flex flex-col gap-1 text-[0.92rem]">
+            <div className="flex flex-col text-[0.92rem]">
               <a
                 href={site.contact.landlineHref}
-                className="text-on-dark-soft transition-colors hover:text-on-dark"
+                className="-mx-1 inline-block rounded px-1 py-1.5 text-on-dark-soft transition-colors hover:text-on-dark"
               >
                 {site.contact.landline}
               </a>
               <a
                 href={site.contact.emailHref}
-                className="text-on-dark-soft transition-colors hover:text-on-dark"
+                className="-mx-1 inline-block rounded px-1 py-1.5 text-on-dark-soft transition-colors hover:text-on-dark"
               >
                 {site.contact.email}
               </a>
@@ -58,16 +58,16 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-x-5 gap-y-8 lg:grid-cols-4">
             {footerNav.map((group) => (
               <div key={group.heading} className="flex flex-col gap-3">
                 <h2 className="label text-on-dark-soft">{group.heading}</h2>
-                <ul className="flex flex-col gap-2">
+                <ul className="flex flex-col gap-0.5">
                   {group.links.map((link) => (
                     <li key={link.href}>
                       <Link
                         href={link.href}
-                        className="text-[0.88rem] text-on-dark-soft transition-colors hover:text-on-dark"
+                        className="-mx-1 inline-block rounded px-1 py-1.5 text-[0.88rem] text-on-dark-soft transition-colors hover:text-on-dark"
                       >
                         {link.label}
                       </Link>

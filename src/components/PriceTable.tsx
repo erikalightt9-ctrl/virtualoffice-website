@@ -72,7 +72,7 @@ export default function PriceTable({
                 {row.href ? (
                   <Link
                     href={row.href}
-                    className="font-display text-[0.95rem] font-semibold text-ink underline decoration-rule-strong decoration-1 underline-offset-4 hover:decoration-clay"
+                    className="inline-block py-1 font-display text-[0.95rem] font-semibold text-ink underline decoration-rule-strong decoration-1 underline-offset-4 hover:decoration-clay"
                   >
                     {row.name}
                   </Link>

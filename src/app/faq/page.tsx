@@ -33,7 +33,7 @@ export default function FaqPage() {
       {faqCategories.map((category, index) => (
         <Section
           key={category}
-          eyebrow={category}
+          heading={category}
           tone={index % 2 === 0 ? "bone" : "surface"}
         >
           <FaqList items={faqs.filter((f) => f.category === category)} />

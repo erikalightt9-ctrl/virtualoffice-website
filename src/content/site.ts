@@ -147,6 +147,7 @@ export const footerNav: { heading: string; links: { label: string; href: string 
       { label: "Our Location", href: "/location" },
       { label: "How It Works", href: "/how-it-works" },
       { label: "Pricing", href: "/pricing" },
+      { label: "Referral Programme", href: "/partners" },
       { label: "Contact", href: "/contact" },
     ],
   },
