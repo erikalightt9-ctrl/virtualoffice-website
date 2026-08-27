@@ -1,15 +1,15 @@
-# Capsule — website
+# The Grounds — website
 
-Marketing and lead-generation site for Capsule, a **virtual-office service**
+Marketing and lead-generation site for The Grounds, a **virtual-office service**
 at 5th Floor, 104 Paseo de Roxas, Legaspi Village, San Lorenzo, Makati City,
 operated by Philippine Dragon Media Network Corp.
 
-> **Scope.** Capsule offers a business address, mail handling, meeting rooms and
+> **Scope.** The Grounds offers a business address, mail handling, meeting rooms and
 > workspace, with a registered-address option on eligible packages. It does
 > **not** provide, coordinate or advise on company registration, SEC or BIR
 > filings, business permits, bookkeeping, accounting, tax, payroll, corporate
 > secretarial work or business-setup consulting. Copy must never imply
-> otherwise — see `CAPSULE-DESIGN.md` for the full boundary and the wording to
+> otherwise — see `THE GROUNDS-DESIGN.md` for the full boundary and the wording to
 > use.
 
 Next.js 16 (App Router) · TypeScript · Tailwind CSS 4 · Zod
@@ -22,7 +22,7 @@ Next.js 16 (App Router) · TypeScript · Tailwind CSS 4 · Zod
 npm run dev
 ```
 
-Then open http://localhost:3002 (or use `start-capsule.cmd` in the parent
+Then open http://localhost:3002 (or use `start-the-grounds.cmd` in the parent
 folder, which does the same thing).
 
 ```bash
@@ -124,7 +124,7 @@ selected, the package they clicked from (`plan`), and the referring firm
 Give each referring firm a link with their reference on the end:
 
 ```
-https://capsule.ph/contact?ref=firm-name
+https://thegrounds.ph/contact?ref=firm-name
 ```
 
 Any enquiry through that link is tagged with `referrer: "firm-name"` so the
@@ -192,11 +192,11 @@ adding to the FAQ.
 - **Never confirms registered-address eligibility.** It can explain which
   packages offer the option and what the process is, but it will not tell anyone
   they qualify — that is a human decision after reviewing documents.
-- **Refuses out-of-scope work plainly.** Asked whether Capsule can register a
+- **Refuses out-of-scope work plainly.** Asked whether The Grounds can register a
   company, handle filings, process permits, keep books or run payroll, it says
-  no and explains what Capsule actually does. It will not soften that into
+  no and explains what The Grounds actually does. It will not soften that into
   "we can help" or "through our partners".
-- **Never speaks to government outcomes**, since Capsule has no involvement in
+- **Never speaks to government outcomes**, since The Grounds has no involvement in
   them.
 - **Gives no legal, tax, accounting or business-setup advice.**
 - Replies in the visitor's language.
@@ -303,4 +303,4 @@ promises a government outcome or timeline. Please keep that framing if you edit
 the copy; it is what keeps the claims defensible.
 
 Services delivered by partner firms are described as coordinated through
-licensed partners rather than provided by Capsule, for the same reason.
+licensed partners rather than provided by The Grounds, for the same reason.

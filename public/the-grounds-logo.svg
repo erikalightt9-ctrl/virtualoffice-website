@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 240" role="img" aria-labelledby="tgTitle tgDesc">
+  <title id="tgTitle">The Grounds</title>
+  <desc id="tgDesc">The Grounds wordmark: concentric arcs rising from a ground line, in charcoal and oak with a single clay accent.</desc>
+
+  <!-- Mark: arcs rising from the ground. Canopy, growth rings, shelter.
+       Colours are the site tokens - ink, oak and clay. -->
+  <g fill="none" stroke-linecap="round">
+    <path d="M56 176 A 84 84 0 0 1 224 176" stroke="#1d1f21" stroke-width="13"/>
+    <path d="M78 176 A 62 62 0 0 1 202 176" stroke="#1d1f21" stroke-width="11" opacity=".55"/>
+    <path d="M100 176 A 40 40 0 0 1 180 176" stroke="#1d1f21" stroke-width="9" opacity=".3"/>
+    <path d="M40 176 H 240" stroke="#a68c73" stroke-width="9"/>
+  </g>
+  <circle cx="140" cy="92" r="7.5" fill="#b4462b"/>
+
+  <!-- Wordmark -->
+  <text x="300" y="148" fill="#1d1f21"
+        font-family="Archivo, 'Arial Narrow', Helvetica, Arial, sans-serif"
+        font-size="84" font-weight="600" letter-spacing="12">THE GROUNDS</text>
+
+  <rect x="304" y="176" width="700" height="1.5" fill="#bebab2"/>
+
+  <text x="304" y="209" fill="#5c5a57"
+        font-family="Archivo, Helvetica, Arial, sans-serif"
+        font-size="14" font-weight="600" letter-spacing="3.2">A DESTINATION FOR BUSINESS, IDEAS &amp; CONNECTION</text>
+</svg>

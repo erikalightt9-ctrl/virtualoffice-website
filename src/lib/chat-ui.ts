@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- *  CAPSULE — CHATBOT: BROWSER-SAFE SETTINGS
+ *  THE GROUNDS — CHATBOT: BROWSER-SAFE SETTINGS
  *
  *  Everything the chat widget needs, and nothing else. This file must NOT
  *  import the knowledge base or the system prompt — the widget is a client
@@ -29,7 +29,7 @@ export const CHATBOT_ENABLED =
 
 /** The first thing a visitor sees when the panel opens. */
 export const GREETING =
-  "Hello — I can answer questions about Capsule's virtual office at 104 Paseo de Roxas, Legaspi Village, Makati: business addresses, mail handling, meeting rooms and workspace. What would you like to know?";
+  "Hello — I can answer questions about The Grounds, our virtual office at 104 Paseo de Roxas, Legaspi Village, Makati: business addresses, mail handling, meeting rooms and workspace. What would you like to know?";
 
 /** Shown as clickable starters. Keep them to real, answerable questions. */
 export const SUGGESTED_QUESTIONS = [

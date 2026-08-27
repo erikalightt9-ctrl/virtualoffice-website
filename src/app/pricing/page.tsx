@@ -10,7 +10,7 @@ import { TERMS } from "@/content/pricing";
 export const metadata: Metadata = {
   title: "Pricing — Virtual Office, Workspace & Meeting Rooms",
   description:
-    "Published rates for the Capsule virtual office in Makati: business address packages, desks, private offices and meeting rooms at 104 Paseo de Roxas.",
+    "Published rates for the The Grounds virtual office in Makati: business address packages, desks, private offices and meeting rooms at 104 Paseo de Roxas.",
 };
 
 export default function PricingPage() {

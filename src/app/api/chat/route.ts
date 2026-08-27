@@ -12,7 +12,7 @@ import { KB_ESTIMATED_TOKENS } from "@/lib/knowledge";
 
 /**
  * ============================================================================
- *  CAPSULE — CHATBOT ENDPOINT
+ *  THE GROUNDS — CHATBOT ENDPOINT
  *
  *  Streams a grounded answer from the knowledge base built out of the site's
  *  own content files.
@@ -195,7 +195,7 @@ export async function POST(request: Request) {
 
           if (finalMessage.stop_reason === "refusal") {
             const note =
-              "I am not able to help with that one. For anything about Capsule's services, ask me here — otherwise the team is on Viber.";
+              "I am not able to help with that one. For anything about our services, ask me here — otherwise the team is on Viber.";
             controller.enqueue(encoder.encode(note));
             full = note;
           }

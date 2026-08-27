@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- *  CAPSULE — SITE SETTINGS
+ *  THE GROUNDS — SITE SETTINGS
  *  Brand details, contact channels, address and navigation.
  *
  *  ⚠️  ITEMS MARKED "TODO" ARE PLACEHOLDERS. Replace them before launch.
@@ -8,16 +8,16 @@
  */
 
 export const site = {
-  name: "Capsule",
-  wordmark: "CAPSULE",
-  tagline: "Your Space. Your Business. Beyond Boundaries.",
+  name: "The Grounds",
+  wordmark: "THE GROUNDS",
+  tagline: "A destination for business, ideas & connection",
 
   /** Used in page titles and the meta description. */
   description:
     "Virtual office services at 104 Paseo de Roxas, Legaspi Village, Makati, with a professional business address, mail handling, meeting rooms and flexible workspace.",
 
   /** TODO: replace with the live domain once registered. */
-  url: "https://capsule.ph",
+  url: "https://thegrounds.ph",
 
   /** The operator. Shown in the footer and on the About page. */
   operator: {
@@ -25,7 +25,7 @@ export const site = {
     /** TODO: add the SEC registration number — it is a strong credibility signal. */
     secRegistrationNo: "TODO",
     relationship:
-      "Capsule is a virtual-office service operated by Philippine Dragon Media Network Corp., an SEC-registered Philippine corporation.",
+      "The Grounds is a virtual-office service operated by Philippine Dragon Media Network Corp., an SEC-registered Philippine corporation.",
   },
 
   /**
@@ -66,8 +66,8 @@ export const site = {
     whatsapp: "+63 900 000 0000",
     whatsappHref: "https://wa.me/63900000000",
     wechat: "TODO",
-    email: "hello@capsule.ph",
-    emailHref: "mailto:hello@capsule.ph",
+    email: "hello@thegrounds.ph",
+    emailHref: "mailto:hello@thegrounds.ph",
   },
 
   hours: {
@@ -143,7 +143,7 @@ export const footerNav: { heading: string; links: { label: string; href: string 
   {
     heading: "Company",
     links: [
-      { label: "About Capsule", href: "/about" },
+      { label: "About The Grounds", href: "/about" },
       { label: "Our Location", href: "/location" },
       { label: "How It Works", href: "/how-it-works" },
       { label: "Pricing", href: "/pricing" },

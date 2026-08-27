@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
 /* ============================================================================
-   CAPSULE — DESIGN TOKENS, TAKEN FROM THE OFFICE ITSELF
+   THE GROUNDS — DESIGN TOKENS, TAKEN FROM THE OFFICE ITSELF
 
    These colours are not invented. They were sampled from the photographs of
-   the 5th floor at 104 Paseo de Roxas and are recorded in CAPSULE-DESIGN.md.
+   the 5th floor at 104 Paseo de Roxas and are recorded in THE GROUNDS-DESIGN.md.
 
    What the office actually is, by area of frame:
      · warm-neutral concrete and white ... 30-62% of every photograph
@@ -20,66 +20,66 @@
 
 :root {
   /* Charcoal — the exposed ceilings and black steel. Dark bands, footer. */
-  --capsule-ink: #1d1f21;
-  --capsule-ink-2: #2b2d30;
-  --capsule-ink-3: #3c3e41;
+  --grounds-ink: #1d1f21;
+  --grounds-ink-2: #2b2d30;
+  --grounds-ink-3: #3c3e41;
 
   /* Concrete — the walls. The dominant surface in every room. */
-  --capsule-bone: #f4f2ee;
-  --capsule-surface: #ffffff;
-  --capsule-surface-2: #e7e4de;
+  --grounds-bone: #f4f2ee;
+  --grounds-surface: #ffffff;
+  --grounds-surface-2: #e7e4de;
 
   /* Oak — floors, ceiling slats, cabinetry, the tree bookshelf. */
-  --capsule-oak-pale: #ede4d6;
-  --capsule-oak-light: #d7c3a4;
-  --capsule-oak: #a68c73;
-  --capsule-oak-deep: #8f7c61;
-  --capsule-amber: #b0702a;
+  --grounds-oak-pale: #ede4d6;
+  --grounds-oak-light: #d7c3a4;
+  --grounds-oak: #a68c73;
+  --grounds-oak-deep: #8f7c61;
+  --grounds-amber: #b0702a;
 
   /* Teal — the pantry wall. Secondary accent, used sparingly. */
-  --capsule-teal: #367369;
-  --capsule-seafoam: #dce8e5;
+  --grounds-teal: #367369;
+  --grounds-seafoam: #dce8e5;
 
   /* The sofa. Reserved for actions, exactly as the room reserves it. */
-  --capsule-clay: #b4462b;
-  --capsule-clay-dark: #98351e;
-  --capsule-clay-wash: #f6e7e1;
+  --grounds-clay: #b4462b;
+  --grounds-clay-dark: #98351e;
+  --grounds-clay-wash: #f6e7e1;
 
   /* Text */
-  --capsule-text: #23262a;
-  --capsule-text-soft: #5c5a57;
-  --capsule-text-faint: #8f8d89;
-  --capsule-on-dark: #f2efe9;
-  --capsule-on-dark-soft: #b0ada6;
+  --grounds-text: #23262a;
+  --grounds-text-soft: #5c5a57;
+  --grounds-text-faint: #8f8d89;
+  --grounds-on-dark: #f2efe9;
+  --grounds-on-dark-soft: #b0ada6;
 
   /* Lines */
-  --capsule-rule: #dad7d1;
-  --capsule-rule-strong: #bebab2;
-  --capsule-rule-dark: #3a3d3f;
+  --grounds-rule: #dad7d1;
+  --grounds-rule-strong: #bebab2;
+  --grounds-rule-dark: #3a3d3f;
 }
 
 @theme inline {
-  --color-ink: var(--capsule-ink); --color-ink-2: var(--capsule-ink-2); --color-ink-3: var(--capsule-ink-3);
-  --color-bone: var(--capsule-bone); --color-surface: var(--capsule-surface); --color-surface-2: var(--capsule-surface-2);
-  --color-seafoam: var(--capsule-seafoam); --color-clay: var(--capsule-clay); --color-clay-dark: var(--capsule-clay-dark);
-  --color-clay-wash: var(--capsule-clay-wash); --color-body: var(--capsule-text); --color-body-soft: var(--capsule-text-soft);
-  --color-body-faint: var(--capsule-text-faint); --color-on-dark: var(--capsule-on-dark); --color-on-dark-soft: var(--capsule-on-dark-soft);
-  --color-rule: var(--capsule-rule); --color-rule-strong: var(--capsule-rule-strong); --color-rule-dark: var(--capsule-rule-dark);
-  --color-oak-pale: var(--capsule-oak-pale); --color-oak-light: var(--capsule-oak-light); --color-oak: var(--capsule-oak);
-  --color-oak-deep: var(--capsule-oak-deep); --color-amber: var(--capsule-amber); --color-teal: var(--capsule-teal);
+  --color-ink: var(--grounds-ink); --color-ink-2: var(--grounds-ink-2); --color-ink-3: var(--grounds-ink-3);
+  --color-bone: var(--grounds-bone); --color-surface: var(--grounds-surface); --color-surface-2: var(--grounds-surface-2);
+  --color-seafoam: var(--grounds-seafoam); --color-clay: var(--grounds-clay); --color-clay-dark: var(--grounds-clay-dark);
+  --color-clay-wash: var(--grounds-clay-wash); --color-body: var(--grounds-text); --color-body-soft: var(--grounds-text-soft);
+  --color-body-faint: var(--grounds-text-faint); --color-on-dark: var(--grounds-on-dark); --color-on-dark-soft: var(--grounds-on-dark-soft);
+  --color-rule: var(--grounds-rule); --color-rule-strong: var(--grounds-rule-strong); --color-rule-dark: var(--grounds-rule-dark);
+  --color-oak-pale: var(--grounds-oak-pale); --color-oak-light: var(--grounds-oak-light); --color-oak: var(--grounds-oak);
+  --color-oak-deep: var(--grounds-oak-deep); --color-amber: var(--grounds-amber); --color-teal: var(--grounds-teal);
   --font-display: var(--font-archivo), sans-serif; --font-body: var(--font-source-serif), serif; --font-mono: var(--font-plex-mono), monospace;
 }
 
 html { scroll-behavior: smooth; }
-body { margin: 0; background: var(--capsule-bone); color: var(--capsule-text); font-family: var(--font-source-serif), Georgia, serif; font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+body { margin: 0; background: var(--grounds-bone); color: var(--grounds-text); font-family: var(--font-source-serif), Georgia, serif; font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
 h1,h2,h3,h4,h5,h6 { font-family: var(--font-archivo), Arial, sans-serif; font-weight: 600; letter-spacing: -.035em; line-height: 1.04; text-wrap: balance; }
 button,input,select,textarea,label,nav,th { font-family: var(--font-archivo), Arial, sans-serif; }
 a { text-underline-offset: .2em; }
-:focus-visible { outline: 2px solid var(--capsule-clay); outline-offset: 3px; }
-::selection { background: var(--capsule-clay); color: #ffffff; }
+:focus-visible { outline: 2px solid var(--grounds-clay); outline-offset: 3px; }
+::selection { background: var(--grounds-clay); color: #ffffff; }
 .label { font-family: var(--font-plex-mono), monospace; font-size: .7rem; letter-spacing: .15em; text-transform: uppercase; }
 .tnum { font-variant-numeric: tabular-nums; }
-.prose-capsule p { max-width: 68ch; }
+.prose-grounds p { max-width: 68ch; }
 
 /* ----------------------------------------------------------------------------
    Materials taken from the office
@@ -93,15 +93,15 @@ a { text-underline-offset: .2em; }
 .slats {
   background-image: repeating-linear-gradient(
     90deg,
-    var(--capsule-oak) 0 3px,
+    var(--grounds-oak) 0 3px,
     transparent 3px 11px
   );
 }
 .slats-dark {
-  background-color: var(--capsule-ink);
+  background-color: var(--grounds-ink);
   background-image: repeating-linear-gradient(
     90deg,
-    var(--capsule-amber) 0 4px,
+    var(--grounds-amber) 0 4px,
     transparent 4px 14px
   );
 }
@@ -111,20 +111,20 @@ a { text-underline-offset: .2em; }
   border: 0;
   background-image: repeating-linear-gradient(
     90deg,
-    var(--capsule-oak) 0 3px,
+    var(--grounds-oak) 0 3px,
     transparent 3px 11px
   );
 }
 /* Concrete: the wall finish, as a very quiet surface tint. */
 .concrete {
-  background-color: var(--capsule-surface-2);
+  background-color: var(--grounds-surface-2);
   background-image:
     radial-gradient(circle at 18% 22%, #ffffff55 0 38%, transparent 60%),
     radial-gradient(circle at 76% 68%, #00000010 0 30%, transparent 55%);
 }
 /* Oak: for panels that should read as joinery rather than paper. */
 .oak {
-  background-color: var(--capsule-oak-pale);
+  background-color: var(--grounds-oak-pale);
   background-image: repeating-linear-gradient(
     90deg,
     #00000008 0 1px,

@@ -70,9 +70,9 @@ export default function MeetingRoomsPage() {
 
       <Section eyebrow="The space" heading="What you are booking" tone="bone">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          <Photo file="conference-a.jpg" alt="Conference Room A" caption="Conference Room A." />
-          <Photo file="conference-c.jpg" alt="Conference Room C" caption="Conference Room C." />
-          <Photo file="focus-room.jpg" alt="The focus room" caption="The focus room, seating four." />
+          <Photo file="meeting-room.jpg" alt="A conference room on the 5th floor" caption="One of three conference rooms." />
+          <Photo file="workspace.jpg" alt="Serviced workspace with glass partitions" caption="Rooms open onto the serviced floor." />
+          <Photo file="pantry.jpg" alt="The tea room and pantry" caption="The tea room, for shorter conversations." />
         </div>
       </Section>
 

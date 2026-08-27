@@ -85,9 +85,9 @@ export default function WorkspaceIndexPage() {
 
       <Section eyebrow="The floor" heading="What it actually looks like" tone="surface">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          <Photo file="workstations.jpg" alt="Serviced workstations" caption="Forty to fifty serviced workstations." />
-          <Photo file="conference-b.jpg" alt="Conference Room B" caption="Conference Room B." />
-          <Photo file="tea-room.jpg" alt="The tea room" caption="The tea room, for informal meetings." />
+          <Photo file="workspace.jpg" alt="Serviced workstations" caption="Serviced workstations on the main floor." />
+          <Photo file="meeting-room.jpg" alt="A meeting room" caption="Six bookable rooms on the same floor." />
+          <Photo file="pantry.jpg" alt="The tea room and pantry" caption="The tea room, for informal meetings." />
         </div>
       </Section>
 

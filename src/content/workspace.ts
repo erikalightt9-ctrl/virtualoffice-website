@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- *  CAPSULE — WORKSPACE PAGES
+ *  THE GROUNDS — WORKSPACE PAGES
  *  Each entry becomes a page at /workspace/[slug].
  *  Prices come from pricing.ts — the `pricingId` links the two.
  * ============================================================================

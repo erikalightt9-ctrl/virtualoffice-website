@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- *  CAPSULE — STANDALONE PAGE CONTENT
+ *  THE GROUNDS — STANDALONE PAGE CONTENT
  *  Location, About, Foreign Companies, Partners and How It Works.
  * ============================================================================
  */
@@ -13,7 +13,7 @@ export const location = {
     "A virtual office on the 5th floor of 104 Paseo de Roxas, Legaspi Village, Makati — staffed reception, six bookable rooms and serviced workstations.",
   headline: "Put Makati on your business card. Then come and see it.",
   intro:
-    "Capsule occupies the 5th floor of 104 Paseo de Roxas, Legaspi Village, San Lorenzo, Makati City, in the Makati central business district. Paseo de Roxas is one of the district's principal business streets.",
+    "The Grounds occupies the 5th floor of 104 Paseo de Roxas, Legaspi Village, San Lorenzo, Makati City, in the Makati central business district. Paseo de Roxas is one of the district's principal business streets.",
 
   facilities: [
     { name: "Conference rooms", detail: "Three rooms for meetings, presentations and board sessions." },
@@ -47,11 +47,10 @@ export const location = {
    */
   photoCaptions: [
     { file: "reception.jpg", caption: "Reception on the 5th floor, staffed through business hours." },
-    { file: "conference-a.jpg", caption: "Conference Room A, our largest meeting space." },
-    { file: "workstations.jpg", caption: "Serviced workstations on the main floor." },
-    { file: "meeting-room.jpg", caption: "The meeting room, seating six to seven." },
-    { file: "tea-room.jpg", caption: "The tea room, for informal meetings." },
-    { file: "building.jpg", caption: "104 Paseo de Roxas, Legaspi Village, San Lorenzo, Makati City." },
+    { file: "lounge.jpg", caption: "The lounge, where clients wait and members read." },
+    { file: "workspace.jpg", caption: "Serviced workstations on the main floor." },
+    { file: "meeting-room.jpg", caption: "One of six bookable rooms." },
+    { file: "pantry.jpg", caption: "The tea room, for informal meetings." },
   ],
 };
 
@@ -60,16 +59,16 @@ export const location = {
 export const about = {
   metaTitle: "About — A Virtual Office in Makati",
   metaDescription:
-    "Capsule is a virtual-office service at 104 Paseo de Roxas, Legaspi Village, Makati, operated by Philippine Dragon Media Network Corp.",
+    "The Grounds is a virtual-office service at 104 Paseo de Roxas, Legaspi Village, Makati, operated by Philippine Dragon Media Network Corp.",
   headline: "A real office, run by a company you can look up.",
   intro:
-    "Capsule exists because the gap between a mailbox and a Makati office lease is where most young companies actually live — and because too much of this market is addresses without offices behind them.",
+    "The Grounds exists because the gap between a mailbox and a Makati office lease is where most young companies actually live — and because too much of this market is addresses without offices behind them.",
 
   sections: [
     {
-      heading: "Who operates Capsule",
+      heading: "Who operates The Grounds",
       body: [
-        "Capsule is a virtual-office service operated by Philippine Dragon Media Network Corp., an SEC-registered Philippine corporation whose Articles of Incorporation include leasing and subleasing among its purposes.",
+        "The Grounds is a virtual-office service operated by Philippine Dragon Media Network Corp., an SEC-registered Philippine corporation whose Articles of Incorporation include leasing and subleasing among its purposes.",
         "That matters more than it sounds. When you use an address, you are relying on the operator's authority to provide it. Ours is documented, and we are happy to show you.",
       ],
     },
@@ -108,7 +107,7 @@ export const about = {
 export const partners = {
   metaTitle: "Referral Programme for Professionals",
   metaDescription:
-    "For accountants, lawyers and corporate service providers whose clients need a credible Makati business address. Refer a client to the Capsule virtual office.",
+    "For accountants, lawyers and corporate service providers whose clients need a credible Makati business address. Refer a client to the The Grounds virtual office.",
   headline: "For professionals whose clients need an address.",
   intro:
     "Accountants, lawyers and corporate service providers send us a good share of our clients. If your client needs a credible Makati business address — or one they can name as their registered business address — that is exactly what we do, and nothing beyond it.",
@@ -138,7 +137,7 @@ export const partners = {
 export const howItWorks = {
   metaTitle: "How It Works — Signing Up",
   metaDescription:
-    "Four steps to a Capsule virtual office: choose your package, submit documents for verification, sign and pay, and activate. Registered-address use is subject to approval.",
+    "Four steps to a virtual office at The Grounds: choose your package, submit documents for verification, sign and pay, and activate. Registered-address use is subject to approval.",
   headline: "Four steps, and one of them is us checking you out.",
   intro:
     "We screen applicants before activating an address. It adds a step, and it is the reason our address is worth registering at.",

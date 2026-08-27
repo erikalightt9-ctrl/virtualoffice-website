@@ -7,7 +7,7 @@ import { site } from "@/content/site";
 type Message = { role: "user" | "assistant"; content: string };
 
 /**
- * The floating assistant. Answers only from Capsule's own content — see
+ * The floating assistant. Answers only from the site's own content — see
  * src/lib/knowledge.ts for why it cannot invent a price.
  */
 export default function ChatWidget() {
@@ -119,7 +119,7 @@ export default function ChatWidget() {
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
-        aria-controls="capsule-chat-panel"
+        aria-controls="grounds-chat-panel"
         className="fixed bottom-5 right-5 z-[60] flex items-center gap-2.5 border border-clay bg-clay px-4 py-3 font-display text-[0.7rem] font-bold uppercase tracking-[0.1em] text-white shadow-lg transition-all hover:bg-clay-dark hover:shadow-xl sm:bottom-7 sm:right-7"
       >
         {open ? (
@@ -142,7 +142,7 @@ export default function ChatWidget() {
                 fill="currentColor"
               />
             </svg>
-            Ask Capsule
+            Ask us
           </>
         )}
       </button>
@@ -150,20 +150,20 @@ export default function ChatWidget() {
       {/* Panel */}
       {open ? (
         <div
-          id="capsule-chat-panel"
+          id="grounds-chat-panel"
           ref={panelRef}
           role="dialog"
-          aria-label="Ask Capsule"
+          aria-label="Ask us"
           className="fixed inset-x-3 bottom-20 z-[59] flex max-h-[min(640px,78vh)] flex-col border border-rule-dark bg-ink shadow-2xl sm:inset-x-auto sm:right-7 sm:bottom-24 sm:w-[400px]"
         >
           {/* Header */}
           <div className="flex items-start gap-3 border-b border-rule-dark px-4 py-3.5">
             <span className="mt-0.5 grid h-7 w-[18px] shrink-0 place-items-center rounded-full border border-clay font-display text-[0.58rem] font-semibold text-clay">
-              C
+              TG
             </span>
             <div className="flex flex-col gap-0.5">
               <span className="font-display text-[0.82rem] font-semibold tracking-[0.04em] text-on-dark">
-                Ask Capsule
+                Ask us
               </span>
               <span className="font-mono text-[0.6rem] uppercase tracking-[0.12em] text-on-dark-soft">
                 Answers from our published information
@@ -244,11 +244,11 @@ export default function ChatWidget() {
           {/* Composer */}
           <div className="border-t border-rule-dark px-4 py-3">
             <div className="flex items-end gap-2">
-              <label htmlFor="capsule-chat-input" className="sr-only">
+              <label htmlFor="grounds-chat-input" className="sr-only">
                 Your question
               </label>
               <textarea
-                id="capsule-chat-input"
+                id="grounds-chat-input"
                 ref={inputRef}
                 value={input}
                 onChange={(event) => setInput(event.target.value)}

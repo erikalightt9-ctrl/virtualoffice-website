@@ -16,7 +16,7 @@ export default function AboutPage() {
   return (
     <>
       <PageHeader
-        eyebrow="About Capsule"
+        eyebrow="About The Grounds"
         headline={about.headline}
         intro={about.intro}
       />
@@ -41,9 +41,9 @@ export default function AboutPage() {
 
       <Section eyebrow="The office" heading="Where we are" tone="bone">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          <Photo file="building.jpg" alt="104 Paseo de Roxas" caption="104 Paseo de Roxas, Legaspi Village, San Lorenzo, Makati City." />
+          <Photo file="lounge.jpg" alt="The client lounge on the 5th floor" caption="The lounge, on the 5th floor." />
           <Photo file="reception.jpg" alt="Reception on the 5th floor" caption="Reception, staffed through business hours." />
-          <Photo file="floor.jpg" alt="The 5th floor" caption="The 5th floor at 104 Paseo de Roxas." />
+          <Photo file="meeting-room.jpg" alt="A meeting room on the 5th floor" caption="One of six bookable rooms." />
         </div>
       </Section>
 
@@ -59,7 +59,7 @@ export default function AboutPage() {
             </p>
           ) : null}
           <p className="mt-3 text-[0.9rem] text-body-soft">
-            Capsule provides a virtual office and nothing beyond it. Company
+            The Grounds provides a virtual office and nothing beyond it. Company
             registration, government filings, business permits, bookkeeping,
             accounting, tax, payroll and corporate secretarial work are not
             services we offer, coordinate or advise on.

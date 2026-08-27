@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-labelledby="tgmTitle tgmDesc">
+  <title id="tgmTitle">The Grounds brand mark</title>
+  <desc id="tgmDesc">Concentric arcs rising from a ground line — canopy over ground — in charcoal and oak with a single clay accent.</desc>
+
+  <g fill="none" stroke-linecap="round">
+    <path d="M36 172 A 84 84 0 0 1 204 172" stroke="#1d1f21" stroke-width="14"/>
+    <path d="M58 172 A 62 62 0 0 1 182 172" stroke="#1d1f21" stroke-width="12" opacity=".55"/>
+    <path d="M80 172 A 40 40 0 0 1 160 172" stroke="#1d1f21" stroke-width="10" opacity=".3"/>
+    <path d="M22 172 H 218" stroke="#a68c73" stroke-width="10"/>
+  </g>
+  <circle cx="120" cy="88" r="8" fill="#b4462b"/>
+</svg>

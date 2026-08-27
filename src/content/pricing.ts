@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- *  CAPSULE — PRICING
+ *  THE GROUNDS — PRICING
  *
  *  THIS IS THE ONLY FILE YOU NEED TO EDIT TO CHANGE ANY PRICE ON THE SITE.
  *

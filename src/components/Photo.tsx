@@ -8,9 +8,9 @@ import path from "node:path";
  *
  * TO ADD THE REAL PHOTOGRAPHS:
  *   Drop the image files into  public/photos/  using these names:
- *     reception.jpg, conference-a.jpg, conference-b.jpg, conference-c.jpg,
- *     workstations.jpg, meeting-room.jpg, focus-room.jpg, tea-room.jpg,
- *     building.jpg, floor.jpg
+ *     reception.jpg, lounge.jpg, workspace.jpg, pantry.jpg, meeting-room.jpg
+ *   All five are present. Add more slots by adding a <Photo file="..."> call
+ *   and dropping a matching file in the same folder.
  *   Nothing else needs changing — the placeholders disappear on their own.
  */
 

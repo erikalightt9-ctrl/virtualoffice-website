@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- *  CAPSULE — LEGAL PAGES
+ *  THE GROUNDS — LEGAL PAGES
  *
  *  ⚠️  IMPORTANT: These are drafting starting points, not finished legal
  *      documents. They must be reviewed and adjusted by your counsel before
@@ -17,17 +17,17 @@ export const LEGAL_REVIEW_NOTICE =
 export const terms = {
   metaTitle: "Terms of Service",
   metaDescription:
-    "Capsule's terms for its virtual-office service at 104 Paseo de Roxas, Legaspi Village, Makati City - business address, mail handling, meeting rooms and workspace.",
+    "Terms for the virtual-office service at 104 Paseo de Roxas, Legaspi Village, Makati City - business address, mail handling, meeting rooms and workspace.",
   headline: "Terms of Service",
   intro:
-    "These terms summarise the basis on which Capsule provides its services. Your signed service agreement is the operative document and prevails over anything on this page.",
+    "These terms summarise the basis on which The Grounds provides its services. Your signed service agreement is the operative document and prevails over anything on this page.",
   updated: "August 2026",
   sections: [
     {
       heading: "The services",
       body: [
-        "Capsule provides a virtual-office service at 5th Floor, 104 Paseo de Roxas, Legaspi Village, San Lorenzo, Makati City: a business address, mail and document handling, meeting room access and serviced workspace. Services are provided by Philippine Dragon Media Network Corp.",
-        "Capsule does not provide, coordinate, arrange or advise on company registration or incorporation, filings with the SEC, the BIR or any other agency, business permits, bookkeeping, accounting, tax, payroll, corporate secretarial work, or business-setup consulting. Nothing in these terms or on this website should be read as an offer to perform any of that work.",
+        "The Grounds provides a virtual-office service at 5th Floor, 104 Paseo de Roxas, Legaspi Village, San Lorenzo, Makati City: a business address, mail and document handling, meeting room access and serviced workspace. Services are provided by Philippine Dragon Media Network Corp.",
+        "The Grounds does not provide, coordinate, arrange or advise on company registration or incorporation, filings with the SEC, the BIR or any other agency, business permits, bookkeeping, accounting, tax, payroll, corporate secretarial work, or business-setup consulting. Nothing in these terms or on this website should be read as an offer to perform any of that work.",
       ],
     },
     {
@@ -82,7 +82,7 @@ export const terms = {
 export const acceptableUse = {
   metaTitle: "Acceptable Use Policy",
   metaDescription:
-    "The businesses Capsule accepts and declines at its Makati virtual office, and the conduct required of clients using the address.",
+    "The businesses The Grounds accepts and declines at its Makati virtual office, and the conduct required of clients using the address.",
   headline: "Acceptable Use Policy",
   intro:
     "We publish this rather than keeping it private. If you are a legitimate business, it should reassure you: it is the reason our address is not shared with the kind of company you would not want to be listed beside.",
@@ -107,7 +107,7 @@ export const acceptableUse = {
       body: [
         "Use the address only as your package permits, and only for the entity named in your agreement. Do not sublicense, share or resell it.",
         "Keep your contact details and company information current. Respond to government correspondence we escalate to you. Treat our staff, our other clients and the premises with respect.",
-        "Do not represent that Capsule or Philippine Dragon Media Network Corp. registers companies, makes filings, obtains permits, or provides accounting, tax, payroll or any other professional service. We do not, and saying we do misleads whoever you say it to.",
+        "Do not represent that The Grounds or Philippine Dragon Media Network Corp. registers companies, makes filings, obtains permits, or provides accounting, tax, payroll or any other professional service. We do not, and saying we do misleads whoever you say it to.",
       ],
     },
     {
@@ -125,7 +125,7 @@ export const acceptableUse = {
 export const privacy = {
   metaTitle: "Privacy Policy",
   metaDescription:
-    "How Capsule collects, uses, stores and protects personal information, in line with the Philippine Data Privacy Act of 2012.",
+    "How The Grounds collects, uses, stores and protects personal information, in line with the Philippine Data Privacy Act of 2012.",
   headline: "Privacy Policy",
   intro:
     "Because we handle identification documents and company records, we act as a personal information controller under the Data Privacy Act of 2012 (Republic Act No. 10173). This page explains what we collect and what we do with it.",

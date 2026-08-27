@@ -1,4 +1,4 @@
-# CAPSULE Website Design Handoff
+# THE GROUNDS Website Design Handoff
 
 This file is automatically loaded by Claude Code through `CLAUDE.md`.
 
@@ -21,7 +21,7 @@ homepage, so there is never a question about which version is current.
 
 ## Positioning — the hard boundary
 
-**Capsule is a virtual-office service, operated by Philippine Dragon Media Network Corp.**
+**The Grounds is a virtual-office service, operated by Philippine Dragon Media Network Corp.**
 
 That is the entire offer:
 
@@ -31,7 +31,7 @@ That is the entire offer:
 - A **registered-address option** on eligible packages — a component of the
   virtual office, not a separate service
 
-### What Capsule does NOT offer, coordinate, arrange, facilitate or advise on
+### What The Grounds does NOT offer, coordinate, arrange, facilitate or advise on
 
 - SEC registration or filings
 - BIR registration or filings
@@ -43,9 +43,9 @@ That is the entire offer:
 - Corporate secretarial work
 - Market-entry or business-setup consulting
 
-There are **no partner firms** delivering any of that on Capsule's behalf. A
+There are **no partner firms** delivering any of that on our behalf. A
 client's registrations, filings, permits, tax obligations and compliance are
-theirs, to handle with their own advisers. Capsule is the address on the
+theirs, to handle with their own advisers. The Grounds is the address on the
 paperwork and nothing more.
 
 ### Copy rules
@@ -60,7 +60,7 @@ Never write, or imply:
 
 Write instead:
 
-> Capsule provides a professional virtual-office solution, including
+> The Grounds provides a professional virtual-office solution, including
 > registered-address options for businesses that need a credible Philippine
 > business address.
 
@@ -83,7 +83,7 @@ your registered business address, subject to approval) and be explicit about
 | `src/content/pricing.ts` | No registration or compliance products or bundles |
 | `src/content/faqs.ts` | Scope note; answers decline out-of-scope work plainly |
 | `src/content/legal.ts` | Terms state the exclusion explicitly |
-| `src/lib/chat-config.ts` | Chatbot guardrail: "What Capsule is, and is not" |
+| `src/lib/chat-config.ts` | Chatbot guardrail: "What The Grounds is, and is not" |
 | `src/components/Footer.tsx` | Site-wide disclaimer on every page |
 
 ## Physical-office design language
@@ -110,28 +110,28 @@ What the photographs actually contain, by share of frame:
 
 | Material | Share | Sampled | Token |
 | --- | --- | --- | --- |
-| Concrete and white — walls, desks, blinds | 30–62% | `#f1f2f2` → `#909090` | `--capsule-bone`, `--capsule-surface-2`, `--capsule-text-faint` |
-| Oak — floors, ceiling slats, joinery | 5–33% | `#a68c73` mean | `--capsule-oak`, `--capsule-oak-light`, `--capsule-oak-deep` |
-| Charcoal — exposed ceilings, steel, chairs | — | `#2e2f31`, `#16191c` | `--capsule-ink`, `--capsule-ink-2`, `--capsule-ink-3` |
-| Teal — the pantry wall | 1–6% | `#557f7b` | `--capsule-teal`, `--capsule-seafoam` |
-| Red — the leather sofa | small | `#70341a`–`#b4462b` | `--capsule-clay` |
+| Concrete and white — walls, desks, blinds | 30–62% | `#f1f2f2` → `#909090` | `--grounds-bone`, `--grounds-surface-2`, `--grounds-text-faint` |
+| Oak — floors, ceiling slats, joinery | 5–33% | `#a68c73` mean | `--grounds-oak`, `--grounds-oak-light`, `--grounds-oak-deep` |
+| Charcoal — exposed ceilings, steel, chairs | — | `#2e2f31`, `#16191c` | `--grounds-ink`, `--grounds-ink-2`, `--grounds-ink-3` |
+| Teal — the pantry wall | 1–6% | `#557f7b` | `--grounds-teal`, `--grounds-seafoam` |
+| Red — the leather sofa | small | `#70341a`–`#b4462b` | `--grounds-clay` |
 
 Two rules follow from the measurements:
 
 1. **Warm oak and concrete carry the page.** They are what the room is mostly
    made of, so they are what the site is mostly made of.
 2. **Red is reserved for actions**, exactly as the office reserves it — one
-   sofa in 613 square metres. It is never decoration.
+   sofa on the whole floor. It is never decoration.
 
 There is no gold in the office, and there is none in the palette. The earlier
 navy-and-gold scheme has been removed.
 
 ### Contrast
 
-Checked against WCAG before adoption. `--capsule-clay` on `--capsule-bone` is
+Checked against WCAG before adoption. `--grounds-clay` on `--grounds-bone` is
 4.88:1 and white on clay is 5.45:1, so the accent is safe for body text and
-buttons. `--capsule-text-faint` (2.96:1) is a border and surface colour only —
-never text. `--capsule-oak` and `--capsule-amber` are surface tones, not text.
+buttons. `--grounds-text-faint` (2.96:1) is a border and surface colour only —
+never text. `--grounds-oak` and `--grounds-amber` are surface tones, not text.
 
 ### Material motifs
 
@@ -153,11 +153,11 @@ not about expansion, market entry or establishing operations.
 
 Use these real facility assets rather than generated or stock office imagery:
 
-- `public/photos/capsule-reception.jpg`
-- `public/photos/capsule-lounge.jpg`
-- `public/photos/capsule-pantry.jpg`
-- `public/photos/capsule-workspace.jpg`
-- `public/photos/capsule-meeting-room.jpg`
+- `public/photos/reception.jpg`
+- `public/photos/lounge.jpg`
+- `public/photos/pantry.jpg`
+- `public/photos/workspace.jpg`
+- `public/photos/meeting-room.jpg`
 
 Do not materially alter the photographs or represent generated spaces as the actual facility. Use `next/image`, meaningful alt text, responsive `sizes`, and appropriate `object-position` values.
 
@@ -165,23 +165,28 @@ Do not materially alter the photographs or represent generated spaces as the act
 
 Current tagline:
 
-> Your Space. Your Business. Beyond Boundaries.
+> A destination for business, ideas & connection
 
-Available logo explorations:
+Logo assets, built in the office palette:
 
-- `public/capsule-logo.svg`
-- `public/capsule-logo-inverse.svg` — used in the homepage's closing panel
-- `public/capsule-mark.svg`
+- `public/the-grounds-logo.svg`
+- `public/the-grounds-logo-inverse.svg` — used in the homepage's closing panel
+- `public/the-grounds-mark.svg`
 
-The Concept Two logo variants were deleted with that concept. Confirm the final
-selected logo with the user before replacing global production branding.
+These are serviceable working assets, not a finished identity — the mark is
+concentric arcs rising from a ground line (canopy over ground) and the wordmark
+is set in a system font. Have a designer produce the final artwork with the
+brand typeface converted to outlines before it goes on signage.
+
+**The brand is always "The Grounds" — never "Grounds" on its own.**
 
 ## Content and data rules
 
 - Keep prices centralized in `src/content/pricing.ts`.
 - Keep address, contact, operator, and navigation data centralized in `src/content/site.ts`.
-- Preserve compliance caveats and never guarantee government approval or timelines.
-- Professional regulated services are coordinated through qualified partner firms where stated.
+- Preserve the scope caveats. Never imply we register companies, make filings,
+  obtain permits, or handle accounting, tax or payroll — see the positioning
+  boundary above.
 - Do not invent contact details, registration numbers, client counts, or facility facts.
 
 ## Development and verification

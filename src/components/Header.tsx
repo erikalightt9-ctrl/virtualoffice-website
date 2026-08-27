@@ -18,7 +18,7 @@ export default function Header() {
           onClick={() => setOpen(false)}
         >
           <span className="flex items-center gap-3">
-            <span className="grid h-8 w-5 place-items-center rounded-full border border-clay text-[0.62rem] font-semibold text-clay">C</span>
+            <span className="grid h-8 w-5 place-items-center rounded-full border border-clay text-[0.62rem] font-semibold text-clay">TG</span>
             <span className="font-display text-[1.15rem] font-semibold tracking-[0.22em] text-on-dark">{site.wordmark}</span>
           </span>
         </Link>
