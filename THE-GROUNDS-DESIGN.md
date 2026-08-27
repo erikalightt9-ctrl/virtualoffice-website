@@ -187,16 +187,32 @@ Current tagline:
 
 > A destination for business, ideas & connection
 
-Logo assets, built in the office palette:
+Logo assets, traced from the supplied artwork:
 
-- `public/the-grounds-logo.svg`
-- `public/the-grounds-logo-inverse.svg` — used in the homepage's closing panel
-- `public/the-grounds-mark.svg`
+- `public/the-grounds-logo.svg` — horizontal lockup
+- `public/the-grounds-logo-inverse.svg` — lockup for dark grounds
+- `public/the-grounds-mark.svg` — mark only
+- `public/the-grounds-mark-inverse.svg` — mark only, for dark grounds
 
-These are serviceable working assets, not a finished identity — the mark is
-concentric arcs rising from a ground line (canopy over ground) and the wordmark
-is set in a system font. Have a designer produce the final artwork with the
-brand typeface converted to outlines before it goes on signage.
+The mark is a doorway drawn as nested frames with a handle, and a path that
+comes in along the ground and rises up through it. Its colours: charcoal
+`#2B2B2B`, grey `#8A8A8A`, a copper handle `#BE7D3E`, and the path running
+`#C0392B` to `#D2691E` with a `#A02128` head.
+
+Intrinsic sizes — match these ratios or the artwork squashes:
+
+| Asset | viewBox | Ratio |
+| --- | --- | --- |
+| lockup | 1320 × 300 | 4.40 : 1 |
+| mark | 320 × 280 | 1.14 : 1 |
+
+**These are traced from a raster image, not the original vector.** Ask the
+designer for the source file (AI, EPS or SVG) before anything goes to print or
+signage, and note that the wordmark here is live `<text>` in a Montserrat
+fallback stack rather than outlines — on screen it is close, in print it is
+wrong. Two things to watch when replacing them: XML comments must not contain a
+double hyphen (it silently breaks the whole SVG), and the wordmark should be
+converted to outlines.
 
 **The brand is always "The Grounds" — never "Grounds" on its own.**
 

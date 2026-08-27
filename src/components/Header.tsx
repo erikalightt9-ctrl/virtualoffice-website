@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { mainNav, site } from "@/content/site";
@@ -18,7 +19,14 @@ export default function Header() {
           onClick={() => setOpen(false)}
         >
           <span className="flex items-center gap-3">
-            <span className="grid h-8 w-5 place-items-center rounded-full border border-clay text-[0.62rem] font-semibold text-clay">TG</span>
+            <Image
+              src="/the-grounds-mark-inverse.svg"
+              width={38}
+              height={33}
+              alt=""
+              aria-hidden="true"
+              priority
+            />
             <span className="font-display text-[1.15rem] font-semibold tracking-[0.22em] text-on-dark">{site.wordmark}</span>
           </span>
         </Link>

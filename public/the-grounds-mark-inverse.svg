@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 280" role="img" aria-labelledby="tgmiTitle tgmiDesc">
+  <title id="tgmiTitle">The Grounds</title>
+  <desc id="tgmiDesc">A doorway drawn as nested frames with a handle, and a path sweeping in from the ground and rising up through it. Inverse, for dark backgrounds.</desc>
+
+  <defs>
+    <linearGradient id="tgmiPath" x1="18" y1="264" x2="290" y2="150" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#D4503C"/>
+      <stop offset=".55" stop-color="#E07B33"/>
+      <stop offset="1" stop-color="#D4603C"/>
+    </linearGradient>
+  </defs>
+
+  <path d="M22 262 V30 H258 V262" fill="none" stroke="#F2EFE9" stroke-width="20" stroke-linejoin="miter"/>
+  <path d="M78 238 V78 H210 V238" fill="none" stroke="#A8A49D" stroke-width="9" stroke-linejoin="miter"/>
+  <circle cx="143" cy="137" r="11" fill="#D19A57"/>
+  <path d="M18 264 H118 C205 264 245 226 281 168" fill="none" stroke="url(#tgmiPath)"
+        stroke-width="26" stroke-linecap="round"/>
+  <path d="M264 190 L289 145 L305 180" fill="none" stroke="#C4443C"
+        stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

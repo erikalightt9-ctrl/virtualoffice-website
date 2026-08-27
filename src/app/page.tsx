@@ -81,13 +81,13 @@ export default function HomePage() {
 
       <section className={styles.supportSection}>
         <div className={styles.supportMark}>
-          <Image src="/the-grounds-mark.svg" width={260} height={260} alt="" aria-hidden="true" />
+          <Image src="/the-grounds-mark.svg" width={260} height={228} alt="" aria-hidden="true" />
         </div>
         <div><p className={styles.eyebrow}>The company behind The Grounds</p><h2>Professionally managed in Makati.</h2><p>The Grounds is a virtual-office service operated by Philippine Dragon Media Network Corp. Our on-site team manages the business address, reception, mail handling, meeting-room access and day-to-day client support.</p><Link href="/about" className={styles.textLink}>About The Grounds ↗</Link></div>
       </section>
 
       <section className={styles.finalCta}>
-        <Image src="/the-grounds-logo-inverse.svg" width={460} height={120} alt="The Grounds — a destination for business, ideas and connection" />
+        <Image src="/the-grounds-logo-inverse.svg" width={462} height={105} alt="The Grounds — a destination for business, ideas and connection" />
         <h2>Give your business<br />the space to move forward.</h2><p>Tell us what you are building. We’ll help create the right professional presence around it.</p><Link href="/contact" className={styles.primary}>Speak with our team <span>↗</span></Link>
       </section>
     </div>

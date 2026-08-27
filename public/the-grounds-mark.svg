@@ -1,12 +1,29 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-labelledby="tgmTitle tgmDesc">
-  <title id="tgmTitle">The Grounds brand mark</title>
-  <desc id="tgmDesc">Concentric arcs rising from a ground line — canopy over ground — in charcoal and oak with a single clay accent.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 280" role="img" aria-labelledby="tgmTitle tgmDesc">
+  <title id="tgmTitle">The Grounds</title>
+  <desc id="tgmDesc">A doorway drawn as nested frames with a handle, and a path sweeping in from the ground and rising up through it.</desc>
 
-  <g fill="none" stroke-linecap="round">
-    <path d="M36 172 A 84 84 0 0 1 204 172" stroke="#1d1f21" stroke-width="14"/>
-    <path d="M58 172 A 62 62 0 0 1 182 172" stroke="#1d1f21" stroke-width="12" opacity=".55"/>
-    <path d="M80 172 A 40 40 0 0 1 160 172" stroke="#1d1f21" stroke-width="10" opacity=".3"/>
-    <path d="M22 172 H 218" stroke="#a68c73" stroke-width="10"/>
-  </g>
-  <circle cx="120" cy="88" r="8" fill="#b4462b"/>
+  <defs>
+    <linearGradient id="tgPath" x1="18" y1="264" x2="290" y2="150" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#C0392B"/>
+      <stop offset=".55" stop-color="#D2691E"/>
+      <stop offset="1" stop-color="#C1502E"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer doorway. Open at the foot, where the path enters. -->
+  <path d="M22 262 V30 H258 V262" fill="none" stroke="#2B2B2B" stroke-width="20" stroke-linejoin="miter"/>
+
+  <!-- Inner frame -->
+  <path d="M78 238 V78 H210 V238" fill="none" stroke="#8A8A8A" stroke-width="9" stroke-linejoin="miter"/>
+
+  <!-- Handle -->
+  <circle cx="143" cy="137" r="11" fill="#BE7D3E"/>
+
+  <!-- The path: along the ground, then rising -->
+  <path d="M18 264 H118 C205 264 245 226 281 168" fill="none" stroke="url(#tgPath)"
+        stroke-width="26" stroke-linecap="round"/>
+
+  <!-- Arrowhead -->
+  <path d="M264 190 L289 145 L305 180" fill="none" stroke="#A02128"
+        stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

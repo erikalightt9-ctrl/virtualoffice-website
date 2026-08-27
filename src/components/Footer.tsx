@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import Container from "./Container";
 import { footerNav, site } from "@/content/site";
@@ -10,7 +11,7 @@ export default function Footer() {
       <Container className="py-14">
         <div className="grid gap-10 lg:grid-cols-[1.1fr_2fr]">
           <div className="flex flex-col gap-5">
-            <span className="flex items-center gap-3 font-display text-[1.25rem] font-semibold tracking-[0.2em]"><span className="grid h-9 w-6 place-items-center rounded-full border border-clay text-[0.65rem] text-clay">TG</span>{site.wordmark}</span>
+            <span className="flex items-center gap-3 font-display text-[1.25rem] font-semibold tracking-[0.2em]"><Image src="/the-grounds-mark-inverse.svg" width={42} height={37} alt="" aria-hidden="true" />{site.wordmark}</span>
             <p className="max-w-[26ch] text-[0.82rem] uppercase tracking-[0.08em] text-on-dark-soft">{site.tagline}</p>
             <address className="not-italic text-[0.92rem] leading-relaxed text-on-dark-soft">
               {site.address.floor}

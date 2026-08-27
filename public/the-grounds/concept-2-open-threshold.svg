@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" role="img" aria-labelledby="title desc">
+  <title id="title">THE GROUNDS — Open Threshold logo</title>
+  <desc id="desc">An open architectural threshold with a path moving toward opportunity</desc>
+  <defs><linearGradient id="warm" x1="56" y1="46" x2="248" y2="236" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#A71928"/><stop offset=".52" stop-color="#D84B43"/><stop offset="1" stop-color="#B87748"/></linearGradient></defs>
+  <path d="M70 225V62h160v92" fill="none" stroke="#282A29" stroke-width="16" stroke-linecap="square"/>
+  <path d="M103 225V96h94v75" fill="none" stroke="#777773" stroke-width="8"/>
+  <path d="M70 225h81c39 0 70-19 93-57" fill="none" stroke="url(#warm)" stroke-width="17" stroke-linecap="round"/>
+  <path d="m231 170 18-22 6 28" fill="none" stroke="#A71928" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="150" cy="143" r="9" fill="#B87748"/>
+  <text x="306" y="103" fill="#777773" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="600" letter-spacing="12">THE</text>
+  <text x="300" y="188" fill="#282A29" font-family="Arial, Helvetica, sans-serif" font-size="88" font-weight="600" letter-spacing="13">GROUNDS</text>
+  <text x="306" y="246" fill="#656660" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="500" letter-spacing="3.2">A DESTINATION FOR BUSINESS, IDEAS &amp; CONNECTION.</text>
+</svg>

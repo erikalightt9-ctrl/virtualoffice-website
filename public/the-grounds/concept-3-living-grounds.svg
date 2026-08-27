@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" role="img" aria-labelledby="title desc">
+  <title id="title">THE GROUNDS — Living Grounds logo</title>
+  <desc id="desc">Layered topographic contours forming an abstract letter G</desc>
+  <defs><linearGradient id="warm" x1="48" y1="46" x2="250" y2="237" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#A71928"/><stop offset=".5" stop-color="#D84B43"/><stop offset="1" stop-color="#B87748"/></linearGradient></defs>
+  <g fill="none" stroke-linecap="round">
+    <path d="M236 92c-23-32-57-49-94-45-53 5-94 48-94 101 0 58 47 105 105 105 43 0 80-26 96-64h-91" stroke="#777773" stroke-width="9"/>
+    <path d="M218 105c-19-24-45-37-74-34-40 4-71 37-71 77 0 44 36 80 80 80 31 0 58-18 71-44h-66" stroke="#9A9891" stroke-width="8"/>
+    <path d="M199 119c-14-16-34-24-54-22-27 3-48 25-48 52 0 30 24 54 54 54 20 0 38-11 47-27h-40" stroke="url(#warm)" stroke-width="11"/>
+    <path d="M179 134c-8-8-18-12-29-11-14 1-26 13-26 28 0 16 13 29 29 29 9 0 17-4 22-10" stroke="#75472E" stroke-width="7"/>
+  </g>
+  <circle cx="236" cy="92" r="9" fill="#A71928"/><circle cx="199" cy="119" r="7" fill="#B87748"/>
+  <text x="306" y="103" fill="#777773" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="600" letter-spacing="12">THE</text>
+  <text x="300" y="188" fill="#282A29" font-family="Arial, Helvetica, sans-serif" font-size="88" font-weight="600" letter-spacing="13">GROUNDS</text>
+  <text x="306" y="246" fill="#656660" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="500" letter-spacing="3.2">A DESTINATION FOR BUSINESS, IDEAS &amp; CONNECTION.</text>
+</svg>
