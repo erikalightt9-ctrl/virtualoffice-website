@@ -2,20 +2,22 @@
 
 This file is automatically loaded by Claude Code through `CLAUDE.md`.
 
-## Active design direction
+## The design direction
 
-The current office-led design is implemented at `/concept-3`:
+There is one direction. The office-led design is the homepage:
 
-- Page: `src/app/concept-3/page.tsx`
-- Scoped styles: `src/app/concept-3/concept.module.css`
+- Page: `src/app/page.tsx`
+- Scoped styles: `src/app/home.module.css`
+- Global tokens and material motifs: `src/app/globals.css`
 
-Treat Concept Three as the active visual direction unless the user explicitly selects another concept or asks to promote it to `/`.
+The exploratory concepts have been deleted. Concept One (the previous homepage)
+and Concept Two (the Dragon Orbit exploration) are gone, along with their
+stylesheets and their logo variants. They remain in git history if anything ever
+needs recovering, but they are not part of the site and should not be revived
+without being asked.
 
-The other routes are retained for comparison:
-
-- `/` — Concept One
-- `/concept-2` — Dragon Orbit exploration
-- `/concept-3` — Professional Space, based on the real office
+**Do not add new `/concept-*` routes.** Change the design in place, on the
+homepage, so there is never a question about which version is current.
 
 ## Brand positioning
 
@@ -120,13 +122,11 @@ Current tagline:
 Available logo explorations:
 
 - `public/capsule-logo.svg`
-- `public/capsule-logo-inverse.svg`
+- `public/capsule-logo-inverse.svg` — used in the homepage's closing panel
 - `public/capsule-mark.svg`
-- `public/capsule-logo-concept-2.svg`
-- `public/capsule-logo-concept-2-inverse.svg`
-- `public/capsule-mark-concept-2.svg`
 
-Confirm the final selected logo with the user before replacing global production branding.
+The Concept Two logo variants were deleted with that concept. Confirm the final
+selected logo with the user before replacing global production branding.
 
 ## Content and data rules
 
