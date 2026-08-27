@@ -60,13 +60,6 @@ export default async function ServicePage({ params }: Params) {
           ))}
         </ul>
 
-        {service.deliveredByPartners ? (
-          <p className="mt-8 max-w-[66ch] border-l-2 border-clay bg-clay-wash px-4 py-3 text-[0.88rem] text-body-soft">
-            This service is delivered by the licensed professional firms we work
-            with, not by Capsule directly. We coordinate the engagement, provide
-            the registered address, and remain your single point of contact.
-          </p>
-        ) : null}
       </Section>
 
       {service.sections.map((section, index) => (
@@ -90,12 +83,10 @@ export default async function ServicePage({ params }: Params) {
           eyebrow="Pricing"
           heading={
             service.pricingBlock === "address"
-              ? "Address tiers"
-              : service.pricingBlock === "registration"
-                ? "Registration and compliance services"
-                : service.pricingBlock === "workspace"
-                  ? "Workspace rates"
-                  : "Meeting room rates"
+              ? "Virtual office packages"
+              : service.pricingBlock === "workspace"
+                ? "Workspace rates"
+                : "Meeting room rates"
           }
           tone="bone"
         >

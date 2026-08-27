@@ -1,9 +1,16 @@
 # Capsule — website
 
-Marketing and lead-generation site for Capsule, the business address and
-workspace service at 5th Floor, 104 Paseo de Roxas, Legaspi Village,
-San Lorenzo, Makati City, operated by
-Philippine Dragon Media Network Corp.
+Marketing and lead-generation site for Capsule, a **virtual-office service**
+at 5th Floor, 104 Paseo de Roxas, Legaspi Village, San Lorenzo, Makati City,
+operated by Philippine Dragon Media Network Corp.
+
+> **Scope.** Capsule offers a business address, mail handling, meeting rooms and
+> workspace, with a registered-address option on eligible packages. It does
+> **not** provide, coordinate or advise on company registration, SEC or BIR
+> filings, business permits, bookkeeping, accounting, tax, payroll, corporate
+> secretarial work or business-setup consulting. Copy must never imply
+> otherwise — see `CAPSULE-DESIGN.md` for the full boundary and the wording to
+> use.
 
 Next.js 16 (App Router) · TypeScript · Tailwind CSS 4 · Zod
 
@@ -39,8 +46,9 @@ price12: null        // shows as "Enquire"
 published: false     // hides that tier or product entirely
 ```
 
-The file covers address tiers, workspace products, meeting rooms, registration
-services and the Capsule Launch bundle.
+The file covers the three address packages, workspace products and meeting
+rooms. There are deliberately no registration, compliance or bundle products —
+see the scope note above.
 
 ### The "indicative rates" notice
 
@@ -59,12 +67,12 @@ The notice then disappears from every page.
 
 | What you want to change | File |
 | --- | --- |
-| Prices, tiers, packages, bundle | `src/content/pricing.ts` |
+| Prices, packages, workspace, rooms | `src/content/pricing.ts` |
 | Phone, email, Viber, address, office hours, navigation | `src/content/site.ts` |
-| Service pages (7 of them) | `src/content/services.ts` |
+| Service pages (3 of them) | `src/content/services.ts` |
 | Workspace pages (4 of them) | `src/content/workspace.ts` |
 | FAQ questions and answers | `src/content/faqs.ts` |
-| Location, About, Foreign Companies, Partners, How It Works | `src/content/pages.ts` |
+| Location, About, Referral Programme, How It Works | `src/content/pages.ts` |
 | Terms, Acceptable Use, Privacy | `src/content/legal.ts` |
 | Colours and fonts | `src/app/globals.css` |
 
@@ -108,20 +116,20 @@ Viber/Slack notification — whatever the team actually watches. **If the variab
 is not set, enquiries are written to the server log only.** Set it before launch.
 
 Each lead carries the visitor's name, email, mobile, company, the service they
-selected, the pricing tier they clicked from (`plan`), and the referring partner
+selected, the package they clicked from (`plan`), and the referring firm
 (`referrer`).
 
-### Partner referral tracking
+### Referral tracking
 
-Give each partner firm a link with their reference on the end:
+Give each referring firm a link with their reference on the end:
 
 ```
 https://capsule.ph/contact?ref=firm-name
 ```
 
 Any enquiry through that link is tagged with `referrer: "firm-name"` so the
-introduction can be credited. Deep links work too — send a partner's client
-straight to a service page or to `/pricing`.
+introduction can be credited. Deep links work too — send their client straight
+to a service page or to `/pricing`.
 
 ---
 
@@ -181,13 +189,16 @@ adding to the FAQ.
 
 - **Never invents a price.** Quotes only what is in the knowledge base, and
   carries the "indicative rates" qualification while it is set.
-- **Never confirms registration eligibility.** It can explain which tiers are
-  eligible in principle and what the process is, but it will not tell anyone
+- **Never confirms registered-address eligibility.** It can explain which
+  packages offer the option and what the process is, but it will not tell anyone
   they qualify — that is a human decision after reviewing documents.
-- **Never promises a government outcome or timeline.**
-- **Gives no legal, tax or accounting advice.**
-- Describes partner-delivered work as coordinated through licensed partner
-  firms, never as something Capsule provides.
+- **Refuses out-of-scope work plainly.** Asked whether Capsule can register a
+  company, handle filings, process permits, keep books or run payroll, it says
+  no and explains what Capsule actually does. It will not soften that into
+  "we can help" or "through our partners".
+- **Never speaks to government outcomes**, since Capsule has no involvement in
+  them.
+- **Gives no legal, tax, accounting or business-setup advice.**
 - Replies in the visitor's language.
 - Treats visitor messages as input, not instructions — attempts to override the
   rules, claim staff authority, or extract the prompt are declined.
@@ -203,7 +214,7 @@ export const CHAT_MODEL = "claude-opus-5";
 ```
 
 Opus 5 is the most capable option, which matters when the assistant is
-discussing money and compliance with prospects. If conversation volume makes it
+discussing money and eligibility with prospects. If conversation volume makes it
 expensive, `claude-sonnet-5` is the sensible step down and `claude-haiku-4-5`
 the cheapest — both handle grounded question answering well. Prompt caching
 already keeps the large knowledge base from being the dominant cost; check the

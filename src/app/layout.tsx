@@ -30,14 +30,14 @@ const plexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — Your Philippine Business Gateway`,
+    default: `${site.name} — Virtual Office in Makati`,
     template: `%s | ${site.name}`,
   },
   description: site.description,
   openGraph: {
     type: "website",
     siteName: site.name,
-    title: `${site.name} — Your Philippine Business Gateway`,
+    title: `${site.name} — Virtual Office in Makati`,
     description: site.description,
     locale: "en_PH",
   },
@@ -57,7 +57,7 @@ export default function RootLayout({
 }) {
   const localBusiness = {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
+    "@type": "LocalBusiness",
     name: site.name,
     description: site.description,
     url: site.url,
@@ -73,6 +73,8 @@ export default function RootLayout({
       addressCountry: "PH",
     },
     areaServed: "Philippines",
+    knowsAbout:
+      "Virtual office, business address, mail handling, meeting rooms, coworking",
   };
 
   return (

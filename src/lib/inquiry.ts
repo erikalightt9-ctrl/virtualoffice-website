@@ -6,14 +6,13 @@ import { z } from "zod";
  */
 
 export const SERVICE_OPTIONS = [
-  { value: "registered-address", label: "Registered business address (SEC / BIR / permits)" },
-  { value: "virtual-office", label: "Virtual office / business address" },
-  { value: "company-registration", label: "Company registration" },
+  { value: "virtual-office", label: "Virtual office \u2014 business address and mail" },
+  { value: "registered-address", label: "Registered-address package" },
   { value: "workspace", label: "Desk, team space or private office" },
   { value: "meeting-room", label: "Meeting room booking" },
-  { value: "accounting-payroll", label: "Accounting, tax, payroll or HR" },
-  { value: "foreign-entry", label: "Foreign company entering the Philippines" },
-  { value: "partner", label: "I am a consultant referring a client" },
+  { value: "day-pass", label: "Day pass" },
+  { value: "visit", label: "I would like to see the office" },
+  { value: "partner", label: "I am a professional referring a client" },
   { value: "other", label: "Something else" },
 ] as const;
 

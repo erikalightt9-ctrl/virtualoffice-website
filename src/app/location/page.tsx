@@ -82,7 +82,7 @@ export default function LocationPage() {
       <Section
         eyebrow="Facilities"
         heading="What is on the floor"
-        intro="Approximately 613 square metres of serviced space, all on the 5th floor."
+        intro="All on the 5th floor of 104 Paseo de Roxas."
         tone="surface"
       >
         <div className="grid gap-px bg-rule sm:grid-cols-2 lg:grid-cols-4">

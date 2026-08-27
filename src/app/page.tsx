@@ -14,18 +14,18 @@ export const metadata: Metadata = {
 
 const services = [
   { number: "01", title: "Virtual Office", text: "Build credibility with a professional Makati business address and a real team behind it.", href: "/services/virtual-office" },
-  { number: "02", title: "Registered Address", text: "An eligible address for SEC, BIR, and Mayor’s Permit registration, subject to approval.", href: "/services/registered-business-address" },
+  { number: "02", title: "Registered Address", text: "Explore address-use options for an existing or newly formed business, subject to package eligibility and review.", href: "/services/registered-business-address" },
   { number: "03", title: "Workspace", text: "Workstations, team spaces, and private offices available when your business needs them.", href: "/workspace" },
   { number: "04", title: "Meeting Rooms", text: "Professional rooms for client meetings, interviews, presentations, and focused work.", href: "/meeting-rooms" },
   { number: "05", title: "Mail & Administration", text: "Reliable mail handling, document coordination, and on-site administrative support.", href: "/services/mail-handling" },
-  { number: "06", title: "Business Support", text: "Company registration and continuing professional support through trusted partners.", href: "/services/company-registration" },
+  { number: "06", title: "Day Office Access", text: "Use a professional place to work or meet without committing to a traditional office lease.", href: "/workspace/day-pass" },
 ];
 
 const steps = [
-  ["Tell us what you need", "Share your company stage, business activity, and preferred setup."],
-  ["Select your solution", "We recommend the appropriate address, workspace, and support package."],
+  ["Tell us what you need", "Share your business activity and the kind of presence you are after."],
+  ["Choose your package", "We confirm which address, workspace and room allocation fits, and whether the registered-address option is available to you."],
   ["Complete verification", "Submit the required company and identification documents for review."],
-  ["Operate from Makati", "Begin using your professional presence with support from our on-site team."],
+  ["Start using the address", "Your address goes live and our on-site team begins handling your mail."],
 ];
 
 export default function HomePage() {
@@ -36,21 +36,21 @@ export default function HomePage() {
           <div className={styles.heroCopy}>
             <p className={styles.eyebrow}>Premium virtual office solutions in Makati</p>
             <h1>A professional space<br />for business <em>without boundaries.</em></h1>
-            <p>Establish your company at 104 Paseo de Roxas with a credible business address, staffed reception, flexible workspace, meeting rooms, and practical local support.</p>
+            <p>A professional business address at 104 Paseo de Roxas, with a staffed reception, mail handled by our own team, meeting rooms and workspace on the same floor.</p>
             <div className={styles.actions}><Link href="/contact" className={styles.primary}>Find your solution <span>↗</span></Link><Link href="/pricing" className={styles.secondary}>View packages <span>→</span></Link></div>
-            <div className={styles.heroTrust}><span>SEC, BIR &amp; LGU support</span><span>Staffed Makati facility</span><span>Foreign-client ready</span></div>
+            <div className={styles.heroTrust}><span>Professional Makati address</span><span>Staffed reception</span><span>Flexible workspace access</span></div>
           </div>
           <div className={styles.officeVisual}>
             <Image src="/photos/capsule-reception.jpg" fill priority sizes="(max-width: 1000px) 100vw, 50vw" alt="CAPSULE reception and administrative desk at 104 Paseo de Roxas" />
             <div className={styles.officePanel}><small>YOUR BUSINESS PRESENCE</small><strong>104 Paseo de Roxas</strong><span>Legaspi Village · Makati City</span></div><div className={styles.orbitLine} aria-hidden="true"><i /></div>
           </div>
         </div>
-        <div className={styles.factBar}><div><strong>613 sqm</strong><span>professional facility</span></div><div><strong>6 rooms</strong><span>meetings &amp; conferences</span></div><div><strong>5th floor</strong><span>104 Paseo de Roxas</span></div><div><strong>On-site team</strong><span>reception &amp; administration</span></div></div>
+        <div className={styles.factBar}><div><strong>Makati CBD</strong><span>professional business address</span></div><div><strong>6 rooms</strong><span>meetings &amp; conferences</span></div><div><strong>5th floor</strong><span>104 Paseo de Roxas</span></div><div><strong>On-site team</strong><span>reception &amp; administration</span></div></div>
       </section>
 
       <section className={styles.introSection}>
-        <div className={styles.introTitle}><p className={styles.eyebrow}>A complete virtual office platform</p><h2>More than a business address.</h2></div>
-        <div className={styles.introCopy}><p>CAPSULE gives businesses the professional infrastructure of an established office—without the cost and restriction of maintaining a traditional workplace.</p><p>Use the address. Meet clients. Receive documents. Register your company. Work on site when needed. Add professional support as you grow.</p></div>
+        <div className={styles.introTitle}><p className={styles.eyebrow}>What the virtual office includes</p><h2>More than a business address.</h2></div>
+        <div className={styles.introCopy}><p>CAPSULE gives businesses the professional infrastructure of an established office without the cost and restriction of maintaining a traditional workplace.</p><p>Use a professional address. Receive business mail. Meet clients. Work on site when needed. Expand into a more complete workspace as your business grows.</p></div>
       </section>
 
       <section className={styles.officeGallery}>
@@ -65,7 +65,7 @@ export default function HomePage() {
 
       <section className={styles.locationSection}>
         <div className={styles.locationVisual}><Image src="/photos/capsule-meeting-room.jpg" fill sizes="(max-width: 1000px) 100vw, 53vw" alt="CAPSULE meeting room with wood-slat ceiling and professional seating" /><div className={styles.locationBadge}><small>Makati CBD</small><strong>A real place<br />behind your presence.</strong></div></div>
-        <div className={styles.locationCopy}><p className={styles.eyebrow}>A real office behind your address</p><h2>Professional presence starts with a professional place.</h2><p>Our 613 sqm facility on the fifth floor of 104 Paseo de Roxas provides the substance behind your virtual office—from reception and mail handling to workstations, meeting rooms, and inspection accommodation.</p><ul><li><span>01</span>Established Makati CBD address</li><li><span>02</span>Reception staffed every business day</li><li><span>03</span>Flexible workstations and private spaces</li><li><span>04</span>Six bookable meeting and conference rooms</li></ul><Link href="/location" className={styles.textLink}>Explore the location ↗</Link></div>
+        <div className={styles.locationCopy}><p className={styles.eyebrow}>A real office behind your address</p><h2>Professional presence starts with a professional place.</h2><p>Our fifth-floor office at 104 Paseo de Roxas gives your virtual office a credible physical base, with staffed reception, organized mail handling, flexible workstations and professional meeting rooms.</p><ul><li><span>01</span>Established Makati CBD address</li><li><span>02</span>Reception staffed every business day</li><li><span>03</span>Flexible workstations and private spaces</li><li><span>04</span>Six bookable meeting and conference rooms</li></ul><Link href="/location" className={styles.textLink}>Explore the location ↗</Link></div>
       </section>
 
       <section className={styles.processSection}>
@@ -74,14 +74,14 @@ export default function HomePage() {
       </section>
 
       <section className={styles.pricingSection}>
-        <div className={styles.sectionHeading}><div><p className={styles.eyebrow}>Clear virtual office packages</p><h2>Choose the presence your business requires.</h2></div><p>Start with a professional address, add registration eligibility, or select a more complete operational presence.</p></div>
-        <div className={styles.pricingGrid}>{publishedAddressTiers.map((tier) => <article key={tier.id} className={tier.featured ? styles.featured : ""}>{tier.featured && <span className={styles.recommended}>Most selected</span>}<p className={styles.packageType}>{tier.registrationEligible ? "Registration eligible" : "Business correspondence"}</p><h3>{tier.name}</h3><div className={styles.price}><strong>{formatPeso(tier.price12)}</strong><span>per month<br />12-month term</span></div><p className={styles.bestFor}>{tier.bestFor}</p><ul>{tier.features.slice(0, 5).map((feature) => <li key={feature}>{feature}</li>)}</ul><Link href={`/contact?service=${tier.id}`}>Request a consultation <span>→</span></Link></article>)}</div>
+        <div className={styles.sectionHeading}><div><p className={styles.eyebrow}>Clear virtual office packages</p><h2>Choose the presence your business requires.</h2></div><p>Start with a professional address, add the registered-address option, or take a fuller presence with more room hours and workspace days.</p></div>
+        <div className={styles.pricingGrid}>{publishedAddressTiers.map((tier) => <article key={tier.id} className={tier.featured ? styles.featured : ""}>{tier.featured && <span className={styles.recommended}>Most selected</span>}<p className={styles.packageType}>{tier.registrationEligible ? "Registered address available" : "Business correspondence"}</p><h3>{tier.name}</h3><div className={styles.price}><strong>{formatPeso(tier.price12)}</strong><span>per month<br />12-month term</span></div><p className={styles.bestFor}>{tier.bestFor}</p><ul>{tier.features.slice(0, 5).map((feature) => <li key={feature}>{feature}</li>)}</ul><Link href={`/contact?service=${tier.id}`}>Request a consultation <span>→</span></Link></article>)}</div>
         <div className={styles.priceFooter}><span>Indicative rates. Final scope and eligibility are confirmed in writing.</span><Link href="/pricing">Compare complete pricing and terms ↗</Link></div>
       </section>
 
       <section className={styles.supportSection}>
         <div className={styles.supportSeal} aria-hidden="true"><span>C</span><i /><b /></div>
-        <div><p className={styles.eyebrow}>Strength behind your business</p><h2>Local support. Wider possibilities.</h2><p>CAPSULE is managed by Philippine Dragon Media Network Corp. and supported by a network of business, accounting, tax, payroll, and corporate professionals. Subtle constellation and dragon details express the strength and possibility behind the brand—while the service remains grounded in real business needs.</p><Link href="/about" className={styles.textLink}>About CAPSULE and our network ↗</Link></div>
+        <div><p className={styles.eyebrow}>The company behind Capsule</p><h2>Professionally managed in Makati.</h2><p>CAPSULE is a virtual office service operated by Philippine Dragon Media Network Corp. Our on-site team manages the business address, reception, mail handling, meeting-room access and day-to-day client support.</p><Link href="/about" className={styles.textLink}>About CAPSULE ↗</Link></div>
       </section>
 
       <section className={styles.finalCta}>

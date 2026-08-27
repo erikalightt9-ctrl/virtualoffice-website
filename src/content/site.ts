@@ -14,7 +14,7 @@ export const site = {
 
   /** Used in page titles and the meta description. */
   description:
-    "A registered business address at 104 Paseo de Roxas, Legaspi Village, Makati — with a real staffed office behind it. Workspace, rooms and registration.",
+    "Virtual office services at 104 Paseo de Roxas, Legaspi Village, Makati, with a professional business address, mail handling, meeting rooms and flexible workspace.",
 
   /** TODO: replace with the live domain once registered. */
   url: "https://capsule.ph",
@@ -25,7 +25,7 @@ export const site = {
     /** TODO: add the SEC registration number — it is a strong credibility signal. */
     secRegistrationNo: "TODO",
     relationship:
-      "Capsule is managed by Philippine Dragon Media Network Corp.",
+      "Capsule is a virtual-office service operated by Philippine Dragon Media Network Corp., an SEC-registered Philippine corporation.",
   },
 
   /**
@@ -79,8 +79,8 @@ export const site = {
   /** Headline facts used in the proof strip. Keep these literally true. */
   facts: [
     { value: "5th Floor", label: "104 Paseo de Roxas" },
-    { value: "613 sqm", label: "of serviced floor space" },
     { value: "6 rooms", label: "bookable for meetings" },
+    { value: "On-site", label: "reception and administration" },
     { value: "50+", label: "companies served" },
   ],
 } as const;
@@ -101,12 +101,8 @@ export const mainNav: NavItem[] = [
     href: "/services",
     children: [
       { label: "Virtual Office", href: "/services/virtual-office", note: "Business address and mail" },
-      { label: "Registered Business Address", href: "/services/registered-business-address", note: "For SEC, BIR and permits" },
+      { label: "Registered Business Address", href: "/services/registered-business-address", note: "Address-use options" },
       { label: "Mail Handling", href: "/services/mail-handling", note: "Receiving and notification" },
-      { label: "Company Registration", href: "/services/company-registration", note: "SEC, BIR, LGU" },
-      { label: "Accounting & Tax", href: "/services/accounting-and-tax", note: "Ongoing compliance" },
-      { label: "Payroll & HR", href: "/services/payroll-and-hr", note: "Outsourced operations" },
-      { label: "Corporate Secretarial", href: "/services/corporate-secretarial", note: "Annual filings" },
     ],
   },
   {
@@ -122,7 +118,6 @@ export const mainNav: NavItem[] = [
   },
   { label: "Pricing", href: "/pricing" },
   { label: "Location", href: "/location" },
-  { label: "Foreign Companies", href: "/foreign-companies" },
   { label: "About", href: "/about" },
 ];
 
@@ -133,10 +128,6 @@ export const footerNav: { heading: string; links: { label: string; href: string 
       { label: "Virtual Office", href: "/services/virtual-office" },
       { label: "Registered Business Address", href: "/services/registered-business-address" },
       { label: "Mail Handling", href: "/services/mail-handling" },
-      { label: "Company Registration", href: "/services/company-registration" },
-      { label: "Accounting & Tax", href: "/services/accounting-and-tax" },
-      { label: "Payroll & HR", href: "/services/payroll-and-hr" },
-      { label: "Corporate Secretarial", href: "/services/corporate-secretarial" },
     ],
   },
   {
@@ -154,8 +145,6 @@ export const footerNav: { heading: string; links: { label: string; href: string 
     links: [
       { label: "About Capsule", href: "/about" },
       { label: "Our Location", href: "/location" },
-      { label: "For Foreign Companies", href: "/foreign-companies" },
-      { label: "Partner Network", href: "/partners" },
       { label: "How It Works", href: "/how-it-works" },
       { label: "Pricing", href: "/pricing" },
       { label: "Contact", href: "/contact" },

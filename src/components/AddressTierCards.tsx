@@ -58,7 +58,7 @@ export default function AddressTierCards({
                   : "border-rule-strong text-body-faint"
               }`}
             >
-              {tier.registrationEligible ? "Registration eligible" : "Correspondence only"}
+              {tier.registrationEligible ? "Registered address available" : "Correspondence only"}
             </span>
           </div>
 

@@ -13,7 +13,7 @@ import { formatPeso, publishedWorkspace } from "@/content/pricing";
 export const metadata: Metadata = {
   title: "Workspace — Desks, Team Space & Private Offices in Makati",
   description:
-    "Dedicated desks, team space, private offices and day passes on the 5th floor of 104 Paseo de Roxas, Legaspi Village, Makati. Registered address included.",
+    "Dedicated desks, team space, private offices and day passes on the 5th floor of 104 Paseo de Roxas, Legaspi Village, Makati. Virtual office included.",
 };
 
 export default function WorkspaceIndexPage() {
@@ -24,8 +24,8 @@ export default function WorkspaceIndexPage() {
     <>
       <PageHeader
         eyebrow="Workspace"
-        headline="A registered address is useful. A desk in the same building is better."
-        intro="We have roughly 613 square metres on the 5th floor, with forty to fifty serviced workstations, six bookable rooms and administrative staff on site. Take a desk, a grouped area for your team, or an enclosed office of your own."
+        headline="An address is useful. A desk in the same building is better."
+        intro="Our floor has serviced workstations, six bookable rooms and administrative staff on site. Take a desk for the day, a permanent workstation, a grouped area for your team, or an enclosed office of your own."
       >
         <div className="flex flex-wrap gap-3">
           <Button href="/contact?service=workspace">Enquire about space</Button>
@@ -38,7 +38,7 @@ export default function WorkspaceIndexPage() {
       <Section
         eyebrow="Products"
         heading="Four ways to use the floor"
-        intro="Every workspace product includes the Registered address tier — so your company is registered where your people actually sit, which is the simplest possible answer to any question about your principal office."
+        intro="Every workspace product includes the Registered-address package, so the address you use is the one your people actually sit at."
         tone="bone"
       >
         <div className="grid gap-px bg-rule sm:grid-cols-2">

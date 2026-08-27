@@ -19,7 +19,10 @@
  *     When they are final, set it to an empty string ("") and the notice
  *     disappears from every page.
  *
- *  Last reviewed: 24 August 2026 — provisional, pending partner fee schedule.
+ *  Last reviewed: 26 August 2026 — provisional.
+ *
+ *  SCOPE: virtual office only. No registration, filing, permit, accounting,
+ *  tax, payroll or compliance services are offered or priced here.
  * ============================================================================
  */
 
@@ -51,7 +54,7 @@ export type AddressTier = {
   price12: number | null;
   /** Monthly rate on a rolling monthly term. */
   priceMonthly: number | null;
-  /** Can this tier's address be used for SEC / BIR / LGU registration? */
+  /** May this package's address be used as a registered business address? */
   registrationEligible: boolean;
   /** Draws the highlighted border on pricing cards. Set on one tier only. */
   featured: boolean;
@@ -80,7 +83,7 @@ export const addressTiers: AddressTier[] = [
   {
     id: "registered",
     name: "Registered",
-    bestFor: "Startups and SMEs registering a company, or moving an existing registered address to Makati.",
+    bestFor: "Companies that need an address they can name as their registered business address.",
     price12: 3900,
     priceMonthly: 4900,
     registrationEligible: true,
@@ -88,18 +91,17 @@ export const addressTiers: AddressTier[] = [
     published: true,
     features: [
       "Everything in Address",
-      "Address eligible for SEC, BIR and Mayor's Permit registration, subject to approval",
-      "Government correspondence handled under a documented protocol",
-      "BIR and LGU inspections accommodated at the premises",
+      "Address available for use as your registered business address, subject to approval",
+      "Official correspondence flagged and escalated to you immediately",
+      "Staff on site during business hours to receive visitors and couriers",
       "5 meeting room hours per month",
       "2 workspace days per month",
-      "Registration and compliance support coordinated through our partner firms",
     ],
   },
   {
     id: "corporate",
     name: "Corporate",
-    bestFor: "Companies that need a stronger operational presence and hands-on administrative support.",
+    bestFor: "Companies that want a fuller presence and more hands-on administrative support.",
     price12: 8500,
     priceMonthly: 10500,
     registrationEligible: true,
@@ -111,7 +113,6 @@ export const addressTiers: AddressTier[] = [
       "15 meeting room hours per month",
       "5 workspace days per month",
       "Priority administrative support from our on-site team",
-      "Ongoing compliance coordination with our partner firms",
       "Named account contact",
     ],
   },
@@ -143,7 +144,7 @@ export const workspaceProducts: WorkspaceProduct[] = [
     features: [
       "Your own assigned workstation",
       "Access during business hours",
-      "Registered-tier business address included",
+      "Registered-address package included",
       "5 meeting room hours per month",
       "Reception, mail handling and admin support on site",
     ],
@@ -157,7 +158,7 @@ export const workspaceProducts: WorkspaceProduct[] = [
     published: true,
     features: [
       "Grouped or partitioned workstations",
-      "Registered-tier business address included",
+      "Registered-address package included",
       "10 meeting room hours per month",
       "Reception and admin support on site",
       "Scale seats up or down as the team changes",
@@ -172,9 +173,9 @@ export const workspaceProducts: WorkspaceProduct[] = [
     published: true,
     features: [
       "Enclosed private suite",
-      "Registered-tier business address included",
+      "Registered-address package included",
       "Meeting room allocation by suite size",
-      "Suitable for companies expecting client visits or inspections",
+      "Suitable for companies that receive clients at their address",
       "Availability limited — please enquire",
     ],
   },
@@ -268,120 +269,6 @@ export const meetingRooms: MeetingRoom[] = [
 ];
 
 /* ---------------------------------------------------------------------------
- *  4. REGISTRATION & COMPLIANCE  — one-time and retainer services
- *     Delivered through our licensed partner firms.
- * ------------------------------------------------------------------------- */
-
-export type RegistrationService = {
-  id: string;
-  name: string;
-  price: number | null;
-  /** e.g. "one-time" or "per month" */
-  unit: string;
-  published: boolean;
-  description: string;
-};
-
-export const registrationServices: RegistrationService[] = [
-  {
-    id: "sole-proprietorship",
-    name: "Sole Proprietorship",
-    price: 35000,
-    unit: "one-time",
-    published: true,
-    description:
-      "DTI registration, barangay clearance, Mayor's Permit and BIR registration for a single-owner business.",
-  },
-  {
-    id: "one-person-corporation",
-    name: "One Person Corporation",
-    price: 44000,
-    unit: "one-time",
-    published: true,
-    description:
-      "SEC incorporation as an OPC, plus barangay, Mayor's Permit and BIR registration.",
-  },
-  {
-    id: "domestic-corporation",
-    name: "Domestic Corporation",
-    price: 60000,
-    unit: "one-time",
-    published: true,
-    description:
-      "Full SEC incorporation for a Filipino-owned corporation, plus barangay, Mayor's Permit and BIR registration.",
-  },
-  {
-    id: "foreign-corporation",
-    name: "Foreign-Owned Corporation",
-    price: 120000,
-    unit: "one-time",
-    published: true,
-    description:
-      "Structure advice, SEC registration, capital compliance, barangay, Mayor's Permit and BIR registration for foreign-owned entities and branches.",
-  },
-  {
-    id: "accounting-tax",
-    name: "Accounting & Tax Compliance",
-    price: null,
-    unit: "per month",
-    published: true,
-    description:
-      "Bookkeeping, BIR filings and annual financial statements on a monthly retainer.",
-  },
-  {
-    id: "payroll-hr",
-    name: "Payroll & HR",
-    price: null,
-    unit: "per month",
-    published: true,
-    description:
-      "Payroll processing, statutory contributions and HR administration on a monthly retainer.",
-  },
-  {
-    id: "corporate-secretarial",
-    name: "Corporate Secretarial",
-    price: null,
-    unit: "per year",
-    published: true,
-    description:
-      "General information sheet filings, board minutes and ongoing corporate housekeeping.",
-  },
-];
-
-/* ---------------------------------------------------------------------------
- *  5. BUNDLES  — the lead offer
- * ------------------------------------------------------------------------- */
-
-export type Bundle = {
-  id: string;
-  name: string;
-  headline: string;
-  price: number | null;
-  /** Sum of the components bought separately, for the saving line. */
-  separatePrice: number | null;
-  published: boolean;
-  includes: string[];
-};
-
-export const bundles: Bundle[] = [
-  {
-    id: "capsule-launch",
-    name: "Capsule Launch",
-    headline: "Your company registered, and housed in Makati for a year.",
-    price: 92000,
-    separatePrice: 106800,
-    published: true,
-    includes: [
-      "Domestic corporation registration — SEC, barangay, Mayor's Permit and BIR",
-      "Twelve months of the Registered address tier",
-      "Government correspondence handling throughout",
-      "Inspection accommodation at the premises",
-      "5 meeting room hours and 2 workspace days each month",
-    ],
-  },
-];
-
-/* ---------------------------------------------------------------------------
  *  Helpers — you should not need to change anything below this line.
  * ------------------------------------------------------------------------- */
 
@@ -397,10 +284,6 @@ export function formatPeso(
 export const publishedAddressTiers = addressTiers.filter((t) => t.published);
 export const publishedWorkspace = workspaceProducts.filter((p) => p.published);
 export const publishedRooms = meetingRooms.filter((r) => r.published);
-export const publishedRegistration = registrationServices.filter(
-  (s) => s.published,
-);
-export const publishedBundles = bundles.filter((b) => b.published);
 
 /** Lowest published monthly address rate, used for "from ₱X" copy. */
 export const lowestAddressPrice: number | null = (() => {

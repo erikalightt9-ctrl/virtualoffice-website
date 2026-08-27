@@ -28,15 +28,13 @@
  */
 
 import { faqs } from "@/content/faqs";
-import { about, foreign, howItWorks, location, partners } from "@/content/pages";
+import { about, howItWorks, location, partners } from "@/content/pages";
 import { acceptableUse, privacy, terms } from "@/content/legal";
 import {
   PRICING_DISCLAIMER,
   TERMS,
   formatPeso,
   publishedAddressTiers,
-  publishedBundles,
-  publishedRegistration,
   publishedRooms,
   publishedWorkspace,
 } from "@/content/pricing";
@@ -62,7 +60,8 @@ function bullets(items: readonly string[]): string {
 function buildIdentity(): string {
   return [
     heading("About Capsule"),
-    `Capsule provides business addresses, workspace, meeting rooms and business establishment support at ${site.address.oneLine}.`,
+    `Capsule is a virtual-office service at ${site.address.oneLine}. It provides a business address, mail and document handling, meeting rooms and serviced workspace, with a registered-address option on eligible packages.`,
+    "Capsule does NOT provide, coordinate or advise on: company registration or incorporation, SEC or BIR filings, business permits, bookkeeping, accounting, tax, payroll, corporate secretarial work, or business-setup consulting. Those are the client's own responsibility, with their own advisers.",
     `Operator: ${site.operator.relationship}`,
     site.operator.secRegistrationNo !== "TODO"
       ? `SEC registration number: ${site.operator.secRegistrationNo}`
@@ -109,10 +108,10 @@ function buildPricing(): string {
       `- Best for: ${tier.bestFor}`,
       `- Price on a 12-month term: ${formatPeso(tier.price12)} per month`,
       `- Price on a rolling monthly term: ${formatPeso(tier.priceMonthly)} per month`,
-      `- May this tier's address be used for SEC / BIR / Mayor's Permit registration? ${
+      `- May this package's address be used as the client's registered business address? ${
         tier.registrationEligible
-          ? "YES — subject to an approved application, documents and our acceptable use policy."
-          : "NO — this tier is for correspondence only and CANNOT be used for government registration."
+          ? "YES — subject to an approved application, documents and our acceptable use policy. Capsule provides the address only; it does not make any filing or registration on the client's behalf."
+          : "NO — this package is for correspondence only."
       }`,
       "- Includes:",
       bullets(tier.features),
@@ -148,33 +147,6 @@ function buildPricing(): string {
     );
   }
 
-  lines.push(`${NL}### Registration and compliance services`);
-  lines.push(
-    "These are delivered by independent licensed partner firms, not by Capsule directly. Capsule coordinates the engagement and provides the address.",
-  );
-  for (const service of publishedRegistration) {
-    lines.push(
-      `- **${service.name}**: ${
-        service.price === null
-          ? "priced on application, no published rate"
-          : `${formatPeso(service.price)} ${service.unit}`
-      }. ${service.description}`,
-    );
-  }
-
-  for (const bundle of publishedBundles) {
-    lines.push(
-      `${NL}### Bundle: ${bundle.name}`,
-      bundle.headline,
-      `- Price: ${formatPeso(bundle.price)}`,
-      bundle.separatePrice
-        ? `- Bought separately the components come to ${formatPeso(bundle.separatePrice)}.`
-        : "",
-      "- Includes:",
-      bullets(bundle.includes),
-    );
-  }
-
   return lines.filter(Boolean).join(NL);
 }
 
@@ -186,9 +158,7 @@ function buildServices(): string {
   for (const service of services) {
     lines.push(
       `${NL}### ${service.name}  (page: /services/${service.slug})`,
-      service.deliveredByPartners
-        ? "DELIVERED BY LICENSED PARTNER FIRMS, not by Capsule directly."
-        : "Provided directly by Capsule from its own floor.",
+      "Provided directly by Capsule from its own floor.",
       service.intro,
       "Key points:",
       bullets(service.highlights),
@@ -221,12 +191,6 @@ function buildLocationAndProcess(): string {
     howItWorks.intro,
     ...howItWorks.steps.map((s) => `${s.n}. ${s.title} — ${s.body}`),
     howItWorks.note,
-
-    heading("For foreign companies"),
-    foreign.intro,
-    "The sequence of establishing a Philippine presence:",
-    bullets(foreign.sequence.map((s) => `${s.step}: ${s.detail}`)),
-    ...foreign.sections.map((s) => `${NL}${s.heading}: ${s.body.join(" ")}`),
 
     heading("For referring partners and consultants"),
     partners.intro,

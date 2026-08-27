@@ -8,7 +8,7 @@ import { site } from "@/content/site";
 export const metadata: Metadata = {
   title: "Contact & Enquiries",
   description:
-    "Enquire about a business address, workspace, meeting room or company registration at 104 Paseo de Roxas, Legaspi Village, Makati. Viber, WhatsApp or phone.",
+    "Enquire about a virtual office, workspace or meeting room at 104 Paseo de Roxas, Legaspi Village, Makati. Viber, WhatsApp or phone.",
 };
 
 export default function ContactPage() {
@@ -97,8 +97,8 @@ export default function ContactPage() {
 
             <div className="border-l-2 border-clay bg-clay-wash px-4 py-3">
               <p className="text-[0.85rem] text-body-soft">
-                Referred by a consultant or accountant? Mention their firm in
-                your enquiry so we can credit the introduction.
+                Referred by an accountant or lawyer? Mention their firm in your
+                enquiry so we can credit the introduction.
               </p>
             </div>
           </aside>

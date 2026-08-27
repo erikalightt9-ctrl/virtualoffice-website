@@ -1,7 +1,6 @@
 import Link from "next/link";
 import {
   formatPeso,
-  publishedRegistration,
   publishedRooms,
   publishedWorkspace,
 } from "@/content/pricing";
@@ -15,7 +14,7 @@ type Row = {
   href?: string;
 };
 
-function rowsFor(kind: "workspace" | "rooms" | "registration"): Row[] {
+function rowsFor(kind: "workspace" | "rooms"): Row[] {
   if (kind === "workspace") {
     return publishedWorkspace.map((p) => ({
       key: p.id,
@@ -40,19 +39,13 @@ function rowsFor(kind: "workspace" | "rooms" | "registration"): Row[] {
     }));
   }
 
-  return publishedRegistration.map((s) => ({
-    key: s.id,
-    name: s.name,
-    price: formatPeso(s.price),
-    unit: s.price === null ? "" : s.unit,
-    detail: s.description,
-  }));
+  return [];
 }
 
 export default function PriceTable({
   kind,
 }: {
-  kind: "workspace" | "rooms" | "registration";
+  kind: "workspace" | "rooms";
 }) {
   const rows = rowsFor(kind);
 
@@ -62,7 +55,7 @@ export default function PriceTable({
         <thead>
           <tr className="border-b border-rule-strong bg-surface-2">
             <th className="label px-4 py-3 font-medium text-body-faint">
-              {kind === "rooms" ? "Room" : kind === "workspace" ? "Product" : "Service"}
+              {kind === "rooms" ? "Room" : "Product"}
             </th>
             <th className="label px-4 py-3 font-medium text-body-faint">
               {kind === "rooms" ? "Capacity and notes" : "Details"}

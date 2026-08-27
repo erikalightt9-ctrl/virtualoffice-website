@@ -10,7 +10,6 @@ const staticPaths = [
   "/meeting-rooms",
   "/pricing",
   "/location",
-  "/foreign-companies",
   "/about",
   "/partners",
   "/how-it-works",

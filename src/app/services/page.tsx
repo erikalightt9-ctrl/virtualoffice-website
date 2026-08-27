@@ -6,30 +6,28 @@ import Section from "@/components/Section";
 import { services } from "@/content/services";
 
 export const metadata: Metadata = {
-  title: "Services — Business Address, Registration & Compliance",
+  title: "What the Virtual Office Includes",
   description:
-    "Business address, registered address, mail handling, company registration, accounting, tax, payroll and corporate secretarial services from Makati CBD.",
+    "The Capsule virtual office: a Makati business address, mail and document handling, meeting rooms and workspace, with a registered-address option on eligible packages.",
 };
 
 export default function ServicesIndexPage() {
-  const direct = services.filter((s) => !s.deliveredByPartners);
-  const partnered = services.filter((s) => s.deliveredByPartners);
 
   return (
     <>
       <PageHeader
         eyebrow="Services"
-        headline="Everything a Philippine company needs to exist, and keep existing."
-        intro="Capsule provides the address, the premises and the administration from our own floor. Registration, accounting, tax, payroll and corporate secretarial work is delivered by the licensed firms we work with — and coordinated by us, so you deal with one team."
+        headline="One service, done properly."
+        intro="Capsule is a virtual office. A business address at 104 Paseo de Roxas, mail and documents handled by our own staff, meeting rooms and workspace on the same floor, and a registered-address option for companies that need one. We do not register companies, make filings, obtain permits, or handle accounting, tax or payroll — that work stays with your own advisers."
       />
 
       <Section
-        eyebrow="Provided by Capsule"
+        eyebrow="What is included"
         heading="From our own floor at 104 Paseo de Roxas"
         tone="bone"
       >
         <div className="grid gap-px bg-rule sm:grid-cols-2 lg:grid-cols-3">
-          {direct.map((service) => (
+          {services.map((service) => (
             <Link
               key={service.slug}
               href={`/services/${service.slug}`}
@@ -54,33 +52,22 @@ export default function ServicesIndexPage() {
       </Section>
 
       <Section
-        eyebrow="Through our partner firms"
-        heading="Regulated work, done by people accountable for it"
-        intro="We are deliberate about this distinction. Professional services are performed by licensed firms who carry the responsibility for that work. Capsule coordinates the engagement and keeps the sequence moving."
+        eyebrow="Also on the floor"
+        heading="Rooms and workspace"
+        intro="Available to address clients at member rates, and bookable directly by anyone else."
         tone="surface"
       >
-        <div className="grid gap-px bg-rule sm:grid-cols-2 lg:grid-cols-4">
-          {partnered.map((service) => (
-            <Link
-              key={service.slug}
-              href={`/services/${service.slug}`}
-              className="group flex flex-col gap-3 bg-surface p-6 transition-colors hover:bg-surface-2"
-            >
-              <h2 className="text-[1.1rem]">{service.name}</h2>
-              <p className="flex-1 text-[0.88rem] text-body-soft">
-                {service.summary}
-              </p>
-              <span className="font-mono text-[0.72rem] uppercase tracking-[0.08em] text-clay">
-                Read more{" "}
-                <span
-                  aria-hidden="true"
-                  className="inline-block transition-transform group-hover:translate-x-1"
-                >
-                  →
-                </span>
-              </span>
-            </Link>
-          ))}
+        <div className="grid gap-px bg-rule sm:grid-cols-2">
+          <Link href="/meeting-rooms" className="group flex flex-col gap-3 bg-surface p-6 transition-colors hover:bg-surface-2">
+            <h2 className="text-[1.2rem]">Meeting Rooms</h2>
+            <p className="flex-1 text-[0.9rem] text-body-soft">Six bookable spaces, from a four-person room to a full conference room.</p>
+            <span className="font-mono text-[0.72rem] uppercase tracking-[0.08em] text-clay">See the rooms →</span>
+          </Link>
+          <Link href="/workspace" className="group flex flex-col gap-3 bg-surface p-6 transition-colors hover:bg-surface-2">
+            <h2 className="text-[1.2rem]">Workspace</h2>
+            <p className="flex-1 text-[0.9rem] text-body-soft">A desk for the day, a permanent workstation, team space, or an enclosed private office.</p>
+            <span className="font-mono text-[0.72rem] uppercase tracking-[0.08em] text-clay">See workspace →</span>
+          </Link>
         </div>
       </Section>
 

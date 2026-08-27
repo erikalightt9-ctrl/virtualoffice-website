@@ -1,38 +1,34 @@
 import Link from "next/link";
 
 /**
- * The progression a company actually moves along. This is a real sequence,
- * which is why it is numbered.
+ * What the virtual office actually consists of. Deliberately not a "ladder"
+ * towards registration or compliance services — Capsule does not offer those.
+ * These are the parts of one service, in the order people tend to need them.
  */
-const rungs = [
+const parts = [
   {
-    n: "01",
-    title: "Business address",
+    title: "A business address",
     body: "A credible Makati address for correspondence, invoices and client-facing material.",
     href: "/services/virtual-office",
   },
   {
-    n: "02",
-    title: "Registered address",
-    body: "The same address, eligible for SEC, BIR and Mayor's Permit registration, with inspections accommodated.",
+    title: "Mail handled by people",
+    body: "Received at a staffed reception, logged on arrival, and reported to you the same day.",
+    href: "/services/mail-handling",
+  },
+  {
+    title: "A registered-address option",
+    body: "For companies that need an address they can name as their registered business address. Subject to approval.",
     href: "/services/registered-business-address",
   },
   {
-    n: "03",
-    title: "Company registration",
-    body: "SEC incorporation, BIR registration, barangay clearance and Mayor's Permit, through our partner firms.",
-    href: "/services/company-registration",
+    title: "Rooms when you need them",
+    body: "Six bookable spaces on the same floor, from a four-person room to a full conference room.",
+    href: "/meeting-rooms",
   },
   {
-    n: "04",
-    title: "Ongoing compliance",
-    body: "Bookkeeping, BIR filings, payroll, statutory contributions and annual corporate filings.",
-    href: "/services/accounting-and-tax",
-  },
-  {
-    n: "05",
-    title: "A desk, then a floor",
-    body: "When you hire, take workstations on the same floor. Your registered address never has to change.",
+    title: "Somewhere to actually work",
+    body: "A desk for the day, a permanent workstation, space for a team, or an enclosed private office.",
     href: "/workspace",
   },
 ];
@@ -40,19 +36,18 @@ const rungs = [
 export default function Ladder() {
   return (
     <div className="border-t border-rule-strong">
-      {rungs.map((rung) => (
+      {parts.map((part) => (
         <Link
-          key={rung.n}
-          href={rung.href}
-          className="group grid grid-cols-[2.6rem_1fr_auto] items-start gap-x-4 border-b border-rule py-5 transition-colors hover:bg-surface"
+          key={part.title}
+          href={part.href}
+          className="group grid grid-cols-[1fr_auto] items-start gap-x-4 border-b border-rule py-5 transition-colors hover:bg-surface"
         >
-          <span className="mt-1 font-mono text-[0.78rem] text-clay">{rung.n}</span>
           <span className="flex flex-col gap-1">
             <span className="font-display text-[1.1rem] font-semibold text-ink">
-              {rung.title}
+              {part.title}
             </span>
             <span className="max-w-[58ch] text-[0.92rem] text-body-soft">
-              {rung.body}
+              {part.body}
             </span>
           </span>
           <span

@@ -29,12 +29,12 @@ export const CHATBOT_ENABLED =
 
 /** The first thing a visitor sees when the panel opens. */
 export const GREETING =
-  "Hello — I can answer questions about Capsule's business addresses, workspace, meeting rooms and company registration support at 104 Paseo de Roxas, Legaspi Village, Makati. What would you like to know?";
+  "Hello — I can answer questions about Capsule's virtual office at 104 Paseo de Roxas, Legaspi Village, Makati: business addresses, mail handling, meeting rooms and workspace. What would you like to know?";
 
 /** Shown as clickable starters. Keep them to real, answerable questions. */
 export const SUGGESTED_QUESTIONS = [
-  "What does a registered business address cost?",
-  "Can I use the address for SEC and BIR registration?",
-  "What is included in the Capsule Launch bundle?",
+  "What does a virtual office cost?",
+  "Can I use the address as my registered business address?",
+  "How is my mail handled?",
   "Do you have desks or private offices available?",
 ] as const;

@@ -8,19 +8,19 @@
 /* ---------------------------------------------------------------- LOCATION */
 
 export const location = {
-  metaTitle: "Our Location | 104 Paseo de Roxas, Legaspi Village, Makati | Capsule",
+  metaTitle: "Our Location — 104 Paseo de Roxas, Makati",
   metaDescription:
-    "613 sqm on the 5th floor of 104 Paseo de Roxas, Legaspi Village, Makati — staffed reception, six bookable rooms and serviced workstations.",
+    "A virtual office on the 5th floor of 104 Paseo de Roxas, Legaspi Village, Makati — staffed reception, six bookable rooms and serviced workstations.",
   headline: "Put Makati on your business card. Then come and see it.",
   intro:
-    "Capsule occupies approximately 613 square metres on the 5th floor of 104 Paseo de Roxas, Legaspi Village, San Lorenzo, Makati City, in the Makati central business district. Paseo de Roxas is one of the district's principal business streets, and the building holds a current occupancy permit.",
+    "Capsule occupies the 5th floor of 104 Paseo de Roxas, Legaspi Village, San Lorenzo, Makati City, in the Makati central business district. Paseo de Roxas is one of the district's principal business streets.",
 
   facilities: [
     { name: "Conference rooms", detail: "Three rooms for meetings, presentations and board sessions." },
     { name: "Meeting room", detail: "A comfortable room seating six to seven people." },
     { name: "Focus room", detail: "A smaller room for up to four — interviews, one-to-ones and private calls." },
     { name: "Tea room", detail: "An informal space for short meetings and refreshments." },
-    { name: "Workstations", detail: "Forty to fifty serviced desks available for dedicated and day use." },
+    { name: "Workstations", detail: "Serviced desks available for dedicated and day use." },
     { name: "Staffed reception", detail: "Reception attended through business hours to receive mail, couriers and visitors." },
     { name: "Administrative team", detail: "Six to seven administrative staff on site during business hours." },
     { name: "Landline", detail: "A business landline for the office." },
@@ -58,9 +58,9 @@ export const location = {
 /* ------------------------------------------------------------------- ABOUT */
 
 export const about = {
-  metaTitle: "About Capsule | Business Address & Workspace in Makati",
+  metaTitle: "About — A Virtual Office in Makati",
   metaDescription:
-    "Business addresses, workspace and business establishment support at 104 Paseo de Roxas, Legaspi Village, Makati, from Philippine Dragon Media Network Corp.",
+    "Capsule is a virtual-office service at 104 Paseo de Roxas, Legaspi Village, Makati, operated by Philippine Dragon Media Network Corp.",
   headline: "A real office, run by a company you can look up.",
   intro:
     "Capsule exists because the gap between a mailbox and a Makati office lease is where most young companies actually live — and because too much of this market is addresses without offices behind them.",
@@ -69,21 +69,28 @@ export const about = {
     {
       heading: "Who operates Capsule",
       body: [
-        "Capsule is managed by Philippine Dragon Media Network Corp., an SEC-registered Philippine corporation whose Articles of Incorporation include leasing and subleasing among its purposes.",
-        "That matters more than it sounds. When you register a company at an address, you are relying on the operator's authority to provide it. Ours is documented, and we are happy to show you.",
+        "Capsule is a virtual-office service operated by Philippine Dragon Media Network Corp., an SEC-registered Philippine corporation whose Articles of Incorporation include leasing and subleasing among its purposes.",
+        "That matters more than it sounds. When you use an address, you are relying on the operator's authority to provide it. Ours is documented, and we are happy to show you.",
       ],
     },
     {
-      heading: "What we actually do",
+      heading: "What we do",
       body: [
-        "We provide business addresses, mail and document handling, meeting rooms and serviced workspace from our own floor at 104 Paseo de Roxas, Legaspi Village, San Lorenzo, Makati City. We coordinate company registration, accounting, tax, payroll and corporate secretarial services through licensed partner firms.",
-        "We are careful about that distinction. Regulated professional work is performed by professionals accountable for it. What we provide is the premises, the administration and the coordination — and a single point of contact so you are not managing four relationships.",
+        "We provide a business address, mail and document handling, meeting rooms and serviced workspace from our own floor at 104 Paseo de Roxas. Companies that need an address they can name as their registered business address can take our Registered package.",
+        "That is the entire service, deliberately. We are good at running an office and looking after what arrives in it.",
+      ],
+    },
+    {
+      heading: "What we do not do",
+      body: [
+        "We do not register companies. We do not file anything with the SEC, the BIR, a barangay or a city hall. We do not obtain permits, keep books, prepare or file taxes, run payroll, or advise on how to set up or structure a business in the Philippines.",
+        "Plenty of providers blur this line. We would rather be plainly useful at one thing than vaguely responsible for several. Engage your own accountant, lawyer or corporate services firm for that work — we are simply the address on the paperwork.",
       ],
     },
     {
       heading: "Who we serve",
       body: [
-        "More than fifty companies to date, most of them introduced by the business consultants and professional firms we work with. Startups and newly incorporated companies, freelancers and consultants, remote and distributed teams, established Philippine companies wanting a Makati presence, and foreign companies entering the market.",
+        "More than fifty companies to date. Freelancers and consultants, startups and small companies, remote and distributed teams, established Philippine companies wanting a Makati presence, and overseas businesses that need a credible Philippine address.",
       ],
     },
     {
@@ -96,76 +103,32 @@ export const about = {
   ],
 };
 
-/* -------------------------------------------------------- FOREIGN COMPANIES */
-
-export const foreign = {
-  metaTitle: "Philippine Market Entry for Foreign Companies | Capsule Makati",
-  metaDescription:
-    "Establish your Philippine presence from Makati — company registration, registered business address, accounting, payroll and workspace for foreign companies entering the Philippines.",
-  headline: "Entering the Philippines? Start with an address that holds up.",
-  intro:
-    "Foreign companies establishing in the Philippines face the same sequence every time: choose a structure, register with the SEC, register with the BIR, secure barangay and city permits, then keep it all compliant. Every step requires an address, and most of those steps involve someone verifying it.",
-
-  sequence: [
-    { step: "Structure", detail: "Decide between a domestic corporation, a branch, a representative office or a regional headquarters. The choice affects capital requirements, tax treatment and what you are allowed to do." },
-    { step: "SEC registration", detail: "Incorporation or licence to do business, with the registered address named in the filing." },
-    { step: "Address", detail: "A registered business address that can receive government correspondence and accommodate inspection." },
-    { step: "BIR registration", detail: "Certificate of registration, books of account and official receipts, usually with an ocular inspection." },
-    { step: "Local permits", detail: "Barangay clearance and Mayor's Permit from the local government unit." },
-    { step: "Ongoing compliance", detail: "Monthly and annual BIR filings, payroll and statutory contributions, annual SEC filings." },
-  ],
-
-  sections: [
-    {
-      heading: "Why the address is the part that goes wrong",
-      body: [
-        "Most foreign companies arrange registration through a consultant and rent the cheapest available address separately. Then the BIR schedules an inspection, an officer arrives, and nobody at the address has heard of the company.",
-        "Capsule provides both. The address is our own floor, your company is on our records, and our administrative team expects the visit.",
-      ],
-    },
-    {
-      heading: "You do not need an office yet — but you may need one soon",
-      body: [
-        "Start with a registered address. When you hire your first Philippine employees, take desks on the same floor. When you need somewhere to put a country manager and receive clients, take a private office.",
-        "Nothing has to be renegotiated and your registered address never changes, which saves you a round of SEC, BIR and LGU filings each time you grow.",
-      ],
-    },
-    {
-      heading: "Working across languages and time zones",
-      body: [
-        "Capsule is operated by Philippine Dragon Media Network Corp., which has served the Chinese-speaking business community in the Philippines for years. We can work with clients in English and Chinese, and we are equipped to support enquiries from across the region.",
-        "We serve companies of every nationality. What we bring to overseas clients specifically is people who have done this before with founders who are not in the country yet.",
-      ],
-    },
-  ],
-};
-
 /* ---------------------------------------------------------------- PARTNERS */
 
 export const partners = {
-  metaTitle: "Partner & Referral Network | Capsule Makati",
+  metaTitle: "Referral Programme for Professionals",
   metaDescription:
-    "Capsule works with business consultants, accounting firms and corporate service providers who refer clients needing a Makati business address, workspace or registration support.",
-  headline: "For consultants, accountants and corporate service providers.",
+    "For accountants, lawyers and corporate service providers whose clients need a credible Makati business address. Refer a client to the Capsule virtual office.",
+  headline: "For professionals whose clients need an address.",
   intro:
-    "Most of our clients arrive through professional firms — consultants arranging a registration who need a compliant address, accountants whose client is outgrowing a home address, lawyers setting up a foreign-owned entity. If that is your practice, this page is for you.",
+    "Accountants, lawyers and corporate service providers send us a good share of our clients. If your client needs a credible Makati business address — or one they can name as their registered business address — that is exactly what we do, and nothing beyond it.",
 
   forPartners: [
     {
       heading: "What your client gets",
-      body: "A registered address at 104 Paseo de Roxas backed by a real staffed office, government correspondence handled properly, inspections accommodated, and meeting rooms and workspace on the same floor when they need them.",
+      body: "A business address at 104 Paseo de Roxas backed by a real staffed office, mail received and logged by our own team, official correspondence escalated immediately, and meeting rooms and workspace on the same floor when they need them.",
     },
     {
-      heading: "What you get",
-      body: "A provider that will not embarrass you at the inspection stage, one point of contact, and clear commercial terms. Tell us how you prefer to work — referral, wholesale rate, or bundled into your own engagement — and we will structure it.",
+      heading: "We stay in our lane",
+      body: "We provide the address and the office. We do not register companies, file with any agency, obtain permits, keep books, handle tax or payroll, or advise on business setup. Your engagement with your client is not something we will ever encroach on — we are the address, you are the adviser.",
+    },
+    {
+      heading: "Clear commercial terms",
+      body: "Tell us how your practice prefers to work — a referral arrangement, a wholesale rate, or simply pointing your client at our published pricing — and we will put it in writing.",
     },
     {
       heading: "How referrals are tracked",
       body: "Send your client with your firm's name on the enquiry, or use a tracked referral link we issue you. Either way the introduction is recorded against your firm so nothing is lost or double-counted.",
-    },
-    {
-      heading: "Where we hand back to you",
-      body: "We do not compete with our partners. Registration, accounting, tax and corporate secretarial work is delivered by licensed firms — if you are one, we would rather route the work to you than to someone else.",
     },
   ],
 };
@@ -173,9 +136,9 @@ export const partners = {
 /* ------------------------------------------------------------ HOW IT WORKS */
 
 export const howItWorks = {
-  metaTitle: "How It Works | Signing Up with Capsule Makati",
+  metaTitle: "How It Works — Signing Up",
   metaDescription:
-    "Four steps to a Capsule business address: choose your plan, submit documents for verification, sign and pay, and activate. Registration use is subject to approval.",
+    "Four steps to a Capsule virtual office: choose your package, submit documents for verification, sign and pay, and activate. Registered-address use is subject to approval.",
   headline: "Four steps, and one of them is us checking you out.",
   intro:
     "We screen applicants before activating an address. It adds a step, and it is the reason our address is worth registering at.",
@@ -184,17 +147,17 @@ export const howItWorks = {
     {
       n: "01",
       title: "Choose your plan",
-      body: "Pick the tier that matches what you need. If you intend to register a company at the address, you need the Registered tier or above — tell us and we will confirm eligibility before you pay anything.",
+      body: "Pick the package that matches what you need. If you intend to use the address as your registered business address, you need the Registered package or above — tell us and we will confirm eligibility before you pay anything.",
     },
     {
       n: "02",
       title: "Submit your documents",
-      body: "Government-issued identification for the authorised signatory, and your company registration documents where the company already exists. If you are incorporating with us, we will ask for things in stages rather than all at once.",
+      body: "Government-issued identification for the authorised signatory, and your company registration documents where the company already exists. We ask for these only to verify who you are.",
     },
     {
       n: "03",
       title: "Approval, agreement and payment",
-      body: "We review your application against our acceptable use policy and confirm approval. You receive the service agreement, which sets out mail handling, government correspondence, address use limits and termination. Then we invoice — bank transfer, deposit, GCash or international wire.",
+      body: "We review your application against our acceptable use policy and confirm approval. You receive the service agreement, which sets out mail handling, official correspondence, address use limits and termination. Then we invoice — bank transfer, deposit, GCash or international wire.",
     },
     {
       n: "04",
@@ -203,5 +166,5 @@ export const howItWorks = {
     },
   ],
 
-  note: "Company registration runs alongside this on its own timeline, which depends on government processing. We will give you an indicative schedule and tell you where your application stands.",
+  note: "If you are also registering a company or dealing with permits, that runs on its own timeline with your own advisers. We are not involved in it and cannot speak to where it stands — but the address will be ready when you need it.",
 };

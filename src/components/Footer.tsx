@@ -11,7 +11,7 @@ export default function Footer() {
         <div className="grid gap-10 lg:grid-cols-[1.1fr_2fr]">
           <div className="flex flex-col gap-5">
             <span className="flex items-center gap-3 font-display text-[1.25rem] font-semibold tracking-[0.2em]"><span className="grid h-9 w-6 place-items-center rounded-full border border-clay text-[0.65rem] text-clay">C</span>{site.wordmark}</span>
-            <p className="max-w-[26ch] text-[0.82rem] uppercase tracking-[0.08em] text-on-dark-soft">Your Philippine business gateway.</p>
+            <p className="max-w-[26ch] text-[0.82rem] uppercase tracking-[0.08em] text-on-dark-soft">{site.tagline}</p>
             <address className="not-italic text-[0.92rem] leading-relaxed text-on-dark-soft">
               {site.address.floor}
               <br />
@@ -86,11 +86,12 @@ export default function Footer() {
             ) : null}
           </p>
           <p className="max-w-3xl">
-            Business address services are provided subject to package
-            eligibility, documentary requirements, our acceptable use policy,
-            building rules and applicable government regulations. Registration,
-            accounting, tax, payroll and corporate secretarial services are
-            delivered by independent licensed partner firms.
+            Capsule is a virtual-office service. Address services are provided
+            subject to package eligibility, documentary requirements, our
+            acceptable use policy, building rules and applicable regulations.
+            Capsule does not provide, coordinate or advise on company
+            registration, government filings, business permits, bookkeeping,
+            accounting, tax, payroll or corporate secretarial services.
           </p>
           <p>
             © {year} {site.operator.name} All rights reserved.

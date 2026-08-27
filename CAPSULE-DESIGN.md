@@ -19,20 +19,72 @@ without being asked.
 **Do not add new `/concept-*` routes.** Change the design in place, on the
 homepage, so there is never a question about which version is current.
 
-## Brand positioning
+## Positioning — the hard boundary
 
-CAPSULE is primarily a professional virtual office platform in Makati. It provides:
+**Capsule is a virtual-office service, operated by Philippine Dragon Media Network Corp.**
 
-- Virtual office and registered business address services
-- SEC, BIR, barangay, and Mayor's Permit registration support
-- Mail and document handling
-- Reception and administrative support
-- Workstations, team space, and private offices
-- Meeting and conference rooms
-- Foreign-company support
-- Business consulting and professional partner services
+That is the entire offer:
 
-Position CAPSULE as a premium gateway for establishing and operating a business in the Philippines—not as a galaxy, entertainment, or gaming brand.
+- A business address at 104 Paseo de Roxas, Legaspi Village, Makati
+- Mail and document handling by on-site staff
+- Meeting rooms and serviced workspace on the same floor
+- A **registered-address option** on eligible packages — a component of the
+  virtual office, not a separate service
+
+### What Capsule does NOT offer, coordinate, arrange, facilitate or advise on
+
+- SEC registration or filings
+- BIR registration or filings
+- Business permits or permit processing
+- Company registration or incorporation
+- Bookkeeping or accounting
+- Tax preparation, filing or compliance
+- Payroll
+- Corporate secretarial work
+- Market-entry or business-setup consulting
+
+There are **no partner firms** delivering any of that on Capsule's behalf. A
+client's registrations, filings, permits, tax obligations and compliance are
+theirs, to handle with their own advisers. Capsule is the address on the
+paperwork and nothing more.
+
+### Copy rules
+
+Never write, or imply:
+
+- "We register your company"
+- "We handle SEC/BIR registration"
+- "We process your permits"
+- "Coordinated through our licensed partner firms"
+- "Registration support", "compliance support", "business establishment support"
+
+Write instead:
+
+> Capsule provides a professional virtual-office solution, including
+> registered-address options for businesses that need a credible Philippine
+> business address.
+
+For the registered address, describe **what it is** (an address you may name as
+your registered business address, subject to approval) and be explicit about
+**what it is not** (any filing or registration work on the client's behalf).
+
+### Also removed
+
+- All references to **613 sqm**. Describe the floor by what is on it — staffed
+  reception, six bookable rooms, serviced workstations — not by area.
+- Wider-group and sister-company references. The operator is named because it
+  is a fact worth knowing; nothing beyond that supports the positioning.
+
+### Where the scope is enforced in code
+
+| File | What it guards |
+| --- | --- |
+| `src/content/services.ts` | Scope warning at the top; only three services exist |
+| `src/content/pricing.ts` | No registration or compliance products or bundles |
+| `src/content/faqs.ts` | Scope note; answers decline out-of-scope work plainly |
+| `src/content/legal.ts` | Terms state the exclusion explicitly |
+| `src/lib/chat-config.ts` | Chatbot guardrail: "What Capsule is, and is not" |
+| `src/components/Footer.tsx` | Site-wide disclaimer on every page |
 
 ## Physical-office design language
 
@@ -91,15 +143,11 @@ joinery rather than paper).
 
 ## Secondary brand symbolism
 
-Galaxy and dragon elements are supporting details only:
-
-- Thin orbital lines
-- Small constellation-like nodes
-- Restrained gradients
-- A subtle dragon-inspired curve or seal
-- Language about mobility, opportunity, growth, and going beyond boundaries
-
-They must complement the virtual-office proposition rather than compete with it.
+Keep decorative details restrained and subordinate to the virtual-office
+proposition: thin orbital lines, small constellation-like nodes, a subtle
+curve or seal. No neon, HUD interfaces, gaming aesthetics or literal space
+scenes. Language about presence, credibility, flexibility and convenience —
+not about expansion, market entry or establishing operations.
 
 ## Office photography
 
