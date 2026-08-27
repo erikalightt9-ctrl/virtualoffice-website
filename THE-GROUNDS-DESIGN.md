@@ -10,11 +10,10 @@ There is one direction. The office-led design is the homepage:
 - Scoped styles: `src/app/home.module.css`
 - Global tokens and material motifs: `src/app/globals.css`
 
-The exploratory concepts have been deleted. Concept One (the previous homepage)
-and Concept Two (the Dragon Orbit exploration) are gone, along with their
-stylesheets and their logo variants. They remain in git history if anything ever
-needs recovering, but they are not part of the site and should not be revived
-without being asked.
+The exploratory concepts have been deleted, along with their stylesheets and
+logo variants. They remain in git history if anything ever needs recovering, but
+they are not part of the site and should not be revived without being asked —
+they were built for a different name and a different visual idea.
 
 **Do not add new `/concept-*` routes.** Change the design in place, on the
 homepage, so there is never a question about which version is current.
@@ -98,7 +97,7 @@ The website should feel continuous with the real office. Its dominant visual ref
 - Restrained corporate red accents
 - Warm, welcoming hospitality combined with professional credibility
 
-Use generous spacing, editorial typography, clean grids, and real photography. Avoid excessive neon, HUD interfaces, gaming aesthetics, literal space scenes, or dominant fantasy dragons.
+Use generous spacing, editorial typography, clean grids and the real office photography. Keep decoration minimal and material: lines, arcs, wood rhythm, surface tints. Nothing neon, nothing cosmic, nothing that looks like an interface from a film.
 
 ## The palette, sampled from the office
 
@@ -141,13 +140,34 @@ detail), `.slats-dark` (battens over a dark soffit), `.concrete` (the wall
 finish as a quiet surface tint) and `.oak` (for panels that should read as
 joinery rather than paper).
 
-## Secondary brand symbolism
+## Brand symbolism — the grounds, not the galaxy
 
-Keep decorative details restrained and subordinate to the virtual-office
-proposition: thin orbital lines, small constellation-like nodes, a subtle
-curve or seal. No neon, HUD interfaces, gaming aesthetics or literal space
-scenes. Language about presence, credibility, flexibility and convenience —
-not about expansion, market entry or establishing operations.
+The dragon and galaxy motifs are retired. No orbits, constellations, nodes,
+star fields, cosmic gradients or dragon curves. They belonged to a different
+name and they were never in the room.
+
+The brand is **The Grounds** — *a destination for business, ideas & connection*.
+Everything decorative should come from one of those four words, and every motif
+below is already present either in the office or in the logo mark.
+
+| Idea | Motif | Where it lives |
+| --- | --- | --- |
+| **Grounds** — the premises, the foundation | A horizontal ground line. A datum everything else sits on. | The logo mark; `.groundMotif` on the homepage hero |
+| **Growth** — a place you stay and build | Concentric arcs rising from that line: canopy, shelter, growth rings | The logo mark and square mark |
+| **The room itself** | The oak ceiling battens, as a rhythm of fine vertical lines | `.slats`, `.slat-rule`, `.slats-dark` in `globals.css` |
+| **Connection** | Lines that converge and meet, rather than orbit | Available; use sparingly and only where it means something |
+| **Warmth** | Concrete and oak surface tints | `.concrete`, `.oak` in `globals.css` |
+
+Rules:
+
+- **One accent, used sparingly.** The clay red is an action colour, exactly as
+  the office uses it — one sofa on the whole floor.
+- **Nothing floats.** Motifs rest on a line or spring from one. That is the
+  whole idea of the name: this is ground, not orbit.
+- **No circles for their own sake.** A ring with a dot on it is an orbit, and
+  orbits are gone. Arcs that sit on a ground line are fine.
+- Language about **arrival, presence, credibility, gathering and growth** —
+  not about expansion, frontiers, boundaries or reaching beyond.
 
 ## Office photography
 

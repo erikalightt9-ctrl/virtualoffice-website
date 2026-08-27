@@ -41,8 +41,8 @@ export default function HomePage() {
             <div className={styles.heroTrust}><span>Professional Makati address</span><span>Staffed reception</span><span>Flexible workspace access</span></div>
           </div>
           <div className={styles.officeVisual}>
-            <Image src="/photos/reception.jpg" fill priority sizes="(max-width: 1000px) 100vw, 50vw" alt="THE GROUNDS reception and administrative desk at 104 Paseo de Roxas" />
-            <div className={styles.officePanel}><small>YOUR BUSINESS PRESENCE</small><strong>104 Paseo de Roxas</strong><span>Legaspi Village · Makati City</span></div><div className={styles.orbitLine} aria-hidden="true"><i /></div>
+            <Image src="/photos/reception.jpg" fill priority sizes="(max-width: 1000px) 100vw, 50vw" alt="Reception and administrative desk at The Grounds, 104 Paseo de Roxas" />
+            <div className={styles.officePanel}><small>YOUR BUSINESS PRESENCE</small><strong>104 Paseo de Roxas</strong><span>Legaspi Village · Makati City</span></div><div className={styles.groundMotif} aria-hidden="true"><i /><b /></div>
           </div>
         </div>
         <div className={styles.factBar}><div><strong>Makati CBD</strong><span>professional business address</span></div><div><strong>6 rooms</strong><span>meetings &amp; conferences</span></div><div><strong>5th floor</strong><span>104 Paseo de Roxas</span></div><div><strong>On-site team</strong><span>reception &amp; administration</span></div></div>
@@ -54,8 +54,8 @@ export default function HomePage() {
       </section>
 
       <section className={styles.officeGallery}>
-        <div className={styles.galleryLead}><Image src="/photos/lounge.jpg" fill sizes="(max-width: 900px) 100vw, 56vw" alt="THE GROUNDS client lounge with warm wood, greenery, and comfortable seating" /><span>Welcome lounge</span></div>
-        <div className={styles.galleryStack}><div><Image src="/photos/workspace.jpg" fill sizes="(max-width: 900px) 100vw, 44vw" alt="THE GROUNDS serviced workspace with ergonomic chairs and glass partitions" /><span>Serviced workspace</span></div><div><Image src="/photos/pantry.jpg" fill sizes="(max-width: 900px) 100vw, 44vw" alt="THE GROUNDS communal pantry and informal collaboration space" /><span>Community space</span></div></div>
+        <div className={styles.galleryLead}><Image src="/photos/lounge.jpg" fill sizes="(max-width: 900px) 100vw, 56vw" alt="The lounge at The Grounds, with warm wood, greenery and comfortable seating" /><span>Welcome lounge</span></div>
+        <div className={styles.galleryStack}><div><Image src="/photos/workspace.jpg" fill sizes="(max-width: 900px) 100vw, 44vw" alt="Serviced workspace at The Grounds, with ergonomic chairs and glass partitions" /><span>Serviced workspace</span></div><div><Image src="/photos/pantry.jpg" fill sizes="(max-width: 900px) 100vw, 44vw" alt="The communal pantry and tea room at The Grounds" /><span>Community space</span></div></div>
       </section>
 
       <section className={styles.servicesSection}>
@@ -64,7 +64,7 @@ export default function HomePage() {
       </section>
 
       <section className={styles.locationSection}>
-        <div className={styles.locationVisual}><Image src="/photos/meeting-room.jpg" fill sizes="(max-width: 1000px) 100vw, 53vw" alt="THE GROUNDS meeting room with wood-slat ceiling and professional seating" /><div className={styles.locationBadge}><small>Makati CBD</small><strong>A real place<br />behind your presence.</strong></div></div>
+        <div className={styles.locationVisual}><Image src="/photos/meeting-room.jpg" fill sizes="(max-width: 1000px) 100vw, 53vw" alt="A meeting room at The Grounds, with its oak-slat ceiling" /><div className={styles.locationBadge}><small>Makati CBD</small><strong>A real place<br />behind your presence.</strong></div></div>
         <div className={styles.locationCopy}><p className={styles.eyebrow}>A real office behind your address</p><h2>Professional presence starts with a professional place.</h2><p>Our fifth-floor office at 104 Paseo de Roxas gives your virtual office a credible physical base, with staffed reception, organized mail handling, flexible workstations and professional meeting rooms.</p><ul><li><span>01</span>Established Makati CBD address</li><li><span>02</span>Reception staffed every business day</li><li><span>03</span>Flexible workstations and private spaces</li><li><span>04</span>Six bookable meeting and conference rooms</li></ul><Link href="/location" className={styles.textLink}>Explore the location ↗</Link></div>
       </section>
 
@@ -80,8 +80,10 @@ export default function HomePage() {
       </section>
 
       <section className={styles.supportSection}>
-        <div className={styles.supportSeal} aria-hidden="true"><span>C</span><i /><b /></div>
-        <div><p className={styles.eyebrow}>The company behind The Grounds</p><h2>Professionally managed in Makati.</h2><p>THE GROUNDS is a virtual office service operated by Philippine Dragon Media Network Corp. Our on-site team manages the business address, reception, mail handling, meeting-room access and day-to-day client support.</p><Link href="/about" className={styles.textLink}>About THE GROUNDS ↗</Link></div>
+        <div className={styles.supportMark}>
+          <Image src="/the-grounds-mark.svg" width={260} height={260} alt="" aria-hidden="true" />
+        </div>
+        <div><p className={styles.eyebrow}>The company behind The Grounds</p><h2>Professionally managed in Makati.</h2><p>The Grounds is a virtual-office service operated by Philippine Dragon Media Network Corp. Our on-site team manages the business address, reception, mail handling, meeting-room access and day-to-day client support.</p><Link href="/about" className={styles.textLink}>About The Grounds ↗</Link></div>
       </section>
 
       <section className={styles.finalCta}>
