@@ -42,7 +42,7 @@ export default function AboutPage() {
       <Section eyebrow="The office" heading="Where we are" tone="bone">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           <Photo file="lounge.jpg" alt="The client lounge on the 5th floor" caption="The lounge, on the 5th floor." />
-          <Photo file="reception.jpg" alt="Reception on the 5th floor" caption="Reception, staffed through business hours." />
+          <Photo file="reception.jpg" position="78% 45%" alt="Reception on the 5th floor, with the Philippine Dragon Media Network signage" caption="Reception, staffed through business hours." />
           <Photo file="meeting-room.jpg" alt="A meeting room on the 5th floor" caption="One of six bookable rooms." />
         </div>
       </Section>

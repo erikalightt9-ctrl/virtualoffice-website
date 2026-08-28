@@ -103,6 +103,7 @@ export default function LocationPage() {
               file={photo.file}
               alt={photo.caption}
               caption={photo.caption}
+              position={photo.position ?? "center"}
             />
           ))}
         </div>

@@ -41,7 +41,7 @@ export default function HomePage() {
             <div className={styles.heroTrust}><span>Professional Makati address</span><span>Staffed reception</span><span>Flexible workspace access</span></div>
           </div>
           <div className={styles.officeVisual}>
-            <Image src="/photos/reception.jpg" fill priority sizes="(max-width: 1000px) 100vw, 50vw" alt="Reception and administrative desk at The Grounds, 104 Paseo de Roxas" />
+            <Image src="/photos/reception.jpg" fill priority sizes="(max-width: 1000px) 100vw, 50vw" alt="The reception at The Grounds, with the Philippine Dragon Media Network signage behind the desk" />
             <div className={styles.officePanel}><small>YOUR BUSINESS PRESENCE</small><strong>104 Paseo de Roxas</strong><span>Legaspi Village · Makati City</span></div><div className={styles.groundMotif} aria-hidden="true"><i /><b /></div>
           </div>
         </div>

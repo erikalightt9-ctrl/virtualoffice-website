@@ -21,6 +21,13 @@ type Props = {
   caption?: string;
   /** Aspect ratio class, e.g. "aspect-[4/3]". */
   ratio?: string;
+  /**
+   * Where to anchor the crop, as a CSS object-position. Defaults to centre.
+   * Set this when the subject sits off-centre — the reception photograph, for
+   * instance, has the Philippine Dragon Media Network signage to the right of
+   * the frame, and a centre crop cuts it off.
+   */
+  position?: string;
   priority?: boolean;
   className?: string;
 };
@@ -38,6 +45,7 @@ export default function Photo({
   alt,
   caption,
   ratio = "aspect-[4/3]",
+  position = "center",
   priority = false,
   className = "",
 }: Props) {
@@ -55,6 +63,7 @@ export default function Photo({
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover"
+            style={{ objectPosition: position }}
             priority={priority}
           />
         ) : (

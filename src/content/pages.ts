@@ -46,7 +46,12 @@ export const location = {
    * Photo files go in /public/photos/ and are referenced in components/Photo.tsx.
    */
   photoCaptions: [
-    { file: "reception.jpg", caption: "Reception on the 5th floor, staffed through business hours." },
+    {
+      file: "reception.jpg",
+      caption: "Reception on the 5th floor, staffed through business hours.",
+      // The signage sits right of centre; a centre crop cuts it off.
+      position: "78% 45%",
+    },
     { file: "lounge.jpg", caption: "The lounge, where clients wait and members read." },
     { file: "workspace.jpg", caption: "Serviced workstations on the main floor." },
     { file: "meeting-room.jpg", caption: "One of six bookable rooms." },
