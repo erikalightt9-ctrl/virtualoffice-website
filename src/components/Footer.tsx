@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import BrandLogo from "./BrandLogo";
 import Container from "./Container";
 import { footerNav, site } from "@/content/site";
 
@@ -11,7 +11,7 @@ export default function Footer() {
       <Container className="py-14">
         <div className="grid gap-10 lg:grid-cols-[1.1fr_2fr]">
           <div className="flex flex-col gap-5">
-            <span className="flex items-center gap-3"><Image src="/pdmn-mark-inverse.svg" width={42} height={37} alt="" aria-hidden="true" /><span className="flex flex-col leading-none"><span className="font-display text-[1.25rem] font-semibold tracking-[0.2em]">{site.wordmark}</span><span className="font-mono text-[0.6rem] uppercase tracking-[0.24em] text-on-dark-soft">{site.wordmarkSub}</span></span></span>
+            <span className="flex flex-col leading-none"><span className="font-display text-[1.25rem] font-semibold tracking-[0.2em]">{site.wordmark}</span><span className="font-mono text-[0.6rem] uppercase tracking-[0.24em] text-on-dark-soft">{site.wordmarkSub}</span></span>
             <p className="max-w-[26ch] text-[0.82rem] uppercase tracking-[0.08em] text-on-dark-soft">{site.tagline}</p>
             <address className="not-italic text-[0.92rem] leading-relaxed text-on-dark-soft">
               {site.address.floor}
@@ -80,6 +80,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col gap-3 border-t border-rule-dark pt-6 text-[0.82rem] text-on-dark-soft">
+          <BrandLogo inverse height={40} className="mb-1" />
           <p className="max-w-3xl">
             {site.operator.relationship}
             {site.operator.secRegistrationNo !== "TODO" ? (

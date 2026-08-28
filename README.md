@@ -248,6 +248,10 @@ Search the project for `TODO` to find these in place.
       `hello@pdmnvirtualoffice.ph` are placeholders and appear in the footer of every
       page, in the contact page, and in the chatbot's handoff text. They all
       come from `src/content/site.ts`.
+- [ ] **The PDMN logo.** Save it to `public/pdmn-logo.svg` (or `.png`) without
+      the `WWW.FLW.PH` line. It appears automatically — no code change. A
+      mark-only variant, just the swirl, would also give the header, favicon
+      and share card a proper logo.
 - [ ] **Real domain.** `pdmnvirtualoffice.ph` is a placeholder in `site.url`, and it
       is what the Open Graph share card and the sitemap are built against.
 - [ ] **Finalise the FAQ**, then enable the chatbot

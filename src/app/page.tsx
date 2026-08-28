@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { formatPeso, publishedAddressTiers } from "@/content/pricing";
 import { site } from "@/content/site";
+import BrandLogo from "@/components/BrandLogo";
 import styles from "./home.module.css";
 
 // The homepage title comes from the root layout's template default, so it is
@@ -81,13 +82,13 @@ export default function HomePage() {
 
       <section className={styles.supportSection}>
         <div className={styles.supportMark}>
-          <Image src="/pdmn-mark.svg" width={260} height={228} alt="" aria-hidden="true" />
+          <BrandLogo height={92} />
         </div>
         <div><p className={styles.eyebrow}>The company behind PDMN Virtual Office</p><h2>Professionally managed in Makati.</h2><p>PDMN Virtual Office is operated by Philippine Dragon Media Network Corp. Our on-site team manages the business address, reception, mail handling, meeting-room access and day-to-day client support.</p><Link href="/about" className={styles.textLink}>About PDMN Virtual Office ↗</Link></div>
       </section>
 
       <section className={styles.finalCta}>
-        <Image src="/pdmn-logo-inverse.svg" width={462} height={105} alt="PDMN Virtual Office — a destination for business, ideas and connection" />
+        <span className="flex flex-col items-center leading-none"><span className="font-display text-[3.2rem] font-bold tracking-[0.18em]">PDMN</span><span className="mt-2 font-mono text-[0.8rem] uppercase tracking-[0.3em] opacity-70">Virtual Office</span></span>
         <h2>Give your business<br />the space to move forward.</h2><p>Tell us what you are building. We’ll help create the right professional presence around it.</p><Link href="/contact" className={styles.primary}>Speak with our team <span>↗</span></Link>
       </section>
     </div>

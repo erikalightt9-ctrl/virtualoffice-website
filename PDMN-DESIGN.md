@@ -216,35 +216,50 @@ Current tagline:
 
 > A destination for business, ideas & connection
 
-> ⚠️ **The mark currently on the site is not PDMN's.** It is a doorway symbol
-> traced from artwork supplied for the retired name, and it is still in place
-> only so the header and footer are not left empty. The real Philippine Dragon
-> Media Network logo — the red roundel with 菲龍網 — should replace it. Ask for
-> the vector (AI, EPS or SVG) and it is a drop-in swap across four files.
+### The logo
 
-Current placeholder assets:
+The identity is **Philippine Dragon Media Network's own**. This is an endorsed
+sub-brand: the parent mark carries the credibility, and `VIRTUAL OFFICE` is the
+descriptor that says which part of the business this is. Do not commission a
+separate mark for the virtual office.
 
-- `public/pdmn-logo.svg` — horizontal lockup
-- `public/pdmn-logo-inverse.svg` — lockup for dark backgrounds
-- `public/pdmn-mark.svg` — mark only
-- `public/pdmn-mark-inverse.svg` — mark only, for dark backgrounds
+**The artwork is not in the repository yet.** The doorway mark that used to be
+here was traced for a retired name and has been deleted — a wrong logo is worse
+than none. Until the real artwork arrives the site runs on the stacked text
+wordmark, which stands on its own.
 
-The mark is a doorway drawn as nested frames with a handle, and a path that
-comes in along the ground and rises up through it. Its colours: charcoal
-`#2B2B2B`, grey `#8A8A8A`, a copper handle `#BE7D3E`, and the path running
-`#C0392B` to `#D2691E` with a `#A02128` head.
+To add it, save into `public/`:
 
-Intrinsic sizes — match these ratios or the artwork squashes:
+| File | Notes |
+| --- | --- |
+| `pdmn-logo.svg` | Vector. Ideal. |
+| `pdmn-logo.png` | Raster with transparency. Fine for web. |
+| `pdmn-logo-inverse.svg` or `.png` | Optional, for dark grounds. Falls back to the standard artwork. |
 
-| Asset | viewBox | Ratio |
-| --- | --- | --- |
-| lockup | 1320 × 300 | 4.40 : 1 |
-| mark | 320 × 280 | 1.14 : 1 |
+**The artwork must not carry the `WWW.FLW.PH` line** beneath the Chinese
+characters. Crop it or ask for a variant without it.
 
-Two things to watch when replacing these with the real PDMN artwork: XML
-comments must not contain a double hyphen (it silently breaks the whole SVG),
-and any wordmark set as live `<text>` should be converted to outlines before it
-goes to print or signage.
+`BrandLogo` probes those paths off-DOM and renders the first that decodes, so a
+missing file shows nothing rather than a broken image. Drop the file in and it
+appears — no code change.
+
+### Where the logo goes, and where it does not
+
+| Place | What shows |
+| --- | --- |
+| Header | Text wordmark only — `PDMN` over `VIRTUAL OFFICE` |
+| Footer | Full lockup, above the operator line |
+| About, operator panel | Full lockup |
+| Homepage, operator section | Full lockup |
+| Favicon, share card | Typographic placeholder |
+
+The full lockup carries the swirl, the Chinese characters, the mascot and the
+company name. At header height the company name sets at roughly six pixels, so
+it is illegible there — hence the text wordmark in the header.
+
+**The single most useful thing to obtain is a mark-only variant** — just the
+gold swirl, without the type. That would go in the header, the favicon and the
+share card, and would finish the identity across the whole site.
 
 ### Writing the name
 

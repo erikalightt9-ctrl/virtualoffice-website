@@ -1,11 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="PDMN Virtual Office">
-  <!-- Simplified for small sizes: the doorway and the rising path only.
-       The inner frame and the handle disappear below about 48px, so they are
-       left out here rather than turning to mush. -->
+  <!-- Typographic placeholder. At 16-32px nothing survives except a letter or
+       two, so the swirl mark from the Philippine Dragon Media Network logo is
+       the right long-term favicon once a mark-only vector exists: crop the
+       swirl, drop it in here, keep the charcoal ground. -->
   <rect width="64" height="64" fill="#1d1f21"/>
-  <path d="M14 50 V15 H50 V50" fill="none" stroke="#F2EFE9" stroke-width="6" stroke-linejoin="miter"/>
-  <path d="M12 51 H27 C42 51 48 45 54 35" fill="none" stroke="#D2691E"
-        stroke-width="7" stroke-linecap="round"/>
-  <path d="M47 40 L55 27 L60 38" fill="none" stroke="#C0392B"
-        stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="32" y="43"
+        text-anchor="middle"
+        font-family="Archivo, 'Helvetica Neue', Helvetica, Arial, sans-serif"
+        font-size="30" font-weight="700" letter-spacing="-1"
+        fill="#e02a06">P</text>
+  <rect x="14" y="49" width="36" height="3" fill="#c64405"/>
 </svg>

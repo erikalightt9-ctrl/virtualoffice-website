@@ -6,6 +6,7 @@ import Section from "@/components/Section";
 import ProofStrip from "@/components/ProofStrip";
 import { about } from "@/content/pages";
 import { site } from "@/content/site";
+import BrandLogo from "@/components/BrandLogo";
 
 export const metadata: Metadata = {
   title: about.metaTitle,
@@ -49,6 +50,7 @@ export default function AboutPage() {
 
       <Section eyebrow="The operator" tone="surface">
         <div className="max-w-[68ch] border border-rule bg-bone p-6">
+          <BrandLogo height={52} className="mb-4" />
           <h2 className="text-[1.2rem]">{site.operator.name}</h2>
           <p className="mt-3 text-body-soft">
             {site.operator.relationship}

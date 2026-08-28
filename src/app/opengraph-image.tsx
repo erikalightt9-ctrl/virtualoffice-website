@@ -8,6 +8,10 @@ import { site } from "@/content/site";
  *
  * Rendered at request time from the office palette. Fonts fall back to the
  * platform sans, which is fine at this size and avoids shipping a font binary.
+ *
+ * Typographic for now. Once a mark-only variant of the Philippine Dragon Media
+ * Network logo exists, that belongs at the top of this card in place of the
+ * accent rule.
  */
 
 export const alt = "PDMN Virtual Office — a destination for business, ideas & connection";
@@ -29,37 +33,14 @@ export default function OpengraphImage() {
           fontFamily: "Helvetica, Arial, sans-serif",
         }}
       >
-        {/* The mark: doorway with a path rising through it */}
-        <svg width="150" height="131" viewBox="0 0 320 280">
-          <path
-            d="M22 262 V30 H258 V262"
-            fill="none"
-            stroke="#F2EFE9"
-            strokeWidth="20"
-          />
-          <path
-            d="M78 238 V78 H210 V238"
-            fill="none"
-            stroke="#A8A49D"
-            strokeWidth="9"
-          />
-          <circle cx="143" cy="137" r="11" fill="#D19A57" />
-          <path
-            d="M18 264 H118 C205 264 245 226 281 168"
-            fill="none"
-            stroke="#D2691E"
-            strokeWidth="26"
-            strokeLinecap="round"
-          />
-          <path
-            d="M264 190 L289 145 L305 180"
-            fill="none"
-            stroke="#C4443C"
-            strokeWidth="22"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
+        <div
+          style={{
+            display: "flex",
+            width: 150,
+            height: 10,
+            background: "linear-gradient(100deg, #e02a06 0%, #c64405 100%)",
+          }}
+        />
 
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div

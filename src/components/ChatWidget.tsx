@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { CHATBOT_ENABLED, GREETING, SUGGESTED_QUESTIONS } from "@/lib/chat-ui";
 import { site } from "@/content/site";
@@ -159,14 +158,6 @@ export default function ChatWidget() {
         >
           {/* Header */}
           <div className="flex items-start gap-3 border-b border-rule-dark px-4 py-3.5">
-            <Image
-              className="mt-0.5 shrink-0"
-              src="/pdmn-mark-inverse.svg"
-              width={30}
-              height={26}
-              alt=""
-              aria-hidden="true"
-            />
             <div className="flex flex-col gap-0.5">
               <span className="font-display text-[0.82rem] font-semibold tracking-[0.04em] text-on-dark">
                 Ask us
