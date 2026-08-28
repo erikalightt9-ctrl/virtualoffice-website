@@ -121,7 +121,7 @@ export default function ChatWidget() {
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-controls="grounds-chat-panel"
-        className="fixed bottom-5 right-5 z-[60] flex items-center gap-2.5 border border-clay bg-clay px-4 py-3 font-display text-[0.7rem] font-bold uppercase tracking-[0.1em] text-white shadow-lg transition-all hover:bg-clay-dark hover:shadow-xl sm:bottom-7 sm:right-7"
+        className="accent-fill fixed bottom-5 right-5 z-[60] flex items-center gap-2.5 border px-4 py-3 font-display text-[0.7rem] font-bold uppercase tracking-[0.1em] shadow-lg transition-all hover:shadow-xl sm:bottom-7 sm:right-7"
       >
         {open ? (
           <>
@@ -268,7 +268,7 @@ export default function ChatWidget() {
                 type="button"
                 onClick={() => void send(input)}
                 disabled={busy || !input.trim()}
-                className="grid h-[42px] w-[42px] shrink-0 place-items-center border border-clay bg-clay text-white transition-colors hover:bg-clay-dark disabled:cursor-not-allowed disabled:border-rule-dark disabled:bg-transparent disabled:text-on-dark-soft"
+                className="accent-fill grid h-[42px] w-[42px] shrink-0 place-items-center border transition-colors disabled:cursor-not-allowed disabled:border-rule-dark disabled:bg-none disabled:bg-transparent disabled:text-on-dark-soft"
                 aria-label="Send question"
               >
                 <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true">

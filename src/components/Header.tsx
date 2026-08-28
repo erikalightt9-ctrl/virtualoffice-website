@@ -88,7 +88,7 @@ export default function Header() {
 
         <Link
           href="/contact"
-          className="ml-auto hidden shrink-0 border border-clay bg-clay px-4 py-2.5 text-[0.68rem] font-semibold uppercase tracking-[0.1em] text-ink transition-colors hover:bg-clay-dark lg:ml-3 lg:block"
+          className="accent-fill ml-auto hidden shrink-0 border px-4 py-2.5 text-[0.68rem] font-semibold uppercase tracking-[0.1em] transition-colors lg:ml-3 lg:block"
         >
           Get a quote
         </Link>
@@ -184,7 +184,7 @@ export default function Header() {
               <Link
                 href="/contact"
                 onClick={() => setOpen(false)}
-                className="border border-clay bg-clay px-4 py-3 text-center text-[0.8rem] font-semibold uppercase tracking-[0.09em] text-ink"
+                className="accent-fill border px-4 py-3 text-center text-[0.8rem] font-semibold uppercase tracking-[0.09em]"
               >
                 Get a quote
               </Link>

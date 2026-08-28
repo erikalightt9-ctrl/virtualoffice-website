@@ -115,6 +115,10 @@ What the photographs actually contain, by share of frame:
 | Teal — the pantry wall | 1–6% | `#557f7b` | `--grounds-teal`, `--grounds-seafoam` |
 | Red — the leather sofa | small | `#70341a`–`#b4462b` | `--grounds-clay` |
 
+The accent has since been brightened. The sampled sofa red was duller than the
+logo's own gradient, which made the site look flatter than its own logo. See
+the accent section below.
+
 Two rules follow from the measurements:
 
 1. **Warm oak and concrete carry the page.** They are what the room is mostly
@@ -131,6 +135,32 @@ Checked against WCAG before adoption. `--grounds-clay` on `--grounds-bone` is
 4.88:1 and white on clay is 5.45:1, so the accent is safe for body text and
 buttons. `--grounds-text-faint` (2.96:1) is a border and surface colour only —
 never text. `--grounds-oak` and `--grounds-amber` are surface tones, not text.
+
+### The accent, and its gradient
+
+One accent, used for actions only. It comes in two forms:
+
+| Token | Value | For |
+| --- | --- | --- |
+| `--grounds-clay` | `#c92a14` | Links, eyebrows, borders, small markers, focus rings |
+| `--grounds-clay-gradient` | `#e02a06` → `#c64405` | Filled surfaces: buttons, badges, bands |
+| `--grounds-clay-dark` | `#a32112` | Pressed and hover states |
+| `--grounds-clay-wash` | `#fbeae4` | Tinted callout backgrounds |
+
+Use `.accent-fill` for any filled accent surface. It carries the gradient, a
+solid fallback and the hover state together, so buttons cannot drift apart.
+
+**Never put a gradient behind small text.** The gradient is for the surface;
+the text on it is white.
+
+**The warm end is deliberately held back from full orange.** White text has to
+stay legible everywhere along the sweep, and it does — 4.66:1 at the red end,
+4.96:1 at the warm end, never dipping between. Push the end further towards
+orange and it fails: `#d2560a` drops white to 4.14:1, below AA. Re-check with a
+contrast tool before changing either stop.
+
+The solid accent gives 4.91:1 on the page ground, so it is safe for body-size
+link text. That was verified on every page, not assumed.
 
 ### Material motifs
 

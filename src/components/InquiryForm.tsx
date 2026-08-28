@@ -211,7 +211,7 @@ export default function InquiryForm() {
         <button
           type="submit"
           disabled={status === "sending"}
-          className="inline-flex items-center justify-center border border-clay bg-clay px-6 py-3.5 text-[0.82rem] font-semibold uppercase tracking-[0.09em] text-white transition-colors hover:bg-clay-dark disabled:cursor-not-allowed disabled:opacity-60"
+          className="accent-fill inline-flex items-center justify-center border px-6 py-3.5 text-[0.82rem] font-semibold uppercase tracking-[0.09em] transition-colors disabled:cursor-not-allowed disabled:opacity-60"
         >
           {status === "sending" ? "Sending…" : "Send enquiry"}
         </button>

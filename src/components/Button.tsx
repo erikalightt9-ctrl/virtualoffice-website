@@ -5,7 +5,7 @@ type Variant = "solid" | "outline" | "onDark" | "quiet";
 
 const styles: Record<Variant, string> = {
   solid:
-    "bg-clay text-white border border-clay hover:bg-clay-dark hover:border-clay-dark",
+    "accent-fill border",
   outline:
     "bg-transparent text-ink border border-rule-strong hover:border-ink hover:bg-surface",
   onDark:

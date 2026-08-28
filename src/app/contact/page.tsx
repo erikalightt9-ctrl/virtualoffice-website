@@ -38,7 +38,7 @@ export default function ContactPage() {
               <h2 className="label text-clay">Faster: message us</h2>
               <a
                 href={site.contact.viberHref}
-                className="border border-clay bg-clay px-4 py-3 text-center text-[0.8rem] font-semibold uppercase tracking-[0.09em] text-white transition-colors hover:bg-clay-dark"
+                className="accent-fill border px-4 py-3 text-center text-[0.8rem] font-semibold uppercase tracking-[0.09em] transition-colors"
               >
                 Chat on Viber
               </a>

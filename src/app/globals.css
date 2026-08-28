@@ -40,10 +40,27 @@
   --grounds-teal: #367369;
   --grounds-seafoam: #dce8e5;
 
-  /* The sofa. Reserved for actions, exactly as the room reserves it. */
-  --grounds-clay: #b4462b;
-  --grounds-clay-dark: #98351e;
-  --grounds-clay-wash: #f6e7e1;
+  /* The accent. Reserved for actions, exactly as the room reserves it.
+     Brightened from the muted brick it used to be, and taken up to the
+     vibrancy of the logo's own gradient rather than sitting below it.
+
+     Every value here was checked against WCAG before adoption:
+       clay on bone .............. 4.91  (link and body text)
+       white on clay ............. 5.49
+       white on the gradient ..... 4.66 at its lightest point
+     The gradient's warm end is held back from full orange precisely so that
+     white text stays legible everywhere along the sweep. Do not push it
+     further towards orange without re-checking. */
+  --grounds-clay: #c92a14;
+  --grounds-clay-dark: #a32112;
+  --grounds-clay-wash: #fbeae4;
+
+  /* Gradient stops, for filled surfaces only — buttons, badges, bands.
+     Never for text: a gradient behind small type is unreadable. */
+  --grounds-clay-from: #e02a06;
+  --grounds-clay-to: #c64405;
+  --grounds-clay-gradient: linear-gradient(100deg, #e02a06 0%, #c64405 100%);
+  --grounds-clay-gradient-hover: linear-gradient(100deg, #c02205 0%, #a53704 100%);
 
   /* Text */
   --grounds-text: #23262a;
@@ -67,6 +84,7 @@
   --color-rule: var(--grounds-rule); --color-rule-strong: var(--grounds-rule-strong); --color-rule-dark: var(--grounds-rule-dark);
   --color-oak-pale: var(--grounds-oak-pale); --color-oak-light: var(--grounds-oak-light); --color-oak: var(--grounds-oak);
   --color-oak-deep: var(--grounds-oak-deep); --color-amber: var(--grounds-amber); --color-teal: var(--grounds-teal);
+  --color-clay-from: var(--grounds-clay-from); --color-clay-to: var(--grounds-clay-to);
   --font-display: var(--font-archivo), sans-serif; --font-body: var(--font-source-serif), serif; --font-mono: var(--font-plex-mono), monospace;
 }
 
@@ -80,6 +98,21 @@ a { text-underline-offset: .2em; }
 .label { font-family: var(--font-plex-mono), monospace; font-size: .7rem; letter-spacing: .15em; text-transform: uppercase; }
 .tnum { font-variant-numeric: tabular-nums; }
 .prose-grounds p { max-width: 68ch; }
+
+/* Filled accent surface: buttons, badges, bands. Carries the gradient plus a
+   solid fallback, so a browser that cannot paint the gradient still gets a
+   legible button rather than transparent text on nothing. */
+.accent-fill {
+  background-color: var(--grounds-clay);
+  background-image: var(--grounds-clay-gradient);
+  color: #fff;
+  border-color: var(--grounds-clay-from);
+}
+.accent-fill:hover {
+  background-color: var(--grounds-clay-dark);
+  background-image: var(--grounds-clay-gradient-hover);
+  border-color: var(--grounds-clay-dark);
+}
 
 /* ----------------------------------------------------------------------------
    Materials taken from the office

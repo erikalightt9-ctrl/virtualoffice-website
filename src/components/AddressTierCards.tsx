@@ -19,7 +19,7 @@ export default function AddressTierCards({
           }`}
         >
           {tier.featured ? (
-            <span className="label absolute right-0 top-0 bg-clay px-3 py-1.5 text-white">
+            <span className="accent-fill label absolute right-0 top-0 px-3 py-1.5">
               Most chosen
             </span>
           ) : null}
@@ -77,7 +77,7 @@ export default function AddressTierCards({
             href={`/contact?plan=${tier.id}`}
             className={`mt-auto inline-flex items-center justify-center px-4 py-3 text-[0.78rem] font-semibold uppercase tracking-[0.09em] transition-colors ${
               tier.featured
-                ? "border border-clay bg-clay text-white hover:bg-clay-dark"
+                ? "accent-fill border"
                 : "border border-rule-strong text-ink hover:border-ink"
             }`}
           >
