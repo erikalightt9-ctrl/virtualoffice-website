@@ -64,16 +64,6 @@ export default function OpengraphImage() {
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div
             style={{
-              fontSize: 30,
-              letterSpacing: 14,
-              color: "#8F8D89",
-              fontWeight: 600,
-            }}
-          >
-            THE
-          </div>
-          <div
-            style={{
               fontSize: 116,
               letterSpacing: 6,
               color: "#F2EFE9",
@@ -81,7 +71,18 @@ export default function OpengraphImage() {
               lineHeight: 1.05,
             }}
           >
-            GROUNDS
+            {site.wordmark}
+          </div>
+          <div
+            style={{
+              fontSize: 34,
+              letterSpacing: 16,
+              color: "#8F8D89",
+              fontWeight: 600,
+              marginTop: 6,
+            }}
+          >
+            {site.wordmarkSub}
           </div>
           <div
             style={{
