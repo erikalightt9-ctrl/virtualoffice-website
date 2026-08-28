@@ -1,9 +1,9 @@
 /**
  * ============================================================================
- *  THE GROUNDS — FREQUENTLY ASKED QUESTIONS
+ *  PDMN VIRTUAL OFFICE — FREQUENTLY ASKED QUESTIONS
  *  Shown on /faq, grouped by category, and the top ones appear on the homepage.
  *
- *  ⚠️  SCOPE: The Grounds is a virtual office. Answers must never suggest that we
+ *  ⚠️  SCOPE: this is a virtual office and nothing more. Answers must never suggest that we
  *  register companies, file with any agency, obtain permits, keep books,
  *  handle tax or payroll, or advise on setting up a business. Where a question
  *  touches those things, the honest answer is that they are the client's to
@@ -29,7 +29,7 @@ export const faqs: Faq[] = [
   {
     category: "The address",
     featured: true,
-    q: "What exactly does The Grounds provide?",
+    q: "What exactly does PDMN Virtual Office provide?",
     a: [
       "A virtual office: a professional business address at 104 Paseo de Roxas in Makati, mail and parcel handling by our own staff, meeting rooms on the same floor, and workspace when you need it. Companies that need an address they can register can take our Registered package.",
       "That is the whole offer. We are not a corporate services firm and we do not act as one.",
@@ -65,7 +65,7 @@ export const faqs: Faq[] = [
   {
     category: "Registered address",
     featured: true,
-    q: "Will The Grounds register my company or handle my filings?",
+    q: "Will PDMN Virtual Office register my company or handle my filings?",
     a: [
       "No. We provide the address; we do not register companies, submit anything to any government agency, obtain permits, keep books, prepare or file taxes, run payroll, or advise on setting up a business in the Philippines.",
       "Those are yours to handle with your own accountant, lawyer or corporate services firm. We are simply the address they write on the form, and we will not claim otherwise.",

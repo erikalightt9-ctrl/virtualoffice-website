@@ -11,7 +11,7 @@ export default function Footer() {
       <Container className="py-14">
         <div className="grid gap-10 lg:grid-cols-[1.1fr_2fr]">
           <div className="flex flex-col gap-5">
-            <span className="flex items-center gap-3 font-display text-[1.25rem] font-semibold tracking-[0.2em]"><Image src="/the-grounds-mark-inverse.svg" width={42} height={37} alt="" aria-hidden="true" />{site.wordmark}</span>
+            <span className="flex items-center gap-3"><Image src="/pdmn-mark-inverse.svg" width={42} height={37} alt="" aria-hidden="true" /><span className="flex flex-col leading-none"><span className="font-display text-[1.25rem] font-semibold tracking-[0.2em]">{site.wordmark}</span><span className="font-mono text-[0.6rem] uppercase tracking-[0.24em] text-on-dark-soft">{site.wordmarkSub}</span></span></span>
             <p className="max-w-[26ch] text-[0.82rem] uppercase tracking-[0.08em] text-on-dark-soft">{site.tagline}</p>
             <address className="not-italic text-[0.92rem] leading-relaxed text-on-dark-soft">
               {site.address.floor}
@@ -87,10 +87,10 @@ export default function Footer() {
             ) : null}
           </p>
           <p className="max-w-3xl">
-            The Grounds is a virtual-office service. Address services are provided
+            PDMN Virtual Office is operated by Philippine Dragon Media Network Corp. Address services are provided
             subject to package eligibility, documentary requirements, our
             acceptable use policy, building rules and applicable regulations.
-            The Grounds does not provide, coordinate or advise on company
+            PDMN Virtual Office does not provide, coordinate or advise on company
             registration, government filings, business permits, bookkeeping,
             accounting, tax, payroll or corporate secretarial services.
           </p>

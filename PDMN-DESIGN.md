@@ -1,4 +1,4 @@
-# THE GROUNDS Website Design Handoff
+# PDMN Virtual Office — Website Design Handoff
 
 This file is automatically loaded by Claude Code through `CLAUDE.md`.
 
@@ -20,7 +20,7 @@ homepage, so there is never a question about which version is current.
 
 ## Positioning — the hard boundary
 
-**The Grounds is a virtual-office service, operated by Philippine Dragon Media Network Corp.**
+**PDMN Virtual Office is operated by Philippine Dragon Media Network Corp.**
 
 That is the entire offer:
 
@@ -30,7 +30,7 @@ That is the entire offer:
 - A **registered-address option** on eligible packages — a component of the
   virtual office, not a separate service
 
-### What The Grounds does NOT offer, coordinate, arrange, facilitate or advise on
+### What PDMN Virtual Office does NOT offer, coordinate, arrange, facilitate or advise on
 
 - SEC registration or filings
 - BIR registration or filings
@@ -44,7 +44,7 @@ That is the entire offer:
 
 There are **no partner firms** delivering any of that on our behalf. A
 client's registrations, filings, permits, tax obligations and compliance are
-theirs, to handle with their own advisers. The Grounds is the address on the
+theirs, to handle with their own advisers. PDMN Virtual Office is the address on the
 paperwork and nothing more.
 
 ### Copy rules
@@ -59,7 +59,7 @@ Never write, or imply:
 
 Write instead:
 
-> The Grounds provides a professional virtual-office solution, including
+> PDMN Virtual Office provides a professional virtual-office solution, including
 > registered-address options for businesses that need a credible Philippine
 > business address.
 
@@ -82,7 +82,7 @@ your registered business address, subject to approval) and be explicit about
 | `src/content/pricing.ts` | No registration or compliance products or bundles |
 | `src/content/faqs.ts` | Scope note; answers decline out-of-scope work plainly |
 | `src/content/legal.ts` | Terms state the exclusion explicitly |
-| `src/lib/chat-config.ts` | Chatbot guardrail: "What The Grounds is, and is not" |
+| `src/lib/chat-config.ts` | Chatbot guardrail: "What PDMN Virtual Office is, and is not" |
 | `src/components/Footer.tsx` | Site-wide disclaimer on every page |
 
 ## Physical-office design language
@@ -109,11 +109,11 @@ What the photographs actually contain, by share of frame:
 
 | Material | Share | Sampled | Token |
 | --- | --- | --- | --- |
-| Concrete and white — walls, desks, blinds | 30–62% | `#f1f2f2` → `#909090` | `--grounds-bone`, `--grounds-surface-2`, `--grounds-text-faint` |
-| Oak — floors, ceiling slats, joinery | 5–33% | `#a68c73` mean | `--grounds-oak`, `--grounds-oak-light`, `--grounds-oak-deep` |
-| Charcoal — exposed ceilings, steel, chairs | — | `#2e2f31`, `#16191c` | `--grounds-ink`, `--grounds-ink-2`, `--grounds-ink-3` |
-| Teal — the pantry wall | 1–6% | `#557f7b` | `--grounds-teal`, `--grounds-seafoam` |
-| Red — the leather sofa | small | `#70341a`–`#b4462b` | `--grounds-clay` |
+| Concrete and white — walls, desks, blinds | 30–62% | `#f1f2f2` → `#909090` | `--pdmn-bone`, `--pdmn-surface-2`, `--pdmn-text-faint` |
+| Oak — floors, ceiling slats, joinery | 5–33% | `#a68c73` mean | `--pdmn-oak`, `--pdmn-oak-light`, `--pdmn-oak-deep` |
+| Charcoal — exposed ceilings, steel, chairs | — | `#2e2f31`, `#16191c` | `--pdmn-ink`, `--pdmn-ink-2`, `--pdmn-ink-3` |
+| Teal — the pantry wall | 1–6% | `#557f7b` | `--pdmn-teal`, `--pdmn-seafoam` |
+| Red — the leather sofa | small | `#70341a`–`#b4462b` | `--pdmn-clay` |
 
 The accent has since been brightened. The sampled sofa red was duller than the
 logo's own gradient, which made the site look flatter than its own logo. See
@@ -131,10 +131,9 @@ navy-and-gold scheme has been removed.
 
 ### Contrast
 
-Checked against WCAG before adoption. `--grounds-clay` on `--grounds-bone` is
-4.88:1 and white on clay is 5.45:1, so the accent is safe for body text and
-buttons. `--grounds-text-faint` (2.96:1) is a border and surface colour only —
-never text. `--grounds-oak` and `--grounds-amber` are surface tones, not text.
+Checked against WCAG before adoption. `--pdmn-text-faint` (2.96:1) is a border
+and surface colour only — never text. `--pdmn-oak` and `--pdmn-amber` are
+surface tones, not text. The accent's own figures are in the section below.
 
 ### The accent, and its gradient
 
@@ -142,10 +141,10 @@ One accent, used for actions only. It comes in two forms:
 
 | Token | Value | For |
 | --- | --- | --- |
-| `--grounds-clay` | `#c92a14` | Links, eyebrows, borders, small markers, focus rings |
-| `--grounds-clay-gradient` | `#e02a06` → `#c64405` | Filled surfaces: buttons, badges, bands |
-| `--grounds-clay-dark` | `#a32112` | Pressed and hover states |
-| `--grounds-clay-wash` | `#fbeae4` | Tinted callout backgrounds |
+| `--pdmn-clay` | `#c92a14` | Links, eyebrows, borders, small markers, focus rings |
+| `--pdmn-clay-gradient` | `#e02a06` → `#c64405` | Filled surfaces: buttons, badges, bands |
+| `--pdmn-clay-dark` | `#a32112` | Pressed and hover states |
+| `--pdmn-clay-wash` | `#fbeae4` | Tinted callout backgrounds |
 
 Use `.accent-fill` for any filled accent surface. It carries the gradient, a
 solid fallback and the hover state together, so buttons cannot drift apart.
@@ -170,19 +169,19 @@ detail), `.slats-dark` (battens over a dark soffit), `.concrete` (the wall
 finish as a quiet surface tint) and `.oak` (for panels that should read as
 joinery rather than paper).
 
-## Brand symbolism — the grounds, not the galaxy
+## Brand symbolism — grounded, not cosmic
 
 The dragon and galaxy motifs are retired. No orbits, constellations, nodes,
 star fields, cosmic gradients or dragon curves. They belonged to a different
 name and they were never in the room.
 
-The brand is **The Grounds** — *a destination for business, ideas & connection*.
-Everything decorative should come from one of those four words, and every motif
-below is already present either in the office or in the logo mark.
+The brand is **PDMN Virtual Office** — *a destination for business, ideas &
+connection*. Decoration should come from the office itself or from the idea of
+arriving somewhere real, and every motif below is drawn from one or the other.
 
 | Idea | Motif | Where it lives |
 | --- | --- | --- |
-| **Grounds** — the premises, the foundation | A horizontal ground line. A datum everything else sits on. | The logo mark; `.groundMotif` on the homepage hero |
+| **Ground** — the premises, the foundation | A horizontal ground line. A datum everything else sits on. | The logo mark; `.groundMotif` on the homepage hero |
 | **Growth** — a place you stay and build | Concentric arcs rising from that line: canopy, shelter, growth rings | The logo mark and square mark |
 | **The room itself** | The oak ceiling battens, as a rhythm of fine vertical lines | `.slats`, `.slat-rule`, `.slats-dark` in `globals.css` |
 | **Connection** | Lines that converge and meet, rather than orbit | Available; use sparingly and only where it means something |
@@ -192,8 +191,8 @@ Rules:
 
 - **One accent, used sparingly.** The clay red is an action colour, exactly as
   the office uses it — one sofa on the whole floor.
-- **Nothing floats.** Motifs rest on a line or spring from one. That is the
-  whole idea of the name: this is ground, not orbit.
+- **Nothing floats.** Motifs rest on a line or spring from one. The office is
+  a real place on a real floor; the decoration should behave the same way.
 - **No circles for their own sake.** A ring with a dot on it is an orbit, and
   orbits are gone. Arcs that sit on a ground line are fine.
 - Language about **arrival, presence, credibility, gathering and growth** —
@@ -217,12 +216,18 @@ Current tagline:
 
 > A destination for business, ideas & connection
 
-Logo assets, traced from the supplied artwork:
+> ⚠️ **The mark currently on the site is not PDMN's.** It is a doorway symbol
+> traced from artwork supplied for the retired name, and it is still in place
+> only so the header and footer are not left empty. The real Philippine Dragon
+> Media Network logo — the red roundel with 菲龍網 — should replace it. Ask for
+> the vector (AI, EPS or SVG) and it is a drop-in swap across four files.
 
-- `public/the-grounds-logo.svg` — horizontal lockup
-- `public/the-grounds-logo-inverse.svg` — lockup for dark grounds
-- `public/the-grounds-mark.svg` — mark only
-- `public/the-grounds-mark-inverse.svg` — mark only, for dark grounds
+Current placeholder assets:
+
+- `public/pdmn-logo.svg` — horizontal lockup
+- `public/pdmn-logo-inverse.svg` — lockup for dark backgrounds
+- `public/pdmn-mark.svg` — mark only
+- `public/pdmn-mark-inverse.svg` — mark only, for dark backgrounds
 
 The mark is a doorway drawn as nested frames with a handle, and a path that
 comes in along the ground and rises up through it. Its colours: charcoal
@@ -236,15 +241,21 @@ Intrinsic sizes — match these ratios or the artwork squashes:
 | lockup | 1320 × 300 | 4.40 : 1 |
 | mark | 320 × 280 | 1.14 : 1 |
 
-**These are traced from a raster image, not the original vector.** Ask the
-designer for the source file (AI, EPS or SVG) before anything goes to print or
-signage, and note that the wordmark here is live `<text>` in a Montserrat
-fallback stack rather than outlines — on screen it is close, in print it is
-wrong. Two things to watch when replacing them: XML comments must not contain a
-double hyphen (it silently breaks the whole SVG), and the wordmark should be
-converted to outlines.
+Two things to watch when replacing these with the real PDMN artwork: XML
+comments must not contain a double hyphen (it silently breaks the whole SVG),
+and any wordmark set as live `<text>` should be converted to outlines before it
+goes to print or signage.
 
-**The brand is always "The Grounds" — never "Grounds" on its own.**
+### Writing the name
+
+**In body copy, write it in full: "PDMN Virtual Office".** The wordmark stacks
+it — `PDMN` over `VIRTUAL OFFICE` — because the full name set on one line is
+too wide for a phone header. Both parts come from `site.wordmark` and
+`site.wordmarkSub`.
+
+Do not write "PDMN" alone in prose; on its own it reads as the media company,
+which is the operator rather than the service. The operator is written in full
+as "Philippine Dragon Media Network Corp."
 
 ## Content and data rules
 

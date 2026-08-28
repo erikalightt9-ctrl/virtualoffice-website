@@ -10,7 +10,7 @@ import { site } from "@/content/site";
  * platform sans, which is fine at this size and avoids shipping a font binary.
  */
 
-export const alt = "The Grounds — a destination for business, ideas & connection";
+export const alt = "PDMN Virtual Office — a destination for business, ideas & connection";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
 /* ============================================================================
-   THE GROUNDS — DESIGN TOKENS, TAKEN FROM THE OFFICE ITSELF
+   PDMN VIRTUAL OFFICE — DESIGN TOKENS, TAKEN FROM THE OFFICE ITSELF
 
    These colours are not invented. They were sampled from the photographs of
-   the 5th floor at 104 Paseo de Roxas and are recorded in THE GROUNDS-DESIGN.md.
+   the 5th floor at 104 Paseo de Roxas and are recorded in PDMN VIRTUAL OFFICE-DESIGN.md.
 
    What the office actually is, by area of frame:
      · warm-neutral concrete and white ... 30-62% of every photograph
@@ -20,25 +20,25 @@
 
 :root {
   /* Charcoal — the exposed ceilings and black steel. Dark bands, footer. */
-  --grounds-ink: #1d1f21;
-  --grounds-ink-2: #2b2d30;
-  --grounds-ink-3: #3c3e41;
+  --pdmn-ink: #1d1f21;
+  --pdmn-ink-2: #2b2d30;
+  --pdmn-ink-3: #3c3e41;
 
   /* Concrete — the walls. The dominant surface in every room. */
-  --grounds-bone: #f4f2ee;
-  --grounds-surface: #ffffff;
-  --grounds-surface-2: #e7e4de;
+  --pdmn-bone: #f4f2ee;
+  --pdmn-surface: #ffffff;
+  --pdmn-surface-2: #e7e4de;
 
   /* Oak — floors, ceiling slats, cabinetry, the tree bookshelf. */
-  --grounds-oak-pale: #ede4d6;
-  --grounds-oak-light: #d7c3a4;
-  --grounds-oak: #a68c73;
-  --grounds-oak-deep: #8f7c61;
-  --grounds-amber: #b0702a;
+  --pdmn-oak-pale: #ede4d6;
+  --pdmn-oak-light: #d7c3a4;
+  --pdmn-oak: #a68c73;
+  --pdmn-oak-deep: #8f7c61;
+  --pdmn-amber: #b0702a;
 
   /* Teal — the pantry wall. Secondary accent, used sparingly. */
-  --grounds-teal: #367369;
-  --grounds-seafoam: #dce8e5;
+  --pdmn-teal: #367369;
+  --pdmn-seafoam: #dce8e5;
 
   /* The accent. Reserved for actions, exactly as the room reserves it.
      Brightened from the muted brick it used to be, and taken up to the
@@ -51,67 +51,67 @@
      The gradient's warm end is held back from full orange precisely so that
      white text stays legible everywhere along the sweep. Do not push it
      further towards orange without re-checking. */
-  --grounds-clay: #c92a14;
-  --grounds-clay-dark: #a32112;
-  --grounds-clay-wash: #fbeae4;
+  --pdmn-clay: #c92a14;
+  --pdmn-clay-dark: #a32112;
+  --pdmn-clay-wash: #fbeae4;
 
   /* Gradient stops, for filled surfaces only — buttons, badges, bands.
      Never for text: a gradient behind small type is unreadable. */
-  --grounds-clay-from: #e02a06;
-  --grounds-clay-to: #c64405;
-  --grounds-clay-gradient: linear-gradient(100deg, #e02a06 0%, #c64405 100%);
-  --grounds-clay-gradient-hover: linear-gradient(100deg, #c02205 0%, #a53704 100%);
+  --pdmn-clay-from: #e02a06;
+  --pdmn-clay-to: #c64405;
+  --pdmn-clay-gradient: linear-gradient(100deg, #e02a06 0%, #c64405 100%);
+  --pdmn-clay-gradient-hover: linear-gradient(100deg, #c02205 0%, #a53704 100%);
 
   /* Text */
-  --grounds-text: #23262a;
-  --grounds-text-soft: #5c5a57;
-  --grounds-text-faint: #8f8d89;
-  --grounds-on-dark: #f2efe9;
-  --grounds-on-dark-soft: #b0ada6;
+  --pdmn-text: #23262a;
+  --pdmn-text-soft: #5c5a57;
+  --pdmn-text-faint: #8f8d89;
+  --pdmn-on-dark: #f2efe9;
+  --pdmn-on-dark-soft: #b0ada6;
 
   /* Lines */
-  --grounds-rule: #dad7d1;
-  --grounds-rule-strong: #bebab2;
-  --grounds-rule-dark: #3a3d3f;
+  --pdmn-rule: #dad7d1;
+  --pdmn-rule-strong: #bebab2;
+  --pdmn-rule-dark: #3a3d3f;
 }
 
 @theme inline {
-  --color-ink: var(--grounds-ink); --color-ink-2: var(--grounds-ink-2); --color-ink-3: var(--grounds-ink-3);
-  --color-bone: var(--grounds-bone); --color-surface: var(--grounds-surface); --color-surface-2: var(--grounds-surface-2);
-  --color-seafoam: var(--grounds-seafoam); --color-clay: var(--grounds-clay); --color-clay-dark: var(--grounds-clay-dark);
-  --color-clay-wash: var(--grounds-clay-wash); --color-body: var(--grounds-text); --color-body-soft: var(--grounds-text-soft);
-  --color-body-faint: var(--grounds-text-faint); --color-on-dark: var(--grounds-on-dark); --color-on-dark-soft: var(--grounds-on-dark-soft);
-  --color-rule: var(--grounds-rule); --color-rule-strong: var(--grounds-rule-strong); --color-rule-dark: var(--grounds-rule-dark);
-  --color-oak-pale: var(--grounds-oak-pale); --color-oak-light: var(--grounds-oak-light); --color-oak: var(--grounds-oak);
-  --color-oak-deep: var(--grounds-oak-deep); --color-amber: var(--grounds-amber); --color-teal: var(--grounds-teal);
-  --color-clay-from: var(--grounds-clay-from); --color-clay-to: var(--grounds-clay-to);
+  --color-ink: var(--pdmn-ink); --color-ink-2: var(--pdmn-ink-2); --color-ink-3: var(--pdmn-ink-3);
+  --color-bone: var(--pdmn-bone); --color-surface: var(--pdmn-surface); --color-surface-2: var(--pdmn-surface-2);
+  --color-seafoam: var(--pdmn-seafoam); --color-clay: var(--pdmn-clay); --color-clay-dark: var(--pdmn-clay-dark);
+  --color-clay-wash: var(--pdmn-clay-wash); --color-body: var(--pdmn-text); --color-body-soft: var(--pdmn-text-soft);
+  --color-body-faint: var(--pdmn-text-faint); --color-on-dark: var(--pdmn-on-dark); --color-on-dark-soft: var(--pdmn-on-dark-soft);
+  --color-rule: var(--pdmn-rule); --color-rule-strong: var(--pdmn-rule-strong); --color-rule-dark: var(--pdmn-rule-dark);
+  --color-oak-pale: var(--pdmn-oak-pale); --color-oak-light: var(--pdmn-oak-light); --color-oak: var(--pdmn-oak);
+  --color-oak-deep: var(--pdmn-oak-deep); --color-amber: var(--pdmn-amber); --color-teal: var(--pdmn-teal);
+  --color-clay-from: var(--pdmn-clay-from); --color-clay-to: var(--pdmn-clay-to);
   --font-display: var(--font-archivo), sans-serif; --font-body: var(--font-source-serif), serif; --font-mono: var(--font-plex-mono), monospace;
 }
 
 html { scroll-behavior: smooth; }
-body { margin: 0; background: var(--grounds-bone); color: var(--grounds-text); font-family: var(--font-source-serif), Georgia, serif; font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+body { margin: 0; background: var(--pdmn-bone); color: var(--pdmn-text); font-family: var(--font-source-serif), Georgia, serif; font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
 h1,h2,h3,h4,h5,h6 { font-family: var(--font-archivo), Arial, sans-serif; font-weight: 600; letter-spacing: -.035em; line-height: 1.04; text-wrap: balance; }
 button,input,select,textarea,label,nav,th { font-family: var(--font-archivo), Arial, sans-serif; }
 a { text-underline-offset: .2em; }
-:focus-visible { outline: 2px solid var(--grounds-clay); outline-offset: 3px; }
-::selection { background: var(--grounds-clay); color: #ffffff; }
+:focus-visible { outline: 2px solid var(--pdmn-clay); outline-offset: 3px; }
+::selection { background: var(--pdmn-clay); color: #ffffff; }
 .label { font-family: var(--font-plex-mono), monospace; font-size: .7rem; letter-spacing: .15em; text-transform: uppercase; }
 .tnum { font-variant-numeric: tabular-nums; }
-.prose-grounds p { max-width: 68ch; }
+.prose-pdmn p { max-width: 68ch; }
 
 /* Filled accent surface: buttons, badges, bands. Carries the gradient plus a
    solid fallback, so a browser that cannot paint the gradient still gets a
    legible button rather than transparent text on nothing. */
 .accent-fill {
-  background-color: var(--grounds-clay);
-  background-image: var(--grounds-clay-gradient);
+  background-color: var(--pdmn-clay);
+  background-image: var(--pdmn-clay-gradient);
   color: #fff;
-  border-color: var(--grounds-clay-from);
+  border-color: var(--pdmn-clay-from);
 }
 .accent-fill:hover {
-  background-color: var(--grounds-clay-dark);
-  background-image: var(--grounds-clay-gradient-hover);
-  border-color: var(--grounds-clay-dark);
+  background-color: var(--pdmn-clay-dark);
+  background-image: var(--pdmn-clay-gradient-hover);
+  border-color: var(--pdmn-clay-dark);
 }
 
 /* ----------------------------------------------------------------------------
@@ -126,15 +126,15 @@ a { text-underline-offset: .2em; }
 .slats {
   background-image: repeating-linear-gradient(
     90deg,
-    var(--grounds-oak) 0 3px,
+    var(--pdmn-oak) 0 3px,
     transparent 3px 11px
   );
 }
 .slats-dark {
-  background-color: var(--grounds-ink);
+  background-color: var(--pdmn-ink);
   background-image: repeating-linear-gradient(
     90deg,
-    var(--grounds-amber) 0 4px,
+    var(--pdmn-amber) 0 4px,
     transparent 4px 14px
   );
 }
@@ -144,20 +144,20 @@ a { text-underline-offset: .2em; }
   border: 0;
   background-image: repeating-linear-gradient(
     90deg,
-    var(--grounds-oak) 0 3px,
+    var(--pdmn-oak) 0 3px,
     transparent 3px 11px
   );
 }
 /* Concrete: the wall finish, as a very quiet surface tint. */
 .concrete {
-  background-color: var(--grounds-surface-2);
+  background-color: var(--pdmn-surface-2);
   background-image:
     radial-gradient(circle at 18% 22%, #ffffff55 0 38%, transparent 60%),
     radial-gradient(circle at 76% 68%, #00000010 0 30%, transparent 55%);
 }
 /* Oak: for panels that should read as joinery rather than paper. */
 .oak {
-  background-color: var(--grounds-oak-pale);
+  background-color: var(--pdmn-oak-pale);
   background-image: repeating-linear-gradient(
     90deg,
     #00000008 0 1px,

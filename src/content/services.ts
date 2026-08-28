@@ -1,4 +1,4 @@
-/** Virtual-office services offered directly by The Grounds. */
+/** Virtual-office services offered directly by PDMN Virtual Office. */
 
 export type ServiceSection = { heading: string; body: string[] };
 
@@ -21,10 +21,10 @@ export const services: Service[] = [
     slug: "virtual-office",
     name: "Virtual Office",
     summary: "A professional Makati business address with mail handling and access to a real staffed office.",
-    metaTitle: "Virtual Office in Makati — 104 Paseo de Roxas",
+    metaTitle: "A Business Address in Makati",
     metaDescription: "Virtual office services in Makati with a professional business address, staffed reception, mail handling, meeting rooms and flexible workspace access.",
     headline: "A professional Makati presence, without a traditional office lease.",
-    intro: "The Grounds gives your business a credible address at 104 Paseo de Roxas, supported by a staffed reception and an on-site administrative team. Use the address for business correspondence and client-facing materials, receive mail reliably and access professional space when you need it.",
+    intro: "PDMN Virtual Office gives your business a credible address at 104 Paseo de Roxas, supported by a staffed reception and an on-site administrative team. Use the address for business correspondence and client-facing materials, receive mail reliably and access professional space when you need it.",
     highlights: [
       "Professional business address at 104 Paseo de Roxas",
       "Mail and parcels received during business hours",
@@ -36,7 +36,7 @@ export const services: Service[] = [
       {
         heading: "A real office behind your address",
         body: [
-          "The Grounds is not a mailbox or forwarding address. Reception and administrative staff are present during business hours, with meeting rooms and flexible workspace available on the same floor.",
+          "PDMN Virtual Office is not a mailbox or forwarding address. Reception and administrative staff are present during business hours, with meeting rooms and flexible workspace available on the same floor.",
           "That physical presence gives clients a more credible impression and gives you a practical place to meet, work and receive important business correspondence.",
         ],
       },
@@ -55,10 +55,10 @@ export const services: Service[] = [
     slug: "registered-business-address",
     name: "Registered Business Address",
     summary: "Address-use options for businesses that need an official Makati address, subject to eligibility and document review.",
-    metaTitle: "Registered Business Address in Makati",
+    metaTitle: "Registered Business Address",
     metaDescription: "A staffed registered business address at 104 Paseo de Roxas, Makati, available on eligible virtual-office plans and subject to document review.",
     headline: "An official Makati address backed by a staffed office.",
-    intro: "Eligible The Grounds plans may allow a client to use 104 Paseo de Roxas as its registered business address. Address use is subject to package eligibility, documentary requirements, acceptable-use rules and written approval. The Grounds does not prepare or file company registrations, permits, tax registrations or compliance returns.",
+    intro: "Eligible PDMN Virtual Office plans may allow a client to use 104 Paseo de Roxas as its registered business address. Address use is subject to package eligibility, documentary requirements, acceptable-use rules and written approval. PDMN Virtual Office does not prepare or file company registrations, permits, tax registrations or compliance returns.",
     highlights: [
       "Registered-address use on eligible plans",
       "Staffed reception during business hours",
@@ -68,9 +68,9 @@ export const services: Service[] = [
     ],
     sections: [
       {
-        heading: "What The Grounds provides",
+        heading: "What PDMN Virtual Office provides",
         body: [
-          "The Grounds provides the physical address, staffed premises, mail handling and access to meeting space included in the selected plan.",
+          "PDMN Virtual Office provides the physical address, staffed premises, mail handling and access to meeting space included in the selected plan.",
           "Clients remain responsible for their own SEC, BIR, local-government and other filings, either directly or through advisers they appoint independently.",
         ],
       },
@@ -89,7 +89,7 @@ export const services: Service[] = [
     slug: "mail-handling",
     name: "Mail Handling",
     summary: "Business mail and parcels received by staffed reception, recorded and notified promptly.",
-    metaTitle: "Business Mail Handling in Makati",
+    metaTitle: "Business Mail Handling",
     metaDescription: "Mail and parcel handling at 104 Paseo de Roxas, Makati, with staffed reception, prompt notification, secure holding and optional forwarding.",
     headline: "Your business mail, received and handled professionally.",
     intro: "Our reception team receives business correspondence and parcels during office hours, records each item and notifies the authorized contact. Items are held securely until collection or handled according to the service instructions in your plan.",

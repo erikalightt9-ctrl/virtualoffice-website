@@ -6,9 +6,9 @@ import Section from "@/components/Section";
 import { services } from "@/content/services";
 
 export const metadata: Metadata = {
-  title: "What the Virtual Office Includes",
+  title: "What Is Included",
   description:
-    "The The Grounds virtual office: a Makati business address, mail and document handling, meeting rooms and workspace, with a registered-address option on eligible packages.",
+    "The PDMN Virtual Office virtual office: a Makati business address, mail and document handling, meeting rooms and workspace, with a registered-address option on eligible packages.",
 };
 
 export default function ServicesIndexPage() {
@@ -18,7 +18,7 @@ export default function ServicesIndexPage() {
       <PageHeader
         eyebrow="Services"
         headline="One service, done properly."
-        intro="The Grounds is a virtual office. A business address at 104 Paseo de Roxas, mail and documents handled by our own staff, meeting rooms and workspace on the same floor, and a registered-address option for companies that need one. We do not register companies, make filings, obtain permits, or handle accounting, tax or payroll — that work stays with your own advisers."
+        intro="PDMN Virtual Office gives you a business address at 104 Paseo de Roxas, mail and documents handled by our own staff, meeting rooms and workspace on the same floor, and a registered-address option for companies that need one. We do not register companies, make filings, obtain permits, or handle accounting, tax or payroll — that work stays with your own advisers."
       />
 
       <Section

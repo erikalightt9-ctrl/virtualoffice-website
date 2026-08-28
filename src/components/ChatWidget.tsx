@@ -120,7 +120,7 @@ export default function ChatWidget() {
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
-        aria-controls="grounds-chat-panel"
+        aria-controls="pdmn-chat-panel"
         className="accent-fill fixed bottom-5 right-5 z-[60] flex items-center gap-2.5 border px-4 py-3 font-display text-[0.7rem] font-bold uppercase tracking-[0.1em] shadow-lg transition-all hover:shadow-xl sm:bottom-7 sm:right-7"
       >
         {open ? (
@@ -151,7 +151,7 @@ export default function ChatWidget() {
       {/* Panel */}
       {open ? (
         <div
-          id="grounds-chat-panel"
+          id="pdmn-chat-panel"
           ref={panelRef}
           role="dialog"
           aria-label="Ask us"
@@ -161,7 +161,7 @@ export default function ChatWidget() {
           <div className="flex items-start gap-3 border-b border-rule-dark px-4 py-3.5">
             <Image
               className="mt-0.5 shrink-0"
-              src="/the-grounds-mark-inverse.svg"
+              src="/pdmn-mark-inverse.svg"
               width={30}
               height={26}
               alt=""
@@ -250,11 +250,11 @@ export default function ChatWidget() {
           {/* Composer */}
           <div className="border-t border-rule-dark px-4 py-3">
             <div className="flex items-end gap-2">
-              <label htmlFor="grounds-chat-input" className="sr-only">
+              <label htmlFor="pdmn-chat-input" className="sr-only">
                 Your question
               </label>
               <textarea
-                id="grounds-chat-input"
+                id="pdmn-chat-input"
                 ref={inputRef}
                 value={input}
                 onChange={(event) => setInput(event.target.value)}

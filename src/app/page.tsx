@@ -41,7 +41,7 @@ export default function HomePage() {
             <div className={styles.heroTrust}><span>Professional Makati address</span><span>Staffed reception</span><span>Flexible workspace access</span></div>
           </div>
           <div className={styles.officeVisual}>
-            <Image src="/photos/reception.jpg" fill priority sizes="(max-width: 1000px) 100vw, 50vw" alt="The reception at The Grounds, with the Philippine Dragon Media Network signage behind the desk" />
+            <Image src="/photos/reception.jpg" fill priority sizes="(max-width: 1000px) 100vw, 50vw" alt="The reception at PDMN Virtual Office, with the Philippine Dragon Media Network signage behind the desk" />
             <div className={styles.officePanel}><small>YOUR BUSINESS PRESENCE</small><strong>104 Paseo de Roxas</strong><span>Legaspi Village · Makati City</span></div><div className={styles.groundMotif} aria-hidden="true"><i /><b /></div>
           </div>
         </div>
@@ -50,12 +50,12 @@ export default function HomePage() {
 
       <section className={styles.introSection}>
         <div className={styles.introTitle}><p className={styles.eyebrow}>What the virtual office includes</p><h2>More than a business address.</h2></div>
-        <div className={styles.introCopy}><p>THE GROUNDS gives businesses the professional infrastructure of an established office without the cost and restriction of maintaining a traditional workplace.</p><p>Use a professional address. Receive business mail. Meet clients. Work on site when needed. Expand into a more complete workspace as your business grows.</p></div>
+        <div className={styles.introCopy}><p>PDMN VIRTUAL OFFICE gives businesses the professional infrastructure of an established office without the cost and restriction of maintaining a traditional workplace.</p><p>Use a professional address. Receive business mail. Meet clients. Work on site when needed. Expand into a more complete workspace as your business grows.</p></div>
       </section>
 
       <section className={styles.officeGallery}>
-        <div className={styles.galleryLead}><Image src="/photos/lounge.jpg" fill sizes="(max-width: 900px) 100vw, 56vw" alt="The lounge at The Grounds, with warm wood, greenery and comfortable seating" /><span>Welcome lounge</span></div>
-        <div className={styles.galleryStack}><div><Image src="/photos/workspace.jpg" fill sizes="(max-width: 900px) 100vw, 44vw" alt="Serviced workspace at The Grounds, with ergonomic chairs and glass partitions" /><span>Serviced workspace</span></div><div><Image src="/photos/pantry.jpg" fill sizes="(max-width: 900px) 100vw, 44vw" alt="The communal pantry and tea room at The Grounds" /><span>Community space</span></div></div>
+        <div className={styles.galleryLead}><Image src="/photos/lounge.jpg" fill sizes="(max-width: 900px) 100vw, 56vw" alt="The lounge at PDMN Virtual Office, with warm wood, greenery and comfortable seating" /><span>Welcome lounge</span></div>
+        <div className={styles.galleryStack}><div><Image src="/photos/workspace.jpg" fill sizes="(max-width: 900px) 100vw, 44vw" alt="Serviced workspace at PDMN Virtual Office, with ergonomic chairs and glass partitions" /><span>Serviced workspace</span></div><div><Image src="/photos/pantry.jpg" fill sizes="(max-width: 900px) 100vw, 44vw" alt="The communal pantry and tea room at PDMN Virtual Office" /><span>Community space</span></div></div>
       </section>
 
       <section className={styles.servicesSection}>
@@ -64,7 +64,7 @@ export default function HomePage() {
       </section>
 
       <section className={styles.locationSection}>
-        <div className={styles.locationVisual}><Image src="/photos/meeting-room.jpg" fill sizes="(max-width: 1000px) 100vw, 53vw" alt="A meeting room at The Grounds, with its oak-slat ceiling" /><div className={styles.locationBadge}><small>Makati CBD</small><strong>A real place<br />behind your presence.</strong></div></div>
+        <div className={styles.locationVisual}><Image src="/photos/meeting-room.jpg" fill sizes="(max-width: 1000px) 100vw, 53vw" alt="A meeting room at PDMN Virtual Office, with its oak-slat ceiling" /><div className={styles.locationBadge}><small>Makati CBD</small><strong>A real place<br />behind your presence.</strong></div></div>
         <div className={styles.locationCopy}><p className={styles.eyebrow}>A real office behind your address</p><h2>Professional presence starts with a professional place.</h2><p>Our fifth-floor office at 104 Paseo de Roxas gives your virtual office a credible physical base, with staffed reception, organized mail handling, flexible workstations and professional meeting rooms.</p><ul><li><span>01</span>Established Makati CBD address</li><li><span>02</span>Reception staffed every business day</li><li><span>03</span>Flexible workstations and private spaces</li><li><span>04</span>Six bookable meeting and conference rooms</li></ul><Link href="/location" className={styles.textLink}>Explore the location ↗</Link></div>
       </section>
 
@@ -81,13 +81,13 @@ export default function HomePage() {
 
       <section className={styles.supportSection}>
         <div className={styles.supportMark}>
-          <Image src="/the-grounds-mark.svg" width={260} height={228} alt="" aria-hidden="true" />
+          <Image src="/pdmn-mark.svg" width={260} height={228} alt="" aria-hidden="true" />
         </div>
-        <div><p className={styles.eyebrow}>The company behind The Grounds</p><h2>Professionally managed in Makati.</h2><p>The Grounds is a virtual-office service operated by Philippine Dragon Media Network Corp. Our on-site team manages the business address, reception, mail handling, meeting-room access and day-to-day client support.</p><Link href="/about" className={styles.textLink}>About The Grounds ↗</Link></div>
+        <div><p className={styles.eyebrow}>The company behind PDMN Virtual Office</p><h2>Professionally managed in Makati.</h2><p>PDMN Virtual Office is operated by Philippine Dragon Media Network Corp. Our on-site team manages the business address, reception, mail handling, meeting-room access and day-to-day client support.</p><Link href="/about" className={styles.textLink}>About PDMN Virtual Office ↗</Link></div>
       </section>
 
       <section className={styles.finalCta}>
-        <Image src="/the-grounds-logo-inverse.svg" width={462} height={105} alt="The Grounds — a destination for business, ideas and connection" />
+        <Image src="/pdmn-logo-inverse.svg" width={462} height={105} alt="PDMN Virtual Office — a destination for business, ideas and connection" />
         <h2>Give your business<br />the space to move forward.</h2><p>Tell us what you are building. We’ll help create the right professional presence around it.</p><Link href="/contact" className={styles.primary}>Speak with our team <span>↗</span></Link>
       </section>
     </div>

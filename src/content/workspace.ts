@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- *  THE GROUNDS — WORKSPACE PAGES
+ *  PDMN VIRTUAL OFFICE — WORKSPACE PAGES
  *  Each entry becomes a page at /workspace/[slug].
  *  Prices come from pricing.ts — the `pricingId` links the two.
  * ============================================================================
@@ -25,7 +25,7 @@ export const workspacePages: WorkspacePage[] = [
     pricingId: "dedicated-desk",
     name: "Dedicated Desk",
     summary: "Your own permanent workstation on the 5th floor, with the virtual office included.",
-    metaTitle: "Dedicated Desk in Makati CBD",
+    metaTitle: "Dedicated Desk in Makati",
     metaDescription:
       "A permanent assigned desk in Makati CBD with the virtual office included. Staffed reception, meeting rooms and mail handling on the same floor.",
     headline: "A desk that is yours, in the middle of Makati.",
@@ -53,7 +53,7 @@ export const workspacePages: WorkspacePage[] = [
     pricingId: "team-space",
     name: "Team Space",
     summary: "A grouped area for four to fifteen people, without signing a lease.",
-    metaTitle: "Team Office Space in Makati — 4 to 15 Seats",
+    metaTitle: "Team Office Space, 4 to 15 Seats",
     metaDescription:
       "Flexible grouped workspace for teams of four to fifteen in Makati CBD. Virtual office included, no long lease, scale seats as you grow.",
     headline: "Room for the team, without the five-year lease.",
@@ -81,7 +81,7 @@ export const workspacePages: WorkspacePage[] = [
     pricingId: "private-office",
     name: "Private Office",
     summary: "An enclosed, lockable suite for companies that need a door.",
-    metaTitle: "Private Office for Rent in Makati",
+    metaTitle: "Private Office in Makati",
     metaDescription:
       "Enclosed private office suites at 104 Paseo de Roxas, Legaspi Village, Makati. Virtual office included, suitable for companies that receive clients.",
     headline: "When your company needs a door that closes.",

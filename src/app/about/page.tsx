@@ -16,7 +16,7 @@ export default function AboutPage() {
   return (
     <>
       <PageHeader
-        eyebrow="About The Grounds"
+        eyebrow="About PDMN Virtual Office"
         headline={about.headline}
         intro={about.intro}
       />
@@ -59,7 +59,7 @@ export default function AboutPage() {
             </p>
           ) : null}
           <p className="mt-3 text-[0.9rem] text-body-soft">
-            The Grounds provides a virtual office and nothing beyond it. Company
+            PDMN Virtual Office provides a virtual office and nothing beyond it. Company
             registration, government filings, business permits, bookkeeping,
             accounting, tax, payroll and corporate secretarial work are not
             services we offer, coordinate or advise on.

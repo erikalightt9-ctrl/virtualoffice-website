@@ -8,7 +8,7 @@ import { faqCategories, faqs } from "@/content/faqs";
 export const metadata: Metadata = {
   title: "Frequently Asked Questions",
   description:
-    "Answers on registered address eligibility, BIR inspections, mail handling, workspace, documents required, terms and payment methods at The Grounds Makati.",
+    "Answers on registered address eligibility, BIR inspections, mail handling, workspace, documents required, terms and payment methods at PDMN Virtual Office Makati.",
 };
 
 export default function FaqPage() {

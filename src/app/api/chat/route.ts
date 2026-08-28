@@ -12,7 +12,7 @@ import { KB_ESTIMATED_TOKENS } from "@/lib/knowledge";
 
 /**
  * ============================================================================
- *  THE GROUNDS — CHATBOT ENDPOINT
+ *  PDMN VIRTUAL OFFICE — CHATBOT ENDPOINT
  *
  *  Streams a grounded answer from the knowledge base built out of the site's
  *  own content files.

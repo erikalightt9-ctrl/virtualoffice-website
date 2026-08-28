@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- *  THE GROUNDS — CHATBOT KNOWLEDGE BASE
+ *  PDMN VIRTUAL OFFICE — CHATBOT KNOWLEDGE BASE
  *
  *  Builds the assistant's entire knowledge base from the same content files
  *  that render the website. This is the whole point of the design: the
@@ -59,9 +59,9 @@ function bullets(items: readonly string[]): string {
 
 function buildIdentity(): string {
   return [
-    heading("About The Grounds"),
-    `The Grounds is a virtual-office service at ${site.address.oneLine}. It provides a business address, mail and document handling, meeting rooms and serviced workspace, with a registered-address option on eligible packages.`,
-    "The Grounds does NOT provide, coordinate or advise on: company registration or incorporation, SEC or BIR filings, business permits, bookkeeping, accounting, tax, payroll, corporate secretarial work, or business-setup consulting. Those are the client's own responsibility, with their own advisers.",
+    heading("About PDMN Virtual Office"),
+    `PDMN Virtual Office is at ${site.address.oneLine}. It provides a business address, mail and document handling, meeting rooms and serviced workspace, with a registered-address option on eligible packages.`,
+    "PDMN Virtual Office does NOT provide, coordinate or advise on: company registration or incorporation, SEC or BIR filings, business permits, bookkeeping, accounting, tax, payroll, corporate secretarial work, or business-setup consulting. Those are the client's own responsibility, with their own advisers.",
     `Operator: ${site.operator.relationship}`,
     site.operator.secRegistrationNo !== "TODO"
       ? `SEC registration number: ${site.operator.secRegistrationNo}`
@@ -110,7 +110,7 @@ function buildPricing(): string {
       `- Price on a rolling monthly term: ${formatPeso(tier.priceMonthly)} per month`,
       `- May this package's address be used as the client's registered business address? ${
         tier.registrationEligible
-          ? "YES — subject to an approved application, documents and our acceptable use policy. The Grounds provides the address only; it does not make any filing or registration on the client's behalf."
+          ? "YES — subject to an approved application, documents and our acceptable use policy. PDMN Virtual Office provides the address only; it does not make any filing or registration on the client's behalf."
           : "NO — this package is for correspondence only."
       }`,
       "- Includes:",
@@ -158,7 +158,7 @@ function buildServices(): string {
   for (const service of services) {
     lines.push(
       `${NL}### ${service.name}  (page: /services/${service.slug})`,
-      "Provided directly by The Grounds from its own floor.",
+      "Provided directly by PDMN Virtual Office from its own floor.",
       service.intro,
       "Key points:",
       bullets(service.highlights),
@@ -234,7 +234,7 @@ function buildPolicies(): string {
  * which is what makes prompt caching work.
  */
 export const KNOWLEDGE_BASE: string = [
-  "# THE GROUNDS KNOWLEDGE BASE",
+  "# PDMN VIRTUAL OFFICE KNOWLEDGE BASE",
   "Everything below is the authoritative record of our services, prices, policies and premises. It is generated from the website's own content, so it always matches what a visitor can see on the site.",
   buildIdentity(),
   buildPricing(),

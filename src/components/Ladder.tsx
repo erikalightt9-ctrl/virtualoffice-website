@@ -2,7 +2,7 @@ import Link from "next/link";
 
 /**
  * What the virtual office actually consists of. Deliberately not a "ladder"
- * towards registration or compliance services — The Grounds does not offer those.
+ * towards registration or compliance services — PDMN Virtual Office does not offer those.
  * These are the parts of one service, in the order people tend to need them.
  */
 const parts = [

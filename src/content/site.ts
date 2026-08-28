@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- *  THE GROUNDS — SITE SETTINGS
+ *  PDMN VIRTUAL OFFICE — SITE SETTINGS
  *  Brand details, contact channels, address and navigation.
  *
  *  ⚠️  ITEMS MARKED "TODO" ARE PLACEHOLDERS. Replace them before launch.
@@ -8,8 +8,10 @@
  */
 
 export const site = {
-  name: "The Grounds",
-  wordmark: "THE GROUNDS",
+  name: "PDMN Virtual Office",
+  wordmark: "PDMN",
+  /** Sits under the wordmark. Kept separate so the header can stack them. */
+  wordmarkSub: "VIRTUAL OFFICE",
   tagline: "A destination for business, ideas & connection",
 
   /** Used in page titles and the meta description. */
@@ -17,7 +19,7 @@ export const site = {
     "Virtual office services at 104 Paseo de Roxas, Legaspi Village, Makati, with a professional business address, mail handling, meeting rooms and flexible workspace.",
 
   /** TODO: replace with the live domain once registered. */
-  url: "https://thegrounds.ph",
+  url: "https://pdmnvirtualoffice.ph",
 
   /** The operator. Shown in the footer and on the About page. */
   operator: {
@@ -25,7 +27,7 @@ export const site = {
     /** TODO: add the SEC registration number — it is a strong credibility signal. */
     secRegistrationNo: "TODO",
     relationship:
-      "The Grounds is a virtual-office service operated by Philippine Dragon Media Network Corp., an SEC-registered Philippine corporation.",
+      "PDMN Virtual Office is operated by Philippine Dragon Media Network Corp., an SEC-registered Philippine corporation.",
   },
 
   /**
@@ -66,8 +68,8 @@ export const site = {
     whatsapp: "+63 900 000 0000",
     whatsappHref: "https://wa.me/63900000000",
     wechat: "TODO",
-    email: "hello@thegrounds.ph",
-    emailHref: "mailto:hello@thegrounds.ph",
+    email: "hello@pdmnvirtualoffice.ph",
+    emailHref: "mailto:hello@pdmnvirtualoffice.ph",
   },
 
   hours: {
@@ -143,7 +145,7 @@ export const footerNav: { heading: string; links: { label: string; href: string 
   {
     heading: "Company",
     links: [
-      { label: "About The Grounds", href: "/about" },
+      { label: "About PDMN Virtual Office", href: "/about" },
       { label: "Our Location", href: "/location" },
       { label: "How It Works", href: "/how-it-works" },
       { label: "Pricing", href: "/pricing" },

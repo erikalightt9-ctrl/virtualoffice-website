@@ -20,14 +20,17 @@ export default function Header() {
         >
           <span className="flex items-center gap-3">
             <Image
-              src="/the-grounds-mark-inverse.svg"
+              src="/pdmn-mark-inverse.svg"
               width={38}
               height={33}
               alt=""
               aria-hidden="true"
               priority
             />
-            <span className="font-display text-[1.15rem] font-semibold tracking-[0.22em] text-on-dark">{site.wordmark}</span>
+            <span className="flex flex-col leading-none">
+              <span className="font-display text-[1.15rem] font-semibold tracking-[0.2em] text-on-dark">{site.wordmark}</span>
+              <span className="font-mono text-[0.55rem] uppercase tracking-[0.24em] text-on-dark-soft">{site.wordmarkSub}</span>
+            </span>
           </span>
         </Link>
 
