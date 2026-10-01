@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2560" height="1440" viewBox="0 0 2560 1440">
+  <defs>
+    <!-- Atmosphere: warm centre, falling to near-black at the edges. Offset
+         right of centre so the upper-left stays the darkest quadrant. -->
+    <radialGradient id="base" cx="60%" cy="52%" r="80%">
+      <stop offset="0%"   stop-color="#7C0507"/>
+      <stop offset="38%"  stop-color="#3D0708"/>
+      <stop offset="100%" stop-color="#150A06"/>
+    </radialGradient>
+
+    <!-- The diagonal beam, bright along its spine and gone at its edges. -->
+    <linearGradient id="beamGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#F7C679" stop-opacity="0"/>
+      <stop offset="42%"  stop-color="#DCBE84" stop-opacity="0.85"/>
+      <stop offset="58%"  stop-color="#F7C679" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#C77837" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Amber bloom resting on the horizon. -->
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#DCBE84" stop-opacity="0.95"/>
+      <stop offset="45%"  stop-color="#C77837" stop-opacity="0.42"/>
+      <stop offset="100%" stop-color="#C77837" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Floor: catches light at the horizon, falls to black at the bottom. -->
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#7C0507" stop-opacity="0.62"/>
+      <stop offset="22%"  stop-color="#3D0708" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#150A06" stop-opacity="1"/>
+    </linearGradient>
+
+    <!-- The reflection hanging below the glow. Strongest just under the
+         horizon and dissolving downward, the way a polished floor behaves. -->
+    <linearGradient id="reflect" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#DCBE84" stop-opacity="0.5"/>
+      <stop offset="30%"  stop-color="#C77837" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#C77837" stop-opacity="0"/>
+    </linearGradient>
+
+    <linearGradient id="horizonBand" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#C77837" stop-opacity="0"/>
+      <stop offset="50%"  stop-color="#C77837" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#C77837" stop-opacity="0"/>
+    </linearGradient>
+
+    <linearGradient id="streak" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#DCBE84" stop-opacity="0"/>
+      <stop offset="14%"  stop-color="#DCBE84" stop-opacity="0.55"/>
+      <stop offset="55%"  stop-color="#C77837" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#C77837" stop-opacity="0"/>
+    </linearGradient>
+
+    <radialGradient id="vignette" cx="50%" cy="50%" r="72%">
+      <stop offset="0%"                       stop-color="#000" stop-opacity="0"/>
+      <stop offset="42%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%"                     stop-color="#000" stop-opacity="0.88"/>
+    </radialGradient>
+
+    <filter id="beamBlur" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="130"/>
+    </filter>
+    <filter id="smokeBlur" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="210"/>
+    </filter>
+    <filter id="glowBlur" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="90"/>
+    </filter>
+    <filter id="softBlur" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2.2"/>
+    </filter>
+
+    <!-- Grain. Dark smooth gradients band badly on 8-bit displays; a little
+         monochrome noise breaks the banding up and reads as film. -->
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" stitchTiles="stitch" result="n"/>
+      <feColorMatrix in="n" type="saturate" values="0"/>
+    </filter>
+  </defs>
+
+  <rect width="2560" height="1440" fill="#150A06"/>
+  <rect width="2560" height="1440" fill="url(#base)"/>
+
+  <!-- Burgundy and red smoke. Very large, very soft, and deliberately off-axis
+       from the gold beam so the two never stack into a muddy centre. -->
+  <g filter="url(#smokeBlur)">
+    <ellipse cx="512" cy="432" rx="870.4000000000001" ry="432" fill="#870507" opacity="0.50"/>
+    <ellipse cx="2048" cy="1007.9999999999999" rx="768" ry="374.40000000000003" fill="#A80407" opacity="0.32"/>
+    <ellipse cx="1331.2" cy="1238.4" rx="1024" ry="288" fill="#870507" opacity="0.34"/>
+    <ellipse cx="2304" cy="230.4" rx="563.2" ry="288" fill="#A80407" opacity="0.20"/>
+  </g>
+
+  <!-- Diagonal beam, upper-right to centre-left. -->
+  <g filter="url(#beamBlur)" opacity="0.55">
+    <g transform="translate(1587.2 432) rotate(-32)">
+      <rect x="-2560" y="-380" width="5632" height="760" fill="url(#beamGrad)"/>
+    </g>
+  </g>
+
+  <!-- Horizon bloom. -->
+  <ellipse cx="1280" cy="907" rx="1075.2" ry="187.20000000000002"
+           fill="url(#glow)" filter="url(#glowBlur)" opacity="0.55"/>
+
+  <!-- Softens the seam where the floor meets the atmosphere. Without this the
+       floor rect reads as a pasted rectangle right across the frame. -->
+  <rect x="0" y="817" width="2560" height="180" fill="url(#horizonBand)" filter="url(#glowBlur)" opacity="0.5"/>
+
+  <!-- Reflective floor. -->
+  <rect x="0" y="907" width="2560" height="533" fill="url(#floor)"/>
+
+  <!-- Perspective streaks converging on the vanishing point. -->
+  <g filter="url(#softBlur)">
+    <line x1="1280" y1="907" x2="-2048" y2="1440" stroke="url(#streak)" stroke-width="3.1" opacity="0.024"/>
+    <line x1="1280" y1="907" x2="-1632" y2="1440" stroke="url(#streak)" stroke-width="2.9" opacity="0.041"/>
+    <line x1="1280" y1="907" x2="-1216" y2="1440" stroke="url(#streak)" stroke-width="2.7" opacity="0.058"/>
+    <line x1="1280" y1="907" x2="-800" y2="1440" stroke="url(#streak)" stroke-width="2.5" opacity="0.075"/>
+    <line x1="1280" y1="907" x2="-384" y2="1440" stroke="url(#streak)" stroke-width="2.4" opacity="0.092"/>
+    <line x1="1280" y1="907" x2="32" y2="1440" stroke="url(#streak)" stroke-width="2.2" opacity="0.109"/>
+    <line x1="1280" y1="907" x2="448" y2="1440" stroke="url(#streak)" stroke-width="2.0" opacity="0.126"/>
+    <line x1="1280" y1="907" x2="864" y2="1440" stroke="url(#streak)" stroke-width="1.8" opacity="0.143"/>
+    <line x1="1280" y1="907" x2="1280" y2="1440" stroke="url(#streak)" stroke-width="1.6" opacity="0.160"/>
+    <line x1="1280" y1="907" x2="1696" y2="1440" stroke="url(#streak)" stroke-width="1.8" opacity="0.143"/>
+    <line x1="1280" y1="907" x2="2112" y2="1440" stroke="url(#streak)" stroke-width="2.0" opacity="0.126"/>
+    <line x1="1280" y1="907" x2="2528" y2="1440" stroke="url(#streak)" stroke-width="2.2" opacity="0.109"/>
+    <line x1="1280" y1="907" x2="2944" y2="1440" stroke="url(#streak)" stroke-width="2.4" opacity="0.092"/>
+    <line x1="1280" y1="907" x2="3360" y2="1440" stroke="url(#streak)" stroke-width="2.5" opacity="0.075"/>
+    <line x1="1280" y1="907" x2="3776" y2="1440" stroke="url(#streak)" stroke-width="2.7" opacity="0.058"/>
+    <line x1="1280" y1="907" x2="4192" y2="1440" stroke="url(#streak)" stroke-width="2.9" opacity="0.041"/>
+    <line x1="1280" y1="907" x2="4608" y2="1440" stroke="url(#streak)" stroke-width="3.1" opacity="0.024"/>
+  </g>
+
+  <!-- Amber reflection falling from the centre. -->
+  <ellipse cx="1280" cy="1088.22"
+           rx="665.6" ry="330.46"
+           fill="url(#reflect)" filter="url(#glowBlur)" opacity="0.8"/>
+
+  <rect width="2560" height="1440" fill="url(#vignette)"/>
+  <rect width="2560" height="1440" filter="url(#grain)" opacity="0.055" style="mix-blend-mode:overlay"/>
+</svg>

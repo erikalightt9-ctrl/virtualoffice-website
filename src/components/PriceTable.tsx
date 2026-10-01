@@ -1,9 +1,5 @@
 import Link from "next/link";
-import {
-  formatPeso,
-  publishedRooms,
-  publishedWorkspace,
-} from "@/content/pricing";
+import { formatPeso, publishedRooms } from "@/content/pricing";
 
 type Row = {
   key: string;
@@ -14,18 +10,7 @@ type Row = {
   href?: string;
 };
 
-function rowsFor(kind: "workspace" | "rooms"): Row[] {
-  if (kind === "workspace") {
-    return publishedWorkspace.map((p) => ({
-      key: p.id,
-      name: p.name,
-      price: formatPeso(p.price),
-      unit: p.price === null ? "" : p.unit,
-      detail: p.bestFor,
-      href: `/workspace/${p.id}`,
-    }));
-  }
-
+function rowsFor(kind: "rooms"): Row[] {
   if (kind === "rooms") {
     return publishedRooms.map((r) => ({
       key: r.id,
@@ -34,7 +19,7 @@ function rowsFor(kind: "workspace" | "rooms"): Row[] {
       unit: r.rate === null ? "" : "per hour",
       detail:
         r.memberRate !== null
-          ? `${r.capacity} · ${formatPeso(r.memberRate)} per hour for members. ${r.note}`
+          ? `${r.capacity} · ${formatPeso(r.memberRate)} per hour on Registered and Corporate. ${r.note}`
           : `${r.capacity} · ${r.note}`,
     }));
   }
@@ -45,20 +30,20 @@ function rowsFor(kind: "workspace" | "rooms"): Row[] {
 export default function PriceTable({
   kind,
 }: {
-  kind: "workspace" | "rooms";
+  kind: "rooms";
 }) {
   const rows = rowsFor(kind);
 
   return (
-    <div className="overflow-x-auto border border-rule bg-surface">
+    <div className="overflow-x-auto border border-rule glass-cell">
       <table className="w-full min-w-[560px] border-collapse text-left">
         <thead>
           <tr className="border-b border-rule-strong bg-surface-2">
             <th className="label px-4 py-3 font-medium text-body-faint">
-              {kind === "rooms" ? "Room" : "Product"}
+              {"Room"}
             </th>
             <th className="label px-4 py-3 font-medium text-body-faint">
-              {kind === "rooms" ? "Capacity and notes" : "Details"}
+              {"Capacity and notes"}
             </th>
             <th className="label px-4 py-3 text-right font-medium text-body-faint">
               Rate
@@ -72,12 +57,12 @@ export default function PriceTable({
                 {row.href ? (
                   <Link
                     href={row.href}
-                    className="inline-block py-1 font-display text-[0.95rem] font-semibold text-ink underline decoration-rule-strong decoration-1 underline-offset-4 hover:decoration-clay"
+                    className="inline-block py-1 font-display text-[0.95rem] font-semibold text-body underline decoration-rule-strong decoration-1 underline-offset-4 hover:decoration-clay"
                   >
                     {row.name}
                   </Link>
                 ) : (
-                  <span className="font-display text-[0.95rem] font-semibold text-ink">
+                  <span className="font-display text-[0.95rem] font-semibold text-body">
                     {row.name}
                   </span>
                 )}
@@ -86,7 +71,7 @@ export default function PriceTable({
                 {row.detail}
               </td>
               <td className="whitespace-nowrap px-4 py-4 align-top text-right">
-                <span className="tnum font-mono text-[0.92rem] font-medium text-ink">
+                <span className="tnum font-mono text-[0.92rem] font-medium text-body">
                   {row.price}
                 </span>
                 {row.unit ? (

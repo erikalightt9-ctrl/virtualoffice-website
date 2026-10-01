@@ -29,12 +29,12 @@ export const CHATBOT_ENABLED =
 
 /** The first thing a visitor sees when the panel opens. */
 export const GREETING =
-  "Hello — I can answer questions about PDMN Virtual Office, our virtual office at 104 Paseo de Roxas, Legaspi Village, Makati: business addresses, mail handling, meeting rooms and workspace. What would you like to know?";
+  "Hello — I can answer questions about PDMN Virtual Office, our virtual office at 104 Paseo de Roxas, Legaspi Village, Makati: Basic, Corporate and VIP packages for business addresses and physical-office support. What would you like to know?";
 
 /** Shown as clickable starters. Keep them to real, answerable questions. */
 export const SUGGESTED_QUESTIONS = [
-  "What does a virtual office cost?",
+  "Which package is right for my business?",
   "Can I use the address as my registered business address?",
-  "How is my mail handled?",
-  "Do you have desks or private offices available?",
+  "What physical facilities does VIP provide?",
+  "Can you support BOC, LTO or FDA facility requirements?",
 ] as const;

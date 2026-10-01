@@ -3,11 +3,11 @@
        two, so the swirl mark from the Philippine Dragon Media Network logo is
        the right long-term favicon once a mark-only vector exists: crop the
        swirl, drop it in here, keep the charcoal ground. -->
-  <rect width="64" height="64" fill="#1d1f21"/>
+  <rect width="64" height="64" fill="#3D0708"/>
   <text x="32" y="43"
         text-anchor="middle"
         font-family="Archivo, 'Helvetica Neue', Helvetica, Arial, sans-serif"
         font-size="30" font-weight="700" letter-spacing="-1"
-        fill="#e02a06">P</text>
-  <rect x="14" y="49" width="36" height="3" fill="#c64405"/>
+        fill="#A80407">P</text>
+  <rect x="14" y="49" width="36" height="3" fill="#870507"/>
 </svg>

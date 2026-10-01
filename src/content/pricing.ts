@@ -1,294 +1,157 @@
-/**
- * ============================================================================
- *  PDMN VIRTUAL OFFICE — PRICING
- *
- *  THIS IS THE ONLY FILE YOU NEED TO EDIT TO CHANGE ANY PRICE ON THE SITE.
- *
- *  Every page that shows a price reads from here. Change a number below,
- *  save, and it updates on the homepage, the pricing page, every service
- *  page and the enquiry form.
- *
- *  HOW TO EDIT
- *  -----------
- *  1. Prices are plain numbers in pesos. No commas, no currency symbol.
- *       price12: 3900        ->  displays as "₱3,900"
- *  2. To hide a price and show "Enquire" instead, set the number to null.
- *       price12: null        ->  displays as "Enquire"
- *  3. To hide a whole tier or product from the site, set `published: false`.
- *  4. While prices are still provisional, leave PRICING_DISCLAIMER as it is.
- *     When they are final, set it to an empty string ("") and the notice
- *     disappears from every page.
- *
- *  Last reviewed: 26 August 2026 — provisional.
- *
- *  SCOPE: virtual office only. No registration, filing, permit, accounting,
- *  tax, payroll or compliance services are offered or priced here.
- * ============================================================================
- */
-
+/** Current approved package rates. VIP has no published billing period. */
 export const CURRENCY = "₱";
-
-/**
- * Shown as a small notice wherever prices appear.
- * Set to "" when pricing is final.
- */
-export const PRICING_DISCLAIMER =
-  "Indicative rates. Final pricing subject to confirmation — please enquire for a formal quotation.";
-
-/** Contract terms offered. `discountNote` is display copy only. */
-export const TERMS = [
-  { id: "monthly", label: "Monthly", discountNote: "Rolling, cancel anytime" },
-  { id: "sixMonth", label: "6 months", discountNote: "Better value" },
-  { id: "twelveMonth", label: "12 months", discountNote: "Best value" },
-] as const;
-
-/* ---------------------------------------------------------------------------
- *  1. BUSINESS ADDRESS TIERS  — the core recurring products
- * ------------------------------------------------------------------------- */
-
+export const PRICING_DISCLAIMER = "";
+export const TERMS = [] as const;
+export const DOCUMENT_HANDLING = "Basic document handling is included in all packages: receiving documents during office hours, notifying you of receipt, and holding them for collection by you or an authorized representative.";
 export type AddressTier = {
   id: string;
   name: string;
   bestFor: string;
-  /** Monthly rate on a 12-month term. `null` shows "Enquire". */
+  /** Monthly rate on a 12-month term. `null` shows "Inquire". */
   price12: number | null;
   /** Monthly rate on a rolling monthly term. */
   priceMonthly: number | null;
+  startingPrice?: number;
   /** May this package's address be used as a registered business address? */
   registrationEligible: boolean;
   /** Draws the highlighted border on pricing cards. Set on one tier only. */
   featured: boolean;
   published: boolean;
   features: string[];
+
+  /* The fields below exist for VIP, which is quoted rather than priced and so
+     needs more structure than a flat feature list. They are optional: a tier
+     that omits them renders exactly as before. */
+
+  /** One sentence on what the package contains, shown under an "Includes" head. */
+  includes?: string;
+  /** The purposes the facilities serve. NOT a list of work we perform. */
+  catersTo?: string[];
+  /** What we need from the enquirer to quote accurately. */
+  quotationPrompt?: string;
+  /** Qualifiers set in fine print beneath the card. */
+  footnotes?: string[];
 };
+
 
 export const addressTiers: AddressTier[] = [
   {
-    id: "address",
-    name: "Address",
-    bestFor: "Freelancers, consultants and professionals who need a credible Makati address for correspondence.",
-    price12: 1800,
-    priceMonthly: 2300,
-    registrationEligible: false,
-    featured: false,
-    published: true,
-    features: [
-      "Business address at 104 Paseo de Roxas for correspondence and marketing",
-      "Mail and parcel receiving during business hours",
-      "Same-day notification when mail arrives",
-      "Member rates on all meeting rooms",
-      "Access to member events at the office",
+    "id": "basic",
+    "name": "Virtual Office Basic",
+    "bestFor": "For freelancers, consultants and professionals who need a credible Makati business address for correspondence and business purposes.",
+    "registrationEligible": false,
+    "features": [
+      "Professional Makati business address",
+      "Basic document handling",
+      "For correspondence and business purposes",
+      "Choose Corporate if you need a registered business address"
     ],
+    "price12": null,
+    "priceMonthly": 1400,
+    "featured": false,
+    "published": true
   },
   {
-    id: "registered",
-    name: "Registered",
-    bestFor: "Companies that need an address they can name as their registered business address.",
-    price12: 3900,
-    priceMonthly: 4900,
-    registrationEligible: true,
-    featured: true,
-    published: true,
-    features: [
-      "Everything in Address",
-      "Address available for use as your registered business address, subject to approval",
-      "Official correspondence flagged and escalated to you immediately",
-      "Staff on site during business hours to receive visitors and couriers",
-      "5 meeting room hours per month",
-      "2 workspace days per month",
+    "id": "corporate",
+    "name": "Virtual Office Corporate",
+    "bestFor": "For businesses that require a professional business address for registration and corporate purposes.",
+    "registrationEligible": true,
+    "features": [
+      "Professional Makati business address",
+      "Basic document handling",
+      "Registered business address use, subject to applicable requirements"
     ],
+    "price12": null,
+    "priceMonthly": 1800,
+    "featured": false,
+    "published": true
   },
   {
-    id: "corporate",
-    name: "Corporate",
-    bestFor: "Companies that want a fuller presence and more hands-on administrative support.",
-    price12: 8500,
-    priceMonthly: 10500,
-    registrationEligible: true,
-    featured: false,
-    published: true,
-    features: [
-      "Everything in Registered",
-      "Dedicated mail and document handling",
-      "15 meeting room hours per month",
-      "5 workspace days per month",
-      "Priority administrative support from our on-site team",
-      "Named account contact",
+    "id": "vip",
+    "name": "VIP Virtual Office",
+    "bestFor": "For businesses needing an address and physical facilities for registration and compliance.",
+    "registrationEligible": true,
+
+    /* Copy supplied by the operator as the authoritative VIP card.
+       ---------------------------------------------------------------------
+       Note the construction of catersTo: it lists what the FACILITIES are
+       for, not work we carry out. "Business registration" there means the
+       premises serve a registration, in the same way a warehouse caters to
+       storage. That distinction is the whole reason the last footnote stays
+       on the card: a reader scanning the bullets could otherwise conclude we
+       file the application, which we have confirmed we do not. */
+    "includes": "A business address and an actual physical office and facilities, matched to your business purpose and requirements.",
+    "catersTo": [
+      "Business registration",
+      "Bureau of Customs (BOC) requirements",
+      "Food and Drug Administration (FDA) requirements",
+      "Land Transportation Office (LTO) requirements",
+      "Inspections and other applicable compliance requirements"
     ],
-  },
+    "quotationPrompt": "Tell us what type of business you are registering, which government requirements you need to meet, and what facilities you need.",
+    /* Operator's own two qualifiers. A third line stating that we do not
+       prepare or file applications was removed at the operator's instruction;
+       that boundary is still set out in the terms, in the chatbot guardrail
+       and in PDMN-DESIGN.md. */
+    "footnotes": [
+      "The final rate depends on your specific business purpose, government requirements, and facilities needed.",
+      "Subject to facility availability, applicable requirements, and approval of the relevant government agency."
+    ],
+
+    /* Kept so any view still rendering a flat list stays accurate. */
+    "features": [
+      "A business address and an actual physical office and facilities",
+      "Matched to your business purpose and requirements",
+      "Caters to business registration, BOC, FDA, LTO and inspection requirements",
+      "Final rate by quotation"
+    ],
+    "price12": null,
+    "priceMonthly": null,
+    "startingPrice": 5000,
+    "featured": false,
+    "published": true
+  }
 ];
-
-/* ---------------------------------------------------------------------------
- *  2. WORKSPACE  — physical space on the 5th floor
- * ------------------------------------------------------------------------- */
-
-export type WorkspaceProduct = {
-  id: string;
-  name: string;
-  price: number | null;
-  /** e.g. "per seat / month" */
-  unit: string;
-  bestFor: string;
-  published: boolean;
-  features: string[];
-};
-
-export const workspaceProducts: WorkspaceProduct[] = [
-  {
-    id: "dedicated-desk",
-    name: "Dedicated Desk",
-    price: 9500,
-    unit: "per seat / month",
-    bestFor: "Individuals and small teams who need a permanent seat in Makati.",
-    published: true,
-    features: [
-      "Your own assigned workstation",
-      "Access during business hours",
-      "Registered-address package included",
-      "5 meeting room hours per month",
-      "Reception, mail handling and admin support on site",
-    ],
-  },
-  {
-    id: "team-space",
-    name: "Team Space",
-    price: 8500,
-    unit: "per seat / month",
-    bestFor: "Teams of four to fifteen who want a grouped area without a long lease.",
-    published: true,
-    features: [
-      "Grouped or partitioned workstations",
-      "Registered-address package included",
-      "10 meeting room hours per month",
-      "Reception and admin support on site",
-      "Scale seats up or down as the team changes",
-    ],
-  },
-  {
-    id: "private-office",
-    name: "Private Office",
-    price: null,
-    unit: "per seat / month",
-    bestFor: "Companies that need an enclosed, lockable office of their own.",
-    published: true,
-    features: [
-      "Enclosed private suite",
-      "Registered-address package included",
-      "Meeting room allocation by suite size",
-      "Suitable for companies that receive clients at their address",
-      "Availability limited — please enquire",
-    ],
-  },
-  {
-    id: "day-pass",
-    name: "Day Pass",
-    price: 600,
-    unit: "per day",
-    bestFor: "Visiting founders and staff who need a desk for the day.",
-    published: true,
-    features: [
-      "Any available open workstation",
-      "Full business-hours access",
-      "Wi-Fi, coffee and use of the tea room",
-      "Book by the day, no commitment",
-    ],
-  },
-];
-
-/* ---------------------------------------------------------------------------
- *  3. MEETING ROOMS  — the five bookable spaces
- * ------------------------------------------------------------------------- */
-
 export type MeetingRoom = {
   id: string;
   name: string;
   capacity: string;
-  /** Walk-in / non-member hourly rate. */
+  /** Hourly rate for additional use, on packages without an allocation. */
   rate: number | null;
-  /** Rate for address and workspace members. */
+  /** Reduced hourly rate on the Registered and Corporate packages. */
   memberRate: number | null;
   published: boolean;
   note: string;
 };
 
-export const meetingRooms: MeetingRoom[] = [
-  {
-    id: "conference-a",
-    name: "Conference Room A",
-    capacity: "Up to 12",
-    rate: 1200,
-    memberRate: 900,
-    published: true,
-    note: "Our largest room. Suited to board meetings, presentations and client pitches.",
-  },
-  {
-    id: "conference-b",
-    name: "Conference Room B",
-    capacity: "Up to 10",
-    rate: 1200,
-    memberRate: 900,
-    published: true,
-    note: "Full conference setup for meetings and workshops.",
-  },
-  {
-    id: "conference-c",
-    name: "Conference Room C",
-    capacity: "Up to 8",
-    rate: 1000,
-    memberRate: 750,
-    published: true,
-    note: "A smaller conference room for team sessions and interviews.",
-  },
-  {
-    id: "meeting-room",
-    name: "Meeting Room",
-    capacity: "Up to 6",
-    rate: 800,
-    memberRate: 600,
-    published: true,
-    note: "Comfortable for small group discussions and reviews.",
-  },
-  {
-    id: "focus-room",
-    name: "Focus Room",
-    capacity: "Up to 4",
-    rate: 700,
-    memberRate: 500,
-    published: true,
-    note: "For one-to-one meetings, interviews and private calls.",
-  },
-  {
-    id: "tea-room",
-    name: "Tea Room",
-    capacity: "Small groups",
-    rate: null,
-    memberRate: null,
-    published: true,
-    note: "An informal space for short meetings and refreshments. Available to members and room bookers.",
-  },
-];
 
-/* ---------------------------------------------------------------------------
- *  Helpers — you should not need to change anything below this line.
- * ------------------------------------------------------------------------- */
-
-/** Formats 3900 as "₱3,900". Returns the fallback when the price is null. */
+/** Legacy room components are retained but no room products are published. */
+export const meetingRooms: MeetingRoom[] = [];
 export function formatPeso(
   amount: number | null,
-  fallback = "Enquire",
+  fallback = "Inquire",
 ): string {
   if (amount === null || Number.isNaN(amount)) return fallback;
   return `${CURRENCY}${amount.toLocaleString("en-PH")}`;
 }
 
+export const VIP_RATE_NOTE = "Final VIP pricing depends on your business activity, government requirements and facilities needed. Contact us for a quotation.";
+
+export function packageRate(tier: AddressTier): string {
+  if (tier.startingPrice === undefined) return `${formatPeso(tier.priceMonthly)}/month`;
+  /* The asterisk is only honest if something explains it. It appears when the
+     tier carries footnotes, which is where the explanation lives. */
+  const mark = tier.footnotes?.length ? "*" : "";
+  return `Starting at ${formatPeso(tier.startingPrice)}${mark}`;
+}
+
 export const publishedAddressTiers = addressTiers.filter((t) => t.published);
-export const publishedWorkspace = workspaceProducts.filter((p) => p.published);
 export const publishedRooms = meetingRooms.filter((r) => r.published);
 
 /** Lowest published monthly address rate, used for "from ₱X" copy. */
 export const lowestAddressPrice: number | null = (() => {
   const prices = publishedAddressTiers
-    .map((t) => t.price12)
+    .map((t) => t.priceMonthly)
     .filter((p): p is number => p !== null);
   return prices.length ? Math.min(...prices) : null;
 })();

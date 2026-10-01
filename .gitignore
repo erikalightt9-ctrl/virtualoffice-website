@@ -39,3 +39,15 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+brand/
+removed/
+
+# Private HR database, sessions, and local test artifacts
+/hr/data/
+/hr/test-output/
+
+# Local working files, never published: private documents, generated output and deploy archives
+/output/
+/*.docx
+/*.zip
+/tmp/

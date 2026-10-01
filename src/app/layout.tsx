@@ -1,31 +1,33 @@
 import type { Metadata } from "next";
-import { Archivo, IBM_Plex_Mono, Source_Serif_4 } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import ChatWidget from "@/components/ChatWidget";
 import { site } from "@/content/site";
 import "./globals.css";
 
-const archivo = Archivo({
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  variable: "--font-archivo",
-  display: "swap",
-});
+/* ---------------------------------------------------------------------------
+   TYPEFACES — two, both from Fontshare.
 
-const sourceSerif = Source_Serif_4({
-  subsets: ["latin"],
-  weight: ["400", "600"],
-  variable: "--font-source-serif",
-  display: "swap",
-});
+   Epilogue does the work: headings, body, labels, controls, forms. Kalam is
+   the accent, reserved for a few display lines where a handwritten face adds
+   warmth without costing anything to read. Which lines, and why only those,
+   is set out beside --font-accent in globals.css.
 
-const plexMono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-plex-mono",
-  display: "swap",
-});
+   TWO REQUESTS, NOT ONE. Fontshare's API honours only the FIRST f[] parameter
+   and silently drops the rest: `?f[]=epilogue@1,2&f[]=kalam@1` returns
+   Epilogue alone, with no error. Each family therefore needs its own
+   stylesheet link. Do not "tidy" these into a single URL — the page would
+   lose Kalam and fall back to a system handwriting face, which looks close
+   enough that it is easy to miss.
+
+   Both are variable: Epilogue 100-900 in roman and italic, Kalam 300-700
+   roman only. Loaded by stylesheet rather than next/font because the request
+   was for the Fontshare copies specifically, which is why the preconnects
+   below matter and why both stacks fall back to real system faces.
+   ------------------------------------------------------------------------ */
+const FONTSHARE_BODY =
+  "https://api.fontshare.com/v2/css?f%5B%5D=epilogue@1,2&display=swap";
+const FONTSHARE_ACCENT =
+  "https://api.fontshare.com/v2/css?f%5B%5D=kalam@1&display=swap";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -49,11 +51,9 @@ export const metadata: Metadata = {
     title: `${site.name} — 104 Paseo de Roxas, Makati`,
     description: site.description,
   },
-  // Kept in step with src/app/robots.ts — both read the same flag, so the
-  // meta tag can never contradict robots.txt. Blocked until
-  // NEXT_PUBLIC_ALLOW_INDEXING=true.
+  // Set NEXT_PUBLIC_ALLOW_INDEXING=false for private preview builds.
   robots:
-    process.env.NEXT_PUBLIC_ALLOW_INDEXING === "true"
+    process.env.NEXT_PUBLIC_ALLOW_INDEXING !== "false"
       ? { index: true, follow: true }
       : { index: false, follow: false },
 };
@@ -74,7 +74,7 @@ export default function RootLayout({
     parentOrganization: { "@type": "Organization", name: site.operator.name },
     address: {
       "@type": "PostalAddress",
-      streetAddress: `${site.address.floor}, ${site.address.line1}, ${site.address.village}`,
+      streetAddress: `${site.address.floor}, ${site.address.building}, ${site.address.line1}, ${site.address.village}`,
       addressLocality: `${site.address.barangay}, ${site.address.city}`,
       addressRegion: site.address.region,
       postalCode: site.address.postcode,
@@ -82,14 +82,26 @@ export default function RootLayout({
     },
     areaServed: "Philippines",
     knowsAbout:
-      "Virtual office, business address, mail handling, meeting rooms, coworking",
+      "Virtual Office Basic, Corporate and VIP, Makati business address, physical-office support for registration and compliance",
   };
 
   return (
     <html lang="en-PH">
-      <body
-        className={`${archivo.variable} ${sourceSerif.variable} ${plexMono.variable}`}
-      >
+      <head>
+        {/* Open the connection to the font CDN before the stylesheet that
+            references it is parsed, so the two .woff2 files are not waiting on
+            a fresh TLS handshake. crossOrigin is required: fonts are fetched
+            in CORS mode, and a preconnect without it opens the wrong kind of
+            connection and is simply ignored. */}
+        <link rel="preconnect" href="https://api.fontshare.com" />
+        <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="" />
+        <link rel="stylesheet" href={FONTSHARE_BODY} />
+        <link rel="stylesheet" href={FONTSHARE_ACCENT} />
+      </head>
+      <body>
+        {/* Burgundy and red smoke drifting behind every page. Fixed and
+            behind all content, so no panel has to composite over it. */}
+        <div className="smoke-field" aria-hidden="true" />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:border focus:border-clay focus:bg-surface focus:px-4 focus:py-2"
@@ -99,7 +111,6 @@ export default function RootLayout({
         <Header />
         <main id="main">{children}</main>
         <Footer />
-        <ChatWidget />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }}

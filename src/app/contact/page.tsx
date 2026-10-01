@@ -6,9 +6,9 @@ import PageHeader from "@/components/PageHeader";
 import { site } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: "Contact & Enquiries",
+  title: "Contact & Inquiries",
   description:
-    "Enquire about a virtual office, workspace or meeting room at 104 Paseo de Roxas, Legaspi Village, Makati. Viber, WhatsApp or phone.",
+    "Inquire about Virtual Office Basic, Corporate or VIP at 104 Paseo de Roxas, Legaspi Village, Makati. Viber, WhatsApp or phone.",
 };
 
 export default function ContactPage() {
@@ -16,17 +16,17 @@ export default function ContactPage() {
     <>
       <PageHeader
         eyebrow="Contact"
-        headline="Tell us what you need. We will tell you if we can do it."
-        intro="Three fields and one question is all we need to start. If you would rather talk, message us on Viber or WhatsApp — for most enquiries that is faster."
+        headline="Discuss your business requirements."
+        intro="Tell us your business activity, registration stage and whether you need a correspondence address, registered business address or physical facilities. Include any government application, inspection or warehouse/storage requirements. You can also contact us on Viber or WhatsApp."
       />
 
       <section className="border-b border-rule bg-bone">
         <Container className="grid gap-10 py-14 lg:grid-cols-[1fr_0.8fr] sm:py-18">
           <div className="flex flex-col gap-6">
-            <h2 className="text-[1.4rem]">Send an enquiry</h2>
+            <h2 className="text-[1.4rem]">Send an inquiry</h2>
             <Suspense
               fallback={
-                <p className="text-body-soft">Loading the enquiry form…</p>
+                <p className="text-body-soft">Loading the inquiry form…</p>
               }
             >
               <InquiryForm />
@@ -34,8 +34,8 @@ export default function ContactPage() {
           </div>
 
           <aside className="flex flex-col gap-8">
-            <div className="flex flex-col gap-3 border border-rule bg-surface p-6">
-              <h2 className="label text-clay">Faster: message us</h2>
+            <div className="flex flex-col gap-3 border border-rule glass-cell p-6">
+              <h2 className="label text-accent-readable">Message our team</h2>
               <a
                 href={site.contact.viberHref}
                 className="accent-fill border px-4 py-3 text-center text-[0.8rem] font-semibold uppercase tracking-[0.09em] transition-colors"
@@ -46,22 +46,34 @@ export default function ContactPage() {
                 href={site.contact.whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="border border-rule-strong px-4 py-3 text-center text-[0.8rem] font-semibold uppercase tracking-[0.09em] text-ink transition-colors hover:border-ink"
+                className="border border-rule-strong px-4 py-3 text-center text-[0.8rem] font-semibold uppercase tracking-[0.09em] text-body transition-colors hover:border-oak-light"
               >
                 Chat on WhatsApp
               </a>
+              {/* The number itself, in text. The buttons above carry it only
+                  inside their hrefs, which is no use to someone without Viber
+                  Desktop installed or anyone wanting to copy it or dial it. */}
+              <p className="text-center text-[0.85rem] text-body-soft">
+                Mobile, Viber and WhatsApp{" "}
+                <a
+                  href={site.contact.mobileHref}
+                  className="tnum whitespace-nowrap text-accent-readable"
+                >
+                  {site.contact.mobile}
+                </a>
+              </p>
               <p className="text-[0.85rem] text-body-faint">
                 Messages are answered during business hours.
               </p>
             </div>
 
-            <div className="flex flex-col gap-3 border border-rule bg-surface p-6">
+            <div className="flex flex-col gap-3 border border-rule glass-cell p-6">
               <h2 className="label text-body-faint">Or reach us directly</h2>
               <dl className="flex flex-col gap-3 text-[0.92rem]">
                 <div>
                   <dt className="text-body-faint">Telephone</dt>
                   <dd>
-                    <a href={site.contact.landlineHref} className="text-clay">
+                    <a href={site.contact.landlineHref} className="text-accent-readable">
                       {site.contact.landline}
                     </a>
                   </dd>
@@ -69,7 +81,7 @@ export default function ContactPage() {
                 <div>
                   <dt className="text-body-faint">Email</dt>
                   <dd>
-                    <a href={site.contact.emailHref} className="text-clay">
+                    <a href={site.contact.emailHref} className="text-accent-readable">
                       {site.contact.email}
                     </a>
                   </dd>
@@ -77,9 +89,9 @@ export default function ContactPage() {
                 <div>
                   <dt className="text-body-faint">Office</dt>
                   <dd className="text-body-soft">
-                    {site.address.floor}, {site.address.line1}
+                    {site.address.floor}, {site.address.building}
                     <br />
-                    {site.address.village}, {site.address.barangay}
+                    {site.address.line1}, {site.address.village}
                     <br />
                     {site.address.city} {site.address.postcode}
                   </dd>
@@ -93,13 +105,6 @@ export default function ContactPage() {
                   </dd>
                 </div>
               </dl>
-            </div>
-
-            <div className="border-l-2 border-clay bg-clay-wash px-4 py-3">
-              <p className="text-[0.85rem] text-body-soft">
-                Referred by an accountant or lawyer? Mention their firm in your
-                enquiry so we can credit the introduction.
-              </p>
             </div>
           </aside>
         </Container>

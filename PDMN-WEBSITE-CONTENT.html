@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PDMN Virtual Office — Website Content Summary</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;600;700&display=swap">
+<style>
+  /* Palette taken from the site's own tokens, sampled from the real office. */
+  :root{
+    --ink:#1d1f21; --bone:#f4f2ee; --surface:#fff; --surface-2:#faf8f4;
+    --rule:#e2ded6; --rule-strong:#cdc7bc; --text:#22252a; --text-soft:#5b6067;
+    --text-faint:#8b8f95; --oak-deep:#7d6650; --clay:#c92a14; --clay-wash:#fbeae4;
+    --teal:#367369; --teal-wash:#e6f0ed; --amber:#b0702a; --amber-wash:#fbf0e0;
+    --shadow:0 1px 2px rgba(29,31,33,.05),0 10px 24px -14px rgba(29,31,33,.14);
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --ink:#0f1113; --bone:#17191b; --surface:#1e2124; --surface-2:#24272b;
+      --rule:#34383d; --rule-strong:#464b51; --text:#eceae5; --text-soft:#b0aca5;
+      --text-faint:#85837e; --oak-deep:#d7c3a4; --clay:#f2755c; --clay-wash:#3a1f1a;
+      --teal:#6fb0a3; --teal-wash:#17302c; --amber:#d9a163; --amber-wash:#33260f;
+      --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 24px -14px rgba(0,0,0,.5);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ink:#0f1113; --bone:#17191b; --surface:#1e2124; --surface-2:#24272b;
+    --rule:#34383d; --rule-strong:#464b51; --text:#eceae5; --text-soft:#b0aca5;
+    --text-faint:#85837e; --oak-deep:#d7c3a4; --clay:#f2755c; --clay-wash:#3a1f1a;
+    --teal:#6fb0a3; --teal-wash:#17302c; --amber:#d9a163; --amber-wash:#33260f;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 24px -14px rgba(0,0,0,.5);
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0;background:var(--bone);color:var(--text);
+    font-family:"Source Serif 4",Georgia,serif;font-size:17px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1000px;margin:0 auto;padding:clamp(1.5rem,5vw,4rem) clamp(1.1rem,4vw,2rem) 5rem}
+  h1,h2,h3,h4{font-family:Archivo,"Helvetica Neue",Helvetica,Arial,sans-serif;text-wrap:balance;margin:0}
+  .label{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+  code{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.84em;padding:.1em .34em;border-radius:4px;background:var(--surface-2);border:1px solid var(--rule);color:var(--oak-deep)}
+
+  header.mast{border-bottom:2px solid var(--rule-strong);padding-bottom:1.6rem}
+  header.mast .label{color:var(--clay)}
+  h1{font-size:clamp(1.9rem,5vw,2.8rem);font-weight:700;letter-spacing:-.02em;line-height:1.07;margin:.6rem 0 .9rem}
+  .lede{max-width:66ch;margin:0;font-size:clamp(1rem,2.2vw,1.1rem);color:var(--text-soft)}
+
+  .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;margin-top:2rem;background:var(--rule);border:1px solid var(--rule);border-radius:8px;overflow:hidden}
+  .facts div{background:var(--surface);padding:.9rem 1rem}
+  .facts .label{color:var(--text-faint);display:block}
+  .facts b{display:block;margin-top:.3rem;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:1.05rem;font-weight:600}
+
+  section{margin-top:3.2rem}
+  section>h2{font-size:clamp(1.3rem,3vw,1.7rem);font-weight:600;letter-spacing:-.01em;padding-bottom:.55rem;border-bottom:1px solid var(--rule-strong)}
+  section>h2+p{margin-top:.9rem;max-width:70ch;color:var(--text-soft)}
+  h3.grp{margin-top:2.2rem;font-size:1.05rem;font-weight:600}
+
+  .scroll{overflow-x:auto;margin-top:1.2rem;border:1px solid var(--rule);border-radius:8px}
+  table{width:100%;border-collapse:collapse;font-size:.9rem;background:var(--surface)}
+  th,td{padding:.65rem .9rem;text-align:left;border-bottom:1px solid var(--rule);vertical-align:top}
+  th{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint);background:var(--surface-2);white-space:nowrap}
+  tr:last-child td{border-bottom:0}
+  td.num{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
+  tr.star td{background:var(--clay-wash)}
+
+  .pages{display:flex;flex-direction:column;gap:.7rem;margin-top:1.3rem}
+  .page{display:grid;grid-template-columns:4px 1fr;gap:0 1.1rem;background:var(--surface);border:1px solid var(--rule);border-radius:8px;box-shadow:var(--shadow);overflow:hidden}
+  .page .bar{background:var(--rule-strong)}
+  .page.core .bar{background:var(--clay)}
+  .page.buy .bar{background:var(--teal)}
+  .page.trust .bar{background:var(--amber)}
+  .page .body{padding:.95rem 1.2rem 1.05rem 0}
+  .page h4{font-size:.98rem;font-weight:600;display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap}
+  .page .route{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.78rem;color:var(--clay)}
+  .page .h1{margin:.35rem 0 0;font-size:.92rem;color:var(--text);font-style:italic}
+  .page p.desc{margin:.45rem 0 0;font-size:.89rem;color:var(--text-soft)}
+  .page ul{margin:.5rem 0 0;padding-left:1.1rem}
+  .page li{font-size:.86rem;color:var(--text-soft)}
+
+  .note{margin-top:1.3rem;padding:1.1rem 1.3rem;border-left:4px solid var(--clay);border-radius:0 8px 8px 0;background:var(--clay-wash)}
+  .note p{margin:0}
+  .note p+p{margin-top:.6rem}
+  .note.ok{border-left-color:var(--teal);background:var(--teal-wash)}
+
+  footer{margin-top:3.5rem;padding-top:1.2rem;border-top:1px solid var(--rule);font-size:.84rem;color:var(--text-faint)}
+
+  /* A content inventory tends to get printed for sign-off. */
+  @media print{
+    body{background:#fff;color:#000;font-size:11pt}
+    .wrap{max-width:none;padding:0}
+    .page,.facts div,table{box-shadow:none}
+    section{break-inside:avoid}
+    .page{break-inside:avoid}
+    a{color:#000;text-decoration:none}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="mast">
+  <p class="label">Website content summary &middot; 9 September 2026</p>
+  <h1>PDMN Virtual Office</h1>
+  <p class="lede">
+    Every page on the site, what it says, and what it sells. A virtual office at
+    5th Floor, Salustiana D. Ty Tower, 104 Paseo de Roxas, Legaspi Village,
+    Makati &mdash; operated by Philippine Dragon Media Network Corp.
+  </p>
+  <div class="facts">
+    <div><span class="label">Pages</span><b>17</b></div>
+    <div><span class="label">Address packages</span><b>3</b></div>
+    <div><span class="label">Meeting rooms</span><b>5</b></div>
+    <div><span class="label">FAQ answers</span><b>18</b></div>
+    <div><span class="label">Launch blockers</span><b>5</b></div>
+  </div>
+</header>
+
+<section>
+  <h2>The offer, and its boundary</h2>
+  <p>
+    A business address, mail and document handling by on-site staff, and five
+    bookable meeting rooms. Stated plainly across the site as the whole service.
+  </p>
+  <div class="note">
+    <p><strong>What is deliberately not offered.</strong> Company registration or
+      incorporation, SEC or BIR filings, business permits, bookkeeping,
+      accounting, tax preparation, payroll, corporate secretarial work, or
+      business-setup advice. There are no partner firms delivering any of it.</p>
+    <p>This appears on the About page, the Terms, and a site-wide footer notice,
+      and is enforced in the chatbot&rsquo;s guardrails. It is a positioning
+      choice, not an omission.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Address packages</h2>
+  <p>Published prices, not indicative. Terms are monthly or twelve-month.</p>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Package</th><th>12-month</th><th>Monthly</th><th>Registered address</th><th>Included room hours</th></tr></thead>
+      <tbody>
+        <tr><td>Address</td><td class="num">&#8369;1,800</td><td class="num">&#8369;2,300</td><td>No &mdash; correspondence and marketing only</td><td class="num">&mdash;</td></tr>
+        <tr class="star"><td><strong>Registered</strong> &mdash; most selected</td><td class="num">&#8369;3,900</td><td class="num">&#8369;4,900</td><td>Yes, subject to approval</td><td class="num">5 / month</td></tr>
+        <tr><td>Corporate</td><td class="num">&#8369;8,500</td><td class="num">&#8369;10,500</td><td>Yes, subject to approval</td><td class="num">15 / month</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Meeting rooms</h2>
+  <p>
+    Client-only &mdash; a facility of the virtual office, not a room-hire
+    business. Rates rise with capacity, with no ties. Booked by enquiry: we
+    confirm availability, you sign electronically, and the booking is confirmed
+    once payment has settled.
+  </p>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Room</th><th>Capacity</th><th>Standard</th><th>Registered &amp; Corporate</th><th>Character</th></tr></thead>
+      <tbody>
+        <tr><td>Cubicle</td><td class="num">2&ndash;4</td><td class="num">&#8369;800</td><td class="num">&#8369;600</td><td>Upholstered booth with high acoustic sides</td></tr>
+        <tr><td>Tea Room</td><td class="num">4&ndash;6</td><td class="num">&#8369;900</td><td class="num">&#8369;700</td><td>Long timber table, bench seating, tea service</td></tr>
+        <tr><td>Palawan</td><td class="num">6&ndash;8</td><td class="num">&#8369;1,000</td><td class="num">&#8369;800</td><td>Bright room with a glass writing wall</td></tr>
+        <tr><td>Boracay</td><td class="num">6&ndash;8</td><td class="num">&#8369;1,000</td><td class="num">&#8369;800</td><td>Quieter corner room with a whiteboard</td></tr>
+        <tr><td>Siargao</td><td class="num">10&ndash;12</td><td class="num">&#8369;1,200</td><td class="num">&#8369;900</td><td>Largest &mdash; oak floors, daylight on two sides</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Requirements, and the rule behind them</h2>
+  <p>
+    Registered-address use requires Philippine registration &mdash; SEC for a
+    corporation or partnership, DTI for a sole proprietor. Correspondence use
+    does not: identity and KYC only. So anyone without Philippine registration
+    starts on the Address package and moves up once it exists.
+  </p>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Applicant</th><th>Submits</th><th>Package</th><th>Registered now?</th></tr></thead>
+      <tbody>
+        <tr><td>Philippine corporation or partnership</td><td>SEC registration, KYC form, two valid IDs, payment</td><td>Any</td><td>Yes</td></tr>
+        <tr><td>Sole proprietor, freelancer, professional</td><td>DTI registration, KYC form, two valid IDs, payment</td><td>Any</td><td>Yes</td></tr>
+        <tr><td>Incorporating now</td><td>KYC form, two valid IDs, payment</td><td>Address</td><td>No &mdash; upgrade later</td></tr>
+        <tr><td>Foreign company, already PH-registered</td><td>Philippine SEC registration, KYC form, two valid IDs, payment</td><td>Any</td><td>Yes</td></tr>
+        <tr><td>Foreign company or individual, pre-entry</td><td>Home-country registration, KYC form, payment</td><td>Address</td><td>No &mdash; upgrade later</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note">
+    <p><strong>Stated prominently for pre-entry clients.</strong> A
+      correspondence address is not a Philippine registered office. It does not
+      register a company here and does not authorise doing business in the
+      Philippines &mdash; that requires registration with the SEC and the
+      relevant agencies, arranged with the client&rsquo;s own advisers.</p>
+    <p>This wording should go to counsel alongside the service agreement,
+      together with the current SEC and foreign-ownership rules on when a
+      foreign company is considered to be doing business in the Philippines.</p>
+  </div>
+</section>
+
+<section>
+  <h2>The buying journey</h2>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>#</th><th>Virtual office</th><th>Meeting room</th></tr></thead>
+      <tbody>
+        <tr><td class="num">1</td><td>Check you qualify (requirements page)</td><td>Choose a room</td></tr>
+        <tr><td class="num">2</td><td>Enquire &mdash; form, email, Viber or WhatsApp</td><td>Check availability by enquiry</td></tr>
+        <tr><td class="num">3</td><td>Approval against the acceptable use policy</td><td>Availability confirmed and held</td></tr>
+        <tr><td class="num">4</td><td><strong>Sign by hand</strong> &mdash; in person or by courier</td><td><strong>Sign electronically</strong></td></tr>
+        <tr><td class="num">5</td><td>Settle payment &mdash; transfer, deposit, cheque or cash</td><td>Settle payment &mdash; bank deposit</td></tr>
+        <tr><td class="num">6</td><td>Live in one to two business days</td><td>Booking confirmed</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:1.1rem">
+    Enquiries are answered by the Operations Head, usually within minutes during
+    business hours &mdash; Monday to Friday, 9:00am&ndash;6:00pm, Saturday by
+    appointment. Landline (02) 7368-0000; mobile, Viber and WhatsApp on
+    +63 917 311 3638.
+  </p>
+</section>
+
+<section>
+  <h2>All 17 pages</h2>
+  <p>
+    Red is a core service page, green is part of the buying journey, amber is
+    trust and context, grey is legal.
+  </p>
+
+  <h3 class="grp">Homepage</h3>
+  <div class="pages">
+    <div class="page core"><div class="bar"></div><div class="body">
+      <h4>Home <span class="route">/</span></h4>
+      <p class="h1">&ldquo;Your Business. A Professional Presence in Makati.&rdquo;</p>
+      <p class="desc">All four services named above the fold as chips, with
+        Enquire now and Packages &amp; rates. Then, in order: what we offer
+        &middot; packages and rates &middot; what&rsquo;s included &middot; the
+        office &middot; location &middot; how to start &middot; the operator
+        &middot; closing.</p>
+    </div></div>
+  </div>
+
+  <h3 class="grp">Core service pages</h3>
+  <div class="pages">
+    <div class="page core"><div class="bar"></div><div class="body">
+      <h4>Services overview <span class="route">/services</span></h4>
+      <p class="h1">&ldquo;One service, done properly.&rdquo;</p>
+      <p class="desc">The three service pages, plus meeting rooms and the floor they sit on.</p>
+    </div></div>
+    <div class="page core"><div class="bar"></div><div class="body">
+      <h4>Virtual Office <span class="route">/services/virtual-office</span></h4>
+      <p class="h1">&ldquo;A professional Makati presence, without a traditional office lease.&rdquo;</p>
+      <p class="desc">A real office behind the address; designed for flexible businesses; package rates.</p>
+    </div></div>
+    <div class="page core"><div class="bar"></div><div class="body">
+      <h4>Registered Business Address <span class="route">/services/registered-business-address</span></h4>
+      <p class="desc">Address-use options on eligible packages, subject to documents and approval. Explains why approval protects every client.</p>
+    </div></div>
+    <div class="page core"><div class="bar"></div><div class="body">
+      <h4>Mail Handling <span class="route">/services/mail-handling</span></h4>
+      <p class="h1">&ldquo;Your business mail, received and handled professionally.&rdquo;</p>
+      <p class="desc">The handling process, and privacy and control over what arrives.</p>
+    </div></div>
+    <div class="page core"><div class="bar"></div><div class="body">
+      <h4>Meeting Rooms <span class="route">/meeting-rooms</span></h4>
+      <p class="h1">&ldquo;Somewhere proper to meet a client, in the middle of Makati.&rdquo;</p>
+      <p class="desc">The &ldquo;more than just a business address&rdquo; proposition, then five
+        floating room cards that expand into detail views showing what is inside
+        each room, what it is for, and its rate.</p>
+    </div></div>
+  </div>
+
+  <h3 class="grp">The buying journey</h3>
+  <div class="pages">
+    <div class="page buy"><div class="bar"></div><div class="body">
+      <h4>Pricing <span class="route">/pricing</span></h4>
+      <p class="h1">&ldquo;Our rates, in public.&rdquo;</p>
+      <p class="desc">Three address tiers, contract terms, and the five room rates.</p>
+    </div></div>
+    <div class="page buy"><div class="bar"></div><div class="body">
+      <h4>Requirements <span class="route">/requirements</span></h4>
+      <p class="h1">&ldquo;What you need to open a virtual office with us.&rdquo;</p>
+      <p class="desc">An interactive self-check: pick your situation from five
+        applicant paths, tick what you hold, and it tells you whether you are
+        ready or what is outstanding. Plus each document explained, what you do
+        <em>not</em> need, and what happens after submitting.</p>
+    </div></div>
+    <div class="page buy"><div class="bar"></div><div class="body">
+      <h4>How it works <span class="route">/how-it-works</span></h4>
+      <p class="h1">&ldquo;Six steps, and one of them is us checking you out.&rdquo;</p>
+      <p class="desc">Choose &rarr; documents &rarr; approval &rarr; sign by hand
+        &rarr; pay &rarr; activation. Includes why the approval step exists.</p>
+    </div></div>
+    <div class="page buy"><div class="bar"></div><div class="body">
+      <h4>Contact <span class="route">/contact</span></h4>
+      <p class="h1">&ldquo;Tell us what you need. We will tell you if we can do it.&rdquo;</p>
+      <p class="desc">Enquiry form with five service options, Viber and WhatsApp
+        buttons, the mobile number in plain text, landline, email, address and
+        opening hours.</p>
+    </div></div>
+  </div>
+
+  <h3 class="grp">Trust and context</h3>
+  <div class="pages">
+    <div class="page trust"><div class="bar"></div><div class="body">
+      <h4>About <span class="route">/about</span></h4>
+      <p class="h1">&ldquo;A professional presence. Practical support. People you can rely on.&rdquo;</p>
+      <p class="desc">Who we are &middot; what the virtual office includes
+        &middot; why it was built &middot; the six PDMN principles, which are
+        painted on the wall beside reception &middot; where we are &middot; who
+        operates the service and why that matters &middot; what we do not do
+        &middot; how applicants are vetted &middot; the operator panel &middot;
+        closing pull quote.</p>
+      <ul>
+        <li>Candor and Clarity &middot; Do What We Say &middot; Diversity and Inclusion</li>
+        <li>Dare for Excellence &middot; Seek Truth, Stay Practical &middot; Grow Together</li>
+      </ul>
+    </div></div>
+    <div class="page trust"><div class="bar"></div><div class="body">
+      <h4>Location <span class="route">/location</span></h4>
+      <p class="h1">&ldquo;Put Makati on your business card. Then come and see it.&rdquo;</p>
+      <p class="desc">The full address, what is on the floor, photographs of the
+        office, an embedded map, and how to get there.</p>
+    </div></div>
+    <div class="page trust"><div class="bar"></div><div class="body">
+      <h4>FAQ <span class="route">/faq</span></h4>
+      <p class="h1">&ldquo;Questions we are asked, answered properly.&rdquo;</p>
+      <p class="desc">18 answers across six categories: The address (3),
+        Registered address (4), Mail (3), Meeting rooms (3), Signing up (3),
+        Billing (2). Also the knowledge base for the chatbot when it is
+        switched on.</p>
+    </div></div>
+  </div>
+
+  <h3 class="grp">Legal</h3>
+  <div class="pages">
+    <div class="page"><div class="bar"></div><div class="body">
+      <h4>Terms of Service <span class="route">/terms</span></h4>
+      <p class="desc">The services &middot; use of the address &middot;
+        verification and approval &middot; mail and official correspondence
+        &middot; fees, terms and renewal &middot; termination &middot; limits on
+        our responsibility.</p>
+    </div></div>
+    <div class="page"><div class="bar"></div><div class="body">
+      <h4>Privacy Policy <span class="route">/privacy</span></h4>
+      <p class="desc">What we collect &middot; why &middot; who we share it with
+        &middot; how long we keep it &middot; your rights &middot; how we
+        protect it.</p>
+    </div></div>
+    <div class="page"><div class="bar"></div><div class="body">
+      <h4>Acceptable Use Policy <span class="route">/acceptable-use</span></h4>
+      <p class="desc">Why we screen &middot; businesses we do not accept
+        &middot; conduct required of clients &middot; how we enforce this.</p>
+    </div></div>
+  </div>
+</section>
+
+<section>
+  <h2>What the site does not yet have</h2>
+
+  <h3 class="grp">Five launch blockers</h3>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Item</th><th>Why it matters</th></tr></thead>
+      <tbody>
+        <tr><td><code>INQUIRY_WEBHOOK_URL</code> unset</td><td>The form validates, tells the visitor it succeeded, then discards the enquiry. Worst of the five, because it looks like it works.</td></tr>
+        <tr><td>Placeholder email on an unregistered domain</td><td><code>hello@pdmnvirtualoffice.ph</code> bounces. The domain also backs the sitemap, canonical URLs and share card.</td></tr>
+        <tr><td>Five room photographs missing</td><td>Every room card reads &ldquo;photo to come&rdquo; &mdash; on the one section built so clients can see what they are booking.</td></tr>
+        <tr><td>SEC registration number is <code>TODO</code></td><td>The site names PDMN as SEC-registered; the number is what makes that checkable.</td></tr>
+        <tr><td>Legal pages marked provisional</td><td>Terms, Privacy and Acceptable Use each carry a notice that they are under review by counsel.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="grp">Two structural gaps</h3>
+  <div class="note">
+    <p><strong>No social proof of any kind.</strong> No testimonials, client
+      logos, review count or case examples. For a product whose value is
+      credibility, this is the largest commercial gap &mdash; but the service is
+      new, so it should be earned rather than manufactured. A Google Business
+      Profile and a request to the first ten clients at the sixty-day mark is
+      the honest route.</p>
+    <p><strong>No client portal.</strong> Mail notifications, room bookings and
+      invoices are handled by email. A deliberate choice rather than an
+      oversight, but worth revisiting as the client base grows.</p>
+  </div>
+
+  <div class="note ok">
+    <p><strong>Two settings intentionally off.</strong> Search indexing is
+      blocked, so the site is a private staging build rather than a public
+      launch. The chatbot is built and switched off, waiting on FAQ sign-off
+      &mdash; its knowledge base builds itself from the content files, so it will
+      reflect whatever the site says on the day it is enabled.</p>
+  </div>
+</section>
+
+<footer>
+  <p>
+    Generated 9 September 2026 from the running site &mdash; 17 routes read
+    directly rather than summarised from notes. Prices, room details, page copy
+    and requirements all live in <code>src/content/</code>, which is the single
+    place to change any of them.
+  </p>
+</footer>
+
+</div>
+</body>
+</html>

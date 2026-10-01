@@ -26,7 +26,7 @@ That is the entire offer:
 
 - A business address at 104 Paseo de Roxas, Legaspi Village, Makati
 - Mail and document handling by on-site staff
-- Meeting rooms and serviced workspace on the same floor
+- Six bookable meeting rooms on the same floor
 - A **registered-address option** on eligible packages — a component of the
   virtual office, not a separate service
 
@@ -41,11 +41,40 @@ That is the entire offer:
 - Payroll
 - Corporate secretarial work
 - Market-entry or business-setup consulting
+- **Workspace of any kind** — no desks, dedicated workstations, team space,
+  private offices, day passes or day-office access. The floor has workstations
+  on it, but they are not let. Photographs of the floor are office *context*,
+  never a product. `public/photos/workspace.jpg` is captioned accordingly.
 
 There are **no partner firms** delivering any of that on our behalf. A
 client's registrations, filings, permits, tax obligations and compliance are
-theirs, to handle with their own advisers. PDMN Virtual Office is the address on the
-paperwork and nothing more.
+theirs, to handle with their own advisers.
+
+### The one thing VIP does beyond the address
+
+This section used to end "PDMN Virtual Office is the address on the paperwork
+and nothing more." That was written before VIP existed, and the product has
+since contradicted it in `pricing.ts` and in the chatbot guardrail — three
+files telling three different stories about the same service. Confirmed with
+the operator, the boundary now sits here:
+
+**VIP provides premises, and runs the visit to them.** Specifically:
+
+- A physical office at 104 Paseo de Roxas that an agency can inspect and verify
+- Scheduling the inspection, hosting the inspector, and confirming facility
+  details an agency asks for
+- Staff on site for scheduled visits
+- Warehouse/storage where agreed, subject to availability
+
+**It does not touch the application.** No preparation, no filing, no
+follow-up, no representation, no regulatory advice — on any package, for any
+agency. That line is the difference between letting a room and practising a
+regulated profession, and it is why the exclusion appears on the VIP card
+itself rather than only in the terms.
+
+Whenever this scope changes, four places must change together or they will
+drift apart again: `src/content/pricing.ts`, `src/lib/chat-config.ts`,
+`src/content/legal.ts` and this file.
 
 ### Copy rules
 
@@ -70,7 +99,7 @@ your registered business address, subject to approval) and be explicit about
 ### Also removed
 
 - All references to **613 sqm**. Describe the floor by what is on it — staffed
-  reception, six bookable rooms, serviced workstations — not by area.
+  reception and six bookable meeting rooms — not by area.
 - Wider-group and sister-company references. The operator is named because it
   is a fact worth knowing; nothing beyond that supports the positioning.
 
@@ -161,13 +190,108 @@ contrast tool before changing either stop.
 The solid accent gives 4.91:1 on the page ground, so it is safe for body-size
 link text. That was verified on every page, not assumed.
 
-### Material motifs
+### Material motifs — retired
 
-`globals.css` provides four utility classes drawn from the building itself:
-`.slats` and `.slat-rule` (the oak ceiling battens, the office's signature
-detail), `.slats-dark` (battens over a dark soffit), `.concrete` (the wall
-finish as a quiet surface tint) and `.oak` (for panels that should read as
-joinery rather than paper).
+`globals.css` used to provide five utilities drawn from the building itself:
+`.slats`, `.slat-rule` and `.slats-dark` (the oak ceiling battens as repeating
+vertical lines), `.concrete` (the wall finish as a surface tint) and `.oak` (a
+fine veneer stripe for panels). **They have been removed**, along with the
+`/oak-grain.svg` tile that the page-header band used.
+
+Not one of them was ever applied to an element — the only apparent use of
+"slats" was the word inside a photograph's alt text.
+
+**Do not reintroduce a repeating timber or concrete texture.** The page is
+built from smoke, glass and light now, and a tiled material stripe reads as a
+sample pinned behind the type rather than as a room. Texture comes from two
+places instead:
+
+1. **The background photograph showing through.** Shade bands are translucent,
+   so the smoke image supplies real grain at no cost — and that is also what
+   keeps wide gradients from banding.
+2. **Gradients of light in the palette.** See `.executive-wood` for the
+   pattern: a gold wash entering from one corner as light, a burgundy pool
+   settling into the opposite one for depth, both over the shade band. The
+   warm reflection is only ever light falling across a surface, never a fill.
+
+## The shade shifter — how a page is grounded
+
+The page ground is not one flat colour. It descends through the palette as you
+scroll: deepest espresso at the hero, warming through oak into burgundy,
+resolving to rich red at the call to action, then back to espresso for the
+footer. Arriving at the bottom of a page should feel like having moved through
+a room rather than having scrolled a single wall.
+
+It lives entirely in the SHADE SHIFTER block of `src/app/globals.css`. There is
+no JavaScript and no per-page wiring.
+
+| Stop | Value | Alpha | Where it lands |
+| --- | --- | --- | --- |
+| `--shade-1` | Espresso `#2B140D` | .86 | Hero, and the footer handoff |
+| `--shade-2` | Espresso warmed `#3A1D13` | .80 | Second band |
+| `--shade-3` | Oak shadow `#4A2619` | .76 | Third band |
+| `--shade-4` | Burgundy `#681C2A` | .80 | Fourth band, and the hold beyond it |
+| `--shade-5` | Rich red `#9E1B20` | .88 | The CTA band only |
+
+### The five rules
+
+1. **Each band is a ramp, not a block.** A band runs from its own shade to the
+   *next* band's shade, so neighbours meet at an identical colour and the page
+   reads as one continuous gradient instead of stacked stripes.
+
+2. **The scale is anchored from the START.** `nth-of-type`, not
+   `nth-last-of-type`. An end-anchored scale looks equivalent and is not: on a
+   two- or three-section page the hero rule and the end rules fight over the
+   same section and leave a visible gap mid-page. Only the *end* of the final
+   band is overridden, never its start, which is what keeps continuity at any
+   page length. This was built end-anchored first and the gap was real.
+
+3. **The shades are translucent.** They are washes over the fixed background,
+   not opaque fills, so the smoke photograph still refracts through the glass
+   panels above them. An opaque band switches the glass off — see rule 1 of the
+   liquid glass section.
+
+4. **Red is earned, not positional.** Gold falls to 3.58:1 on the red band and
+   faint text to 3.79:1, both below AA. Red is therefore reserved for
+   `.shade-climax`, which only `CtaBand` carries, and whose type is ivory
+   (7.37:1) and soft ivory (5.34:1) only. **Never put a gold eyebrow or faint
+   text on that band, and never hand `.shade-climax` to an ordinary section.**
+
+5. **Controls invert on the climax band.** The accent fill is a burgundy-to-red
+   gradient, which scores 1.09:1 against red — invisible as a shape, against
+   the 3:1 WCAG 1.4.11 asks of a control's own boundary. On `.shade-climax` the
+   primary action becomes ivory with espresso text (7.40:1 as a shape, 14.74:1
+   for the label), which also makes it the brightest thing on the page.
+
+### Things that will silently break it
+
+- **Painting a ground on a section.** A class beats `main > section` in the
+  cascade, so any `bg-*` utility or module class that sets a background knocks
+  that section off the ramp. `.executive-wood` composites its oak grain *over*
+  `var(--shade-a)`/`var(--shade-b)` for exactly this reason; do the same for
+  anything else that needs a texture.
+- **Sections that are not direct children of `<main>`.** The scale is keyed to
+  `main > section`. Wrap a section in a `<div>` and it drops off the ramp.
+- **Specificity.** The resolution rules use `:has()`, which carries the
+  specificity of its argument, so they score (0,2,2) against the (0,1,2) of the
+  `nth-of-type` rules. That is deliberate. A rule written more loosely than
+  that will lose to the base scale and appear to do nothing.
+
+`Section` and `PageHeader` therefore set no ground of their own. `Section`'s
+former `tone="bone" | "surface"` prop is gone — it was already dead (the
+unlayered `.glass-veil` overrode it), and two-tone alternation contradicts a
+monotonic ramp. `PageHeader`'s `light | dark` prop is gone for the same reason:
+every ground on the site is dark now.
+
+### Verifying it
+
+```
+node scripts/check-shade-contrast.mjs
+```
+
+Composites each band over the brightest pixel of the background photograph —
+the worst case any band has to survive — and reports ivory, soft, faint and
+gold against it. Re-run it after changing any shade value or alpha.
 
 ## Brand symbolism — grounded, not cosmic
 
@@ -183,9 +307,9 @@ arriving somewhere real, and every motif below is drawn from one or the other.
 | --- | --- | --- |
 | **Ground** — the premises, the foundation | A horizontal ground line. A datum everything else sits on. | The logo mark; `.groundMotif` on the homepage hero |
 | **Growth** — a place you stay and build | Concentric arcs rising from that line: canopy, shelter, growth rings | The logo mark and square mark |
-| **The room itself** | The oak ceiling battens, as a rhythm of fine vertical lines | `.slats`, `.slat-rule`, `.slats-dark` in `globals.css` |
+| **The room itself** | Light describing a space, not the materials in it | The gradient washes on `.executive-wood`; the background photograph through a translucent shade band |
 | **Connection** | Lines that converge and meet, rather than orbit | Available; use sparingly and only where it means something |
-| **Warmth** | Concrete and oak surface tints | `.concrete`, `.oak` in `globals.css` |
+| **Warmth** | Gold read as light falling across a surface | `--glass-reflect` in `globals.css` — as a sheen or glow, never as a fill |
 
 Rules:
 
@@ -260,6 +384,94 @@ it is illegible there — hence the text wordmark in the header.
 **The single most useful thing to obtain is a mark-only variant** — just the
 gold swirl, without the type. That would go in the header, the favicon and the
 share card, and would finish the identity across the whole site.
+
+### The text wordmark
+
+`src/components/Wordmark.tsx` owns the stacked lockup for both the header and
+the footer, so the two can never drift apart. Three things make it a lockup
+rather than two stacked labels, and all three are load-bearing:
+
+1. **Each line has its own leading, with a hairline rule between them.** The
+   first version set `leading-none` on both, which put the boxes flush and let
+   Archivo's descenders land on the mono line's cap height — a measured 2.6px
+   of ink collision.
+2. **A negative right margin cancels the trailing letter-space** CSS adds after
+   the final glyph, so each box hugs its own ink and the rule lines up.
+3. **The tracking on each line is tuned so the two ink widths match.** Before
+   tuning, the descriptor was 84% wider than the name; it now sits within 3%.
+
+Those tracking values are specific to "PDMN" over "VIRTUAL OFFICE". **If
+`site.wordmark` or `site.wordmarkSub` ever changes length, re-measure and
+retune** — do not assume the numbers still hold.
+
+### The bookable spaces section
+
+`/meeting-rooms` carries an interactive room showcase: five floating photo
+cards that expand into a detail dialog. It is split so the content and the
+presentation never tangle:
+
+| File | Holds |
+| --- | --- |
+| `src/content/rooms.ts` | Photos, descriptions, what's inside, what it offers, availability, booking links |
+| `src/content/pricing.ts` | Names, capacities and rates — still the only place rates live |
+| `src/lib/rooms-server.ts` | Joins the two, checks which photographs exist on disk |
+| `src/components/rooms/rooms.module.css` | The scatter geometry, keyed by POSITION not by room |
+| `src/components/rooms/RoomShowcase.tsx` | Parallax and dialog state |
+| `src/components/rooms/RoomDetail.tsx` | The dialog, its FLIP flight and its focus management |
+
+Three rules to keep:
+
+1. **"Floating" here means lifted above a ground, not adrift.** The cards sit
+   over a visible datum (`.groundRule`) with their shadows cast down onto it.
+   That was a deliberate reconciliation with the "nothing floats" rule above —
+   the premium layered feel without the cosmic weightlessness. Do not remove
+   the ground and leave the cards hanging in space.
+2. **Rates are never duplicated into `rooms.ts`.** `resolveShowcaseRooms()`
+   throws if a showcase room has no matching id in `pricing.ts`, so a room can
+   never render with a blank price.
+3. **Closing the dialog must not depend on an animation finishing.** The exit
+   is driven by a timer, because `Animation.finished` never resolves while the
+   document timeline is throttled (a background tab, a hidden window) — which
+   would strand a visitor in a scroll-locked modal. This was a real bug once;
+   do not reintroduce it by awaiting `finished`.
+
+Availability ships as `"unknown"` for every room, so no badge is drawn. Set it
+from a real calendar when one exists — never by hand, because a stale
+"available" badge reads as a promise.
+
+#### The rooms are client-only
+
+**The five rooms are a facility of the virtual office, not a room-hire
+business.** They cannot be booked by non-clients. Depending on the package, room
+use is either included in a monthly allocation or charged as an additional fee,
+and the fee depends on the package and the room.
+
+Never write, or imply:
+
+- "Book by the hour, no membership required"
+- "Non-members can book rooms directly"
+- "Bookable directly by anyone else"
+- Anything inviting a walk-in or public booking
+
+This replaced an earlier two-tier member/non-member model, so the `rate` and
+`memberRate` fields in `pricing.ts` no longer mean walk-in vs member. They are
+now the standard additional-use rate and the reduced rate on the higher
+packages — the field names are legacy, the doc comments carry the meaning.
+
+The rule is enforced in `src/lib/chat-config.ts` as well, so the chatbot turns
+down a non-client room booking rather than inventing a way to take it.
+
+### Service marks
+
+`src/components/ServiceMark.tsx` holds four line-art watermarks for the
+homepage service cards: a building, a sealed document, a boardroom table in
+plan, an envelope. Each is drawn from the service it names and rests on a
+ground line, per "nothing floats".
+
+They replaced an identical ring-with-a-dot on every card, which was an orbit —
+retired with the rest of the cosmic language — and which put the clay accent on
+a decorative dot. Stroke is `currentColor`; the card sets tone and opacity, and
+nothing in the file hardcodes a palette value.
 
 ### Writing the name
 

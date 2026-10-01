@@ -1,37 +1,55 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
+import headerLogo from "../../public/pdmn-logo-badge.png";
 import { useState } from "react";
 import { mainNav, site } from "@/content/site";
+
+/* Shared by every desktop nav item so the row cannot drift apart.
+   The hover colour brightens toward ivory rather than toward gold: the pane
+   behind the label is gold now, so a gold label would be the one pairing this
+   palette cannot make legible. */
+const NAV_PILL =
+  "nav-pill px-3.5 py-2.5 text-[0.7rem] font-semibold uppercase tracking-[0.1em] text-on-dark-soft hover:text-on-dark";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [openGroup, setOpenGroup] = useState<string | null>(null);
+  const pathname = usePathname();
+
+  /* "/" only matches itself; everything else matches its own subtree, so
+     /services/virtual-office still lights up the Services pill. */
+  const isCurrent = (href: string) =>
+    href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-rule-dark bg-ink/95 text-on-dark backdrop-blur-md">
-      <div className="mx-auto flex w-full max-w-6xl items-center gap-4 px-5 py-3.5 sm:px-8">
+    <header className="glass-bar sticky top-0 z-50 text-on-dark">
+      <div className="mx-auto flex w-full max-w-6xl items-center gap-4 px-5 py-3 sm:px-8">
         <Link
           href="/"
           className="shrink-0"
           aria-label={`${site.name} — home`}
           onClick={() => setOpen(false)}
         >
-          <span className="flex items-center gap-3">
-            <span className="flex flex-col leading-none">
-              <span className="font-display text-[1.15rem] font-semibold tracking-[0.2em] text-on-dark">{site.wordmark}</span>
-              <span className="font-mono text-[0.55rem] uppercase tracking-[0.24em] text-on-dark-soft">{site.wordmarkSub}</span>
-            </span>
-          </span>
+          <Image
+            src={headerLogo}
+            alt="PDMN Virtual Office"
+            priority
+            sizes="(min-width: 640px) 224px, 192px"
+            className="h-20 w-48 object-contain sm:h-24 sm:w-56"
+          />
         </Link>
 
-        <nav className="ml-auto hidden items-center gap-1 lg:flex">
+        <nav className="ml-auto hidden items-center gap-1.5 xl:flex">
           {mainNav.map((item) =>
             item.children ? (
               <div key={item.href} className="group relative">
                 <Link
                   href={item.href}
-                  className="flex items-center gap-1 px-3 py-2 text-[0.7rem] font-semibold uppercase tracking-[0.1em] text-on-dark-soft transition-colors hover:text-clay"
+                  aria-current={isCurrent(item.href) ? "page" : undefined}
+                  className={`flex items-center gap-1.5 ${NAV_PILL}`}
                 >
                   {item.label}
                   <svg
@@ -49,7 +67,7 @@ export default function Header() {
                     />
                   </svg>
                 </Link>
-                <div className="invisible absolute left-0 top-full w-72 border border-rule-dark bg-ink-2 opacity-0 shadow-2xl transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                <div className="glass-solid invisible absolute left-0 top-full w-72 overflow-hidden opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
                   {item.children.map((child) => (
                     <Link
                       key={child.href}
@@ -72,7 +90,8 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="px-3 py-2 text-[0.7rem] font-semibold uppercase tracking-[0.1em] text-on-dark-soft transition-colors hover:text-clay"
+                aria-current={isCurrent(item.href) ? "page" : undefined}
+                className={NAV_PILL}
               >
                 {item.label}
               </Link>
@@ -82,15 +101,15 @@ export default function Header() {
 
         <Link
           href="/contact"
-          className="accent-fill ml-auto hidden shrink-0 border px-4 py-2.5 text-[0.68rem] font-semibold uppercase tracking-[0.1em] transition-colors lg:ml-3 lg:block"
+          className="accent-fill cta-shine ml-auto hidden shrink-0 rounded-lg border px-4 py-2.5 text-[0.68rem] font-semibold uppercase tracking-[0.1em] xl:ml-3 xl:block"
         >
-          Get a quote
+          Inquire now
         </Link>
 
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="ml-auto flex h-10 w-10 items-center justify-center border border-rule-dark text-on-dark lg:hidden"
+          className="ml-auto flex h-10 w-10 items-center justify-center border border-rule-dark text-on-dark xl:hidden"
           aria-expanded={open}
           aria-controls="mobile-nav"
           aria-label={open ? "Close menu" : "Open menu"}
@@ -121,7 +140,7 @@ export default function Header() {
       {open ? (
         <div
           id="mobile-nav"
-          className="border-t border-rule-dark bg-ink-2 lg:hidden"
+          className="glass-panel-strong border-t border-rule-dark xl:hidden"
         >
           <nav className="mx-auto max-w-6xl px-5 py-2 sm:px-8">
             {mainNav.map((item) => (
@@ -146,7 +165,7 @@ export default function Header() {
                         <Link
                           href={item.href}
                           onClick={() => setOpen(false)}
-                          className="block py-2 pl-3 text-[0.85rem] text-clay"
+                          className="block py-2 pl-3 text-[0.85rem] text-accent-readable"
                         >
                           All {item.label.toLowerCase()}
                         </Link>
@@ -180,7 +199,7 @@ export default function Header() {
                 onClick={() => setOpen(false)}
                 className="accent-fill border px-4 py-3 text-center text-[0.8rem] font-semibold uppercase tracking-[0.09em]"
               >
-                Get a quote
+                Inquire now
               </Link>
               <a
                 href={site.contact.viberHref}
@@ -195,3 +214,4 @@ export default function Header() {
     </header>
   );
 }
+

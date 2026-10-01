@@ -5,8 +5,11 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
+    "start": "node scripts/preview-static.mjs",
+    "lint": "eslint",
+    "hr:dev": "node hr/src/server.mjs",
+    "hr:test": "node --test hr/tests/*.test.mjs",
+    "hr:coverage": "node --experimental-test-coverage --test-coverage-include=hr/src/*.mjs --test-coverage-lines=80 --test-coverage-branches=80 --test-coverage-functions=80 --test hr/tests/*.test.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.120.0",
@@ -23,6 +26,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.3.2",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wrangler": "^4.145.0"
   }
 }

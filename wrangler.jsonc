@@ -1,0 +1,28 @@
+{
+  // Deployment config for the PDMN Virtual Office website.
+  //
+  // This is an ASSETS-ONLY Worker: there is no server script, no KV, no D1, no
+  // secrets and no bindings. The site is a static export and must stay that
+  // way — the inquiry form prepares a mailto: draft that the visitor sends
+  // themselves, so nothing here ever needs a mail password or an API key.
+  //
+  // "directory" is the single most important line in this file. Wrangler
+  // uploads THAT FOLDER AND NOTHING ELSE, which is what keeps the source tree,
+  // .env files, .next, node_modules and the unrelated hr/ data out of a public
+  // deployment. Never point it at "." or at the project root.
+  //
+  // Build the folder before deploying, because `out/` is a build artifact and
+  // wrangler will happily publish a stale one:
+  //
+  //   npm run build && node scripts/check-static.mjs && node scripts/prune-export.mjs
+  //   npx wrangler deploy
+  //
+  // The name matches the Worker that already exists in the dashboard, so a
+  // deploy updates that same site rather than creating a second one.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "pdmn-virtual-office",
+  "compatibility_date": "2025-09-01",
+  "assets": {
+    "directory": "./out"
+  }
+}

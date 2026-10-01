@@ -3,12 +3,12 @@
 import { useState } from "react";
 import type { Faq } from "@/content/faqs";
 
-export default function FaqList({ items }: { items: Faq[] }) {
+export default function FaqList({ items, numbered = false }: { items: Faq[]; numbered?: boolean }) {
   const [open, setOpen] = useState<string | null>(items[0]?.q ?? null);
 
   return (
     <div className="border-t border-rule-strong">
-      {items.map((item) => {
+      {items.map((item, index) => {
         const isOpen = open === item.q;
         return (
           <div key={item.q} className="border-b border-rule">
@@ -19,12 +19,12 @@ export default function FaqList({ items }: { items: Faq[] }) {
                 aria-expanded={isOpen}
                 className="flex w-full items-start justify-between gap-4 py-4 text-left"
               >
-                <span className="font-display text-[1rem] font-semibold text-ink">
-                  {item.q}
+                <span className="font-display text-[1rem] font-semibold text-body">
+                  {numbered ? `${index + 1}. ` : ""}{item.q}
                 </span>
                 <span
                   aria-hidden="true"
-                  className="mt-0.5 shrink-0 font-mono text-lg leading-none text-clay"
+                  className="mt-0.5 shrink-0 font-mono text-lg leading-none text-accent-readable"
                 >
                   {isOpen ? "−" : "+"}
                 </span>

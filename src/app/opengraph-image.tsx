@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
 import { site } from "@/content/site";
+export const dynamic = "force-static";
 
 /**
  * The card that appears when someone shares a link on Viber, WhatsApp,
@@ -28,7 +29,7 @@ export default function OpengraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#1d1f21",
+          background: "#3D0708",
           padding: "72px 80px",
           fontFamily: "Helvetica, Arial, sans-serif",
         }}
@@ -38,7 +39,7 @@ export default function OpengraphImage() {
             display: "flex",
             width: 150,
             height: 10,
-            background: "linear-gradient(100deg, #e02a06 0%, #c64405 100%)",
+            background: "linear-gradient(100deg, #870507 0%, #A80407 100%)",
           }}
         />
 
@@ -47,7 +48,7 @@ export default function OpengraphImage() {
             style={{
               fontSize: 116,
               letterSpacing: 6,
-              color: "#F2EFE9",
+              color: "#FDFBF7",
               fontWeight: 800,
               lineHeight: 1.05,
             }}
@@ -58,7 +59,7 @@ export default function OpengraphImage() {
             style={{
               fontSize: 34,
               letterSpacing: 16,
-              color: "#8F8D89",
+              color: "#E3C9A8",
               fontWeight: 600,
               marginTop: 6,
             }}
@@ -69,7 +70,7 @@ export default function OpengraphImage() {
             style={{
               marginTop: 26,
               fontSize: 30,
-              color: "#B0ADA6",
+              color: "#F6E8D8",
               letterSpacing: 1,
             }}
           >
@@ -82,15 +83,15 @@ export default function OpengraphImage() {
             display: "flex",
             justifyContent: "space-between",
             alignItems: "flex-end",
-            borderTop: "2px solid #3a3d3f",
+            borderTop: "2px solid #8A3520",
             paddingTop: 26,
             fontSize: 24,
-            color: "#8F8D89",
+            color: "#E3C9A8",
             letterSpacing: 1,
           }}
         >
           <span>
-            {site.address.floor}, {site.address.line1}
+            {site.address.floor}, {site.address.building}
           </span>
           <span>
             {site.address.village}, {site.address.city}

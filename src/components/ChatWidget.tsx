@@ -252,7 +252,7 @@ export default function ChatWidget() {
                 onKeyDown={onKeyDown}
                 rows={1}
                 maxLength={2000}
-                placeholder="Ask about pricing, registration, workspace…"
+                placeholder="Ask about packages, address use or VIP facilities…"
                 className="max-h-28 min-h-[42px] flex-1 resize-none border border-rule-dark bg-ink-2 px-3 py-2.5 text-[0.86rem] text-on-dark outline-none transition-colors placeholder:text-on-dark-soft focus:border-clay"
               />
               <button
@@ -277,7 +277,7 @@ export default function ChatWidget() {
               For a quotation or to check eligibility, message us on Viber at{" "}
               <a
                 href={site.contact.viberHref}
-                className="text-clay underline underline-offset-2"
+                className="text-accent-readable underline underline-offset-2"
               >
                 {site.contact.viber}
               </a>

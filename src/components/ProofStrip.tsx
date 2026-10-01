@@ -11,9 +11,9 @@ export default function ProofStrip() {
         {site.facts.map((fact) => (
           <div
             key={fact.label}
-            className="flex flex-col gap-1 bg-surface px-5 py-6 sm:px-8"
+            className="flex flex-col gap-1 glass-cell px-5 py-6 sm:px-8"
           >
-            <span className="tnum font-display text-[1.6rem] font-bold leading-none text-ink">
+            <span className="tnum font-display text-[1.6rem] font-bold leading-none text-body">
               {fact.value}
             </span>
             <span className="text-[0.85rem] text-body-soft">{fact.label}</span>

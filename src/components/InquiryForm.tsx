@@ -2,78 +2,67 @@
 
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
-import { SERVICE_OPTIONS } from "@/lib/inquiry";
+import { SERVICE_OPTIONS, inquirySchema, serviceLabel } from "@/lib/inquiry";
+import { site } from "@/content/site";
+import { publishedAddressTiers } from "@/content/pricing";
+import PackageRate from "./PackageRate";
 
 type Errors = Record<string, string>;
+
 
 const inputClass =
   "w-full border border-rule-strong bg-surface px-3.5 py-3 text-[0.95rem] text-body outline-none transition-colors focus:border-clay";
 
 export default function InquiryForm() {
   const params = useSearchParams();
-  const plan = params.get("plan") ?? "";
-  const partner = params.get("ref") ?? "";
-  const presetService = params.get("service") ?? "";
+  const requested = params.get("plan") ?? params.get("service") ?? "";
+  const aliases: Record<string, string> = { "virtual-office": "basic", "registered-business-address": "corporate", "registered-address": "corporate", "virtual-office-vip": "vip", address: "basic", registered: "corporate" };
+  const candidate = aliases[requested] ?? requested;
+  const presetService = SERVICE_OPTIONS.some(option => option.value === candidate) ? candidate : "";
+  const [selectedService, setSelectedService] = useState(presetService || SERVICE_OPTIONS[0].value);
+  const selectedTier = publishedAddressTiers.find(tier => tier.id === selectedService);
+  const plan = selectedTier?.id ?? "";
+  const presetMessage = "";
 
-  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
-    "idle",
-  );
+  const [emailPrepared, setEmailPrepared] = useState(false);
   const [formError, setFormError] = useState<string | null>(null);
   const [errors, setErrors] = useState<Errors>({});
 
-  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setStatus("sending");
+    setEmailPrepared(false);
     setFormError(null);
     setErrors({});
 
     const form = new FormData(event.currentTarget);
     const body = Object.fromEntries(form.entries());
 
-    try {
-      const response = await fetch("/api/inquiry", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
-      });
-      const result = await response.json();
-
-      if (!response.ok || !result.ok) {
-        setErrors(result.fieldErrors ?? {});
-        setFormError(
-          result.error ?? "Something went wrong. Please try again.",
-        );
-        setStatus("error");
-        return;
+    const result = inquirySchema.safeParse(body);
+    if (!result.success) {
+      const fieldErrors: Errors = {};
+      for (const issue of result.error.issues) {
+        const field = String(issue.path[0] ?? "form");
+        fieldErrors[field] ??= issue.message;
       }
-
-      setStatus("sent");
-    } catch {
-      setFormError(
-        "We could not reach the server. Please check your connection, or message us on Viber.",
-      );
-      setStatus("error");
+      setErrors(fieldErrors);
+      setFormError("Please check your details. Name, email and contact number are required; messages must be no longer than 3,000 characters.");
+      return;
     }
-  }
-
-  if (status === "sent") {
-    return (
-      <div className="border border-rule bg-surface p-7">
-        <p className="label text-clay">Enquiry received</p>
-        <h3 className="mt-3 text-[1.4rem]">Thank you — we have it.</h3>
-        <p className="mt-3 max-w-[52ch] text-body-soft">
-          A member of our team will come back to you during business hours. If
-          it is urgent, message us on Viber or call the office and we will pick
-          it up straight away.
-        </p>
-      </div>
-    );
+    const data = result.data;
+    if (data.website) return;
+    const subject = `Virtual office inquiry — ${serviceLabel(data.service)}`;
+    const message = [
+      `Name: ${data.name}`, `Company: ${data.company || "—"}`,
+      `Email: ${data.email}`, `Contact number: ${data.mobile}`,
+      `Service: ${serviceLabel(data.service)}`, "", data.message || "",
+    ].join("\r\n");
+    window.location.href = `mailto:${site.contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+    setEmailPrepared(true);
   }
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-5" noValidate>
       <input type="hidden" name="plan" value={plan} />
-      <input type="hidden" name="referrer" value={partner} />
 
       {/* Honeypot — hidden from people, tempting to bots. */}
       <div className="absolute -left-[9999px]" aria-hidden="true">
@@ -84,7 +73,7 @@ export default function InquiryForm() {
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="flex flex-col gap-1.5">
           <label htmlFor="name" className="label text-body-soft">
-            Your name <span className="text-clay">*</span>
+            Your name <span className="text-accent-readable">*</span>
           </label>
           <input
             id="name"
@@ -97,7 +86,7 @@ export default function InquiryForm() {
             aria-describedby={errors.name ? "name-error" : undefined}
           />
           {errors.name ? (
-            <p id="name-error" className="text-[0.82rem] text-clay">
+            <p id="name-error" className="text-[0.82rem] text-accent-readable">
               {errors.name}
             </p>
           ) : null}
@@ -118,7 +107,7 @@ export default function InquiryForm() {
 
         <div className="flex flex-col gap-1.5">
           <label htmlFor="email" className="label text-body-soft">
-            Email <span className="text-clay">*</span>
+            Email <span className="text-accent-readable">*</span>
           </label>
           <input
             id="email"
@@ -131,7 +120,7 @@ export default function InquiryForm() {
             aria-describedby={errors.email ? "email-error" : undefined}
           />
           {errors.email ? (
-            <p id="email-error" className="text-[0.82rem] text-clay">
+            <p id="email-error" className="text-[0.82rem] text-accent-readable">
               {errors.email}
             </p>
           ) : null}
@@ -139,7 +128,7 @@ export default function InquiryForm() {
 
         <div className="flex flex-col gap-1.5">
           <label htmlFor="mobile" className="label text-body-soft">
-            Mobile, Viber or WhatsApp <span className="text-clay">*</span>
+            Mobile, Viber or WhatsApp <span className="text-accent-readable">*</span>
           </label>
           <input
             id="mobile"
@@ -152,7 +141,7 @@ export default function InquiryForm() {
             aria-describedby={errors.mobile ? "mobile-error" : undefined}
           />
           {errors.mobile ? (
-            <p id="mobile-error" className="text-[0.82rem] text-clay">
+            <p id="mobile-error" className="text-[0.82rem] text-accent-readable">
               {errors.mobile}
             </p>
           ) : null}
@@ -161,13 +150,14 @@ export default function InquiryForm() {
 
       <div className="flex flex-col gap-1.5">
         <label htmlFor="service" className="label text-body-soft">
-          What do you need? <span className="text-clay">*</span>
+          What do you need? <span className="text-accent-readable">*</span>
         </label>
         <select
           id="service"
           name="service"
           required
-          defaultValue={presetService || SERVICE_OPTIONS[0].value}
+          value={selectedService}
+          onChange={event => setSelectedService(event.target.value)}
           className={inputClass}
           aria-invalid={Boolean(errors.service)}
         >
@@ -178,9 +168,11 @@ export default function InquiryForm() {
           ))}
         </select>
         {errors.service ? (
-          <p className="text-[0.82rem] text-clay">{errors.service}</p>
+          <p className="text-[0.82rem] text-accent-readable">{errors.service}</p>
         ) : null}
       </div>
+
+      {selectedTier ? <PackageRate tier={selectedTier} /> : null}
 
       <div className="flex flex-col gap-1.5">
         <label htmlFor="message" className="label text-body-soft">
@@ -194,6 +186,7 @@ export default function InquiryForm() {
           name="message"
           rows={4}
           className={inputClass}
+          defaultValue={presetMessage}
           placeholder="Tell us about your business, your timeline, or the question you need answered."
         />
       </div>
@@ -208,19 +201,28 @@ export default function InquiryForm() {
       ) : null}
 
       <div className="flex flex-col gap-3">
+        <p className="text-[0.88rem] text-body-soft">
+          This opens a prepared email in your email app. Review it and press Send there to contact us.
+        </p>
         <button
           type="submit"
-          disabled={status === "sending"}
           className="accent-fill inline-flex items-center justify-center border px-6 py-3.5 text-[0.82rem] font-semibold uppercase tracking-[0.09em] transition-colors disabled:cursor-not-allowed disabled:opacity-60"
         >
-          {status === "sending" ? "Sending…" : "Send enquiry"}
+          Continue in email app
         </button>
+        {emailPrepared ? (
+          <p role="status" className="text-[0.88rem] text-body-soft">
+            Your inquiry has not been sent by this website. Please send it from your email app.
+            If no app opens, email {site.contact.email} directly or use Viber or WhatsApp. Your details remain in the form.
+          </p>
+        ) : null}
+        <noscript>Please email {site.contact.email} directly or use the messaging links on this page.</noscript>
         <p className="max-w-[56ch] text-[0.8rem] text-body-faint">
-          We use your details only to answer your enquiry. See our{" "}
-          <a href="/privacy" className="text-clay underline underline-offset-2">
+          We use your details only to answer your inquiry. See our{" "}
+          <a href="/privacy" className="text-accent-readable underline underline-offset-2">
             privacy policy
           </a>
-          . Fields marked <span className="text-clay">*</span> are required.
+          . Fields marked <span className="text-accent-readable">*</span> are required.
         </p>
       </div>
     </form>

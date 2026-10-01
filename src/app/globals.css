@@ -1,81 +1,158 @@
 @import "tailwindcss";
 
-/* ============================================================================
-   PDMN VIRTUAL OFFICE — DESIGN TOKENS, TAKEN FROM THE OFFICE ITSELF
+/* ===========================================================================
+   THE PALETTE — five colours, blended rather than blocked.
 
-   These colours are not invented. They were sampled from the photographs of
-   the 5th floor at 104 Paseo de Roxas and are recorded in PDMN VIRTUAL OFFICE-DESIGN.md.
+     Espresso Brown  #3D0708   foundation and background
+     Warm Ivory      #FDFBF7   typography, content, luminous highlights
+     Luxury Gold     #F7C679   borders, icons, buttons, reflections
+     Deep Burgundy   #870507   dramatic accent, smoke
+     Rich Red        #A80407   dramatic accent, smoke
 
-   What the office actually is, by area of frame:
-     · warm-neutral concrete and white ... 30-62% of every photograph
-     · oak — floors, ceiling slats, joinery ... up to 33%
-     · charcoal ceilings and black steel
-     · teal, on the pantry wall — the one cool note
-     · a red leather sofa — the single punch of colour in the whole floor
-
-   So the site is warm oak and concrete, grounded in charcoal, with teal as a
-   secondary and the sofa red reserved for actions. There is no gold in the
-   office, and there is none here.
-   ============================================================================ */
-
+   Every other value below is derived from those five by mixing toward
+   espresso or ivory. Nothing here is an independent colour — that is what
+   keeps five hues reading as one identity instead of five separate brands.
+   ========================================================================= */
 :root {
-  /* Charcoal — the exposed ceilings and black steel. Dark bands, footer. */
-  --pdmn-ink: #1d1f21;
-  --pdmn-ink-2: #2b2d30;
-  --pdmn-ink-3: #3c3e41;
+  color-scheme: dark;
 
-  /* Concrete — the walls. The dominant surface in every room. */
-  --pdmn-bone: #f4f2ee;
-  --pdmn-surface: #ffffff;
-  --pdmn-surface-2: #e7e4de;
+  /* ---------------------------------------------------------------------
+     CRIMSON AND GOLD — sampled from the brand artwork, not chosen by eye.
 
-  /* Oak — floors, ceiling slats, cabinetry, the tree bookshelf. */
-  --pdmn-oak-pale: #ede4d6;
-  --pdmn-oak-light: #d7c3a4;
-  --pdmn-oak: #a68c73;
-  --pdmn-oak-deep: #8f7c61;
-  --pdmn-amber: #b0702a;
+     Every value below was measured out of the two supplied key visuals by
+     scripts/sample-brand-images.mjs. #870507 is the signature: it was the
+     single most common colour in BOTH pieces, so it is the red the brand
+     actually reads as. The deeper crimsons are the frame around it, and the
+     golds came back in a #C77837 to #F7C679 band.
 
-  /* Teal — the pantry wall. Secondary accent, used sparingly. */
-  --pdmn-teal: #367369;
-  --pdmn-seafoam: #dce8e5;
+     THERE IS NO BROWN HERE ANY MORE. Espresso #3D0708 and its whole oak
+     family were the previous foundation and have been removed. If a brown
+     reappears, something has been copied from the old palette by hand — the
+     grounds are crimson now, top to bottom.
 
-  /* The accent. Reserved for actions, exactly as the room reserves it.
-     Brightened from the muted brick it used to be, and taken up to the
-     vibrancy of the logo's own gradient rather than sitting below it.
+     Checked by scripts/check-crimson-palette.mjs before adoption. Ivory
+     clears 7.57:1 on even the brightest ground. Of the golds, only #F7C679
+     stays AA everywhere (4.96:1 at worst), so that is the ONLY gold allowed
+     to carry text; #E0A94E and #C77837 are borders, icons and decoration,
+     and #C77837 fails outright on bright red. Re-run both scripts after
+     changing anything in this block.
+     --------------------------------------------------------------------- */
 
-     Every value here was checked against WCAG before adoption:
-       clay on bone .............. 4.91  (link and body text)
-       white on clay ............. 5.49
-       white on the gradient ..... 4.66 at its lightest point
-     The gradient's warm end is held back from full orange precisely so that
-     white text stays legible everywhere along the sweep. Do not push it
-     further towards orange without re-checking. */
-  --pdmn-clay: #c92a14;
-  --pdmn-clay-dark: #a32112;
-  --pdmn-clay-wash: #fbeae4;
+  /* The five, verbatim. */
+  --pdmn-crimson: #3D0708;
+  --pdmn-ivory: #FDFBF7;
+  --pdmn-gold: #F7C679;
+  --pdmn-red: #870507;
+  --pdmn-red-bright: #A80407;
 
-  /* Gradient stops, for filled surfaces only — buttons, badges, bands.
-     Never for text: a gradient behind small type is unreadable. */
-  --pdmn-clay-from: #e02a06;
-  --pdmn-clay-to: #c64405;
-  --pdmn-clay-gradient: linear-gradient(100deg, #e02a06 0%, #c64405 100%);
-  --pdmn-clay-gradient-hover: linear-gradient(100deg, #c02205 0%, #a53704 100%);
+  /* Grounds, crimson lifted in even steps toward the signature red. */
+  --pdmn-ink: #3D0708;
+  --pdmn-ink-2: #560405;
+  --pdmn-ink-3: #7C0507;
+  --pdmn-bone: #3D0708;
+  --pdmn-surface: #560405;
+  --pdmn-surface-2: #7C0507;
 
-  /* Text */
-  --pdmn-text: #23262a;
-  --pdmn-text-soft: #5c5a57;
-  --pdmn-text-faint: #8f8d89;
-  --pdmn-on-dark: #f2efe9;
-  --pdmn-on-dark-soft: #b0ada6;
+  /* Was the oak family. Now crimson warmed toward gold, for panels and quiet
+     fills. The names are kept because ~60 rules still reference them. */
+  --pdmn-oak-pale: #5A0A0B;
+  --pdmn-oak-light: #F0D3A4;
+  --pdmn-oak: #C77837;
+  --pdmn-oak-deep: #7C0507;
+  --pdmn-amber: #E0A94E;
 
-  /* Lines */
-  --pdmn-rule: #dad7d1;
-  --pdmn-rule-strong: #bebab2;
-  --pdmn-rule-dark: #3a3d3f;
+  /* Actions: the red-into-brighter-red gradient the artwork uses on buttons. */
+  --pdmn-clay: #A80407;
+  --pdmn-clay-dark: #870507;
+  --pdmn-clay-wash: #5A0A0B;
+  --pdmn-clay-from: #870507;
+  --pdmn-clay-to: #C1121A;
+  --pdmn-clay-gradient: linear-gradient(135deg, #870507 0%, #C1121A 100%);
+  --pdmn-clay-gradient-hover: linear-gradient(135deg, #A80407 0%, #EA070D 100%);
+
+  /* The light gold is the readable accent; the reds are grounds, not text. */
+  --pdmn-accent-readable: #F7C679;
+
+  /* Type: ivory, stepped down by mixing toward crimson. */
+  --pdmn-text: #FDFBF7;
+  --pdmn-text-soft: #F6E8D8;
+  --pdmn-text-faint: #E3C9A8;
+  --pdmn-on-dark: #FDFBF7;
+  --pdmn-on-dark-soft: #F6E8D8;
+
+  /* Rules: gold pulled most of the way down into crimson, so edges read as
+     metal catching light rather than as drawn lines. */
+  --pdmn-rule: #8A3520;
+  --pdmn-rule-strong: #C77837;
+  --pdmn-rule-dark: #641013;
+
+  /* Retired names, mapped so nothing referencing them breaks. */
+  --pdmn-teal: #F0D3A4;
+  --pdmn-seafoam: #7C0507;
+}
+
+/* ===========================================================================
+   TYPE — two families from Fontshare, with a strict division of labour.
+
+   --font-brand   Epilogue. Everything that has to be read: headings, body,
+                  labels, navigation, forms, tables, legal pages.
+   --font-accent  Kalam, a handwritten brush face. A few display lines only.
+
+   WHERE THE ACCENT IS ALLOWED, AND WHY ONLY THERE
+
+   Kalam is on the second line of each landing scene headline and on
+   testimonial quotations. Both are display-sized, both are short, and in both
+   a handwritten face means something: the headline is the brand speaking, and
+   a testimonial is a person speaking in their own words.
+
+   It is NOT on body copy, navigation, forms, the requirements checklist or
+   the legal pages. A brush face is materially slower to read at body size,
+   and this business sells credibility — the whole site is an argument that
+   you are a real office at a real address. Set the argument in handwriting
+   and it reads as a flyer.
+
+   Use `.script-accent` to apply it. Do not point any of the aliases below at
+   --font-accent; that is how it would leak into body copy.
+
+   THE TOKENS ARE NAMED FOR THEIR ROLE, NOT THEIR FAMILY. --font-brand has
+   already held Archivo, Epilogue, Kalam and Epilogue again. Naming it after
+   the family means renaming it at every change, and every rename is a chance
+   to miss a call site.
+
+   The four --font-* names below were created by next/font for Archivo, Source
+   Serif, IBM Plex Mono and Sacramento. Those families are gone, but roughly
+   sixty rules across the components still refer to the names. Rather than
+   rewrite every one of them, the names survive as aliases pointing at the
+   brand face — so there is a single place to change the typeface, and no call
+   site can drift out of step.
+   ========================================================================= */
+:root {
+  --font-brand: "Epilogue", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  /* Falls back to system handwriting rather than a sans, so a slow Fontshare
+     degrades to the same character instead of flattening into the body face
+     and erasing the distinction entirely. */
+  --font-accent: "Kalam", "Segoe Print", "Bradley Hand", ui-rounded, cursive;
+
+  --font-archivo: var(--font-brand);
+  --font-source-serif: var(--font-brand);
+  --font-plex-mono: var(--font-brand);
+  /* The old script alias is the one legitimate route to the accent face: it
+     was created for Sacramento and is used only by the landing headline. */
+  --font-script: var(--font-accent);
+}
+
+/* The accent face, wherever it is wanted. Display sizes only — see above. */
+.script-accent {
+  font-family: var(--font-accent);
+  font-weight: 400;
+  letter-spacing: 0;
 }
 
 @theme inline {
+  --color-gold: var(--pdmn-gold);
+  --color-accent-readable: var(--pdmn-accent-readable);
   --color-ink: var(--pdmn-ink); --color-ink-2: var(--pdmn-ink-2); --color-ink-3: var(--pdmn-ink-3);
   --color-bone: var(--pdmn-bone); --color-surface: var(--pdmn-surface); --color-surface-2: var(--pdmn-surface-2);
   --color-seafoam: var(--pdmn-seafoam); --color-clay: var(--pdmn-clay); --color-clay-dark: var(--pdmn-clay-dark);
@@ -85,7 +162,12 @@
   --color-oak-pale: var(--pdmn-oak-pale); --color-oak-light: var(--pdmn-oak-light); --color-oak: var(--pdmn-oak);
   --color-oak-deep: var(--pdmn-oak-deep); --color-amber: var(--pdmn-amber); --color-teal: var(--pdmn-teal);
   --color-clay-from: var(--pdmn-clay-from); --color-clay-to: var(--pdmn-clay-to);
-  --font-display: var(--font-archivo), sans-serif; --font-body: var(--font-source-serif), serif; --font-mono: var(--font-plex-mono), monospace;
+  --font-display: var(--font-brand); --font-body: var(--font-brand); --font-mono: var(--font-brand);
+  /* Tailwind's own font-sans / font-serif / font-mono utilities default to a
+     system stack that knows nothing about the theme. Overriding them here is
+     what stops a stray `font-sans` — the map attribution had one — silently
+     dropping out of the typeface. */
+  --font-sans: var(--font-brand); --font-serif: var(--font-brand);
 }
 
 html { scroll-behavior: smooth; }
@@ -93,20 +175,20 @@ body { margin: 0; background: var(--pdmn-bone); color: var(--pdmn-text); font-fa
 h1,h2,h3,h4,h5,h6 { font-family: var(--font-archivo), Arial, sans-serif; font-weight: 600; letter-spacing: -.035em; line-height: 1.04; text-wrap: balance; }
 button,input,select,textarea,label,nav,th { font-family: var(--font-archivo), Arial, sans-serif; }
 a { text-underline-offset: .2em; }
-:focus-visible { outline: 2px solid var(--pdmn-clay); outline-offset: 3px; }
-::selection { background: var(--pdmn-clay); color: #ffffff; }
+:focus-visible { outline: 2px solid var(--pdmn-oak-light); outline-offset: 3px; }
+::selection { background: var(--pdmn-clay); color: var(--pdmn-on-dark); }
 .label { font-family: var(--font-plex-mono), monospace; font-size: .7rem; letter-spacing: .15em; text-transform: uppercase; }
 .tnum { font-variant-numeric: tabular-nums; }
 .prose-pdmn p { max-width: 68ch; }
 
-/* Filled accent surface: buttons, badges, bands. Carries the gradient plus a
-   solid fallback, so a browser that cannot paint the gradient still gets a
-   legible button rather than transparent text on nothing. */
+/* Solid burgundy actions with a restrained warm shadow. */
 .accent-fill {
   background-color: var(--pdmn-clay);
   background-image: var(--pdmn-clay-gradient);
-  color: #fff;
-  border-color: var(--pdmn-clay-from);
+  color: var(--pdmn-on-dark);
+  border-color: #C77837;
+  box-shadow: 0 4px 14px #3D070833;
+  transition: background-color .18s ease, border-color .18s ease;
 }
 .accent-fill:hover {
   background-color: var(--pdmn-clay-dark);
@@ -114,59 +196,922 @@ a { text-underline-offset: .2em; }
   border-color: var(--pdmn-clay-dark);
 }
 
-/* ----------------------------------------------------------------------------
-   Materials taken from the office
+/* The page-header band.
+   -----------------------------------------------------------------------
+   This used to be a tiled wood-veneer grain — fine vertical streaks from
+   /oak-grain.svg, drawn when the design language was "warm oak floors and
+   joinery". That language is retired. The site is atmospheric now: smoke,
+   glass and light. A repeating timber texture read as a material sample
+   pinned behind the type, and it fought the shade ramp underneath it.
 
-   The slat motif is the ceiling detail that runs through every room on the
-   5th floor — warm oak battens over a dark soffit. Used here as a divider and
-   as a header band, it is the one piece of the architecture that translates
-   directly into a web page.
-   -------------------------------------------------------------------------- */
+   What replaces it is light, not material. Two washes over the band:
+   gold entering from the top-left the way a window lights a room, and a
+   burgundy pool settling into the opposite corner for depth. Both follow
+   the liquid-glass rule that the warm reflection is only ever light
+   falling across a surface, never a fill.
 
-.slats {
-  background-image: repeating-linear-gradient(
-    90deg,
-    var(--pdmn-oak) 0 3px,
-    transparent 3px 11px
-  );
-}
-.slats-dark {
-  background-color: var(--pdmn-ink);
-  background-image: repeating-linear-gradient(
-    90deg,
-    var(--pdmn-amber) 0 4px,
-    transparent 4px 14px
-  );
-}
-/* A hairline rule with the same rhythm — for section breaks. */
-.slat-rule {
-  height: 3px;
-  border: 0;
-  background-image: repeating-linear-gradient(
-    90deg,
-    var(--pdmn-oak) 0 3px,
-    transparent 3px 11px
-  );
-}
-/* Concrete: the wall finish, as a very quiet surface tint. */
-.concrete {
-  background-color: var(--pdmn-surface-2);
+   No tile, so there is no 800px seam and nothing to fetch. The band stays
+   translucent, which lets the smoke photograph behind it supply the actual
+   texture — and that also keeps the gradients from banding on wide screens.
+
+   The washes sit OVER the shade band rather than replacing it: a class
+   beats `main > section` in the cascade, so painting a flat ground here
+   would knock the page header off the shade ramp entirely. */
+.executive-wood {
+  background-color: transparent;
   background-image:
-    radial-gradient(circle at 18% 22%, #ffffff55 0 38%, transparent 60%),
-    radial-gradient(circle at 76% 68%, #00000010 0 30%, transparent 55%);
+    radial-gradient(
+      118% 150% at 8% -20%,
+      rgb(var(--glass-reflect) / 0.14) 0%,
+      rgb(var(--glass-reflect) / 0.05) 34%,
+      transparent 62%
+    ),
+    radial-gradient(85% 130% at 104% 88%, rgb(135 5 7 / 0.38) 0%, transparent 60%),
+    linear-gradient(to bottom, var(--shade-a), var(--shade-b));
+  background-size: cover;
+  border-bottom-color: #F7C67955;
 }
-/* Oak: for panels that should read as joinery rather than paper. */
-.oak {
-  background-color: var(--pdmn-oak-pale);
-  background-image: repeating-linear-gradient(
-    90deg,
-    #00000008 0 1px,
-    transparent 1px 7px
-  );
+.executive-wood h1 { letter-spacing: -.04em; line-height: 1.1; }
+.executive-wood .label { color: var(--pdmn-gold); }
+.executive-wood .label::before {
+  content: '';
+  display: inline-block;
+  width: 2rem;
+  height: 1px;
+  margin-right: .85rem;
+  vertical-align: middle;
+  background: var(--pdmn-gold);
 }
+header { border-bottom-color: #F7C67940; }
+input[type='checkbox'], input[type='radio'] { accent-color: var(--pdmn-clay); }
+
+/* ----------------------------------------------------------------------------
+   Materials taken from the office — RETIRED
+
+   Five utilities lived here: .slats, .slats-dark and .slat-rule (the oak
+   ceiling battens as repeating vertical lines), .concrete (the wall finish as
+   a surface tint) and .oak (a fine veneer stripe for panels). They came from
+   the era when the site was meant to read as the physical room: warm timber,
+   concrete, joinery.
+
+   None of them was applied to a single element — the one apparent use of
+   "slats" was the word inside a photograph's alt text. They are removed rather
+   than kept as dead code, because the design language moved on and leaving
+   them here invites a repeating timber stripe back onto a page that is now
+   built from smoke, glass and light.
+
+   If a surface needs texture now, it comes from the background photograph
+   showing through a translucent shade band, or from a soft gradient of light
+   in the palette — see .executive-wood above for the pattern to follow.
+   -------------------------------------------------------------------------- */
 
 /* Concept One's page styles lived here. That concept has been retired —
    the office-led design is now the homepage and uses src/app/home.module.css.
    Only base styles, the material motifs above and the utilities remain global. */
 
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } *,*::before,*::after { animation-duration:.01ms!important; transition-duration:.01ms!important; } }
+
+input, select, textarea { color: var(--pdmn-text); }
+input::placeholder, textarea::placeholder { color: var(--pdmn-text-faint); opacity: 1; }
+option { background: var(--pdmn-surface); color: var(--pdmn-text); }
+
+
+/* ===========================================================================
+   LIQUID GLASS
+   ---------------------------------------------------------------------------
+   Translucent panels that refract a fixed background, with a specular top
+   edge and a warm tint drawn from the brand browns.
+
+   Three rules keep this from going wrong:
+
+   1. GLASS NEEDS SOMETHING BEHIND IT. The fixed background below is what
+      makes a translucent panel read as glass rather than as flat tint. If it
+      is ever removed, the glass classes stop meaning anything.
+
+   2. NEVER NEST BLUR. A backdrop-filter inside another backdrop-filter blurs
+      an already-composited layer — double the GPU cost for a worse result.
+      Sections use tint only; blur belongs to panels, the header and heroes.
+
+   3. TEXT SITS ON THE SCRIM, NOT ON THE PHOTOGRAPH. The scrim below keeps
+      every surface dark enough for ivory text to clear WCAG AA regardless of
+      what part of the background is behind it.
+   ========================================================================= */
+
+:root {
+  /* Warm brown glass, tuned so ivory text stays legible on top of it. */
+  --glass-tint: 61 7 8;            /* --pdmn-ink, as channels for alpha use */
+  --glass-panel: rgb(86 4 5 / 0.62);
+  --glass-panel-strong: rgb(61 7 8 / 0.80);
+  --glass-veil: rgb(61 7 8 / 0.55);
+  --glass-edge: rgb(253 251 247 / 0.11);
+  --glass-hairline: rgb(247 198 121 / 0.18);
+  --glass-blur: 20px;
+  --glass-saturate: 135%;
+
+  /* Warm orange reflection — gold and red mixed, and used ONLY as light
+     falling across a surface: sheens, inner glow, edge catches. Never as a
+     fill. That restriction is what keeps it a lighting effect rather than a
+     sixth brand colour competing with the five. */
+  --glass-reflect: 224 169 78;
+}
+
+/* The refraction source. Fixed, so panels reveal different parts of it as the
+   page scrolls — which is what sells the material. The scrim over it is what
+   keeps body copy readable. */
+body {
+  background-color: var(--pdmn-ink);
+  background-image:
+    linear-gradient(rgb(61 7 8 / 0.80), rgb(61 7 8 / 0.88)),
+    url("/backgrounds/luxury-smoke-2560.webp");
+  background-size: cover;
+  background-position: center top;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+/* iOS and some Android browsers ignore background-attachment: fixed, and on
+   the ones that honour it it can cost a repaint on every scroll frame. Pin a
+   fixed pseudo-element instead and let the page scroll over it. */
+@supports (-webkit-touch-callout: none) {
+  body { background-attachment: scroll; }
+}
+
+/* ---------------------------------------------------------------- surfaces */
+
+/* A section-level wash. Tint only, no blur — see rule 2. */
+.glass-veil {
+  /* An atmospheric wash rather than a flat band: slightly lighter where it
+     meets the section above, so consecutive sections read as depth instead
+     of as stacked rectangles. */
+  background: linear-gradient(
+    to bottom,
+    rgb(86 4 5 / 0.52) 0%,
+    rgb(61 7 8 / 0.58) 100%
+  );
+  border-top: 1px solid var(--glass-hairline);
+}
+
+/* A floating panel: card, dialog, callout. This is the real glass. */
+.glass-panel {
+  position: relative;
+  /* Two stacked gradients, not a flat tint: a warm reflection falling from
+     the top-left, over an atmospheric brown that deepens toward the bottom.
+     Flat translucency reads as tinted plastic; a gradient reads as a
+     material with a light source somewhere. */
+  background:
+    linear-gradient(152deg, rgb(var(--glass-reflect) / 0.058) 0%, transparent 46%),
+    linear-gradient(to bottom, rgb(56 28 18 / 0.70), rgb(61 7 8 / 0.80));
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  border: 1px solid var(--glass-hairline);
+  border-radius: 14px;
+  box-shadow:
+    inset 0 1px 0 var(--glass-edge),                    /* specular top edge */
+    inset 0 -1px 0 rgb(var(--glass-reflect) / 0.07),    /* warm catch, bottom */
+    inset 0 0 44px rgb(var(--glass-reflect) / 0.045),   /* inner ambient glow */
+    0 1px 2px rgb(0 0 0 / 0.30),
+    0 18px 48px -24px rgb(0 0 0 / 0.75),
+    0 0 44px -14px rgb(var(--glass-reflect) / 0.10);    /* understated bloom */
+}
+
+/* The sheen — a narrow band of light crossing the panel, the way it would on
+   real glass. Kept under 8% opacity: any brighter and it stops being a
+   reflection and starts being a stripe. */
+.glass-panel::after,
+.glass-cell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(
+    104deg,
+    transparent 28%,
+    rgb(var(--glass-reflect) / 0.042) 44%,
+    rgb(253 251 247 / 0.032) 50%,
+    transparent 64%
+  );
+}
+
+.glass-panel-strong {
+  background: var(--glass-panel-strong);
+  -webkit-backdrop-filter: blur(28px) saturate(var(--glass-saturate));
+  backdrop-filter: blur(28px) saturate(var(--glass-saturate));
+}
+
+/* Sticky chrome: thinner, brighter edge, reads as a bar rather than a card. */
+.glass-bar {
+  background:
+    linear-gradient(to bottom, rgb(var(--glass-reflect) / 0.05), transparent 60%),
+    rgb(61 7 8 / 0.74);
+  -webkit-backdrop-filter: blur(24px) saturate(var(--glass-saturate));
+  backdrop-filter: blur(24px) saturate(var(--glass-saturate));
+  border-bottom: 1px solid var(--glass-hairline);
+  box-shadow:
+    inset 0 1px 0 var(--glass-edge),
+    inset 0 -1px 0 rgb(var(--glass-reflect) / 0.10);
+}
+
+/* ------------------------------------------------------------ preferences */
+
+/* Some people find translucency disorienting or hard to read through, and the
+   OS exposes that preference. Honour it: opaque surfaces, no blur, everything
+   else unchanged. */
+@media (prefers-reduced-transparency: reduce) {
+  body { background-image: none; background-color: var(--pdmn-ink); }
+  .glass-veil { background: var(--pdmn-bone); }
+  .glass-panel,
+  .glass-panel-strong,
+  .glass-bar {
+    background: var(--pdmn-surface);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
+/* Where backdrop-filter is unsupported, the panels would be see-through with
+   no blur — unreadable. Fall back to opaque. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass-panel, .glass-panel-strong, .glass-bar { background: var(--pdmn-surface); }
+}
+
+/* A panel that sits ON another glass surface — the header dropdown, for
+   instance. Opaque on purpose: stacking a backdrop-filter inside another one
+   blurs an already-composited layer, which costs twice as much and looks
+   worse. Depth here comes from the shadow and the gold edge, not from blur. */
+.glass-solid {
+  background: var(--pdmn-ink-2);
+  border: 1px solid var(--glass-hairline);
+  border-radius: 14px;
+  box-shadow:
+    inset 0 1px 0 var(--glass-edge),
+    0 24px 60px -28px rgb(0 0 0 / 0.85);
+}
+
+/* Burgundy-into-red smoke, drifting behind the glass. Two very large, very
+   soft radial washes — slow enough to read as atmosphere rather than motion,
+   and pinned behind everything so no panel has to composite over them. */
+.smoke-field {
+  position: fixed;
+  inset: -20%;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(45% 38% at 18% 22%, rgb(135 5 7 / 0.42), transparent 70%),
+    radial-gradient(40% 34% at 82% 68%, rgb(168 4 7 / 0.30), transparent 72%),
+    radial-gradient(50% 40% at 62% 12%, rgb(247 198 121 / 0.12), transparent 75%);
+  filter: blur(40px);
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .smoke-field { display: none; }
+}
+
+/* A card inside a hairline grid. Translucent so the background reads through,
+   but deliberately WITHOUT backdrop-filter: a dozen cards each compositing
+   their own blur is how glassmorphism ruins scroll performance. The panels
+   that do blur are the ones there is only one of — the header, a hero, a
+   dialog. Depth here comes from the specular edge alone. */
+.glass-cell {
+  /* The sheen is absolutely positioned at inset:0 with an inherited radius,
+     so it is already bounded — no overflow:hidden needed. Deliberately NOT
+     clipping: the global focus ring uses outline-offset, which is drawn
+     outside the element, and clipping the cell would cut it off for the
+     checkboxes and links these cells contain. */
+  position: relative;
+  background:
+    linear-gradient(152deg, rgb(var(--glass-reflect) / 0.042) 0%, transparent 44%),
+    linear-gradient(to bottom, rgb(86 4 5 / 0.64), rgb(61 7 8 / 0.70));
+  box-shadow:
+    inset 0 1px 0 rgb(253 251 247 / 0.07),
+    inset 0 0 36px rgb(var(--glass-reflect) / 0.035);
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .glass-cell { background: var(--pdmn-surface); box-shadow: none; }
+  .glass-panel::after, .glass-cell::after { display: none; }
+}
+
+/* ===========================================================================
+   SHADE SHIFTER
+   ---------------------------------------------------------------------------
+   The page ground is not one flat colour. It descends through the palette as
+   you scroll — deepest espresso at the hero, warming through oak into
+   burgundy, resolving to rich red at the call to action, then back to espresso
+   for the footer. Arriving at the bottom of a page should feel like having
+   moved through a room, not like having scrolled a single wall.
+
+   Four things make it work:
+
+   1. EACH BAND IS A RAMP, NOT A BLOCK. A band runs from its own shade to the
+      NEXT band's shade, so neighbours meet at an identical colour and the
+      whole page reads as one continuous gradient rather than stacked stripes.
+
+   2. THE SHADES ARE TRANSLUCENT. They are washes over the fixed background,
+      not opaque fills, so the smoke photograph still refracts through the
+      glass panels above them. An opaque band would switch the glass off —
+      see rule 1 of the liquid glass section.
+
+   3. POSITION IS COMPUTED, NOT DECLARED. Bands are assigned by their place in
+      the document, anchored from BOTH ends, so a page finds its own place on
+      the ramp with no per-page wiring to keep in sync. `:has()` asks whether
+      the page ends in a call to action and picks the scale accordingly.
+
+   4. RED IS EARNED, NOT POSITIONAL. Gold drops to 3.58:1 on the red band and
+      faint text to 3.79:1 — both below AA. Red is therefore reserved for
+      `.shade-climax`, the CTA band, whose type is ivory and soft ivory only
+      (7.37:1 and 5.34:1). Never put a gold eyebrow or faint text on it, and
+      never hand `.shade-climax` to an ordinary section.
+
+   Verified by scripts/check-shade-contrast.mjs against the brightest pixel of
+   the background photograph — the worst case any band has to survive. Re-run
+   it after changing any value here.
+   ========================================================================= */
+
+:root {
+  /* Even steps up the red channel: 61 -> 85 -> 110 -> 135 -> 168. The
+     straight port of the old brown ramp left stops 3 and 4 only 11 apart,
+     which collapsed two bands into one visible tone. */
+  --shade-1: rgb(61 7 8 / 0.86);    /* crimson, deepest    */
+  --shade-2: rgb(85 4 5 / 0.80);    /* crimson             */
+  --shade-3: rgb(110 5 6 / 0.76);   /* crimson, lifted     */
+  --shade-4: rgb(135 5 7 / 0.80);   /* the signature red   */
+  --shade-5: rgb(168 4 7 / 0.88);   /* brightest, CTA only */
+
+  /* Defaults, so a section outside <main> still paints something sane. */
+  --shade-a: var(--shade-2);
+  --shade-b: var(--shade-3);
+}
+
+/* Unlayered, so it beats the bg-* utilities components already carry without
+   needing those removed. Tailwind's utilities live in @layer utilities, and an
+   unlayered rule outranks any layer. */
+main > section {
+  background: linear-gradient(to bottom, var(--shade-a), var(--shade-b));
+  border-top: 1px solid var(--glass-hairline);
+}
+
+/* The section veil reads from the same tokens, so whichever of the two wins
+   the cascade paints an identical band. */
+.glass-veil {
+  background: linear-gradient(to bottom, var(--shade-a), var(--shade-b));
+}
+
+/* --- the ramp, anchored from the START ------------------------------------ */
+
+/* Each band begins exactly where the one above it ended, which is what makes
+   the page read as a single gradient rather than as steps. Anchoring from the
+   start is what guarantees that: an end-anchored scale breaks continuity on
+   short pages, because the hero rule and the end rules then fight over the
+   same section and leave a gap in the middle.
+
+   Beyond the fourth band the ramp holds at burgundy. A long page should not
+   keep getting lighter forever, and holding is what leaves red meaning
+   something when it finally arrives. */
+main > section { --shade-a: var(--shade-4); --shade-b: var(--shade-4); }
+main > section:nth-of-type(1) { --shade-a: var(--shade-1); --shade-b: var(--shade-2); }
+main > section:nth-of-type(2) { --shade-a: var(--shade-2); --shade-b: var(--shade-3); }
+main > section:nth-of-type(3) { --shade-a: var(--shade-3); --shade-b: var(--shade-4); }
+
+/* --- how the ramp resolves at the bottom ---------------------------------- */
+
+/* These override only the END of a band, never its start, so continuity with
+   the band above is preserved whatever the page length turns out to be.
+
+   They score (0,2,2) against the (0,1,2) of the nth-of-type rules, because
+   :has() carries the specificity of its own argument. That is deliberate: they
+   have to win from wherever they land in the document. */
+
+/* Approaching a call to action: the band above it ramps into red. */
+main:has(> .shade-climax) > section:nth-last-of-type(2) { --shade-b: var(--shade-5); }
+
+/* Without one, the final band resolves to espresso to meet the footer. */
+main:not(:has(> .shade-climax)) > section:last-of-type { --shade-b: var(--shade-1); }
+
+/* The climax itself: red, resolving to espresso so it hands off to the footer
+   with no seam. Declared last so it wins at any position. */
+main > section.shade-climax {
+  --shade-a: var(--shade-5);
+  --shade-b: var(--shade-1);
+  border-top-color: rgb(247 198 121 / 0.30);
+}
+
+/* Reduced transparency: keep the progression, drop the translucency. The
+   ramp is the design, so it survives — only the refraction goes. */
+@media (prefers-reduced-transparency: reduce) {
+  :root {
+    --shade-1: #3D0708;
+    --shade-2: #550405;
+    --shade-3: #6E0506;
+    --shade-4: #870507;
+    --shade-5: #A80407;
+  }
+}
+
+/* --- controls on the climax band ------------------------------------------ */
+
+/* A red button on the red band disappears: the accent fill scores 1.09:1
+   against the ground behind it at the warm end of its gradient, and WCAG
+   1.4.11 asks 3:1 of a control's own boundary. So on this band the primary
+   action inverts to ivory. That also makes it the brightest element on the
+   page, which is what the last call to action should be.
+
+   Scoped to .shade-climax rather than changed globally: everywhere else the
+   accent fill sits on espresso, where it reads correctly. */
+/* Gold, so the one action on the red band reads as a button rather than as a
+   blank panel. The label is deepest crimson: dark-on-gold is the only pairing
+   that clears AA across the whole sweep, since the gradient's pale end is far
+   too light to carry ivory text.
+
+   This rule previously set `color: var(--pdmn-espresso)`. That token was
+   renamed to --pdmn-crimson in the palette change, and a dangling custom
+   property does NOT error — the declaration is dropped and the element
+   inherits instead. The button inherited the band's ivory, giving ivory text
+   on an ivory fill: a white box with an invisible label. Use
+   scripts/check-dangling-tokens.mjs after any token rename. */
+.shade-climax .accent-fill {
+  background-color: #E0A94E;
+  background-image: var(--gold-gradient);
+  color: #3D0708;
+  font-weight: 700;
+  border-color: #FFF1CD;
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.55),
+    0 6px 20px rgb(30 3 4 / 0.45);
+}
+
+.shade-climax .accent-fill:hover {
+  background-color: #F7C679;
+  background-image: var(--gold-gradient-hover);
+  border-color: #FFF8E4;
+}
+.shade-climax .accent-fill:hover {
+  background-color: var(--pdmn-gold);
+  background-image: none;
+  border-color: var(--pdmn-gold);
+}
+
+/* The secondary control keeps its outline shape, lifted to ivory so its
+   boundary clears 3:1 against red as well. */
+.shade-climax .border-rule-dark {
+  border-color: rgb(253 251 247 / 0.55);
+}
+.shade-climax .border-rule-dark:hover {
+  border-color: var(--pdmn-ivory);
+}
+
+/* --- navigation pills ------------------------------------------------------
+
+   Each top-level nav item is its own pane of glass rather than bare text.
+
+   NO BACKDROP FILTER HERE, deliberately. These sit inside .glass-bar, which
+   already blurs at 24px, and blurring inside a blur re-filters a layer that
+   has already been composited: double the GPU cost on every scroll frame for
+   a visibly worse result. See rule 2 of the liquid glass section. The pills
+   get their material from tint, a specular top edge and a gold hairline
+   instead — the same way .glass-cell does when it sits on a glass panel.
+
+   The tint also darkens the ground under the label, so the type gets more
+   contrast than it had sitting directly on the bar, not less.
+   ------------------------------------------------------------------------ */
+.nav-pill {
+  position: relative;
+  border-radius: 8px;
+  /* FLAT GOLD, NOT A GRADIENT. One even tint across the whole pane — the
+     glass reads as glass because of its EDGES, not because the fill shades
+     from one tone to another. Three insets do that work: a bright specular
+     line along the top where light catches the lip, a dimmer gold catch along
+     the bottom where it bounces back up, and a soft inner glow that keeps the
+     middle from going flat. A gradient fill here would look like a button;
+     an even tint with lit edges looks like a piece of glass. */
+  border: 1px solid rgb(247 198 121 / 0.42);
+  background-color: rgb(247 198 121 / 0.12);
+  background-image: none;
+  box-shadow:
+    inset 0 1px 0 rgb(253 251 247 / 0.22),
+    inset 0 -1px 0 rgb(247 198 121 / 0.22),
+    inset 0 0 18px rgb(247 198 121 / 0.12);
+  transition:
+    border-color 0.18s ease,
+    background-color 0.18s ease,
+    box-shadow 0.18s ease,
+    color 0.18s ease;
+}
+
+/* Hover lifts the piece: the tint deepens, the edges catch more light and a
+   shadow appears under it, so it reads as rising off the bar. */
+.nav-pill:hover {
+  border-color: rgb(247 198 121 / 0.70);
+  background-color: rgb(247 198 121 / 0.20);
+  box-shadow:
+    inset 0 1px 0 rgb(253 251 247 / 0.32),
+    inset 0 -1px 0 rgb(247 198 121 / 0.30),
+    inset 0 0 22px rgb(247 198 121 / 0.18),
+    0 3px 14px rgb(30 3 4 / 0.45);
+}
+
+/* The current page is lit from within rather than outlined more heavily —
+   heavier borders on a row of glass reads as a table, not as selection. */
+/* The current page is a fuller pour of the same gold, not a different colour.
+   It canNOT be marked with gold TEXT any more — the pane is gold now, and
+   gold on gold is the one combination this palette cannot make legible. The
+   label goes brighter instead, and the glass behind it goes deeper. */
+.nav-pill[aria-current="page"] {
+  border-color: rgb(247 198 121 / 0.78);
+  background-color: rgb(247 198 121 / 0.24);
+  color: var(--pdmn-ivory);
+  box-shadow:
+    inset 0 1px 0 rgb(253 251 247 / 0.38),
+    inset 0 -1px 0 rgb(247 198 121 / 0.34),
+    inset 0 0 26px rgb(247 198 121 / 0.22);
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .nav-pill {
+    background: var(--pdmn-ink-2);
+    box-shadow: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-pill { transition: none; }
+}
+
+/* --- the primary call to action -------------------------------------------
+
+   A single specular sweep: light travelling across the face of the button,
+   with the piece lifting very slightly to meet it. It is the same idea as the
+   rest of the glass — a highlight is light falling on a surface, never a fill.
+
+   TWO THINGS THAT LOOK LIKE SHORTCUTS AND ARE NOT:
+
+   1. The sweep moves by background-position, not by translating a wide
+      pseudo-element across the box. A translated element has to be contained,
+      and the usual `overflow: hidden` would clip the focus ring, which is
+      drawn OUTSIDE the button at outline-offset: 3px. Shifting a background
+      inside the pseudo's own box stays in bounds with nothing to clip, so the
+      keyboard ring survives intact.
+
+   2. It fires on hover and focus-visible only, with no idle loop. This button
+      is in a sticky header, on screen for the whole visit; something that
+      shimmers every few seconds there stops reading as premium within about a
+      minute and starts reading as a banner ad.
+   ------------------------------------------------------------------------ */
+.cta-shine {
+  position: relative;
+  /* background-color is listed because this rule comes after .accent-fill and
+     the `transition` shorthand replaces rather than merges — leaving it out
+     would silently kill the fill's own hover fade. */
+  transition:
+    transform 0.22s cubic-bezier(0.22, 0.61, 0.36, 1),
+    box-shadow 0.22s ease,
+    border-color 0.22s ease,
+    background-color 0.18s ease;
+}
+
+.cta-shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background-image: linear-gradient(
+    105deg,
+    transparent 42%,
+    rgb(253 251 247 / 0.30) 50%,
+    transparent 58%
+  );
+  background-size: 280% 100%;
+  background-repeat: no-repeat;
+  /* Parked off the trailing edge, so nothing shows at rest. */
+  background-position: 190% 0;
+}
+
+.cta-shine:hover::after,
+.cta-shine:focus-visible::after {
+  background-position: -90% 0;
+  transition: background-position 0.78s cubic-bezier(0.32, 0.72, 0.3, 1);
+}
+
+.cta-shine:hover,
+.cta-shine:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgb(247 198 121 / 0.55);
+  box-shadow:
+    0 6px 20px rgb(30 3 4 / 0.50),
+    inset 0 1px 0 rgb(253 251 247 / 0.18);
+}
+
+.cta-shine:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgb(30 3 4 / 0.45);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta-shine,
+  .cta-shine::after,
+  .cta-shine:hover::after,
+  .cta-shine:focus-visible::after {
+    transition: none;
+  }
+  /* The lift and the sweep both go; the border and shadow still respond, so
+     hover remains visible without anything moving. */
+  .cta-shine:hover,
+  .cta-shine:focus-visible {
+    transform: none;
+  }
+  .cta-shine::after { background-image: none; }
+}
+
+/* Homepage liquid glass: route-scoped so service and policy pages stay intact. */
+[data-liquid-home] {
+  --pdmn-text: #FDFBF7;
+  --pdmn-text-soft: #F6E8D8;
+  --pdmn-text-faint: #E3C9A8;
+  --pdmn-accent-readable: #F7C679;
+  background: radial-gradient(ellipse at 0% 28%, #C7783733, transparent 38%), radial-gradient(ellipse at 100% 55%, #A8040752, transparent 40%), linear-gradient(155deg, #3D0708, #7C0507 48%, #4A0506);
+  color: var(--pdmn-text);
+}
+[data-liquid-home] > section { background-color: transparent; }
+[data-liquid-home] .glass-veil { background: transparent; border: 0; backdrop-filter: none; }
+[data-liquid-home] .glass-veil::before,
+[data-liquid-home] .glass-cell::before { display: none; }
+[data-liquid-home] .grid.bg-rule { background: transparent; gap: 20px; }
+[data-liquid-home] .glass-cell,
+[data-liquid-home] #packages .grid > div,
+[data-liquid-home] .glass-veil .border-t.border-rule-strong {
+  border: 1px solid #FFF0D93b;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #FFF3DF19, #4A05069c);
+  box-shadow: inset 0 1px 0 #FFFFFF40, inset 0 -1px 0 #FFFFFF0d, 0 16px 40px #1E030426;
+  backdrop-filter: blur(18px) saturate(125%);
+  -webkit-backdrop-filter: blur(18px) saturate(125%);
+}
+[data-liquid-home] .glass-veil .border-t.border-rule-strong { padding: 8px 24px; }
+[data-liquid-home] .glass-veil .border-t.border-rule-strong > :last-child { border-bottom: 0; }
+[data-liquid-home] > section:nth-child(2) { padding: 24px 20px; border-color: #FFF0D92b; }
+[data-liquid-home] > section:first-child > .relative > div {
+  padding: clamp(24px, 4vw, 48px);
+  border-radius: 32px;
+  border: 1px solid #FFF0D947;
+  background: linear-gradient(125deg, #5A0A0Bd9, #3D0708b3);
+  box-shadow: inset 0 1px 0 #FFFFFF4d, 0 24px 70px #1E030433;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+[data-liquid-home] a.inline-flex { border-radius: 999px; min-height: 48px; }
+[data-liquid-home] #packages a.inline-flex {
+  background: linear-gradient(120deg, #FFF0D924, #FFF0D90a);
+  border-color: #F6D4A66b;
+}
+[data-liquid-home] #packages a.inline-flex:hover { background-color: #FFF0D91c; }
+[data-liquid-home] > section:first-child a:first-child,
+[data-liquid-home] .home-closing .accent-fill {
+  color: #3D0708;
+  background: var(--gold-gradient);
+  border: 1px solid #FFF2CF;
+  box-shadow: inset 0 2px 0 #FFFFFF99, 0 8px 28px #E3AF6333;
+  font-weight: 700;
+}
+[data-liquid-home] a:focus-visible,
+[data-liquid-home] button:focus-visible { outline: 3px solid #F7C679; outline-offset: 4px; }
+[data-liquid-home] section[aria-labelledby="office-gallery-heading"] {
+  margin: 24px clamp(16px, 4vw, 64px);
+  border: 1px solid #FFF0D940;
+  border-radius: 32px;
+  background: linear-gradient(125deg, #FFF3DF14, #3D070888);
+  box-shadow: inset 0 1px 0 #FFFFFF40, 0 24px 70px #1E030426;
+}
+[data-liquid-home] section[aria-labelledby="office-gallery-heading"] > div:first-child {
+  background: transparent;
+}
+[data-liquid-home] section[aria-labelledby="office-gallery-heading"] a.group { border-radius: 16px; }
+[data-liquid-home] .home-closing {
+  margin: 32px clamp(16px, 4vw, 64px) 0;
+  padding-top: clamp(28px, 5vw, 64px);
+  border: 1px solid #FFF0D959;
+  border-radius: 36px;
+  background: radial-gradient(ellipse at 8% 95%, #C778375c, transparent 55%), radial-gradient(ellipse at 90% 0%, #A8040759, transparent 58%), linear-gradient(125deg, #560405, #870507 50%, #4A0506);
+  box-shadow: inset 0 1px 0 #FFFFFF59, 0 25px 75px #1E03044d;
+}
+[data-liquid-home] .home-logo-panel {
+  width: min(420px, calc(100% - 48px));
+  margin: auto;
+  padding: 12px 20px;
+  border: 1px solid #F7D4A380;
+  border-radius: 24px;
+  background: radial-gradient(ellipse at top, #C7783755, transparent 75%), linear-gradient(135deg, #4A0506, #2E0506);
+  box-shadow: inset 0 1px 0 #FFF4D959, 0 12px 36px #1E03044d;
+}
+[data-liquid-home] .home-logo-panel img { width: 100%; height: auto; }
+[data-liquid-home] .home-closing .shade-climax { background: transparent; }
+[data-liquid-home] .home-closing a.inline-flex { min-height: 58px; font-size: .9rem; }
+[data-liquid-home] .home-closing .text-on-dark-soft { color: #F3E6DF; }
+body:has([data-liquid-home]) > header.glass-bar {
+  background: linear-gradient(110deg, #35242Be8, #4B2A37e8, #302534ed);
+  border-bottom: 1px solid #FFF1DC47;
+  box-shadow: inset 0 1px 0 #FFFFFF2b, 0 8px 30px #1E030426;
+  backdrop-filter: blur(22px) saturate(130%);
+}
+body:has([data-liquid-home]) > footer {
+  background: radial-gradient(ellipse at 5% 0%, #A76A493d, transparent 55%), linear-gradient(125deg, #32232E, #482C3A 50%, #251F2B);
+  border-top: 1px solid #F3D6AD59;
+}
+/* The shared logo sets an inline height. Override only on the homepage. */
+body:has([data-liquid-home]) > footer img[alt="PDMN Virtual Office"] {
+  height: auto !important;
+  width: 320px !important;
+  max-width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #F7D4A380;
+  border-radius: 20px;
+  background: linear-gradient(130deg, #3E2C35, #191A25);
+  box-shadow: inset 0 1px 0 #FFF3DC40, 0 10px 30px #130D2033;
+}
+body:has([data-liquid-home]) > footer .text-on-dark-soft { color: #EFDFD6; }
+@media (max-width: 540px) {
+  [data-liquid-home] .grid.bg-rule { gap: 12px; }
+  [data-liquid-home] > section:first-child > .relative { padding-top: 32px; padding-bottom: 40px; }
+  [data-liquid-home] > section:first-child > .relative > div { padding: 24px 20px; border-radius: 24px; }
+  [data-liquid-home] .home-closing { border-radius: 26px; }
+  [data-liquid-home] .glass-veil .border-t.border-rule-strong { padding: 6px 18px; }
+}
+@media (prefers-reduced-transparency: reduce) {
+  [data-liquid-home] .glass-cell,
+  [data-liquid-home] #packages .grid > div,
+  [data-liquid-home] .glass-veil .border-t.border-rule-strong,
+  [data-liquid-home] > section:first-child > .relative > div,
+  body:has([data-liquid-home]) > header.glass-bar {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: #35242D;
+  }
+}
+
+/* Finishing details shared by the homepage's navigation and footer. */
+body:has([data-liquid-home]) > header .nav-pill {
+  white-space: nowrap;
+  font-size: .62rem;
+  letter-spacing: .07em;
+  padding-inline: 12px;
+  border-radius: 999px;
+}
+body:has([data-liquid-home]) > header .accent-fill {
+  border-radius: 999px;
+  color: #3D0708;
+  background: var(--gold-gradient);
+  border-color: #FFF2CF;
+  box-shadow: inset 0 1px 0 #fff9, 0 6px 22px #E3AF6326;
+}
+body:has([data-liquid-home]) > footer a.border {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  padding-inline: 18px;
+  border-radius: 999px;
+  border-color: #F2D3AC70;
+  background: linear-gradient(125deg, #FFF0D91c, #FFF0D905);
+}
+[data-liquid-home] .home-closing .accent-fill:hover {
+  background: linear-gradient(115deg, #FFF8E6, #F1CC94 52%, #FFE6C8);
+  box-shadow: inset 0 2px 0 #FFFFFFb3, 0 10px 34px #E3AF6355;
+}
+
+/* --- fine print that still has to be read ---------------------------------
+
+   Qualifiers on a price are the lines a buyer most needs and least wants to
+   hunt for. On the VIP card they were 12.16px of faint ivory sitting directly
+   on the card ground: the COLOUR was fine at 9.32:1, but at that size, with no
+   edge separating them from the body copy above, they read as decoration and
+   got skipped.
+
+   So the fix is size and separation, not more contrast. The type goes up to
+   13.6px, the ivory goes brighter, and the block gets its own gradient panel
+   with a gold hairline so the eye registers it as a distinct note rather than
+   as the tail of the paragraph before it.
+   ------------------------------------------------------------------------ */
+.note-panel {
+  border: 1px solid rgb(247 198 121 / 0.26);
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+  background-image: linear-gradient(135deg, #3D0708 0%, #5A0A0B 100%);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.07);
+  color: #F6E8D8;
+  font-size: 0.85rem;
+  line-height: 1.55;
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .note-panel { background-image: none; background-color: #3D0708; }
+}
+
+/* --- gold fill -------------------------------------------------------------
+
+   One gold gradient, defined once. The CTA on the climax band and the contact
+   buttons in the footer both use it; defining it twice is how two golds end up
+   almost-but-not-quite matching.
+
+   Always dark text. The pale end of this sweep is near-white, so ivory on it
+   would disappear — #3D0708 clears 8.08:1 at the gradient's darkest point and
+   15.19:1 at its lightest.
+   ------------------------------------------------------------------------ */
+:root {
+  --gold-gradient: linear-gradient(115deg, #FFF1CD 0%, #E0A94E 52%, #F7C679 100%);
+  --gold-gradient-hover: linear-gradient(115deg, #FFF8E4 0%, #F0BB63 52%, #FFD894 100%);
+}
+
+.gold-fill {
+  background-color: #E0A94E;
+  background-image: var(--gold-gradient);
+  color: #3D0708;
+  border: 1px solid #FFF1CD;
+  border-radius: 10px;
+  font-weight: 700;
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.55),
+    0 4px 14px rgb(30 3 4 / 0.40);
+  transition: background-image 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+}
+
+.gold-fill:hover {
+  background-image: var(--gold-gradient-hover);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.65),
+    0 6px 18px rgb(30 3 4 / 0.50);
+  transform: translateY(-1px);
+}
+
+.gold-fill:active { transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  .gold-fill { transition: none; }
+  .gold-fill:hover { transform: none; }
+}
+
+/* --- the footer -----------------------------------------------------------
+
+   A lighter, warmer ground than the crimson above it, still translucent so
+   the background shows through and the glass reads as glass. The page spends
+   its whole length in red; lifting the footer into a warm brown closes the
+   document rather than just ending it.
+
+   This is the one warm-brown surface on the site. It is deliberate and local
+   to the footer — it is NOT a return of the old espresso foundation, and the
+   grounds above remain crimson top to bottom.
+   ------------------------------------------------------------------------ */
+.footer-glass {
+  position: relative;
+  background-color: rgb(74 51 42 / 0.82);
+  background-image: linear-gradient(
+    to bottom,
+    rgb(96 68 56 / 0.74) 0%,
+    rgb(74 51 42 / 0.86) 100%
+  );
+  -webkit-backdrop-filter: blur(20px) saturate(125%);
+  backdrop-filter: blur(20px) saturate(125%);
+  border-top: 1px solid rgb(247 198 121 / 0.26);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.08);
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .footer-glass {
+    background-image: none;
+    background-color: #4A332A;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
+/* --- contact icons --------------------------------------------------------
+
+   One idle animation only, on the map pin, because a pin that settles is the
+   single thing here that reads as meaning rather than decoration. The phone
+   and envelope move on hover alone — three things looping at once in a footer
+   is a fairground, not a business address.
+   ------------------------------------------------------------------------ */
+.contact-row { display: flex; gap: 0.65rem; align-items: flex-start; }
+
+.contact-icon {
+  flex: 0 0 auto;
+  margin-top: 0.15rem;
+  color: #F7C679;
+  transition: transform 0.22s cubic-bezier(0.34, 1.3, 0.64, 1), color 0.18s ease;
+}
+
+.contact-pin { animation: pin-settle 3.4s ease-in-out infinite; transform-origin: 50% 100%; }
+
+@keyframes pin-settle {
+  0%, 62%, 100% { transform: translateY(0); }
+  72%           { transform: translateY(-3px); }
+  86%           { transform: translateY(0); }
+}
+
+a:hover > .contact-phone { transform: rotate(-12deg) scale(1.08); color: #FFF1CD; }
+a:hover > .contact-mail  { transform: translateY(-2px) scale(1.06); color: #FFF1CD; }
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-icon { transition: none; }
+  .contact-pin { animation: none; }
+  a:hover > .contact-phone,
+  a:hover > .contact-mail { transform: none; }
+}

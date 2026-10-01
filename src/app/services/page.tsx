@@ -1,77 +1,38 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import CtaBand from "@/components/CtaBand";
 import PageHeader from "@/components/PageHeader";
 import Section from "@/components/Section";
-import { services } from "@/content/services";
+import AddressTierCards from "@/components/AddressTierCards";
+import Button from "@/components/Button";
+import { WORKSPACE_SCOPE } from "@/content/scope";
+import { approvalNote } from "@/content/services";
+import { DOCUMENT_HANDLING } from "@/content/pricing";
 
 export const metadata: Metadata = {
-  title: "What Is Included",
-  description:
-    "The PDMN Virtual Office virtual office: a Makati business address, mail and document handling, meeting rooms and workspace, with a registered-address option on eligible packages.",
+  title: "Virtual Office Services & Packages",
+  description: "Compare Basic, Corporate and VIP virtual office services and rates in Makati. Business addresses, basic document handling and facilities for agreed compliance purposes.",
+  alternates: { canonical: "/services" },
 };
 
-export default function ServicesIndexPage() {
-
-  return (
-    <>
-      <PageHeader
-        eyebrow="Services"
-        headline="One service, done properly."
-        intro="PDMN Virtual Office gives you a business address at 104 Paseo de Roxas, mail and documents handled by our own staff, meeting rooms and workspace on the same floor, and a registered-address option for companies that need one. We do not register companies, make filings, obtain permits, or handle accounting, tax or payroll — that work stays with your own advisers."
-      />
-
-      <Section
-        eyebrow="What is included"
-        heading="From our own floor at 104 Paseo de Roxas"
-        tone="bone"
-      >
-        <div className="grid gap-px bg-rule sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => (
-            <Link
-              key={service.slug}
-              href={`/services/${service.slug}`}
-              className="group flex flex-col gap-3 bg-surface p-6 transition-colors hover:bg-surface-2"
-            >
-              <h2 className="text-[1.2rem]">{service.name}</h2>
-              <p className="flex-1 text-[0.9rem] text-body-soft">
-                {service.summary}
-              </p>
-              <span className="font-mono text-[0.72rem] uppercase tracking-[0.08em] text-clay">
-                Read more{" "}
-                <span
-                  aria-hidden="true"
-                  className="inline-block transition-transform group-hover:translate-x-1"
-                >
-                  →
-                </span>
-              </span>
-            </Link>
-          ))}
-        </div>
-      </Section>
-
-      <Section
-        eyebrow="Also on the floor"
-        heading="Rooms and workspace"
-        intro="Available to address clients at member rates, and bookable directly by anyone else."
-        tone="surface"
-      >
-        <div className="grid gap-px bg-rule sm:grid-cols-2">
-          <Link href="/meeting-rooms" className="group flex flex-col gap-3 bg-surface p-6 transition-colors hover:bg-surface-2">
-            <h2 className="text-[1.2rem]">Meeting Rooms</h2>
-            <p className="flex-1 text-[0.9rem] text-body-soft">Six bookable spaces, from a four-person room to a full conference room.</p>
-            <span className="font-mono text-[0.72rem] uppercase tracking-[0.08em] text-clay">See the rooms →</span>
-          </Link>
-          <Link href="/workspace" className="group flex flex-col gap-3 bg-surface p-6 transition-colors hover:bg-surface-2">
-            <h2 className="text-[1.2rem]">Workspace</h2>
-            <p className="flex-1 text-[0.9rem] text-body-soft">A desk for the day, a permanent workstation, team space, or an enclosed private office.</p>
-            <span className="font-mono text-[0.72rem] uppercase tracking-[0.08em] text-clay">See workspace →</span>
-          </Link>
-        </div>
-      </Section>
-
-      <CtaBand />
-    </>
-  );
+export default function ServicesPage() {
+  return <>
+    <PageHeader eyebrow="Services & packages" headline="Choose the presence your business requires." intro="A professional Makati business address for local businesses and foreign individuals or companies establishing or expanding in the Philippines." />
+    <Section heading="Compare our packages">
+      <AddressTierCards />
+      <div className="mt-8 max-w-[80ch] border-l-2 border-gold/50 pl-5">
+        <h3 className="text-lg">Included in every package</h3>
+        <p className="mt-3 text-body-soft">{DOCUMENT_HANDLING}</p>
+      </div>
+    </Section>
+    <Section heading="VIP facilities & service scope">
+      <div className="flex max-w-[80ch] flex-col gap-5 text-body-soft">
+        {/* The list of what VIP caters to lives on its card above. Repeating it
+            here is how the two drift apart, so this section carries only what
+            the card does not: the warehouse caveat and the scope limits. */}
+        <p>Warehouse and storage facilities are subject to availability and applicable requirements.</p>
+        <p>{approvalNote} Government approval is not guaranteed.</p>
+        <p className="border-l-2 border-gold pl-5 text-body">{WORKSPACE_SCOPE}</p>
+      </div>
+      <div className="mt-7"><Button href="/contact">Discuss your requirements</Button></div>
+    </Section>
+  </>;
 }

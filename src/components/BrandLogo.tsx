@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 /**
- * The Philippine Dragon Media Network lockup.
+ * The PDMN Virtual Office lockup.
  *
  * TO ADD IT: save the logo into `public/` as one of these, best format first:
  *
@@ -27,8 +27,14 @@ import { useEffect, useState } from "react";
  * If a mark-only variant of the logo turns up, that is the one for the header.
  */
 
-const STANDARD = ["/pdmn-logo.svg", "/pdmn-logo.png"];
-const INVERSE = ["/pdmn-logo-inverse.svg", "/pdmn-logo-inverse.png", ...STANDARD];
+/* The badge comes first on both lists. It is the lockup on its cream panel,
+   cropped from the brand artwork, and that panel is what makes it legible on
+   a crimson ground — the bare marks below it are dark artwork that all but
+   disappears on the current palette. Keep the badge first unless a mark with
+   its own light background replaces it. */
+const BADGE = "/pdmn-logo-badge.png";
+const STANDARD = [BADGE, "/pdmn-logo.svg", "/pdmn-logo.png"];
+const INVERSE = [BADGE, "/pdmn-logo-inverse.svg", "/pdmn-logo-inverse.png", "/pdmn-logo.svg", "/pdmn-logo.png"];
 
 type Props = {
   /** Rendered height in pixels. Width follows the artwork. */
@@ -40,7 +46,7 @@ type Props = {
 
 export default function BrandLogo({
   height = 44,
-  inverse = false,
+  inverse = true,
   className = "",
 }: Props) {
   const [src, setSrc] = useState<string | null>(null);
@@ -72,8 +78,21 @@ export default function BrandLogo({
     /* eslint-disable-next-line @next/next/no-img-element */
     <img
       src={src}
-      alt="Philippine Dragon Media Network"
-      style={{ height, width: "auto" }}
+      alt="PDMN Virtual Office"
+      style={{
+        height,
+        width: "auto",
+        /* Both call sites sit inside a `flex flex-col`, whose default
+           align-items: stretch pulls the image to the container's full width.
+           `width: auto` does not save you — a stretched flex item resolves auto
+           to the stretched size, which rendered the 2:1 artwork at 1088x40.
+           align-self keeps it at its natural width. */
+        alignSelf: "flex-start",
+        /* And if the container is ever narrower than the artwork, letterbox
+           rather than squash. */
+        maxWidth: "100%",
+        objectFit: "contain",
+      }}
       className={className}
     />
   );

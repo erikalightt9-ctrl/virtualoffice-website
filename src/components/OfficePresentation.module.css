@@ -1,0 +1,63 @@
+.presentation{background:linear-gradient(to bottom,#3D0708,#560405);color:#FDFBF7;isolation:isolate}
+.addressCard{position:absolute;z-index:3;right:clamp(24px,2.2vw,48px);bottom:64px;width:310px;max-width:calc(100% - 48px);display:flex;flex-direction:column;gap:10px;padding:22px 24px;background:#3D0708f2;border:1px solid #F7C67977;border-top:2px solid #F7C679;box-shadow:0 12px 32px #3D070844}
+.addressCard>span{font-family:var(--font-archivo),sans-serif;font-size:.56rem;letter-spacing:.15em;text-transform:uppercase;color:#E0A94E}
+.addressCard strong{font-family:var(--font-source-serif),Georgia,serif;font-size:1.45rem;font-weight:600;line-height:1.2;color:#FDFBF7}
+.addressCard small{font-family:var(--font-archivo),sans-serif;font-size:.6rem;letter-spacing:.04em;color:#F0D3A4}
+@media(max-width:900px){.addressCard{top:24px;bottom:auto;width:270px;padding:18px 20px}.presentation .copy{padding-top:165px}.addressCard strong{font-size:1.25rem}}
+.stage{position:relative;height:clamp(640px,calc(100svh - 215px),920px);overflow:hidden}
+.scene{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity 1.2s ease,visibility 1.2s;pointer-events:none}
+.active{opacity:1;visibility:visible;pointer-events:auto;z-index:1}
+.photo{position:absolute;inset:0;transform:scale(1.015)}
+.active .photo{animation:drift 6.5s linear both}
+.presentation[data-playing="false"] .photo{animation-play-state:paused}
+@keyframes drift{from{transform:scale(1.015)}to{transform:scale(1.065)}}
+.shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(61, 7, 8,.97) 0%,rgba(61, 7, 8,.9) 26%,rgba(61, 7, 8,.55) 51%,rgba(61, 7, 8,.08) 83%),linear-gradient(0deg,rgba(61, 7, 8,.65),transparent 40%)}
+.copy{position:relative;z-index:2;max-width:1440px;margin:auto;padding:clamp(45px,6vw,100px) clamp(24px,6vw,96px);height:100%;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;opacity:0;transform:translateY(16px);transition:opacity .3s ease,transform .8s ease}
+.active .copy{opacity:1;transform:translateY(0);transition-delay:.4s}
+.eyebrow{display:flex;align-items:center;gap:16px;color:#E0A94E;font-family:var(--font-archivo),sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;margin-bottom:28px}
+.eyebrow span{display:inline-flex;align-items:center;gap:16px;font-family:var(--font-plex-mono),monospace}.eyebrow span:after{content:"";width:36px;height:1px;background:#F7C679}
+.copy h2{font-family:var(--font-archivo),sans-serif;font-size:clamp(2.7rem,4.6vw,5rem);font-weight:500;line-height:1.08;letter-spacing:-.055em;max-width:850px;color:#FDFBF7;margin:0;text-wrap:balance}
+.copy h2 span{display:block}
+
+/* The second line of each scene title carries the accent face, Kalam. Keeping
+   the first line in the brand sans gives the eye something solid to land on
+   before the flourish, and stops ten consecutive handwritten headlines
+   becoming a pattern.
+
+   The metrics are the face's, not the sans's. Kalam sits a little smaller on
+   the body than Epilogue at the same size, so 1.08em evens the two lines up;
+   it needs positive line-height for its descenders; and the sans's tight
+   tracking has to go — negative letter-spacing crushes the joins on a brush
+   face and is the quickest way to make one look cheap.
+
+   #FFFDF8 is brighter than the body ivory on purpose: handwritten strokes
+   vary in width and the thin parts lose contrast against a dark ground faster
+   than solid type does. */
+.titleSecond{
+  font-family:var(--font-accent);
+  font-weight:400;
+  font-style:normal;
+  color:#FFFDF8;
+  font-size:1.08em;
+  line-height:1.3;
+  letter-spacing:0;
+  padding-bottom:.1em;
+}
+.body{max-width:51ch;margin:28px 0 0;font-size:clamp(.98rem,1.3vw,1.1rem);line-height:1.8;color:#FDFBF7;text-wrap:pretty}
+.actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px;font-family:var(--font-archivo),sans-serif}
+.primary,.secondary{display:inline-flex;align-items:center;justify-content:space-between;gap:24px;min-height:48px;padding:15px 22px;font-size:.7rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;border:1px solid #F7C67966;transition:background .2s}
+.primary{background:#A80407;color:#FDFBF7}.primary:hover{background:#870507}.secondary{background:#3D070866;color:#FDFBF7}.secondary:hover{background:#7C0507}
+.detail{margin-top:36px;color:#F0D3A4;font-family:var(--font-plex-mono),monospace;font-size:.68rem;letter-spacing:.04em}
+
+.controls{display:flex;align-items:center;gap:32px;padding:16px clamp(24px,6vw,96px);border-top:1px solid #F7C67933;border-bottom:1px solid #F7C67933;background:#3D0708}
+.transport{display:flex;align-items:center;gap:4px}.transport button{min-width:44px;height:44px;border:1px solid #F7C67944;color:#FDFBF7;background:transparent;cursor:pointer;font-family:var(--font-archivo),sans-serif}.transport .play{min-width:70px;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase}.transport button:hover{background:#7C0507}.transport button:disabled{opacity:.7;cursor:default}
+.timeline{display:flex;gap:10px;flex:1}.timeline button{flex:1;min-width:0;min-height:44px;padding:7px 0;background:none;border:0;color:#E3C9A8;text-align:left;font-family:var(--font-plex-mono),monospace;font-size:.6rem;cursor:pointer}.timeline button span{display:block;height:2px;background:#FDFBF733;transition:background .4s}.timeline .current{color:#FDFBF7}.timeline .current span{background:#F7C679}.timeline button:hover span{background:#F0D3A4}
+
+.scope{display:flex;align-items:center;gap:30px;padding:20px clamp(24px,6vw,96px);max-width:1440px;margin:auto}.scope>span{flex-shrink:0;color:#E0A94E;font-family:var(--font-archivo),sans-serif;font-size:.6rem;text-transform:uppercase;letter-spacing:.12em}.scope p{font-family:var(--font-archivo),sans-serif;font-size:.75rem;line-height:1.7;color:#F6E8D8;max-width:95ch}
+.presentation a:focus-visible,.presentation button:focus-visible{outline:2px solid #FDFBF7;outline-offset:4px}.noScript{padding:20px}.noScript a{text-decoration:underline}
+@media(min-width:1600px){.shade{background:linear-gradient(90deg,#3D0708f5 0%,#3D0708e6 25%,#3D070877 52%,#3D070811 85%)}}
+@media(max-width:900px){.stage{height:690px}.copy h2{font-size:clamp(2.7rem,6vw,4rem);max-width:670px}.shade{background:linear-gradient(90deg,#3D0708eb,#3D0708b3 55%,#3D070855)}.controls{gap:20px;flex-wrap:wrap}.timeline{order:3;flex-basis:100%}.scope{align-items:flex-start;gap:12px;flex-direction:column}.body{max-width:48ch}}
+@media(max-width:540px){.stage{height:740px}.photo{inset:0 -26% 0 -18%}.shade{background:linear-gradient(0deg,#3D0708fc 0%,#3D0708ed 35%,#3D07089c 70%,#3D070833 100%)}.copy{justify-content:flex-end;padding:34px 24px 45px}.eyebrow{font-size:.59rem;gap:9px;margin-bottom:22px}.eyebrow span{gap:9px}.eyebrow span:after{width:23px}.copy h2{font-size:2.55rem;letter-spacing:-.045em}.body{font-size:.95rem;line-height:1.7;margin-top:22px}.actions{gap:10px;margin-top:24px;width:100%}.primary,.secondary{padding:14px 15px;gap:12px;font-size:.6rem}.detail{font-size:.61rem;margin-top:26px;max-width:35ch}.controls{padding:12px 24px;gap:10px}.timeline{gap:8px}.scope{padding:20px 24px}.scope p{font-size:.7rem}}
+@media(prefers-reduced-motion:reduce){.scene,.photo,.copy,.timeline button span{transition:none}.photo,.active .photo{animation:none}.photo,.active .photo,.copy,.active .copy{transform:none}}
+
+

@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { formatPeso, publishedAddressTiers } from "@/content/pricing";
+import PackageRate from "./PackageRate";
+import { publishedAddressTiers } from "@/content/pricing";
 
 /**
  * The three business address tiers. Prices come from content/pricing.ts.
@@ -29,40 +30,48 @@ export default function AddressTierCards({
             <p className="text-[0.9rem] text-body-soft">{tier.bestFor}</p>
           </div>
 
-          <div className="flex flex-col gap-1 border-y border-rule py-4">
-            <div className="flex items-baseline gap-1.5">
-              <span className="tnum font-display text-[2.1rem] font-bold leading-none text-ink">
-                {formatPeso(tier.price12)}
-              </span>
-              {tier.price12 !== null ? (
-                <span className="text-[0.85rem] text-body-faint">/ month</span>
+          <PackageRate tier={tier} />
+
+          {/* A quoted tier carries its own structure — what it includes, what
+              the facilities cater to, and what we need in order to quote. A
+              priced tier is a flat feature list. Both end up the same height
+              because the wrapper is flex-1. */}
+          {showAllFeatures && tier.catersTo?.length ? (
+            <div className="flex flex-1 flex-col gap-5 text-[0.88rem]">
+              {tier.includes ? (
+                <div className="flex flex-col gap-1.5">
+                  <h4 className="text-[0.95rem] font-semibold text-body">Includes</h4>
+                  <p className="leading-relaxed text-body-soft">{tier.includes}</p>
+                </div>
+              ) : null}
+
+              <div className="flex flex-col gap-2">
+                <h4 className="text-[0.95rem] font-semibold text-body">
+                  What this package caters to
+                </h4>
+                <ul className="flex flex-col gap-2">
+                  {tier.catersTo.map((item) => (
+                    <li key={item} className="flex gap-2.5">
+                      <span
+                        aria-hidden="true"
+                        className="mt-[0.45rem] h-1 w-2.5 shrink-0 bg-gold"
+                      />
+                      <span className="text-body-soft">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {tier.quotationPrompt ? (
+                <div className="flex flex-col gap-1.5">
+                  <h4 className="text-[0.95rem] font-semibold text-body">
+                    Request an accurate quotation
+                  </h4>
+                  <p className="leading-relaxed text-body-soft">{tier.quotationPrompt}</p>
+                </div>
               ) : null}
             </div>
-            <span className="font-mono text-[0.7rem] uppercase tracking-[0.08em] text-body-faint">
-              {tier.price12 !== null
-                ? "on a 12-month term"
-                : "priced on application"}
-            </span>
-            {tier.priceMonthly !== null ? (
-              <span className="tnum mt-1 text-[0.82rem] text-body-soft">
-                {formatPeso(tier.priceMonthly)} / month, rolling monthly
-              </span>
-            ) : null}
-          </div>
-
-          <div className="flex items-start gap-2">
-            <span
-              className={`mt-0.5 shrink-0 border px-2 py-0.5 font-mono text-[0.62rem] uppercase tracking-[0.08em] ${
-                tier.registrationEligible
-                  ? "border-clay text-clay"
-                  : "border-rule-strong text-body-faint"
-              }`}
-            >
-              {tier.registrationEligible ? "Registered address available" : "Correspondence only"}
-            </span>
-          </div>
-
-          {showAllFeatures ? (
+          ) : showAllFeatures ? (
             <ul className="flex flex-1 flex-col gap-2.5 text-[0.88rem]">
               {tier.features.map((f) => (
                 <li key={f} className="flex gap-2.5">
@@ -78,11 +87,27 @@ export default function AddressTierCards({
             className={`mt-auto inline-flex items-center justify-center px-4 py-3 text-[0.78rem] font-semibold uppercase tracking-[0.09em] transition-colors ${
               tier.featured
                 ? "accent-fill border"
-                : "border border-rule-strong text-ink hover:border-ink"
+                : "border border-rule-strong text-body hover:border-oak-light"
             }`}
           >
-            Enquire about {tier.name}
+            Inquire about {tier.name}
           </Link>
+
+          {/* Fine print sits below the action, not above it: these are the
+              qualifiers on the rate and the scope, and the last of them is the
+              line that stops "Business registration" in the list above being
+              read as work we perform. */}
+          {tier.footnotes?.length ? (
+            <ul className="note-panel flex flex-col gap-2">
+              {tier.footnotes.map((note, i) => (
+                <li key={note}>
+                  {i === 0 ? <span aria-hidden="true">*</span> : null}
+                  {i === 0 ? " " : null}
+                  {note}
+                </li>
+              ))}
+            </ul>
+          ) : null}
         </div>
       ))}
     </div>

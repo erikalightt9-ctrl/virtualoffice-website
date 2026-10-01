@@ -8,11 +8,14 @@ type Props = {
 };
 
 export default function CtaBand({
-  headline = "Come and see the office before you commit to anything.",
-  body = "Book a visit, take a day pass, or send us an enquiry and we will tell you plainly whether we can do what you need.",
+  headline = "Find the right support for your business.",
+  body = "Tell us your business activity and address or facility requirements. Our team will confirm the appropriate package and service scope.",
 }: Props) {
   return (
-    <section className="border-t border-rule-dark bg-ink text-on-dark">
+    /* shade-climax is what makes this the red band at the bottom of the ramp.
+       Its type must stay ivory and soft ivory: gold and faint text both fall
+       below AA on red. See the shade shifter notes in globals.css. */
+    <section className="shade-climax text-on-dark">
       <Container className="py-14 sm:py-16">
         <div className="grid gap-8 lg:grid-cols-[1.3fr_1fr] lg:items-end">
           <div className="flex flex-col gap-4">
@@ -24,7 +27,7 @@ export default function CtaBand({
           </div>
           <div className="flex flex-col gap-3">
             <Button href="/contact" variant="solid">
-              Send an enquiry
+              Send an inquiry
             </Button>
             <Button href={site.contact.viberHref} variant="onDark" external>
               Chat on Viber

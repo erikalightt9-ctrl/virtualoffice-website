@@ -7,11 +7,11 @@ const styles: Record<Variant, string> = {
   solid:
     "accent-fill border",
   outline:
-    "bg-transparent text-ink border border-rule-strong hover:border-ink hover:bg-surface",
+    "bg-transparent text-body border border-rule-strong hover:border-oak-light hover:bg-surface",
   onDark:
     "bg-transparent text-on-dark border border-rule-dark hover:border-on-dark hover:bg-white/5",
   quiet:
-    "bg-surface text-ink border border-rule hover:border-rule-strong",
+    "bg-surface text-body border border-rule hover:border-rule-strong",
 };
 
 const base =

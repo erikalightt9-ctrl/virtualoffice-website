@@ -9,6 +9,8 @@ import path from "node:path";
  * TO ADD THE REAL PHOTOGRAPHS:
  *   Drop the image files into  public/photos/  using these names:
  *     reception.jpg, lounge.jpg, workspace.jpg, pantry.jpg, meeting-room.jpg
+ *   (workspace.jpg shows the serviced floor; it is office context, not a
+ *    product — no desks are let.)
  *   All five are present. Add more slots by adding a <Photo file="..."> call
  *   and dropping a matching file in the same folder.
  *   Nothing else needs changing — the placeholders disappear on their own.
@@ -61,7 +63,8 @@ export default function Photo({
             src={`/photos/${file}`}
             alt={alt}
             fill
-            sizes="(max-width: 768px) 100vw, 50vw"
+            quality={90}
+            sizes="(max-width: 768px) 133vw, 67vw"
             className="object-cover"
             style={{ objectPosition: position }}
             priority={priority}

@@ -1,181 +1,108 @@
-/**
- * ============================================================================
- *  PDMN VIRTUAL OFFICE — FREQUENTLY ASKED QUESTIONS
- *  Shown on /faq, grouped by category, and the top ones appear on the homepage.
- *
- *  ⚠️  SCOPE: this is a virtual office and nothing more. Answers must never suggest that we
- *  register companies, file with any agency, obtain permits, keep books,
- *  handle tax or payroll, or advise on setting up a business. Where a question
- *  touches those things, the honest answer is that they are the client's to
- *  handle with their own professional advisers.
- * ============================================================================
- */
-
-export type Faq = {
-  q: string;
-  a: string[];
-  category:
-    | "The address"
-    | "Registered address"
-    | "Mail"
-    | "Workspace & rooms"
-    | "Signing up"
-    | "Billing";
-  /** Show this one on the homepage FAQ block. Aim for four or five. */
-  featured: boolean;
-};
-
+import { WORKSPACE_SCOPE } from "./scope";
+export type Faq = { q: string; a: string[]; category: string; featured: boolean };
 export const faqs: Faq[] = [
   {
-    category: "The address",
-    featured: true,
-    q: "What exactly does PDMN Virtual Office provide?",
-    a: [
-      "A virtual office: a professional business address at 104 Paseo de Roxas in Makati, mail and parcel handling by our own staff, meeting rooms on the same floor, and workspace when you need it. Companies that need an address they can register can take our Registered package.",
-      "That is the whole offer. We are not a corporate services firm and we do not act as one.",
+    "q": "What is a Virtual Office?",
+    "a": [
+      "A Virtual Office provides a professional business address and basic document handling for businesses that work from another location."
     ],
+    "category": "Frequently Asked Questions",
+    "featured": true
   },
   {
-    category: "The address",
-    featured: false,
-    q: "Can I use the address on my website, invoices and business cards?",
-    a: [
-      "Yes, on any package. That is the main reason most of our clients are here.",
+    "q": "Who can apply?",
+    "a": [
+      "Freelancers, consultants, startups and companies are welcome, including foreign individuals and companies planning to establish or expand in the Philippines. Eligibility depends on your business activity and applicable requirements."
     ],
+    "category": "Frequently Asked Questions",
+    "featured": true
   },
   {
-    category: "The address",
-    featured: false,
-    q: "Is there really an office, or is this just a mailbox?",
-    a: [
-      "There is a real office. We occupy the 5th floor of 104 Paseo de Roxas, with a reception desk staffed through business hours, six bookable rooms, serviced workstations and an administrative team on site.",
-      "Come and see it before you sign up — take a day pass, or book a visit through the contact page. Most of our clients looked at the floor first, and we would rather you did.",
+    "q": "Which package should I choose?",
+    "a": [
+      "Basic is for correspondence and business purposes. Corporate is for registered-address use. VIP adds physical-office and facility support for agreed registration and compliance requirements."
     ],
-  },
-
-  {
-    category: "Registered address",
-    featured: true,
-    q: "Can I use the address as my company's registered business address?",
-    a: [
-      "On the Registered package or above, and subject to approval. It requires an approved application, company and identification documents, and a business activity permitted under our acceptable use policy.",
-      "It is not available on the entry-level Address package, which is for correspondence only. Availability also remains subject to building rules and applicable regulations.",
-    ],
+    "category": "Frequently Asked Questions",
+    "featured": true
   },
   {
-    category: "Registered address",
-    featured: true,
-    q: "Will PDMN Virtual Office register my company or handle my filings?",
-    a: [
-      "No. We provide the address; we do not register companies, submit anything to any government agency, obtain permits, keep books, prepare or file taxes, run payroll, or advise on setting up a business in the Philippines.",
-      "Those are yours to handle with your own accountant, lawyer or corporate services firm. We are simply the address they write on the form, and we will not claim otherwise.",
+    "q": "Can I use the address for business registration?",
+    "a": [
+      "Corporate and VIP may be used for registration, subject to applicable requirements and approval of the relevant government agency. Confirm suitability with our team before using the address in an application. Government approval is not guaranteed."
     ],
+    "category": "Frequently Asked Questions",
+    "featured": true
   },
   {
-    category: "Registered address",
-    featured: false,
-    q: "Someone from a government agency may visit the address. What happens?",
-    a: [
-      "Our reception is staffed through business hours, your company appears in our directory and tenancy records, and our team can confirm that you are a client of ours at this address.",
-      "What we cannot do is represent you, answer questions on your behalf, or handle any matter arising from the visit. We will tell you promptly that someone came.",
+    "q": "Do you offer a private office or regular workspace?",
+    "a": [
+      WORKSPACE_SCOPE
     ],
+    "category": "Frequently Asked Questions",
+    "featured": true
   },
   {
-    category: "Registered address",
-    featured: false,
-    q: "Are there businesses you will not accept?",
-    a: [
-      "Yes. We maintain an acceptable use policy and decline applications that fall outside it. This protects our other clients, our landlord and our own standing.",
-      "We publish that policy rather than keeping it private, so you can check before applying.",
+    "q": "What does VIP facility support cover?",
+    "a": [
+      "Facilities may support business registration, BOC, FDA, LTO-related requirements, inspections and verification. Warehouse or storage arrangements are subject to availability and applicable requirements. We confirm the scope for your business before activation."
     ],
-  },
-
-  {
-    category: "Mail",
-    featured: true,
-    q: "How will I know when mail arrives for me?",
-    a: [
-      "Every item is logged on arrival with the date, sender and type, and you are notified the same business day. Anything that looks official is escalated immediately through more than one channel.",
-      "Items are held securely at reception for collection, or forwarded on request.",
-    ],
+    "category": "Frequently Asked Questions",
+    "featured": false
   },
   {
-    category: "Mail",
-    featured: false,
-    q: "Do you open or scan my mail?",
-    a: [
-      "We do not open your mail. We record what arrived and from whom, and hold the item for you. If you would like a scanning arrangement, ask — it can be set up with your written authorisation.",
+    "q": "What document handling is included?",
+    "a": [
+      "All packages include receiving documents during office hours, notifying you of receipt, and holding them for collection by you or an authorized representative. Collection follows our operating hours and authorization procedures. You remain responsible for reviewing correspondence and meeting deadlines."
     ],
+    "category": "Frequently Asked Questions",
+    "featured": false
   },
   {
-    category: "Mail",
-    featured: false,
-    q: "Can you receive couriers and deliveries?",
-    a: [
-      "Yes, during business hours. Reception is staffed Monday to Friday and can sign for and hold deliveries. We cannot accept perishable goods or items requiring special storage.",
+    "q": "Are meeting rooms or call handling included?",
+    "a": [
+      "No. Packages do not include meeting-room bookings, room hours, telephone answering or call-handling services."
     ],
-  },
-
-  {
-    category: "Workspace & rooms",
-    featured: false,
-    q: "Can I see the office before signing up?",
-    a: [
-      "Please do. Book a visit through the contact page, or take a day pass and work here for a day.",
-    ],
+    "category": "Frequently Asked Questions",
+    "featured": false
   },
   {
-    category: "Workspace & rooms",
-    featured: false,
-    q: "How do I book a meeting room?",
-    a: [
-      "Address and workspace clients book through our reception at member rates, using their monthly allocation first. Non-members can book rooms directly — send an enquiry with the date, time and number of people.",
+    "q": "Where are you located, and can I visit?",
+    "a": [
+      "We are on the 5th Floor of Salustiana D. Ty Tower, 104 Paseo de Roxas, Legaspi Village, San Lorenzo, Makati City. Contact us to arrange a visit. Visits and VIP facility access follow the agreed arrangements; the office is not available for daily workspace use."
     ],
+    "category": "Frequently Asked Questions",
+    "featured": false
   },
   {
-    category: "Workspace & rooms",
-    featured: false,
-    q: "What are the office hours?",
-    a: [
-      "Reception and administrative staff are on site Monday to Friday, 9:00am to 6:00pm. Saturday access is by arrangement. Workspace clients have access through business hours.",
+    "q": "What are the rates and commitment terms?",
+    "a": [
+      "Basic is ₱1,400/month and Corporate is ₱1,800/month. VIP starts at ₱5,000, with a quotation based on your purpose and facility requirements. The service term, payment arrangements and any upgrade are confirmed in your agreement."
     ],
-  },
-
-  {
-    category: "Signing up",
-    featured: true,
-    q: "What documents do you need from me?",
-    a: [
-      "For an individual: a government-issued photo identification and proof of address. For a company: your company registration documents and identification for the authorised signatory.",
-      "We ask for these to verify who you are before activating an address. We do not review them for any other purpose and we do not advise on them.",
-    ],
+    "category": "Frequently Asked Questions",
+    "featured": false
   },
   {
-    category: "Signing up",
-    featured: false,
-    q: "How long does it take to activate?",
-    a: [
-      "Once your documents are complete and approved, activation is usually within one to two business days.",
+    "q": "How do I get started?",
+    "a": [
+      "Contact us with your business activity, registration stage and intended address use. We confirm the required identification and business documents, package suitability and terms. Service starts after application approval, the agreement and payment are completed."
     ],
-  },
-
-  {
-    category: "Billing",
-    featured: false,
-    q: "How do I pay?",
-    a: [
-      "Bank transfer, bank deposit, GCash, or international wire transfer for overseas clients. Invoices are issued in advance of each term.",
-    ],
+    "category": "Frequently Asked Questions",
+    "featured": false
   },
   {
-    category: "Billing",
-    featured: false,
-    q: "What terms do you offer?",
-    a: [
-      "Monthly, six-month and twelve-month terms. Twelve months carries the best rate, and for clients using the address as a registered business address we recommend it — an address that changes every few months creates avoidable work for you.",
+    "q": "Can I use the address on my website and business cards?",
+    "a": [
+      "Yes, for the business named in your agreement and for permitted purposes under your selected package."
     ],
+    "category": "Frequently Asked Questions",
+    "featured": false
   },
+  {
+    "q": "How is my information handled?",
+    "a": [
+      "We handle client information and correspondence in accordance with our privacy policy. Please keep your contact details current so we can reach you about received documents."
+    ],
+    "category": "Frequently Asked Questions",
+    "featured": false
+  }
 ];
-
-export const faqCategories = Array.from(new Set(faqs.map((f) => f.category)));
-export const featuredFaqs = faqs.filter((f) => f.featured);

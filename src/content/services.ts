@@ -12,117 +12,99 @@ export type Service = {
   intro: string;
   highlights: string[];
   sections: ServiceSection[];
-  pricingBlock: "address" | "workspace" | "rooms" | "none";
+  pricingBlock: "address" | "rooms" | "none";
   deliveredByPartners: boolean;
 };
 
 export const services: Service[] = [
   {
-    slug: "virtual-office",
-    name: "Virtual Office",
-    summary: "A professional Makati business address with mail handling and access to a real staffed office.",
-    metaTitle: "A Business Address in Makati",
-    metaDescription: "Virtual office services in Makati with a professional business address, staffed reception, mail handling, meeting rooms and flexible workspace access.",
-    headline: "A professional Makati presence, without a traditional office lease.",
-    intro: "PDMN Virtual Office gives your business a credible address at 104 Paseo de Roxas, supported by a staffed reception and an on-site administrative team. Use the address for business correspondence and client-facing materials, receive mail reliably and access professional space when you need it.",
-    highlights: [
-      "Professional business address at 104 Paseo de Roxas",
-      "Mail and parcels received during business hours",
-      "Prompt notification when correspondence arrives",
-      "Meeting rooms and workspace available at member rates",
-      "Flexible plans for independent professionals, startups and established companies",
+    "slug": "virtual-office",
+    "name": "Virtual Office Basic",
+    "summary": "For freelancers, consultants and professionals who need a credible Makati business address for correspondence and business purposes.",
+    "metaTitle": "Virtual Office Basic in Makati",
+    "metaDescription": "For freelancers, consultants and professionals who need a credible Makati business address for correspondence and business purposes.",
+    "headline": "A credible Makati address for your professional presence.",
+    "intro": "For freelancers, consultants and professionals who need a credible Makati business address for correspondence and business purposes.",
+    "highlights": [
+      "Makati address for business correspondence",
+      "Basic document handling included"
     ],
-    sections: [
+    "sections": [
       {
-        heading: "A real office behind your address",
-        body: [
-          "PDMN Virtual Office is not a mailbox or forwarding address. Reception and administrative staff are present during business hours, with meeting rooms and flexible workspace available on the same floor.",
-          "That physical presence gives clients a more credible impression and gives you a practical place to meet, work and receive important business correspondence.",
-        ],
-      },
-      {
-        heading: "Designed for flexible businesses",
-        body: [
-          "A virtual office suits consultants, freelancers, remote teams, startups and companies that want a professional Makati presence without maintaining a full-time office.",
-          "Start with an address and mail handling, then add meeting-room time, workspace days or a dedicated physical workspace as your needs change.",
-        ],
-      },
+        "heading": "When to choose Basic",
+        "body": [
+          "Use Basic for correspondence and a professional presence on your business materials. For a registered business address, choose Corporate; if physical facilities are required for an application, discuss VIP."
+        ]
+      }
     ],
-    pricingBlock: "address",
-    deliveredByPartners: false,
+    "pricingBlock": "address",
+    "deliveredByPartners": false
   },
   {
-    slug: "registered-business-address",
-    name: "Registered Business Address",
-    summary: "Address-use options for businesses that need an official Makati address, subject to eligibility and document review.",
-    metaTitle: "Registered Business Address",
-    metaDescription: "A staffed registered business address at 104 Paseo de Roxas, Makati, available on eligible virtual-office plans and subject to document review.",
-    headline: "An official Makati address backed by a staffed office.",
-    intro: "Eligible PDMN Virtual Office plans may allow a client to use 104 Paseo de Roxas as its registered business address. Address use is subject to package eligibility, documentary requirements, acceptable-use rules and written approval. PDMN Virtual Office does not prepare or file company registrations, permits, tax registrations or compliance returns.",
-    highlights: [
-      "Registered-address use on eligible plans",
-      "Staffed reception during business hours",
-      "Organized handling of government and business correspondence",
-      "Meeting rooms available for scheduled visits",
-      "Clear verification and acceptable-use requirements",
+    "slug": "registered-business-address",
+    "name": "Virtual Office Corporate",
+    "summary": "For companies that need a professional address to use as their registered business address.",
+    "metaTitle": "Virtual Office Corporate in Makati",
+    "metaDescription": "For companies that need a professional address to use as their registered business address.",
+    "headline": "A professional address for your company registration.",
+    "intro": "For companies that need a professional address to use as their registered business address. Subject to applicable requirements and approval of the relevant government agency.",
+    "highlights": [
+      "Makati address for company registration",
+      "Basic document handling included"
     ],
-    sections: [
+    "sections": [
       {
-        heading: "What PDMN Virtual Office provides",
-        body: [
-          "PDMN Virtual Office provides the physical address, staffed premises, mail handling and access to meeting space included in the selected plan.",
-          "Clients remain responsible for their own SEC, BIR, local-government and other filings, either directly or through advisers they appoint independently.",
-        ],
-      },
-      {
-        heading: "Approval protects every client",
-        body: [
-          "We review the applicant, business activity and supporting documents before approving registered-address use. Some industries and activities are not accepted under our acceptable-use policy.",
-          "This review protects the integrity of the address and the legitimate businesses that use it.",
-        ],
-      },
+        "heading": "Confirm address suitability",
+        "body": [
+          "We review your business activity and intended registration before agreeing address use. If the application requires physical facilities or an inspection, discuss VIP."
+        ]
+      }
     ],
-    pricingBlock: "address",
-    deliveredByPartners: false,
+    "pricingBlock": "address",
+    "deliveredByPartners": false
   },
   {
-    slug: "mail-handling",
-    name: "Mail Handling",
-    summary: "Business mail and parcels received by staffed reception, recorded and notified promptly.",
-    metaTitle: "Business Mail Handling",
-    metaDescription: "Mail and parcel handling at 104 Paseo de Roxas, Makati, with staffed reception, prompt notification, secure holding and optional forwarding.",
-    headline: "Your business mail, received and handled professionally.",
-    intro: "Our reception team receives business correspondence and parcels during office hours, records each item and notifies the authorized contact. Items are held securely until collection or handled according to the service instructions in your plan.",
-    highlights: [
-      "Reception during published business hours",
-      "Prompt email or mobile notification",
-      "Secure holding until collection",
-      "Optional scanning or forwarding where agreed",
-      "Documented handling for important correspondence",
+    "slug": "virtual-office-vip",
+    "name": "VIP Virtual Office",
+    "summary": "For companies that require an actual physical office and facilities for government registration and regulatory compliance.",
+    "metaTitle": "VIP Virtual Office in Makati",
+    "metaDescription": "For companies that require an actual physical office and facilities for government registration and regulatory compliance.",
+    "headline": "Physical facilities for registration and compliance.",
+    "intro": "A business address with access to an actual physical office and facilities for agreed government registration, inspection and compliance requirements.",
+    "highlights": [
+      "Business address and basic document handling",
+      "Physical facilities matched to your regulatory requirements"
     ],
-    sections: [
+    "sections": [
       {
-        heading: "A clear handling process",
-        body: [
-          "Mail is matched to the client record, logged and stored securely. Only authorized contacts may collect it or instruct us to forward or scan an item where that service is included.",
-          "Government, legal and time-sensitive correspondence is escalated promptly through the contact channels on file. The client remains responsible for responding within any applicable deadline.",
-        ],
+        "heading": "What VIP can support",
+        "body": [
+          "Business registration, government applications, inspections and verification, including applicable BOC, FDA and LTO requirements.",
+          "Warehouse/storage facilities may be arranged where required, subject to availability and applicable requirements."
+        ]
       },
       {
-        heading: "Privacy and control",
-        body: [
-          "We do not open or scan sealed correspondence unless the authorized client has asked us to do so and the selected service allows it.",
-          "Identification may be required for collection, and all handling is subject to our privacy policy and service agreement.",
-        ],
-      },
+        "heading": "Confirm your requirements",
+        "body": [
+          "Share your business activity and agency requirements so we can confirm suitable facilities and provide a quotation. Subject to applicable requirements and approval of the relevant government agency. PDMN does not guarantee government approval."
+        ]
+      }
     ],
-    pricingBlock: "address",
-    deliveredByPartners: false,
-  },
+    "pricingBlock": "address",
+    "deliveredByPartners": false
+  }
 ];
-
-export function getService(slug: string): Service | undefined {
-  return services.find((service) => service.slug === slug);
-}
-
-export const serviceSlugs = services.map((service) => service.slug);
+export const regulatorySupport = [
+  "Business registration",
+  "Government and regulatory applications",
+  "Government inspections and verification",
+  "BOC (Bureau of Customs) requirements",
+  "LTO-related registration requirements",
+  "FDA applications and related requirements",
+  "Other applicable government registrations, permits and compliance requirements",
+  "Physical office/facility requirements for regulatory purposes",
+  "Warehouse/storage facilities where required for applicable BOC or regulatory requirements, subject to availability and applicable requirements"
+];
+export const approvalNote = "Subject to applicable requirements and approval of the relevant government agency.";
+export function getService(slug: string): Service | undefined { return services.find(service => service.slug === slug); }
+export const serviceSlugs = services.map(service => service.slug);

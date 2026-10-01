@@ -12,14 +12,14 @@ export const site = {
   wordmark: "PDMN",
   /** Sits under the wordmark. Kept separate so the header can stack them. */
   wordmarkSub: "VIRTUAL OFFICE",
-  tagline: "A destination for business, ideas & connection",
+  tagline: "Your business presence in Makati",
 
   /** Used in page titles and the meta description. */
   description:
-    "Virtual office services at 104 Paseo de Roxas, Legaspi Village, Makati, with a professional business address, mail handling, meeting rooms and flexible workspace.",
+    "Virtual office services at 104 Paseo de Roxas, Legaspi Village, Makati, with Basic, Corporate and VIP packages for business addresses and physical-office support for registration and compliance.",
 
   /** TODO: replace with the live domain once registered. */
-  url: "https://pdmnvirtualoffice.ph",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://pdmn-virtual-office.erika-4d7.workers.dev",
 
   /** The operator. Shown in the footer and on the About page. */
   operator: {
@@ -36,6 +36,10 @@ export const site = {
    */
   address: {
     line1: "104 Paseo de Roxas",
+    /** The tower. Named on PDMN's own company profile, and worth carrying:
+        a named building reads as more established than a street number, and
+        it is what a visitor looks for when they arrive. */
+    building: "Salustiana D. Ty Tower",
     floor: "5th Floor",
     /** TODO: confirm the unit or suite number, if there is one. */
     unit: "",
@@ -49,27 +53,30 @@ export const site = {
     country: "Philippines",
     /** Full address on one line, for schema.org, the footer and the chatbot. */
     oneLine:
-      "5th Floor, 104 Paseo de Roxas, Legaspi Village, San Lorenzo, Makati City",
+      "5th Floor, Salustiana D. Ty Tower, 104 Paseo de Roxas, Legaspi Village, San Lorenzo, Makati City",
     /** The same address plus region and country, for formal contexts. */
     oneLineFull:
-      "5th Floor, 104 Paseo de Roxas, Legaspi Village, San Lorenzo, Makati City, Metro Manila, Philippines",
+      "5th Floor, Salustiana D. Ty Tower, 104 Paseo de Roxas, Legaspi Village, San Lorenzo, Makati City, Metro Manila, Philippines",
     /** What gets handed to the map embed. */
     mapQuery:
-      "104 Paseo de Roxas, Legaspi Village, San Lorenzo, Makati City, Philippines",
+      "Salustiana D. Ty Tower, 104 Paseo de Roxas, Legaspi Village, San Lorenzo, Makati City, Philippines",
   },
 
   contact: {
-    /** TODO: replace all of these with the real channels. */
-    landline: "+63 2 0000 0000",
-    landlineHref: "tel:+63200000000",
-    mobile: "+63 900 000 0000",
-    viber: "+63 900 000 0000",
-    viberHref: "viber://chat?number=%2B63900000000",
-    whatsapp: "+63 900 000 0000",
-    whatsappHref: "https://wa.me/63900000000",
+    landline: "(02) 7368-0000",
+    landlineHref: "tel:+63273680000",
+    /* One mobile number carries Viber and WhatsApp both. */
+    mobile: "+63 917 311 3638",
+    mobileHref: "tel:+639173113638",
+    viber: "+63 917 311 3638",
+    viberHref: "viber://chat?number=%2B639173113638",
+    whatsapp: "+63 917 311 3638",
+    whatsappHref: "https://wa.me/639173113638",
     wechat: "TODO",
-    email: "hello@pdmnvirtualoffice.ph",
-    emailHref: "mailto:hello@pdmnvirtualoffice.ph",
+    /** TODO: the only contact detail still a placeholder. Needs a real
+        mailbox on a domain that exists before launch. */
+    email: "virtualoffice@pdmn.ph",
+    emailHref: "mailto:virtualoffice@pdmn.ph",
   },
 
   hours: {
@@ -81,9 +88,9 @@ export const site = {
   /** Headline facts used in the proof strip. Keep these literally true. */
   facts: [
     { value: "5th Floor", label: "104 Paseo de Roxas" },
-    { value: "6 rooms", label: "bookable for meetings" },
+    { value: "Physical office", label: "inspected and verified on site" },
     { value: "On-site", label: "reception and administration" },
-    { value: "50+", label: "companies served" },
+    { value: "Since 2013", label: "Philippine Dragon Media Network" },
   ],
 } as const;
 
@@ -102,23 +109,20 @@ export const mainNav: NavItem[] = [
     label: "Services",
     href: "/services",
     children: [
-      { label: "Virtual Office", href: "/services/virtual-office", note: "Business address and mail" },
-      { label: "Registered Business Address", href: "/services/registered-business-address", note: "Address-use options" },
-      { label: "Mail Handling", href: "/services/mail-handling", note: "Receiving and notification" },
+      { label: "Virtual Office Basic", href: "/services/virtual-office", note: "Business correspondence" },
+      { label: "Virtual Office Corporate", href: "/services/registered-business-address", note: "Registered business address" },
+      { label: "VIP Virtual Office", href: "/services/virtual-office-vip", note: "Physical office and facilities" },
     ],
   },
-  {
-    label: "Workspace",
-    href: "/workspace",
-    children: [
-      { label: "Dedicated Desk", href: "/workspace/dedicated-desk" },
-      { label: "Team Space", href: "/workspace/team-space" },
-      { label: "Private Office", href: "/workspace/private-office" },
-      { label: "Day Pass", href: "/workspace/day-pass" },
-      { label: "Meeting Rooms", href: "/meeting-rooms" },
-    ],
-  },
-  { label: "Pricing", href: "/pricing" },
+
+  /* Pricing gets its own top-level entry rather than living only inside the
+     Services dropdown. Price is the question a visitor most wants answered and
+     the one they will not hunt for; burying it behind a hover menu costs
+     enquiries. The two are genuinely different pages — Services explains what
+     each package is for, Pricing compares what they cost. */
+  { label: "Packages & Pricing", href: "/pricing" },
+  { label: "Requirements", href: "/requirements" },
+  { label: "How it works", href: "/how-it-works" },
   { label: "Location", href: "/location" },
   { label: "About", href: "/about" },
 ];
@@ -127,19 +131,9 @@ export const footerNav: { heading: string; links: { label: string; href: string 
   {
     heading: "Services",
     links: [
-      { label: "Virtual Office", href: "/services/virtual-office" },
-      { label: "Registered Business Address", href: "/services/registered-business-address" },
-      { label: "Mail Handling", href: "/services/mail-handling" },
-    ],
-  },
-  {
-    heading: "Workspace",
-    links: [
-      { label: "Dedicated Desk", href: "/workspace/dedicated-desk" },
-      { label: "Team Space", href: "/workspace/team-space" },
-      { label: "Private Office", href: "/workspace/private-office" },
-      { label: "Day Pass", href: "/workspace/day-pass" },
-      { label: "Meeting Rooms", href: "/meeting-rooms" },
+      { label: "Virtual Office Basic", href: "/services/virtual-office" },
+      { label: "Virtual Office Corporate", href: "/services/registered-business-address" },
+      { label: "VIP Virtual Office", href: "/services/virtual-office-vip" },
     ],
   },
   {
@@ -148,8 +142,7 @@ export const footerNav: { heading: string; links: { label: string; href: string 
       { label: "About PDMN Virtual Office", href: "/about" },
       { label: "Our Location", href: "/location" },
       { label: "How It Works", href: "/how-it-works" },
-      { label: "Pricing", href: "/pricing" },
-      { label: "Referral Programme", href: "/partners" },
+    
       { label: "Contact", href: "/contact" },
     ],
   },

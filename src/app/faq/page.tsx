@@ -3,12 +3,12 @@ import CtaBand from "@/components/CtaBand";
 import FaqList from "@/components/FaqList";
 import PageHeader from "@/components/PageHeader";
 import Section from "@/components/Section";
-import { faqCategories, faqs } from "@/content/faqs";
+import { faqs } from "@/content/faqs";
 
 export const metadata: Metadata = {
   title: "Frequently Asked Questions",
   description:
-    "Answers on registered address eligibility, BIR inspections, mail handling, workspace, documents required, terms and payment methods at PDMN Virtual Office Makati.",
+    "Answers about Virtual Office Basic, Corporate and VIP, registered-address use, physical facilities and government registration support in Makati.",
 };
 
 export default function FaqPage() {
@@ -26,23 +26,16 @@ export default function FaqPage() {
     <>
       <PageHeader
         eyebrow="FAQ"
-        headline="Questions we are asked, answered properly."
-        intro="If your question is not here, ask us. We would rather tell you now than have you find out after signing."
+        headline="Frequently Asked Questions"
       />
 
-      {faqCategories.map((category, index) => (
-        <Section
-          key={category}
-          heading={category}
-          tone={index % 2 === 0 ? "bone" : "surface"}
-        >
-          <FaqList items={faqs.filter((f) => f.category === category)} />
-        </Section>
-      ))}
+      <Section>
+        <FaqList items={faqs} numbered />
+      </Section>
 
       <CtaBand
         headline="Still have a question?"
-        body="Send it to us. If it is a good one we will add it to this page, because someone else is probably wondering the same thing."
+        body="Contact our team for help with your package, documents or facility requirements."
       />
 
       <script

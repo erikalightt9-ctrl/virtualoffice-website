@@ -1,0 +1,1 @@
+export const WORKSPACE_SCOPE = "We do not offer private offices, dedicated desks or workspaces for regular occupancy. VIP access to an actual physical office and facilities is arranged only for agreed registration and compliance purposes.";

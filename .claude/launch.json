@@ -6,6 +6,12 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev", "--", "--port", "3002"],
       "port": 3002
+    },
+    {
+      "name": "hr-preview",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["hr/scripts/preview-roster.mjs"],
+      "port": 3401
     }
   ]
 }

@@ -1,17 +1,15 @@
 import type { MetadataRoute } from "next";
 import { serviceSlugs } from "@/content/services";
-import { workspaceSlugs } from "@/content/workspace";
 import { site } from "@/content/site";
+export const dynamic = "force-static";
 
 const staticPaths = [
   "",
   "/services",
-  "/workspace",
-  "/meeting-rooms",
-  "/pricing",
+
   "/location",
   "/about",
-  "/partners",
+  "/requirements",
   "/how-it-works",
   "/faq",
   "/contact",
@@ -26,13 +24,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const paths = [
     ...staticPaths,
     ...serviceSlugs.map((slug) => `/services/${slug}`),
-    ...workspaceSlugs.map((slug) => `/workspace/${slug}`),
   ];
 
   return paths.map((path) => ({
     url: `${site.url}${path}`,
     lastModified: now,
-    changeFrequency: path === "" || path === "/pricing" ? "weekly" : "monthly",
-    priority: path === "" ? 1 : path === "/pricing" ? 0.9 : 0.7,
+    changeFrequency: path === "" || path === "/services" ? "weekly" : "monthly",
+    priority: path === "" ? 1 : path === "/services" ? 0.9 : 0.7,
   }));
 }

@@ -1,96 +1,168 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import logo from "../../public/pdmn-logo-badge.png";
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 import Link from "next/link";
-import { formatPeso, publishedAddressTiers } from "@/content/pricing";
+import AddressTierCards from "@/components/AddressTierCards";
+import Container from "@/components/Container";
+import CtaBand from "@/components/CtaBand";
+import FaqList from "@/components/FaqList";
+import HomeHero from "@/components/HomeHero";
+import OfficeGallery from "@/components/OfficeGallery";
+import ProofStrip from "@/components/ProofStrip";
+import Section from "@/components/Section";
+import { faqs } from "@/content/faqs";
+import { howItWorks } from "@/content/pages";
 import { site } from "@/content/site";
-import BrandLogo from "@/components/BrandLogo";
-import styles from "./home.module.css";
 
-// The homepage title comes from the root layout's template default, so it is
-// not repeated here. Indexing is governed centrally by
-// NEXT_PUBLIC_ALLOW_INDEXING in src/app/robots.ts and the root layout.
-export const metadata: Metadata = {
-  description: site.description,
-};
+export const metadata: Metadata = { description: site.description };
 
-const services = [
-  { number: "01", title: "Virtual Office", text: "Build credibility with a professional Makati business address and a real team behind it.", href: "/services/virtual-office" },
-  { number: "02", title: "Registered Address", text: "Explore address-use options for an existing or newly formed business, subject to package eligibility and review.", href: "/services/registered-business-address" },
-  { number: "03", title: "Workspace", text: "Workstations, team spaces, and private offices available when your business needs them.", href: "/workspace" },
-  { number: "04", title: "Meeting Rooms", text: "Professional rooms for client meetings, interviews, presentations, and focused work.", href: "/meeting-rooms" },
-  { number: "05", title: "Mail & Administration", text: "Reliable mail handling, document coordination, and on-site administrative support.", href: "/services/mail-handling" },
-  { number: "06", title: "Day Office Access", text: "Use a professional place to work or meet without committing to a traditional office lease.", href: "/workspace/day-pass" },
-];
-
-const steps = [
-  ["Tell us what you need", "Share your business activity and the kind of presence you are after."],
-  ["Choose your package", "We confirm which address, workspace and room allocation fits, and whether the registered-address option is available to you."],
-  ["Complete verification", "Submit the required company and identification documents for review."],
-  ["Start using the address", "Your address goes live and our on-site team begins handling your mail."],
-];
-
+/**
+ * The homepage is ordered as a buying decision, not as a brochure.
+ *
+ *   hero          what we offer, and where
+ *   proof strip   that we are real
+ *   packages      which option fits, and what it costs
+ *   mail          how correspondence actually reaches you
+ *   how it works  what happens after you enquire
+ *   premises      evidence the office exists
+ *   faqs          the objections that stop a decision
+ *   inquiry       one next step
+ *
+ * The previous order put office photographs and company history before any
+ * mention of price, so a visitor ready to buy had to leave the page to find
+ * out what it costs.
+ */
 export default function HomePage() {
+  const heroImage = existsSync(join(process.cwd(), "public/photos/hero-primary.png"))
+    ? "/photos/hero-primary.png"
+    : "/photos/reception.jpg";
+
+  /* The objections that actually stop a decision, in the order they occur. */
+  const essentialFaqs = faqs.filter((f) => f.featured).slice(0, 5);
+
   return (
-    <div className={styles.page}>
-      <section className={styles.hero}>
-        <div className={styles.heroGrid}>
-          <div className={styles.heroCopy}>
-            <p className={styles.eyebrow}>Premium virtual office solutions in Makati</p>
-            <h1>A professional space<br />for business <em>without boundaries.</em></h1>
-            <p>A professional business address at 104 Paseo de Roxas, with a staffed reception, mail handled by our own team, meeting rooms and workspace on the same floor.</p>
-            <div className={styles.actions}><Link href="/contact" className={styles.primary}>Find your solution <span>↗</span></Link><Link href="/pricing" className={styles.secondary}>View packages <span>→</span></Link></div>
-            <div className={styles.heroTrust}><span>Professional Makati address</span><span>Staffed reception</span><span>Flexible workspace access</span></div>
-          </div>
-          <div className={styles.officeVisual}>
-            <Image src="/photos/reception.jpg" fill priority sizes="(max-width: 1000px) 100vw, 50vw" alt="The reception at PDMN Virtual Office, with the Philippine Dragon Media Network signage behind the desk" />
-            <div className={styles.officePanel}><small>YOUR BUSINESS PRESENCE</small><strong>104 Paseo de Roxas</strong><span>Legaspi Village · Makati City</span></div><div className={styles.groundMotif} aria-hidden="true"><i /><b /></div>
-          </div>
+    <div data-liquid-home>
+      <HomeHero image={heroImage} />
+
+      <ProofStrip />
+
+      <Section
+        id="packages"
+        eyebrow="Packages"
+        heading="Three ways to hold a Makati address."
+        intro="Document handling is the same on every package. What changes is what you may use the address for, and whether you need a physical office an agency can inspect."
+      >
+        <AddressTierCards />
+        <p className="mt-8 text-[0.95rem] text-body-soft">
+          <Link href="/pricing" className="text-gold underline underline-offset-4">
+            See the full comparison
+          </Link>{" "}
+          — or{" "}
+          <Link href="/requirements" className="text-gold underline underline-offset-4">
+            check what you need to apply
+          </Link>
+          .
+        </p>
+      </Section>
+
+      {/* NOTE FOR THE OPERATOR: this section states only what is confirmed —
+          receipt, notification, and collection. Scanning, forwarding, courier
+          and parcel policy, retention period and what happens to mail after
+          cancellation are NOT settled yet, and competitors publish theirs. As
+          soon as those are decided they belong here, because for an overseas
+          client this is the section that decides whether the service is
+          usable at all. Do not invent them in the meantime. */}
+      <Section
+        eyebrow="Your correspondence"
+        heading="How your documents reach you."
+        intro="What we do with post addressed to your business, and what stays your responsibility."
+      >
+        <div className="grid gap-px bg-rule sm:grid-cols-3">
+          {[
+            {
+              t: "We receive it",
+              b: "Documents addressed to your business are received by on-site staff during office hours.",
+            },
+            {
+              t: "We tell you",
+              b: "We notify you that something has arrived, so nothing sits unseen.",
+            },
+            {
+              t: "You collect it",
+              b: "Held for collection by you or an authorised representative, following our operating hours and authorisation procedures.",
+            },
+          ].map((s) => (
+            <div key={s.t} className="flex flex-col gap-2 glass-cell p-6">
+              <h3 className="text-[1.02rem] font-semibold text-body">{s.t}</h3>
+              <p className="text-[0.9rem] leading-relaxed text-body-soft">{s.b}</p>
+            </div>
+          ))}
         </div>
-        <div className={styles.factBar}><div><strong>Makati CBD</strong><span>professional business address</span></div><div><strong>6 rooms</strong><span>meetings &amp; conferences</span></div><div><strong>5th floor</strong><span>104 Paseo de Roxas</span></div><div><strong>On-site team</strong><span>reception &amp; administration</span></div></div>
-      </section>
+        <p className="mt-7 max-w-[70ch] text-[0.92rem] text-body-soft">
+          Reviewing your correspondence and meeting any deadline in it remains
+          your responsibility. If you are based overseas, tell us at enquiry how
+          you would like documents handled and we will confirm what is available
+          for your package before you commit.
+        </p>
+      </Section>
 
-      <section className={styles.introSection}>
-        <div className={styles.introTitle}><p className={styles.eyebrow}>What the virtual office includes</p><h2>More than a business address.</h2></div>
-        <div className={styles.introCopy}><p>PDMN VIRTUAL OFFICE gives businesses the professional infrastructure of an established office without the cost and restriction of maintaining a traditional workplace.</p><p>Use a professional address. Receive business mail. Meet clients. Work on site when needed. Expand into a more complete workspace as your business grows.</p></div>
-      </section>
+      <Section
+        eyebrow="How it works"
+        heading={howItWorks.headline}
+        intro={howItWorks.intro}
+      >
+        <ol className="grid gap-px bg-rule sm:grid-cols-2 lg:grid-cols-4">
+          {howItWorks.steps.slice(0, 4).map((step) => (
+            <li key={step.n} className="flex flex-col gap-2 glass-cell p-6">
+              <span className="font-mono text-[0.7rem] font-bold tracking-[0.1em] text-gold">
+                {step.n}
+              </span>
+              <h3 className="text-[1.02rem] font-semibold text-body">{step.title}</h3>
+              <p className="text-[0.89rem] leading-relaxed text-body-soft">{step.body}</p>
+            </li>
+          ))}
+        </ol>
+        <p className="mt-8 text-[0.95rem]">
+          <Link href="/how-it-works" className="text-gold underline underline-offset-4">
+            The full process
+          </Link>
+        </p>
+      </Section>
 
-      <section className={styles.officeGallery}>
-        <div className={styles.galleryLead}><Image src="/photos/lounge.jpg" fill sizes="(max-width: 900px) 100vw, 56vw" alt="The lounge at PDMN Virtual Office, with warm wood, greenery and comfortable seating" /><span>Welcome lounge</span></div>
-        <div className={styles.galleryStack}><div><Image src="/photos/workspace.jpg" fill sizes="(max-width: 900px) 100vw, 44vw" alt="Serviced workspace at PDMN Virtual Office, with ergonomic chairs and glass partitions" /><span>Serviced workspace</span></div><div><Image src="/photos/pantry.jpg" fill sizes="(max-width: 900px) 100vw, 44vw" alt="The communal pantry and tea room at PDMN Virtual Office" /><span>Community space</span></div></div>
-      </section>
+      <OfficeGallery />
 
-      <section className={styles.servicesSection}>
-        <div className={styles.sectionHeading}><div><p className={styles.eyebrow}>Solutions for modern business</p><h2>Everything your professional presence needs.</h2></div><Link href="/services">Explore all services ↗</Link></div>
-        <div className={styles.serviceGrid}>{services.map((service) => <article key={service.number}><span>{service.number}</span><div className={styles.serviceIcon} aria-hidden="true"><i /><b /></div><h3>{service.title}</h3><p>{service.text}</p><Link href={service.href} aria-label={`Learn about ${service.title}`}>Learn more <span>→</span></Link></article>)}</div>
-      </section>
+      <Section
+        eyebrow="Before you ask"
+        heading="The questions that come up most."
+      >
+        <FaqList items={essentialFaqs} />
+        <p className="mt-8 text-[0.95rem]">
+          <Link href="/faq" className="text-gold underline underline-offset-4">
+            All frequently asked questions
+          </Link>
+        </p>
+      </Section>
 
-      <section className={styles.locationSection}>
-        <div className={styles.locationVisual}><Image src="/photos/meeting-room.jpg" fill sizes="(max-width: 1000px) 100vw, 53vw" alt="A meeting room at PDMN Virtual Office, with its oak-slat ceiling" /><div className={styles.locationBadge}><small>Makati CBD</small><strong>A real place<br />behind your presence.</strong></div></div>
-        <div className={styles.locationCopy}><p className={styles.eyebrow}>A real office behind your address</p><h2>Professional presence starts with a professional place.</h2><p>Our fifth-floor office at 104 Paseo de Roxas gives your virtual office a credible physical base, with staffed reception, organized mail handling, flexible workstations and professional meeting rooms.</p><ul><li><span>01</span>Established Makati CBD address</li><li><span>02</span>Reception staffed every business day</li><li><span>03</span>Flexible workstations and private spaces</li><li><span>04</span>Six bookable meeting and conference rooms</li></ul><Link href="/location" className={styles.textLink}>Explore the location ↗</Link></div>
-      </section>
-
-      <section className={styles.processSection}>
-        <div className={styles.processIntro}><p className={styles.eyebrow}>Simple to establish</p><h2>Your business presence,<br />set up properly.</h2><p>Our team keeps the process clear from your first enquiry through activation.</p></div>
-        <ol>{steps.map(([title, text], index) => <li key={title}><span>{String(index + 1).padStart(2, "0")}</span><div><h3>{title}</h3><p>{text}</p></div></li>)}</ol>
-      </section>
-
-      <section className={styles.pricingSection}>
-        <div className={styles.sectionHeading}><div><p className={styles.eyebrow}>Clear virtual office packages</p><h2>Choose the presence your business requires.</h2></div><p>Start with a professional address, add the registered-address option, or take a fuller presence with more room hours and workspace days.</p></div>
-        <div className={styles.pricingGrid}>{publishedAddressTiers.map((tier) => <article key={tier.id} className={tier.featured ? styles.featured : ""}>{tier.featured && <span className={styles.recommended}>Most selected</span>}<p className={styles.packageType}>{tier.registrationEligible ? "Registered address available" : "Business correspondence"}</p><h3>{tier.name}</h3><div className={styles.price}><strong>{formatPeso(tier.price12)}</strong><span>per month<br />12-month term</span></div><p className={styles.bestFor}>{tier.bestFor}</p><ul>{tier.features.slice(0, 5).map((feature) => <li key={feature}>{feature}</li>)}</ul><Link href={`/contact?service=${tier.id}`}>Request a consultation <span>→</span></Link></article>)}</div>
-        <div className={styles.priceFooter}><span>Indicative rates. Final scope and eligibility are confirmed in writing.</span><Link href="/pricing">Compare complete pricing and terms ↗</Link></div>
-      </section>
-
-      <section className={styles.supportSection}>
-        <div className={styles.supportMark}>
-          <BrandLogo height={92} />
+      <div className="home-closing">
+        <div className="home-logo-panel">
+          <Image src={logo} alt="PDMN Virtual Office" sizes="(max-width: 540px) 280px, 420px" />
         </div>
-        <div><p className={styles.eyebrow}>The company behind PDMN Virtual Office</p><h2>Professionally managed in Makati.</h2><p>PDMN Virtual Office is operated by Philippine Dragon Media Network Corp. Our on-site team manages the business address, reception, mail handling, meeting-room access and day-to-day client support.</p><Link href="/about" className={styles.textLink}>About PDMN Virtual Office ↗</Link></div>
-      </section>
+      <CtaBand
+        headline="Establish your business presence in Makati."
+        body="Tell us your business activity, registration stage and how you need to use the address. We will confirm the right package and what it involves before anything is agreed."
+      />
+      </div>
 
-      <section className={styles.finalCta}>
-        <span className="flex flex-col items-center leading-none"><span className="font-display text-[3.2rem] font-bold tracking-[0.18em]">PDMN</span><span className="mt-2 font-mono text-[0.8rem] uppercase tracking-[0.3em] opacity-70">Virtual Office</span></span>
-        <h2>Give your business<br />the space to move forward.</h2><p>Tell us what you are building. We’ll help create the right professional presence around it.</p><Link href="/contact" className={styles.primary}>Speak with our team <span>↗</span></Link>
-      </section>
+      <Container className="py-10">
+        <p className="max-w-[70ch] text-[0.9rem] text-body-soft">
+          PDMN Virtual Office is operated by {site.operator.name}{" "}
+          <Link href="/about" className="text-gold underline underline-offset-4">
+            About the operator
+          </Link>
+        </p>
+      </Container>
     </div>
   );
 }

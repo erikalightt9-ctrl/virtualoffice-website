@@ -1,75 +1,14 @@
 import type { Metadata } from "next";
-import CtaBand from "@/components/CtaBand";
+import BrandLogo from "@/components/BrandLogo";
+import Button from "@/components/Button";
 import PageHeader from "@/components/PageHeader";
 import Photo from "@/components/Photo";
 import Section from "@/components/Section";
-import ProofStrip from "@/components/ProofStrip";
-import { about } from "@/content/pages";
 import { site } from "@/content/site";
-import BrandLogo from "@/components/BrandLogo";
-
-export const metadata: Metadata = {
-  title: about.metaTitle,
-  description: about.metaDescription,
-};
-
-export default function AboutPage() {
-  return (
-    <>
-      <PageHeader
-        eyebrow="About PDMN Virtual Office"
-        headline={about.headline}
-        intro={about.intro}
-      />
-
-      <ProofStrip />
-
-      {about.sections.map((section, index) => (
-        <Section
-          key={section.heading}
-          heading={section.heading}
-          tone={index % 2 === 0 ? "bone" : "surface"}
-        >
-          <div className="flex flex-col gap-4">
-            {section.body.map((para) => (
-              <p key={para} className="max-w-[68ch] text-body">
-                {para}
-              </p>
-            ))}
-          </div>
-        </Section>
-      ))}
-
-      <Section eyebrow="The office" heading="Where we are" tone="bone">
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          <Photo file="lounge.jpg" alt="The client lounge on the 5th floor" caption="The lounge, on the 5th floor." />
-          <Photo file="reception.jpg" position="78% 45%" alt="Reception on the 5th floor, with the Philippine Dragon Media Network signage" caption="Reception, staffed through business hours." />
-          <Photo file="meeting-room.jpg" alt="A meeting room on the 5th floor" caption="One of six bookable rooms." />
-        </div>
-      </Section>
-
-      <Section eyebrow="The operator" tone="surface">
-        <div className="max-w-[68ch] border border-rule bg-bone p-6">
-          <BrandLogo height={52} className="mb-4" />
-          <h2 className="text-[1.2rem]">{site.operator.name}</h2>
-          <p className="mt-3 text-body-soft">
-            {site.operator.relationship}
-          </p>
-          {site.operator.secRegistrationNo !== "TODO" ? (
-            <p className="mt-2 font-mono text-[0.85rem] text-body-faint">
-              SEC registration no. {site.operator.secRegistrationNo}
-            </p>
-          ) : null}
-          <p className="mt-3 text-[0.9rem] text-body-soft">
-            PDMN Virtual Office provides a virtual office and nothing beyond it. Company
-            registration, government filings, business permits, bookkeeping,
-            accounting, tax, payroll and corporate secretarial work are not
-            services we offer, coordinate or advise on.
-          </p>
-        </div>
-      </Section>
-
-      <CtaBand />
-    </>
-  );
-}
+import { WORKSPACE_SCOPE } from "@/content/scope";
+export const metadata: Metadata = { title: "About PDMN Virtual Office", description: "Professional business addresses, basic document handling and VIP compliance facilities in Makati." };
+export default function AboutPage() { return <>
+  <PageHeader eyebrow="About PDMN Virtual Office" headline="A professional business presence in Makati." intro="We support local businesses and foreign individuals or companies establishing or expanding in the Philippines." />
+  <Section heading="What we do"><div className="grid gap-8 lg:grid-cols-2"><div className="flex flex-col gap-5 text-body-soft"><p>We provide a Makati business address and basic document handling. Corporate supports registered-address use, while VIP provides physical facilities for agreed registration and compliance requirements.</p><p className="border-l-2 border-gold pl-5 text-body">{WORKSPACE_SCOPE}</p><p>We confirm package suitability, facility availability and terms before activation. Government use is subject to applicable requirements and approval of the relevant agency; approval is not guaranteed.</p><Button href="/services" variant="outline">Compare packages</Button></div><Photo file="about-reception.png" ratio="aspect-[1672/941]" alt="PDMN reception with marble and wooden counters and company signage" caption="Our reception at 104 Paseo de Roxas, Makati City." /></div></Section>
+  <Section heading="Our operator"><BrandLogo height={76} className="mb-5" /><p className="max-w-[68ch] text-body-soft">{site.operator.relationship}</p><p className="mt-4 max-w-[68ch] text-body-soft">Our team reviews each application and confirms the services appropriate for your business activity. Contact us to discuss your requirements.</p><div className="mt-6"><Button href="/contact">Talk to our team</Button></div></Section>
+</>; }

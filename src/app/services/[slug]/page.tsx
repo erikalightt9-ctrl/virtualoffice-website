@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import Button from "@/components/Button";
 import CtaBand from "@/components/CtaBand";
 import PageHeader from "@/components/PageHeader";
-import PriceTable from "@/components/PriceTable";
-import AddressTierCards from "@/components/AddressTierCards";
-import PricingNote from "@/components/PricingNote";
+import { WORKSPACE_SCOPE } from "@/content/scope";
+import { DOCUMENT_HANDLING } from "@/content/pricing";
 import Section from "@/components/Section";
 import { getService, serviceSlugs } from "@/content/services";
 
@@ -27,6 +26,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
 export default async function ServicePage({ params }: Params) {
   const { slug } = await params;
+  if (slug === "mail-handling") permanentRedirect("/services/virtual-office");
   const service = getService(slug);
   if (!service) notFound();
 
@@ -39,15 +39,15 @@ export default async function ServicePage({ params }: Params) {
       >
         <div className="flex flex-wrap gap-3">
           <Button href={`/contact?service=${service.slug}`}>
-            Enquire about this
+            Inquire about this
           </Button>
-          <Button href="/pricing" variant="outline">
-            See pricing
+          <Button href="/services" variant="outline">
+            Compare packages
           </Button>
         </div>
       </PageHeader>
 
-      <Section eyebrow="In short" tone="bone">
+      <Section eyebrow="In short">
         <ul className="grid gap-4 sm:grid-cols-2">
           {service.highlights.map((item) => (
             <li key={item} className="flex gap-3">
@@ -62,12 +62,8 @@ export default async function ServicePage({ params }: Params) {
 
       </Section>
 
-      {service.sections.map((section, index) => (
-        <Section
-          key={section.heading}
-          heading={section.heading}
-          tone={index % 2 === 0 ? "surface" : "bone"}
-        >
+      {service.sections.map((section) => (
+        <Section key={section.heading} heading={section.heading}>
           <div className="flex flex-col gap-4">
             {section.body.map((para) => (
               <p key={para} className="max-w-[68ch] text-body">
@@ -78,28 +74,10 @@ export default async function ServicePage({ params }: Params) {
         </Section>
       ))}
 
-      {service.pricingBlock !== "none" ? (
-        <Section
-          eyebrow="Pricing"
-          heading={
-            service.pricingBlock === "address"
-              ? "Virtual office packages"
-              : service.pricingBlock === "workspace"
-                ? "Workspace rates"
-                : "Meeting room rates"
-          }
-          tone="bone"
-        >
-          <div className="flex flex-col gap-5">
-            {service.pricingBlock === "address" ? (
-              <AddressTierCards />
-            ) : (
-              <PriceTable kind={service.pricingBlock} />
-            )}
-            <PricingNote />
-          </div>
-        </Section>
-      ) : null}
+      <Section heading="Included in every package">
+        <p className="max-w-[72ch] text-body-soft">{DOCUMENT_HANDLING}</p>
+        <p className="mt-4 max-w-[72ch] border-l-2 border-gold pl-5 text-body">{WORKSPACE_SCOPE}</p>
+      </Section>
 
       <CtaBand />
     </>
