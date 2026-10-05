@@ -42,7 +42,7 @@ next-env.d.ts
 brand/
 removed/
 
-# Private HR database, sessions, and local test artifacts
+# HR application moved to its own repository (gds-hr). Old private data left here stays ignored.
 /hr/data/
 /hr/test-output/
 

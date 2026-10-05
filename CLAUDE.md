@@ -1,4 +1,3 @@
 @AGENTS.md
 @PDMN-DESIGN.md
 
-@HR-HANDOFF.md
