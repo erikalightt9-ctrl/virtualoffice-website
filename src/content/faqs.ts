@@ -76,7 +76,10 @@ export const faqs: Faq[] = [
   {
     "q": "What are the rates and commitment terms?",
     "a": [
-      "Basic is ₱1,400/month and Corporate is ₱1,800/month. VIP starts at ₱5,000, with a quotation based on your purpose and facility requirements. The service term, payment arrangements and any upgrade are confirmed in your agreement."
+      "Basic is ₱1,400/month and Corporate is ₱1,800/month. VIP starts at ₱5,000, with a quotation based on your purpose and facility requirements.",
+        "These prices exclude VAT. The 12% is shown separately — so Corporate is ₱1,800 + ₱216 VAT = ₱2,016 per month.",
+        "The minimum term is one year, counted from the written service activation date. To end the arrangement at expiry, give written notice at least one month before that date.",
+        "A security deposit and a one-time setup fee also apply. Both amounts, and the total payable before activation, are stated in your quotation."
     ],
     "category": "Frequently Asked Questions",
     "featured": false

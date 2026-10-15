@@ -106,13 +106,14 @@ export default function HomeHero({ image }: Props) {
               <span className="tnum font-semibold text-on-dark">
                 From ₱{from.toLocaleString("en-PH")} per month
               </span>
-              {/* Tax treatment and billing frequency are NOT stated here yet,
-                  because they have not been confirmed. Saying "+ VAT" or
-                  "inclusive" wrongly on the homepage is worse than saying
-                  neither. Replace this clause the moment they are settled. */}
+              {/* VAT treatment is confirmed, so it is stated. Billing
+                  frequency, the setup-fee amount and the refund terms are NOT
+                  — they are still proposals awaiting approval, and an
+                  unapproved commercial term on the homepage is quotable by a
+                  client against the signed agreement. */}
               <span className="block text-body-faint">
-                Billing terms and any applicable tax are confirmed in writing
-                before activation.
+                Excludes 12% VAT. One-year minimum term. Your quotation states
+                the total payable before activation.
               </span>
             </p>
           ) : null}

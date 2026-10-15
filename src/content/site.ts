@@ -72,7 +72,6 @@ export const site = {
     viberHref: "viber://chat?number=%2B639173113638",
     whatsapp: "+63 917 311 3638",
     whatsappHref: "https://wa.me/639173113638",
-    wechat: "TODO",
     /** TODO: the only contact detail still a placeholder. Needs a real
         mailbox on a domain that exists before launch. */
     email: "virtualoffice@pdmn.ph",
@@ -120,7 +119,7 @@ export const mainNav: NavItem[] = [
      the one they will not hunt for; burying it behind a hover menu costs
      enquiries. The two are genuinely different pages — Services explains what
      each package is for, Pricing compares what they cost. */
-  { label: "Packages & Pricing", href: "/pricing" },
+  { label: "Packages & Pricing", href: "/services" },
   { label: "Requirements", href: "/requirements" },
   { label: "How it works", href: "/how-it-works" },
   { label: "Location", href: "/location" },

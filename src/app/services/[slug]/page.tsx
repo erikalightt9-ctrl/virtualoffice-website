@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { notFound, permanentRedirect } from "next/navigation";
 import Button from "@/components/Button";
 import CtaBand from "@/components/CtaBand";
+import JsonLd from "@/components/JsonLd";
 import PageHeader from "@/components/PageHeader";
+import { breadcrumbSchema } from "@/lib/schema";
 import { WORKSPACE_SCOPE } from "@/content/scope";
 import { DOCUMENT_HANDLING } from "@/content/pricing";
 import Section from "@/components/Section";
@@ -21,6 +23,10 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   return {
     title: service.metaTitle,
     description: service.metaDescription,
+    /* Each service page is reachable from the nav, the packages grid and the
+       sitemap. Without this they are three routes to one document as far as a
+       crawler is concerned. */
+    alternates: { canonical: `/services/${slug}` },
   };
 }
 
@@ -32,6 +38,14 @@ export default async function ServicePage({ params }: Params) {
 
   return (
     <>
+      {/* Home › Packages & Pricing › this package — so a result snippet shows
+          the path rather than a bare URL. */}
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Packages & Pricing", path: "/services" },
+          { name: service.name, path: `/services/${service.slug}` },
+        ])}
+      />
       <PageHeader
         eyebrow={service.name}
         headline={service.headline}

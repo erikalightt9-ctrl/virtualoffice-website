@@ -24,34 +24,53 @@ export type ApplicantPath = {
   note?: string;
 };
 
+/* The onboarding checklist as supplied by the operator.
+   -------------------------------------------------------------------------
+   Two items differ from what this page previously published and the change
+   is deliberate, not a transcription slip:
+
+     - it asked for TWO valid IDs; this asks for one, with a passport for
+       foreign applicants
+     - "KYC form" is now "application form"
+
+   If Operations actually still collects two IDs, this understates it and the
+   second request will surprise an applicant mid-onboarding. Worth confirming.
+
+   The initial payment states the two-month deposit because that figure is
+   confirmed. It does NOT state refund mechanics or a setup-fee amount, both
+   of which are still awaiting approval. */
 export const DOCUMENTS: DocRequirement[] = [
   {
-    "name": "Business registration documents, where available",
-    "what": "Share existing company or business registration documents. If you are preparing a new registration, tell us your current stage so we can confirm what is needed."
+    "name": "Completed application form",
+    "what": "Your full name, the business or proposed business name, the nature of the business, a contact number, an email address, your current address, and the package you want. We send you the form.",
   },
   {
-    "name": "Completed KYC form",
-    "what": "A short know-your-client form covering who owns and controls the business and what it actually does. We send it to you."
+    "name": "Valid government-issued ID",
+    "what": "A clear copy of the ID of the owner or the authorised signatory.",
+    "where": "Applying from outside the Philippines? Send a valid passport.",
   },
   {
-    "name": "Two primary valid IDs",
-    "what": "Identification for the authorised signatory. Our team will confirm the accepted documents for your situation, including overseas applicants.",
-    "where": "If you hold something not on that list, or you are applying from overseas, tell us what you have and we will confirm whether it works."
+    "name": "Business information and registration documents",
+    "what": "If the business already exists, send its registration certificate — DTI or SEC, whichever applies. If you are still setting it up, send the proposed name, the intended activities and your own details; the registration documents follow once you have them.",
+    "where": "You do not need documents you have not obtained yet. Tell us the stage you are at.",
   },
   {
-    "name": "Home-country business registration, if applicable",
-    "what": "For an existing foreign company, share its home-country registration documents and authorised representative details. Individuals without a company should discuss their planned activity with our team.",
-    "where": "Issued by the companies registry in your home jurisdiction. We will tell you if a certified translation is needed."
+    "name": "Proof of authority, where applicable",
+    "what": "If you are subscribing or signing for a business rather than for yourself, send an authorisation letter, a Secretary’s Certificate or a board resolution, depending on the arrangement.",
   },
   {
-    "name": "Payment",
-    "what": "Invoiced in advance of the term, and payable by bank transfer, bank deposit, cheque (including post-dated) or cash. Clients paying from outside the Philippines use bank transfer."
+    "name": "Signed service agreement",
+    "what": "Confirms the package you chose, what the address may be used for, what the service includes, the fees, and the one-year minimum term.",
   },
   {
-    "name": "Business activity and facility requirements",
-    "what": "Describe your intended address use and any government application, inspection, verification or warehouse/storage requirements. Include the relevant agency requirements where available."
-  }
+    "name": "Required initial payment",
+    "what": "Two months’ security deposit, the agreed setup fee, and any initial service payment set out in your quotation. Package prices exclude VAT, so your quotation states the full amount payable.",
+  },
 ];
+
+/** Said before anyone pays: a subscription is not an approved registration. */
+export const INTENDED_USE_NOTE =
+  "Tell us what you intend to use the address for before you choose a package. A virtual-office subscription does not by itself guarantee that the address will be accepted for business registration — the arrangement has to meet the requirements of the agency you are registering with.";
 export const PATHS: ApplicantPath[] = [
   {
     "id": "corporation",
@@ -60,9 +79,9 @@ export const PATHS: ApplicantPath[] = [
     "packages": "Basic for correspondence; Corporate for registered-address use; VIP for actual physical-office and facility requirements.",
     "registeredNow": true,
     "needs": [
-      "Business registration documents, where available",
-      "Completed KYC form",
-      "Two primary valid IDs",
+      "Business information and registration documents",
+      "Completed application form",
+      "Valid government-issued ID",
       "Payment",
       "Business activity and facility requirements"
     ],
@@ -75,9 +94,9 @@ export const PATHS: ApplicantPath[] = [
     "packages": "Basic for correspondence; Corporate for registered-address use; VIP for actual physical-office and facility requirements.",
     "registeredNow": true,
     "needs": [
-      "Business registration documents, where available",
-      "Completed KYC form",
-      "Two primary valid IDs",
+      "Business information and registration documents",
+      "Completed application form",
+      "Valid government-issued ID",
       "Payment",
       "Business activity and facility requirements"
     ],
@@ -90,8 +109,8 @@ export const PATHS: ApplicantPath[] = [
     "packages": "Basic for correspondence; Corporate for registered-address use; VIP for actual physical-office and facility requirements.",
     "registeredNow": false,
     "needs": [
-      "Completed KYC form",
-      "Two primary valid IDs",
+      "Completed application form",
+      "Valid government-issued ID",
       "Payment",
       "Business activity and facility requirements"
     ],
@@ -104,9 +123,9 @@ export const PATHS: ApplicantPath[] = [
     "packages": "Basic for correspondence; Corporate for registered-address use; VIP for actual physical-office and facility requirements.",
     "registeredNow": true,
     "needs": [
-      "Business registration documents, where available",
-      "Completed KYC form",
-      "Two primary valid IDs",
+      "Business information and registration documents",
+      "Completed application form",
+      "Valid government-issued ID",
       "Payment",
       "Business activity and facility requirements"
     ],
@@ -120,7 +139,7 @@ export const PATHS: ApplicantPath[] = [
     "registeredNow": false,
     "needs": [
       "Home-country business registration, if applicable",
-      "Completed KYC form",
+      "Completed application form",
       "Payment",
       "Business activity and facility requirements"
     ],

@@ -8,6 +8,7 @@ import { EMPTY_STATE, PROOF, published } from "@/content/testimonials";
 import { site } from "@/content/site";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/testimonials" },
   title: "Client Experience",
   description:
     "What it is like to be a PDMN Virtual Office client, and what you can verify for yourself before you commit — the operator, the office and the screening.",

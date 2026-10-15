@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import JsonLd from "@/components/JsonLd";
 import PageHeader from "@/components/PageHeader";
 import Section from "@/components/Section";
 import AddressTierCards from "@/components/AddressTierCards";
@@ -6,6 +7,7 @@ import Button from "@/components/Button";
 import { WORKSPACE_SCOPE } from "@/content/scope";
 import { approvalNote } from "@/content/services";
 import { DOCUMENT_HANDLING } from "@/content/pricing";
+import { breadcrumbSchema, serviceSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Virtual Office Services & Packages",
@@ -15,6 +17,10 @@ export const metadata: Metadata = {
 
 export default function ServicesPage() {
   return <>
+    {/* The packages and their rates are the most searched-for thing on the
+        site and were invisible to crawlers until now. */}
+    <JsonLd data={serviceSchema()} />
+    <JsonLd data={breadcrumbSchema([{ name: "Packages & Pricing", path: "/services" }])} />
     <PageHeader eyebrow="Services & packages" headline="Choose the presence your business requires." intro="A professional Makati business address for local businesses and foreign individuals or companies establishing or expanding in the Philippines." />
     <Section heading="Compare our packages">
       <AddressTierCards />

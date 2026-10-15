@@ -6,6 +6,7 @@ import Section from "@/components/Section";
 import { howItWorks } from "@/content/pages";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/how-it-works" },
   title: howItWorks.metaTitle,
   description: howItWorks.metaDescription,
 };

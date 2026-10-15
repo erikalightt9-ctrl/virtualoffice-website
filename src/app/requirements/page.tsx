@@ -6,10 +6,12 @@ import RequirementsChecklist from "@/components/RequirementsChecklist";
 import Section from "@/components/Section";
 import {
   DOCUMENTS,
+  INTENDED_USE_NOTE,
   PRE_ENTRY_BOUNDARY,
 } from "@/content/requirements";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/requirements" },
   title: "What You Need to Sign Up",
   description:
     "Prepare an inquiry for Virtual Office Basic, Corporate or VIP. Requirements depend on business activity, registration stage and the relevant agency.",
@@ -41,7 +43,12 @@ export default function RequirementsPage() {
         <RequirementsChecklist />
       </Section>
 
-      <Section><p className="max-w-[72ch] text-body-soft">{PRE_ENTRY_BOUNDARY}</p></Section>
+      {/* Both caveats belong before the checklist, not after it: someone who
+          reads the document list first has already decided to apply. */}
+      <Section>
+        <p className="max-w-[72ch] text-body">{INTENDED_USE_NOTE}</p>
+        <p className="mt-4 max-w-[72ch] text-body-soft">{PRE_ENTRY_BOUNDARY}</p>
+      </Section>
 
       <Section
         eyebrow="The documents"

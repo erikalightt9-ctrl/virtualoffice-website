@@ -6,6 +6,7 @@ import Section from "@/components/Section";
 import { faqs } from "@/content/faqs";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/faq" },
   title: "Frequently Asked Questions",
   description:
     "Answers about Virtual Office Basic, Corporate and VIP, registered-address use, physical facilities and government registration support in Makati.",

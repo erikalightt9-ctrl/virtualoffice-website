@@ -3,6 +3,7 @@ import LegalPage from "@/components/LegalPage";
 import { privacy } from "@/content/legal";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/privacy" },
   title: privacy.metaTitle,
   description: privacy.metaDescription,
 };

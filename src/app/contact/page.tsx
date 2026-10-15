@@ -6,6 +6,7 @@ import PageHeader from "@/components/PageHeader";
 import { site } from "@/content/site";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/contact" },
   title: "Contact & Inquiries",
   description:
     "Inquire about Virtual Office Basic, Corporate or VIP at 104 Paseo de Roxas, Legaspi Village, Makati. Viber, WhatsApp or phone.",

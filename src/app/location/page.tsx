@@ -8,6 +8,7 @@ import { location } from "@/content/pages";
 import { site } from "@/content/site";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/location" },
   title: location.metaTitle,
   description: location.metaDescription,
 };

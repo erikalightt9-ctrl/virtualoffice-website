@@ -16,7 +16,8 @@ import { faqs } from "@/content/faqs";
 import { howItWorks } from "@/content/pages";
 import { site } from "@/content/site";
 
-export const metadata: Metadata = { description: site.description };
+export const metadata: Metadata = {
+  alternates: { canonical: "/" }, description: site.description };
 
 /**
  * The homepage is ordered as a buying decision, not as a brochure.

@@ -155,3 +155,49 @@ export const lowestAddressPrice: number | null = (() => {
     .filter((p): p is number => p !== null);
   return prices.length ? Math.min(...prices) : null;
 })();
+
+/* ===========================================================================
+   COMMERCIAL TERMS — confirmed items only.
+
+   Published here because they were given as settled:
+     - prices are VAT-EXCLUSIVE, with the 12% shown separately and the total
+       payable disclosed before payment
+     - one-year minimum term
+     - one month's written notice of non-renewal before expiry
+
+   DELIBERATELY NOT PUBLISHED, because the source document marks them as
+   proposals awaiting approval and says they "should only be published once
+   the billing option and setup fee are approved":
+
+     - the setup fee AMOUNT and what it covers (no figure exists yet)
+     - billing frequency (monthly default vs annual prepayment)
+     - the refund policy and the early-termination charge
+     - whether renewal is automatic or requires written confirmation
+     - any activation turnaround ("same-day", "24-hour", etc.)
+
+   Publishing an unapproved commercial term is worse than publishing none:
+   it is quotable by a client and contradicts the signed agreement. Add each
+   one here as it is approved.
+   ========================================================================= */
+
+/** Philippine VAT on taxable service charges. */
+export const VAT_RATE = 0.12;
+
+export type VatBreakdown = { net: number; vat: number; gross: number };
+
+export function withVat(net: number): VatBreakdown {
+  const vat = Math.round(net * VAT_RATE);
+  return { net, vat, gross: net + vat };
+}
+
+/** One line stating the tax basis. Shown wherever a price is shown. */
+export const VAT_NOTE =
+  "Service prices exclude VAT. The 12% VAT is shown separately and your quotation states the total payable before activation.";
+
+/** Term commitments, as confirmed. */
+export const COMMITMENT_TERMS = [
+  "One-year minimum term, counted from the written service activation date.",
+  "To end the arrangement at expiry, give written notice at least one month before the expiry date.",
+  "A security deposit and a one-time setup fee apply. Both are confirmed in your quotation before activation.",
+  "Services are activated after approval, completed documents, a signed agreement, and confirmation that payment has cleared.",
+];
