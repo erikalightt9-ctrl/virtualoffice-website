@@ -108,36 +108,36 @@ export const howItWorks = {
   "headline": "Choose your package. Confirm your requirements. Establish your presence.",
   "intro": "Tell us whether you need a correspondence address, a registered business address or actual physical facilities for a government application.",
   "steps": [
-    {
-      "n": "01",
-      "title": "Tell us your business needs",
-      "body": "Share your business activity, registration stage and intended address use. Local and overseas applicants are welcome."
-    },
-    {
-      "n": "02",
-      "title": "Choose Basic, Corporate or VIP",
-      "body": "Basic is for correspondence, Corporate is for registered-address use, and VIP provides a physical office that an agency can inspect and verify, with our team scheduling and hosting the visit."
-    },
-    {
-      "n": "03",
-      "title": "Confirm requirements and availability",
-      "body": "Our team reviews the documents and facilities relevant to your application. Tell us about any BOC, LTO, FDA, inspection or storage requirements. Subject to applicable requirements and approval of the relevant government agency."
-    },
-    {
-      "n": "04",
-      "title": "Agree your service scope",
-      "body": "We confirm address use, applicable facilities and service terms in writing before you proceed."
-    },
-    {
-      "n": "05",
-      "title": "Complete your agreement and payment",
-      "body": "Follow the agreement and payment instructions provided by our team."
-    },
-    {
-      "n": "06",
-      "title": "Activate your service",
-      "body": "We confirm activation and the arrangements for your address or facilities. Service activation does not mean that a government application has been approved."
-    }
-  ],
+      {
+        "n": "01",
+        "title": "Complete the KYC form",
+        "body": "Complete and sign the KYC form we send you. Tell us which package you want and what you intend to use the address for."
+      },
+      {
+        "n": "02",
+        "title": "Send your supporting documents",
+        "body": "A clear copy of a valid government-issued ID or passport, your business registration documents if you are already registered, and proof of authority if you are signing on behalf of a business. Still setting the business up? Send the proposed name and intended activities instead."
+      },
+      {
+        "n": "03",
+        "title": "We review and confirm your package",
+        "body": "Our team reviews your information, confirms the package suits your intended use, and tells you if anything further is needed."
+      },
+      {
+        "n": "04",
+        "title": "Review and sign the service agreement",
+        "body": "Once approved, we send the agreement setting out your package, what the service includes, the fees and the terms. The minimum term is one year."
+      },
+      {
+        "n": "05",
+        "title": "Settle the initial payment",
+        "body": "We send payment instructions for the two months’ security deposit, the setup fee and the initial service payment set out in your quotation. Package prices exclude VAT, so the quotation states the total payable."
+      },
+      {
+        "n": "06",
+        "title": "Receive your activation confirmation",
+        "body": "Once the agreement is signed and payment is confirmed, we confirm your activation date and send your address-use instructions, the mail-handling procedure, and the documents included in your package."
+      }
+    ],
   "note": "Subject to applicable requirements and approval of the relevant government agency. PDMN does not guarantee agency outcomes or processing timelines."
 };

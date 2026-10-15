@@ -31,7 +31,11 @@ export type ApplicantPath = {
 
      - it asked for TWO valid IDs; this asks for one, with a passport for
        foreign applicants
-     - "KYC form" is now "application form"
+     - it was renamed "application form", then the step-by-step process
+       document called it the "KYC form" again. Reverted to "KYC form", which
+       is what two of the three source documents and the original site call
+       it. ONE of the operator's two documents is wrong; this follows the
+       majority rather than flip-flopping the public page again.
 
    If Operations actually still collects two IDs, this understates it and the
    second request will surprise an applicant mid-onboarding. Worth confirming.
@@ -41,7 +45,7 @@ export type ApplicantPath = {
    of which are still awaiting approval. */
 export const DOCUMENTS: DocRequirement[] = [
   {
-    "name": "Completed application form",
+    "name": "Completed KYC form",
     "what": "Your full name, the business or proposed business name, the nature of the business, a contact number, an email address, your current address, and the package you want. We send you the form.",
   },
   {
@@ -80,7 +84,7 @@ export const PATHS: ApplicantPath[] = [
     "registeredNow": true,
     "needs": [
       "Business information and registration documents",
-      "Completed application form",
+      "Completed KYC form",
       "Valid government-issued ID",
       "Payment",
       "Business activity and facility requirements"
@@ -95,7 +99,7 @@ export const PATHS: ApplicantPath[] = [
     "registeredNow": true,
     "needs": [
       "Business information and registration documents",
-      "Completed application form",
+      "Completed KYC form",
       "Valid government-issued ID",
       "Payment",
       "Business activity and facility requirements"
@@ -109,7 +113,7 @@ export const PATHS: ApplicantPath[] = [
     "packages": "Basic for correspondence; Corporate for registered-address use; VIP for actual physical-office and facility requirements.",
     "registeredNow": false,
     "needs": [
-      "Completed application form",
+      "Completed KYC form",
       "Valid government-issued ID",
       "Payment",
       "Business activity and facility requirements"
@@ -124,7 +128,7 @@ export const PATHS: ApplicantPath[] = [
     "registeredNow": true,
     "needs": [
       "Business information and registration documents",
-      "Completed application form",
+      "Completed KYC form",
       "Valid government-issued ID",
       "Payment",
       "Business activity and facility requirements"
@@ -139,7 +143,7 @@ export const PATHS: ApplicantPath[] = [
     "registeredNow": false,
     "needs": [
       "Home-country business registration, if applicable",
-      "Completed application form",
+      "Completed KYC form",
       "Payment",
       "Business activity and facility requirements"
     ],
